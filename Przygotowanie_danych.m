@@ -48,7 +48,7 @@ end
 sample= (newdata(:,1)-newdata(1,1))/2+1;
 sample=sample/sample(end,1);
 
-newdata= [numer_dnia_tygodnia*ones(max(size(newdata)),1) sample newdata(:,13)];
+newdata= [numer_dnia_tygodnia*ones(max(size(newdata)),1) sample (newdata(:,13)*16/256+4)];
 
 writematrix(newdata,name);
 end
