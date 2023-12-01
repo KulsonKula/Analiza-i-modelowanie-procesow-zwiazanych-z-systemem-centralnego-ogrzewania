@@ -1,0 +1,28 @@
+Dane zbierane z 2 modu³ów do 2 plików:
+p_data.txt - przep³yw (jako sygna³ analogowy)
+t_data.txt - temperatury
+
+Przep³yw:
+Uwaga: w plikach pojawiaj¹ siê jeszcze pakiety synchronizacji czasu!
+Dane zbierane z wejœcia analogowego nr.7 w postaci opisanej w pracy mgr. Szulca. Wejœcie z przetwornika DRS-C34 wyskalowane nastêpuj¹co:
+
+4mA - 0 l/min co odpowiada mierzonemu w module napiêciu 1.12V (w praktyce mo¿na przyj¹æ 1.1V)
+20mA - 80 l/min co odpowiada mierzonemu w module napiêciu 5.6V.
+
+Maksymalny przep³yw w instalacji: 20 l/min (2.24V)
+
+
+Temperatury:
+UWAGA: w plikach pojawiaj¹ siê jeszcze pakiety synchronizacji czasu oraz pomiaru stanów wejœæ cyfrowych! Temperatury 9 i 10 nie we wszystkich plikach.
+
+Mierzone temperatury:
+1: temperatura medium grzewczego wchodz¹cego do zasobnika ccw (Tzi)
+2: wyjœcie ciep³ej wody u¿ytkowej na dom (To) - jej przep³yw jest mierzony
+3: temperatura otoczenia (Tot)
+4: temperatura wewnêtrzna na dole zasobnika ccw (Tlow)
+5: temperatura wejœciowa zimnej wody do zasobnika ccw (Twi)
+6: temperatura medium grzewczego wchodz¹cego do pieca
+7: temperatura zewnêtrzna
+8: temperatura medium grzewczego wychodz¹cego z pieca
+9: temperatura medium grzewczego wychodz¹cego z zasobnika ccw (Tzo)
+10: temperatura wewnêtrzna na œrodku zasobnika ccw (Tmed)
