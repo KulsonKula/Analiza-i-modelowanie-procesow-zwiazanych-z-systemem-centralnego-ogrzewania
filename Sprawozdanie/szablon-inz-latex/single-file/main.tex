@@ -71,7 +71,7 @@
 % dane autora
 \newcommand{\FirstNameAuthor}{Jakub}
 \newcommand{\SurnameAuthor}{Kula}
-\newcommand{\IdAuthor}{123456789}   % numer albumu  (bez $\langle$ i $\rangle$)
+\newcommand{\IdAuthor}{296849}   % numer albumu  (bez $\langle$ i $\rangle$)
 
 % drugi autor:
 %\newcommand{\FirstNameCoauthor}{Imię}   % Jeżeli jest drugi autor, to tutaj należy podać imię.
@@ -554,7 +554,9 @@ jak i pojedyncze symbole $x$ i $y$  składa się w trybie matematycznym.
 % TODO
 \chapter{Wymagania i narzędzia}
 \label{ch:wymagania-i-narzedzia}
+Opis narzędzi które były uzywane podczas programowania, Wiekszy opis pythona i tensorflow, ich "specyfikacja" plusy i minusy, jakie były inne mozliwe wybory oraz czemu zostały wybrane akurat te rozwiązania, krótszy opis pozostałych biblotek uzytych podczas programownia takich jak numpy, plotlib czy pandas
 
+Opis narzędzi które zostały uzyte w celu optymalizacji pracy pythona, takie jak wirtalne środowisko Conda, czy nvdia CUDA
 \begin{itemize}
 	\item wymagania funkcjonalne i niefunkcjonalne
 	\item przypadki użycia (diagramy UML) -- dla prac, w których mają zastosowanie
@@ -564,8 +566,24 @@ jak i pojedyncze symbole $x$ i $y$  składa się w trybie matematycznym.
 
 
 % TODO
-\chapter{[Właściwy dla kierunku -- np. Specyfikacja zewnętrzna]}
+\chapter{[Modelowanie sieci neuronowej]}
 \label{ch:04}
+Wstep teoretyczny o modelowaniu, opisanie rzeczy takich jak, warstwy, neurony, funckje aktywacjie, funkcje kosztu, optymalizator, liczba epok, batch size, walidacha, funckaj strat
+
+Opisanie prob wybrania modelu testowe, oraz na jakich zbiorach były uczone. Wyniki symulacji i przeprowadzanych testów.
+Wybór najlepszego modelu, dostrajanie go. Przedstawienie końcowych wyników, plotowanie rzeczy typu wykres loss od czasu.
+\begin{itemize}
+	\item  wymagania sprzętowe i programowe
+	\item  sposób instalacji
+	\item  sposób aktywacji
+	\item  kategorie użytkowników
+	\item  sposób obsługi
+	\item  administracja systemem
+	\item  kwestie bezpieczeństwa
+	\item  przykład działania
+	\item  scenariusze korzystania z systemu (ilustrowane zrzutami z ekranu lub generowanymi dokumentami)
+\end{itemize}
+
 
 Jeśli „Specyfikacja zewnętrzna”:
 \begin{itemize}
@@ -658,8 +676,10 @@ Jeśli „Specyfikacja zewnętrzna”:
 
 
 % TODO
-\chapter{[Właściwy dla kierunku -- np. Specyfikacja wewnętrzna]}
+\chapter{[Model CWU]}
 \label{ch:05}
+
+Przedstawienie modelu warstwowego, równań stanu, pokazanie wyników symulacji modelu
 
 
 Jeśli „Specyfikacja wewnętrzna”:
@@ -723,11 +743,13 @@ class test : public basic
 %\end{figure}
 
 
-
+\chapter{Optymalizacja}
+\label{ch:06}
+przedstawinie dwóch funckji celu, plotowanie ich wartości
 
 % TODO
 \chapter{Weryfikacja i walidacja}
-\label{ch:06}
+\label{ch:07}
 \begin{itemize}
 	\item sposób testowania w ramach pracy (np. odniesienie do modelu V)
 	\item organizacja eksperymentów
