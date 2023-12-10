@@ -83,15 +83,15 @@
 \newcommand{\IdCoauthor}{}  % Jeżeli praca ma tylko jednego autora, to dane drugiego autora zostają puste.
 %%%%%%%%%%
 
-\newcommand{\Supervisor}{$\langle$tytuł lub stopień naukowy oraz imię i nazwisko$\rangle$}     % dane promotora (bez $\langle$ i $\rangle$)
+\newcommand{\Supervisor}{dr inż. Szymon Ogonowski, prof. PŚ}     % dane promotora (bez $\langle$ i $\rangle$)
 \newcommand{\Title}{Tytuł pracy dyplomowej inżynierskiej}           % tytuł pracy po polsku
 \newcommand{\TitleAlt}{Thesis title in English}                     % thesis title in English
 \newcommand{\Program}{Automatyka i Robotyka}            % kierunek studiów  (bez $\langle$ i $\rangle$)
 \newcommand{\Specialisation}{Technologie Informacyjne}     % specjalność  (bez $\langle$ i $\rangle$)
-\newcommand{\Departament}{$\langle$wpisać właściwą$\rangle$}        % katedra promotora  (bez $\langle$ i $\rangle$)
+\newcommand{\Departament}{Katedry Pomiarów i Systemów Sterowania}        % katedra promotora  (bez $\langle$ i $\rangle$)
 
 % Jeżeli został wyznaczony promotor pomocniczy lub opiekun, proszę go/ją wpisać ...
-\newcommand{\Consultant}{$\langle$stopień naukowy imię i nazwisko$\rangle$} % dane promotora pomocniczego, opiekuna (bez $\langle$ i $\rangle$)
+\newcommand{\Consultant}{} % dane promotora pomocniczego, opiekuna (bez $\langle$ i $\rangle$)
 % ... w przeciwnym razie proszę zostawić puste miejsce jak poniżej:
 %\newcommand{\Consultant}{} % brak promotowa pomocniczego / opiekuna
 
@@ -516,26 +516,22 @@ escapeinside={@*}{*@},%
 % TODO
 \chapter{Wstęp}
 \label{ch:wstep}
+\section{Wprowadznie}
+wprowadzenie w problem/zagadnienie\\
+\subsection{Cel pracy}
+\subsection{zakres pracy}
+\section{Osadzenie problemu w dziedzinie}
+osadzenie tematu w kontekście aktualnego stanu wiedzy (\english{state of the art}) o poruszanym problemie\\
+studia literaturowe \cite{bib:artykul,bib:ksiazka,bib:konferencja,bib:internet} -  opis znanych rozwiązań (także opisanych naukowo, jeżeli problem jest poruszany w publikacjach naukowych), algorytmów,
+\section{Charakterystyka rozdziałów}
+Krótkie wprowadzenie do zawartości
+Zarys głównych punktów i celów rozdziału
+\subsection{Nazwa pierwszego rozdziału}
+\subsection{Nazwa drugiego rozdziału}
+\subsection{Nazwa Trzeciego rozdziału}
 
-\begin{itemize}
-	\item wprowadzenie w problem/zagadnienie
-	\item osadzenie problemu w dziedzinie
-	\item cel pracy
-	\item zakres pracy
-	\item zwięzła charakterystyka rozdziałów
-	\item jednoznaczne określenie wkładu autora, w przypadku prac wieloosobowych – tabela z autorstwem poszczególnych elementów pracy
-\end{itemize}
-
-
-
-% TODO
-\chapter{[Analiza tematu]}
-
-\begin{itemize}
-	\item sformułowanie problemu
-	\item osadzenie tematu w kontekście aktualnego stanu wiedzy (\english{state of the art}) o poruszanym problemie
-	\item  studia literaturowe \cite{bib:artykul,bib:ksiazka,bib:konferencja,bib:internet} -  opis znanych rozwiązań (także opisanych naukowo, jeżeli problem jest poruszany w publikacjach naukowych), algorytmów,
-\end{itemize}
+\section{Wkład autora}
+jednoznaczne określenie wkładu autora, w przypadku prac wieloosobowych – tabela z autorstwem poszczególnych elementów pracy\\
 
 
 Wzory
@@ -545,15 +541,17 @@ Wzory
 jak i pojedyncze symbole $x$ i $y$  składa się w trybie matematycznym.
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-
-
-
-% TODO
 \chapter{Wymagania i narzędzia}
 \label{ch:wymagania-i-narzedzia}
+\section{Python}
+\section{Tensorflow}
+\section{Inne bibloteki}
+\subsection{Pandas}
+\subsection{Matlibplot}
+\subsection{Numpy}
+\subsection{Sckit-learn}
+\section{CUDA toolkit}
 Opis narzędzi które były uzywane podczas programowania, Wiekszy opis pythona i tensorflow, ich "specyfikacja" plusy i minusy, jakie były inne mozliwe wybory oraz czemu zostały wybrane akurat te rozwiązania, krótszy opis pozostałych biblotek uzytych podczas programownia takich jak numpy, plotlib czy pandas
 
 Opis narzędzi które zostały uzyte w celu optymalizacji pracy pythona, takie jak wirtalne środowisko Conda, czy nvdia CUDA
@@ -566,10 +564,14 @@ Opis narzędzi które zostały uzyte w celu optymalizacji pracy pythona, takie j
 
 
 % TODO
-\chapter{[Modelowanie sieci neuronowej]}
+\chapter{Modelowanie sieci neuronowej}
 \label{ch:04}
+\section{Metodologia Projektowania Modelu Sieci Neuronowej}
 Wstep teoretyczny o modelowaniu, opisanie rzeczy takich jak, warstwy, neurony, funckje aktywacjie, funkcje kosztu, optymalizator, liczba epok, batch size, walidacha, funckaj strat
 
+\section{Dane Wejściowe i Proces Przetwarzaniatle}
+
+\section{Projektowanie i Ocena Modeli}
 Opisanie prob wybrania modelu testowe, oraz na jakich zbiorach były uczone. Wyniki symulacji i przeprowadzanych testów.
 Wybór najlepszego modelu, dostrajanie go. Przedstawienie końcowych wyników, plotowanie rzeczy typu wykres loss od czasu.
 \begin{itemize}
@@ -676,9 +678,11 @@ Jeśli „Specyfikacja zewnętrzna”:
 
 
 % TODO
-\chapter{[Model CWU]}
+\chapter{Modelowanie zbiornika CWU}
 \label{ch:05}
-
+\section{Metodologia}
+\subsection{Opis matematyczny modelu}
+\section{Wyniki symulacji}
 Przedstawienie modelu warstwowego, równań stanu, pokazanie wyników symulacji modelu
 
 
@@ -745,8 +749,8 @@ class test : public basic
 
 \chapter{Optymalizacja}
 \label{ch:06}
-przedstawinie dwóch funckji celu, plotowanie ich wartości
-
+\section{Funkcja kosztów}
+\section{Funkcja komfortu}
 % TODO
 \chapter{Weryfikacja i walidacja}
 \label{ch:07}
