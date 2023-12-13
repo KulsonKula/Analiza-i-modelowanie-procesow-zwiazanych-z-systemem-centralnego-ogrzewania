@@ -1,0 +1,21 @@
+SYGNA£Y (w pliku pogoda.mat):
+
+[Time1,Dane1] - praca pieca [kW]
+[Time2,Dane2] - przekaŸnik pokojowy [V] (gdy 4.5, to uk³ad pracuje dla potrzeb c.o.)
+[Time3,Dane3] - temperatura zewnêtrzna [degC]
+[Time4,Dane4] - wilgotnoœæ zewnêtrzna [%]
+[Time5,Dane5] - ciœnienie atmosferyczne [hPa]
+[Time6,Dane6] - prêdkoœæ wiatru [m/s]
+[Time7,Dane7] - kierunek wiatru [stopnie]
+[Time8,Dane8] - wilgotnoœæ wewnêtrzna [%/100]
+[Time9,Dane9] - temperatura wewnêtrzna [degC]
+[Time10,Dane10] - temperatura wewnêtrzna na kominku [degC]
+[Time11,Dane11] - temperatura wewnêtrzna nad kuchenk¹ gazow¹ [degC]
+
+
+UWAGA:
+- Czas w wektorach "Time*" i "Time*s" jest zapisany w sekundach
+- [Time*,Dane*] to sygna³y "surowe" z pomiarów
+- [Time*s,Dane*s] to sygna³y zsynchronizowane co 60 sek
+- Dane*Avg to dane uœrednione co godzinê
+- Dane*AvgDay to dane uœrednione co dobê
