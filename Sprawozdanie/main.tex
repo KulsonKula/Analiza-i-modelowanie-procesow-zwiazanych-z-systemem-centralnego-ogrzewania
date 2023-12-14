@@ -682,6 +682,22 @@ Wybór najlepszego modelu, dostrajanie go. Przedstawienie końcowych wyników, p
 \label{ch:05}
 \section{Metodologia}
 \subsection{Opis matematyczny modelu}
+\begin{equation}
+	\frac{dT_{wo}^{3}}{dt} = b_1^3 F_z (T_{zi} - T_{wo}^{3}) - b_2^3 F_w (T_{wo}^{3} - T_{wo}^{2}) - b_3^4 (T_{wo}^{3} - T_{ot})
+\end{equation}
+
+\begin{equation}
+	\frac{dT_{zi}}{dt} = p_1 Q_g - p_2 F_z (T_{zi} - T_{wo}^{3}) - p_3 (T_{zi} - T_{ot})
+\end{equation}
+
+\begin{equation}
+	\frac{dT_{wo}^{2}}{dt} = b_1^2 F_z (T_{zi} - T_{wo}^{2}) - b_2^2 F_w (T_{wo}^{2} - T_{wo}^{1}) - b_2^3 (T_{wo}^{2} - T_{ot}) - b_2^4 (T_{wo}^{2} - T_{wo}^{1}) + b_2^5 (T_{wo}^{3} - T_{wo}^{2})
+\end{equation}
+
+\begin{equation}
+	\frac{dT_{wo}^{1}}{dt} = -b_1^1 F_w (T_{wo}^{1} - T_{wi}) - b_1^3 (T_{wo}^{1} - T_{ot}) + b_1^5 (T_{wo}^{2} - T_{wo}^{1})
+\end{equation}
+
 Przedstawienie modelu warstwowego, równań stanu, pokazanie wyników symulacji modelu
 \section{Wyniki symulacji}
 
@@ -750,7 +766,13 @@ class test : public basic
 \chapter{Optymalizacja}
 \label{ch:06}
 \section{Funkcja kosztów}
+\begin{equation}
+	G = \int p_1 Q_g \, dt
+\end{equation}
 \section{Funkcja komfortu}
+\begin{equation}
+	J = \int \left( T_{wo} - T_{wym} \right)^2 \left| \frac{\text{sign}(T_{wo} - T_{wym} - \delta) + \text{sign}(T_{wo} - T_{wym} + \delta)}{2} \right| \, dt
+\end{equation}
 % TODO
 \chapter{Weryfikacja i walidacja}
 \label{ch:07}
