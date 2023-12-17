@@ -577,8 +577,17 @@ Wstep teoretyczny o modelowaniu, opisanie rzeczy takich jak, warstwy, neurony, f
 \section{Dane wejściowe i proces ich przetwarzania}
 Projekt wykorzystuje dane zebrane przez instytut ASHRAE (American Society of Heating, Refrigerating and
 Air-Conditioning Enginee) w 2003 roku. Informacje o zużyciu wody zostały pozykane z 73 domostwo znajdujacych sie na terenie Kanady, zamieszkiwanym przez dwoje osób dorosłych oraz dwójke dzieci oraz posiadajacych podstawowe urządzenia AGD takie jak pralka czy zmywarka. Dane były zbierane przez 16 tygodni, w cyklach trwajacych 4 tygodnie, aby równomiernie obejmować każdą pore roku. Próbkowanie danych odbywało sie co minute, nieprzerwanie przez całą dobę. Całość danych zostało podzielone na 73 odzielne pliki w formacie .csv. W każdym plikuu znajdował sie timestamp w formacie RR-MM-DD HH:MM:SS, który określał dzien i godzine pomiaru danych. Oprócz tego zawierał informacje o zużyciu wody, oraz temperature otoczenia. Dodatkowo dane były podzielone na poszczególne poru roku.\\
+
 Mimo, że charakteryzowały sie bardzo wysokoją jakością, ich specyficzny format wymagał przygotowania skryptu celem ich przetwarzania
-\lstinputlisting[language=Python]{kod/Przetwarzanie_nowe_dane.py}
+
+\begin{figure}[!h]
+	\centering
+	\lstinputlisting[language=Python]{kod/Przetwarzanie_nowe_dane.py}
+	\caption{Fragment skryptu przetwarzającego dane.}
+	\label{fig:pseudokod:listings}
+\end{figure}
+
+W ramach procesu dostowania formatu aby przystosować go do wymagań tensorflow, dzień tygodnia zostal zamieniona na etykiete liczbową, która przyjmuje wartośc od 1 do 7, co odpowiada kolejnym dniom tygodnia, podobny proces został zastosowany do pór roku. Każda została zakodowana jako etykieta w zakresie od 1 do 4 co prezentuje kolejno, wiosne, lato, jesień i zimę. Dodatkowo został wyodrębniony procent dnia.
 \section{Projektowanie i ocena modeli}
 Opisanie prob wybrania modelu testowe, oraz na jakich zbiorach były uczone. Wyniki symulacji i przeprowadzanych testów.
 Wybór najlepszego modelu, dostrajanie go. Przedstawienie końcowych wyników, plotowanie rzeczy typu wykres loss od czasu.
