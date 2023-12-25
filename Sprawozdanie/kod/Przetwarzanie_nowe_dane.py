@@ -12,7 +12,7 @@ for f in csv_files:
 
         przeplyw = dataset.loc[i, "Summer_Water_Consumption"]
 
-        dane_1.loc[len(dane_1)] = {'Pora_roku': 2,
-                                   'Dzien_tygodnia': dzied_tygodnia,
-                                   'Czas_dnia': time,
-                                   'Przeplyw': przeplyw}
+        dane.loc[len(dane)] = {'Pora_roku': 2,
+                               'Dzien_tygodnia': dzied_tygodnia,
+                               'Czas_dnia': time,
+                               'Przeplyw': przeplyw}
