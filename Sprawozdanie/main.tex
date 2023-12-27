@@ -126,6 +126,7 @@
 \usepackage{xstring}
 \usepackage{ifthen}
 
+\usepackage{multirow}
 
 
 \usepackage{ifxetex}
@@ -623,6 +624,40 @@ W ramach opracowanego modelu sieci neuronowej zastosowano dynamicznie zmieniają
 	\end{cases}
 \end{equation}
 Użycie tej motyody pozwoliło na zmniejszanie wartości współczynnika uczenia w trakcie procesu trenowania, co zwiększyło zdolności adaptacyjne sieci. Został on zastosowany gdyż częstym zjawiskiem było generowanie przez sieć stałej wartości wyjściowej, niezależnie od różnych danych wejściowych.
+
+TUTAJ ZROBIC CAŁE WYNIKI I OPIS
+\newpage
+
+\section{Walidacja i próby dostrajania (?)}
+W celu weryfikacji poprawności i efektywności opracowanego modelu sieci neuronowej, przeprowadzono porównanie modelu nauczonych na danych ze wszystkich 12 domostw z modelami utworzonymi dla każdego z tych domów osobno. Taki eksperyment miał na celu ocenę zdolności generalizacji modelu nauczonych na zbiorze 12 domostw w porównaniu z modelami specyficznymi dla poszczególnych domów.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=1\textwidth]{img/szczegółowy_ogolny_porówniaie.png}
+	\caption{DODAĆ OPIS, WŁĄCZYC JESZCZE RAZ SYMULACJE I WSTAWIĆ POPRAWNE ZDJĘCIE}
+	\label{fig:etykieta-rysunku}
+\end{figure}
+
+W celu dalszego zwiększenia skuteczności modelu sieci neuronowej zaproponowano wprowadzenie dodatkowego wejścia do systemu – tygodniowego zużycia. Implementacja tego rozwiązania została przeprowadzona w specyficzny sposób, mający na celu uniknięcie przekształcenia tego parametru w niezamierzony label identyfikujący poszczególne domy. W fazie uczenia modelu, do każdego tygodnia przypisywano sumę zużycia zarejestrowanego w tym okresie. Natomiast w fazie testowania, model otrzymywał średnią wartość tygodniowego zużycia. Celem tej strategii było umożliwienie modelowi korzystania z danych historycznych zużycia w sposób, który poprawiałby jego zdolność do przewidywania, jednocześnie zachowując elastyczność i możliwość generalizacji wyników na różne domostwa.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=1\textwidth]{img/szczegółowy_ogolny_porówniaie_dodatkowy.png}
+	\caption{DODAĆ OPIS}
+	\label{fig:etykieta-rysunku}
+\end{figure}
+
+\begin{table}[!h]
+	\centering
+	\caption{test}
+	\begin{tabular}{|c|cccccccccccc|}
+		\hline
+		\multirow{2}{*}{Wartość MSE dla modelu} & \multicolumn{12}{c|}{MSE}                                                                                                                                                                                                                                                                  \\ \cline{2-13}
+		                                        & \multicolumn{1}{c|}{1}    & \multicolumn{1}{c|}{2} & \multicolumn{1}{c|}{3} & \multicolumn{1}{c|}{4} & \multicolumn{1}{c|}{5} & \multicolumn{1}{c|}{6} & \multicolumn{1}{c|}{7} & \multicolumn{1}{c|}{8} & \multicolumn{1}{c|}{9} & \multicolumn{1}{c|}{10} & \multicolumn{1}{c|}{11} & 12 \\ \hline
+		bez dodatkowego parametrem              & \multicolumn{1}{c|}{}     & \multicolumn{1}{c|}{}  & \multicolumn{1}{c|}{}  & \multicolumn{1}{c|}{}  & \multicolumn{1}{c|}{}  & \multicolumn{1}{c|}{}  & \multicolumn{1}{c|}{}  & \multicolumn{1}{c|}{}  & \multicolumn{1}{c|}{}  & \multicolumn{1}{c|}{}   & \multicolumn{1}{c|}{}   &    \\ \hline
+		z dodatkowym parametrem                 & \multicolumn{1}{c|}{}     & \multicolumn{1}{c|}{}  & \multicolumn{1}{c|}{}  & \multicolumn{1}{c|}{}  & \multicolumn{1}{c|}{}  & \multicolumn{1}{c|}{}  & \multicolumn{1}{c|}{}  & \multicolumn{1}{c|}{}  & \multicolumn{1}{c|}{}  & \multicolumn{1}{c|}{}   & \multicolumn{1}{c|}{}   &    \\ \hline
+	\end{tabular}
+\end{table}
 % \begin{itemize}
 % 	\item  wymagania sprzętowe i programowe
 % 	\item  sposób instalacji
@@ -724,7 +759,15 @@ Użycie tej motyody pozwoliło na zmniejszanie wartości współczynnika uczenia
 % 	\label{fig:2}
 % \end{figure}
 
+\chapter{Pogoda}
+\label{ch:0X}
 
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=1\textwidth]{img/Pogoda_porównanie.png}
+	\caption{Porównanie warunkuch atmosferycznych na przestrzeni dnia}
+	\label{fig:etykieta-rysunku}
+\end{figure}
 
 % TODO
 \chapter{Modelowanie zbiornika CWU}
