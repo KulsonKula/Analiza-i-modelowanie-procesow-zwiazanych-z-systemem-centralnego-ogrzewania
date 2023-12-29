@@ -573,22 +573,22 @@ Wstep teoretyczny o modelowaniu, opisanie rzeczy takich jak, warstwy, neurony, f
 
 \newpage
 \section{Dane wejściowe i proces ich przetwarzania}
-Projekt wykorzystuje dane zebrane przez instytut ASHRAE (American Society of Heating, Refrigerating and Air-Conditioning Enginee) w 2018 roku. Informacje o zużyciu wody zostały pozykane z 77 domostwo znajdujacych sie na terenie Kanady, zamieszkiwanym przez dwoje osób dorosłych oraz dwójke dzieci oraz posiadajacych podstawowe urządzenia AGD takie jak pralka czy zmywarka. Dane były zbierane przez 16 tygodni, w cyklach trwajacych 4 tygodnie, aby równomiernie obejmować każdą pore roku. Próbkowanie danych odbywało sie co minute, nieprzerwanie przez całą dobę. Całość danych zostało podzielone na 73 odzielne pliki w formacie .csv. W każdym plikuu znajdował sie timestamp w formacie RR-MM-DD HH:MM:SS, który określał dzien i godzine pomiaru danych. Oprócz tego zawierał informacje o zużyciu wody, oraz temperature otoczenia. Dodatkowo dane były podzielone na poszczególne poru roku.\\
+Projekt wykorzystuje dane zebrane przez instytut ASHRAE (American Society of Heating, Refrigerating and Air-Conditioning Enginee) w 2018 roku. Informacje o zużyciu wody zostały pozykane z 77 domostwo znajdujacych sie na terenie Kanady, zamieszkiwanym przez dwoje osób dorosłych oraz dwójke dzieci oraz posiadajacych podstawowe urządzenia AGD takie jak pralka czy zmywarka. Dane były zbierane przez 16 tygodni, w cyklach trwajacych 4 tygodnie, aby równomiernie obejmować każdą pore roku. Próbkowanie danych odbywało sie co minute, nieprzerwanie przez całą dobę. Całość danych zostało podzielone na 73 odzielne pliki w formacie .csv. W każdym plikuu znajdował sie timestamp w formacie RR-MM-DD HH:MM:SS, który określał dzien i godzine pomiaru danych. Oprócz tego zawierał informacje o zużyciu wody, oraz temperature otoczenia. Dodatkowo dane były podzielone na poszczególne poru roku.
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=1\textwidth]{img/Dane_nowe_disp.png}
 	\caption{Podpis rysunku zawsze pod rysunkiem.}
 	\label{fig:etykieta-rysunku}
 \end{figure}
-
 Pierwszy wykres przestawia dane zebrane z domu nr. 13 zebrane w dniu 05/02/2018. Oś X oznaczająca godzinę, począwszy od północy. Oś Y reprezentuje przepływ wody w danym momencie dnia. Wykres Przestwia nieregularne piki o nierównomiernym rozkładzie. Okresami o zwiększonym przepływie są godziny 7-13 oraz 14-15. Okresy mniejszej aktywyności możemy zaobserwowac w godzinach późno popołudniowych oraz nocnych. Drugi i trzeci wykres przedstawiają zbiżenie na godzine 7 oraz 15. Dzięki zwężeniu analizowanego zakresu czasu, możliwe było dokładniejsze zbadanie struktury występujących pików. Ta metoda wizualizacji ujawniła, że poszczególne piki, które na ogólnym wykresie dobowym mogły sprawiać wrażenie pojedynczych punktów, w rzeczywistości są złożone z wielu pojedynczych zdarzeń. To odkrycie jest istotne, ponieważ wskazuje na bardziej złożoną dynamikę przepływu w określonych momentach doby, co na pierwszy rzut oka mogło umknąć uwadze.\\
+\newpage
+W celu lepszego wstępnego zrozumienia charakterystyki analizowanego zestawu danych, niezbędne jest także szczegółowe przyjrzenie się kilku losowo wybranym domostwom.
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=1\textwidth]{img/Dane_nowe_compare.png}
 	\caption{Porównanie przepływów dla przykładowych domów w dniu 05/02/2018}
 	\label{fig:etykieta-rysunku}
 \end{figure}
-\newpage
 Analiza przedstawionych histogramów przepływów dla poszczególnych losowo wybranych domostw, wykonana na podstawie danych z dnia 05/02/2018, ukazuje wyraźne różnice w charakterystyce przepływów dla każdego z nich. Zgodnie z Rysunkiem 3.2, można stwierdzić, że każdy dom prezentuje unikalny wzór aktywności, co może odzwierciedlać różnorodność nawyków, planów dnia lub specyficznych potrzeb mieszkańców. Na przykład, dla domu nr 5 zużycie wody jest rozłożone przez większą część dnia, z obserwowaną aktywnością w rozmaitych godzinach. Jednakże, zarejestrowano również pojedyncze zużycie w nocy. Z kolei Dom 52 charakteryzuje się wyraźnym szczytem wieczornym, co stanowi kontrast w stosunku do pozostałych domów.\\W przypadku Domu nr 4, nie odnotowano żadnego przepływu w analizowanym dniu. Brak danych może wynikać z co najmniej dwóch potencjalnych przyczyn. Pierwszą z nich jest zastosowany czas próbkowania, który wynosił jedną minutę. Taki interwał może nie być wystarczająco krótki, aby zarejestrować sporadyczne lub krótkotrwałe zdarzenia przepływu. Drugą możliwością, która może wyjaśniać brak zarejestrowanej aktywności, jest potencjalna nieobecność mieszkańców w domu w danym dniu.
 
 \newpage
@@ -604,7 +604,12 @@ W ramach procesu dostowania formatu aby przystosować go do wymagań tensorflow,
 \section{Projektowanie i ocena modeli}
 W ramach realizacji badań nad optymalizacją architektury sieci neuronowej oraz doborem hiperparametrów, zdecydowano się na podział danych uczących na trzy zbiory. Pierwszy z nich to zestaw który zawiera dane pochodzące z 12 losowo wybranych domostw, co ma na celu zapewnienie reprezentatywności i różnorodności w ramach próby badawczej. Drugi zestaw stanowi podzbiór zawierający dane z pojedynczego gospodarstwa domowego, co pozwala na szczegółową analizę wydajności modelu w warunkach bardziej jednorodnych danych. Dodatkowo, utworzony został trzeci zestaw danych, który obejmował informacje z wszystkich 77 domów biorących udział w badaniu.
 
-Po przeprowadzeniu serii eksperymentów, w procesie selekcji optymalnej architektury sieci neuronowej, najbardziej efektywną konfiguracją okazała się struktura składająca się z sześciu warstw, z których cztery pełniły funkcję warstw ukrytych. W procesie iteracyjnego dostosowywania i ewaluacji różnych architektur sieci, model o takiej budowie wykazał najlepsze wyniki w zakresie dokładności i generalizacji na testowanych zbiorach danych. Architektura ta charakteryzowała się kolejno malejącą liczbą neuronów w poszczególnych warstwach: pierwsza warstwa zawierała 512 neuronów, druga 256, trzecia 128, czwarta 64, piąta 32, a szósta, będąca warstwą wyjściową, miała 1 neuron. Wszystkie warstwy, z wyjątkiem ostatniej, wykorzystywały funkcję aktywacji ReLU. Natomiast ostatnia warstwa, pełniąca rolę warstwy wyjściowej, zastosowała funkcję aktywacji typu 'linear'\\
+
+Podział zbioru danych na trzy zestawy okazał się kluczowy dla efektywnego doboru hiperparametrów modelu, szczególnie biorąc pod uwagę, że cały zbiór danych zawierał aż 12,5 miliona wierszy. Zestaw wybranych domostw, zawierający blisko 2 miliony wierszy, oraz pojedyncze domostwo z 161 tysiącami wierszy, umożliwiły przeprowadzenie dokładniejszych i bardziej zróżnicowanych testów.
+
+Czas uczenia sieci był znacząco różny dla poszczególnych zestawów danych. Przykładowo, dla całego zbioru danych proces uczenia trwający 10 epok przy rozmiarze partii równym 64 zajmował około 46 minut. Tymczasem dla wybranych domostw czas ten skracał się do 9 minut, a dla pojedynczego domostwa uczenie trwało zaledwie 40 sekund.
+
+Początkowo hiperparametry były testowane na najmniejszym zbiorze, co pozwalało na szybką i efektywną ocenę różnych konfiguracji. Po uzyskaniu zadowalających wyników na zbiorze pojedynczego domostwa, testy były rozszerzane kolejno na zbiór wybranych domostw, a następnie na pełny zbiór danych. Taka strategia pozwoliła na stopniowe i metodyczne dostosowywanie hiperparametrów, minimalizując przy tym czas i zasoby potrzebne do przeprowadzenia eksperymentów, a jednocześnie maksymalizując ogólną skuteczność modelu.
 \begin{table}[!h]
 	\centering
 	\caption{Hiperparametry Sieci Neuronowej}
@@ -614,6 +619,9 @@ Po przeprowadzeniu serii eksperymentów, w procesie selekcji optymalnej architek
 		Adam          & mse           & 0.0001                          & 64             \\ \hline
 	\end{tabular}
 \end{table}
+
+Po przeprowadzeniu serii eksperymentów, w procesie selekcji optymalnej architektury sieci neuronowej, najbardziej efektywną konfiguracją okazała się struktura składająca się z sześciu warstw, z których cztery pełniły funkcję warstw ukrytych. W procesie iteracyjnego dostosowywania i ewaluacji różnych architektur sieci, model o takiej budowie wykazał najlepsze wyniki w zakresie dokładności i generalizacji na testowanych zbiorach danych. Architektura ta charakteryzowała się kolejno malejącą liczbą neuronów w poszczególnych warstwach: pierwsza warstwa zawierała 512 neuronów, druga 256, trzecia 128, czwarta 64, piąta 32, a szósta, będąca warstwą wyjściową, miała 1 neuron. Wszystkie warstwy, z wyjątkiem ostatniej, wykorzystywały funkcję aktywacji ReLU. Natomiast ostatnia warstwa, pełniąca rolę warstwy wyjściowej, zastosowała funkcję aktywacji typu 'linear'
+
 
 W ramach opracowanego modelu sieci neuronowej zastosowano dynamicznie zmieniający się współczynnik uczenia, oparty na metodzie wykładniczego spadku, opisanego wzorem:
 \begin{equation}
@@ -625,7 +633,32 @@ W ramach opracowanego modelu sieci neuronowej zastosowano dynamicznie zmieniają
 \end{equation}
 Użycie tej motyody pozwoliło na zmniejszanie wartości współczynnika uczenia w trakcie procesu trenowania, co zwiększyło zdolności adaptacyjne sieci. Został on zastosowany gdyż częstym zjawiskiem było generowanie przez sieć stałej wartości wyjściowej, niezależnie od różnych danych wejściowych.
 
-TUTAJ ZROBIC CAŁE WYNIKI I OPIS
+W ramach procesu testowania różnych konfiguracji sieci neuronowej zaproponowano eksplorację wydajności modeli przy różnorodnych kombinacjach wejść. Celem tego podejścia było zbadanie, jak zmiana danych wejściowych wpłynie na zdolność modelu do nauki i generalizacji przewidywania przepływu. Poniżej przedstawiono zestawienie modeli, które zostały uwzględnione w analizie:
+
+\begin{enumerate}
+	\item Model A
+	      \begin{enumerate}
+		      \item Wejścia: Dzień tygodnia, pora dnia
+		      \item Wyjście: Przepływ
+	      \end{enumerate}
+	\item Model B
+	      \begin{enumerate}
+		      \item Wejścia: pora dnia
+		      \item Wyjście: Przepływ
+	      \end{enumerate}
+	\item Model C
+	      \begin{enumerate}
+		      \item Wejścia: pora roku, dzień tygodnia, pora dnia
+		      \item Wyjście: Przepływ
+	      \end{enumerate}
+	\item Model D
+	      \begin{enumerate}
+		      \item Wejścia: pora roku, pora dnia
+		      \item Wyjście: Przepływ
+	      \end{enumerate}
+\end{enumerate}
+
+Wyniki te dostarczą wglądu w to, które wejścia są najbardziej wartościowe dla modelowania przepływu oraz czy dodanie dodatkowych informacji kontekstowych przyczynia się do znaczącej poprawy wyników predykcyjnych.
 \newpage
 
 \section{Walidacja i próby dostrajania (?)}
@@ -656,13 +689,15 @@ W celu dokładniejszej oceny i porównania efektywności modelu ogólnego, naucz
 \begin{table}[!h]
 	\centering
 	\caption{Porównianie wartości MSE dla każdego obu modelów}
-	\begin{tabular}{|c|cccccccccccc|}
-		\hline
-		\multirow{2}{*}{MSE} & \multicolumn{12}{c|}{DOMOSTWO}                                                                                                                                                                                                                                                                                                                        \\ \cline{2-13}
-		                     & \multicolumn{1}{c|}{1}         & \multicolumn{1}{c|}{2}       & \multicolumn{1}{c|}{3}     & \multicolumn{1}{c|}{4}       & \multicolumn{1}{c|}{5}      & \multicolumn{1}{c|}{6}      & \multicolumn{1}{c|}{7}       & \multicolumn{1}{c|}{8}       & \multicolumn{1}{c|}{9}      & \multicolumn{1}{c|}{10}    & \multicolumn{1}{c|}{11}      & 12    \\ \hline
-		Model 1              & \multicolumn{1}{c|}{0.022}     & \multicolumn{1}{c|}{0.0074}  & \multicolumn{1}{c|}{0.037} & \multicolumn{1}{c|}{0.0067}  & \multicolumn{1}{c|}{0.011}  & \multicolumn{1}{c|}{0.0039} & \multicolumn{1}{c|}{0.0084}  & \multicolumn{1}{c|}{0.0095}  & \multicolumn{1}{c|}{0.0072} & \multicolumn{1}{c|}{0.22}  & \multicolumn{1}{c|}{0.010}   & 0.19  \\ \hline
-		Model 2              & \multicolumn{1}{c|}{0.019}     & \multicolumn{1}{c|}{0.00053} & \multicolumn{1}{c|}{0.034} & \multicolumn{1}{c|}{0.00085} & \multicolumn{1}{c|}{0.0013} & \multicolumn{1}{c|}{0.0025} & \multicolumn{1}{c|}{0.00055} & \multicolumn{1}{c|}{0.00069} & \multicolumn{1}{c|}{0.0027} & \multicolumn{1}{c|}{0.075} & \multicolumn{1}{c|}{0.00013} & 0.019 \\ \hline
-	\end{tabular}
+	\resizebox{\textwidth}{!}{
+		\begin{tabular}{|c|cccccccccccc|}
+			\hline
+			\multirow{2}{*}{MSE} & \multicolumn{12}{c|}{DOMOSTWO}                                                                                                                                                                                                                                                                                                                        \\ \cline{2-13}
+			                     & \multicolumn{1}{c|}{1}         & \multicolumn{1}{c|}{2}       & \multicolumn{1}{c|}{3}     & \multicolumn{1}{c|}{4}       & \multicolumn{1}{c|}{5}      & \multicolumn{1}{c|}{6}      & \multicolumn{1}{c|}{7}       & \multicolumn{1}{c|}{8}       & \multicolumn{1}{c|}{9}      & \multicolumn{1}{c|}{10}    & \multicolumn{1}{c|}{11}      & 12    \\ \hline
+			Model 1              & \multicolumn{1}{c|}{0.022}     & \multicolumn{1}{c|}{0.0074}  & \multicolumn{1}{c|}{0.037} & \multicolumn{1}{c|}{0.0067}  & \multicolumn{1}{c|}{0.011}  & \multicolumn{1}{c|}{0.0039} & \multicolumn{1}{c|}{0.0084}  & \multicolumn{1}{c|}{0.0095}  & \multicolumn{1}{c|}{0.0072} & \multicolumn{1}{c|}{0.22}  & \multicolumn{1}{c|}{0.010}   & 0.19  \\ \hline
+			Model 2              & \multicolumn{1}{c|}{0.019}     & \multicolumn{1}{c|}{0.00053} & \multicolumn{1}{c|}{0.034} & \multicolumn{1}{c|}{0.00085} & \multicolumn{1}{c|}{0.0013} & \multicolumn{1}{c|}{0.0025} & \multicolumn{1}{c|}{0.00055} & \multicolumn{1}{c|}{0.00069} & \multicolumn{1}{c|}{0.0027} & \multicolumn{1}{c|}{0.075} & \multicolumn{1}{c|}{0.00013} & 0.019 \\ \hline
+		\end{tabular}
+	}
 \end{table}
 
 Analizując przedstawione dane w tabeli, można zauważyć, że po dodaniu dodatkowego wejścia do systemu, czyli tygodniowego zużycia, model 2 (Model z dodatkowym wejściem) osiągnął znacznie lepsze wyniki w porównaniu z modelem bazowym. Wartości błędu średniokwadratowego dla modelu 2 są niższe w porównaniu do modelu 1 dla każdego z domostw, co wskazuje na poprawę dokładności predykcji.
@@ -777,8 +812,63 @@ Na przykład, dla Domu nr 2, MSE zmniejszyło się z 0.0074 w modelu 1 do 0.0005
 	\caption{Porównanie warunkuch atmosferycznych na przestrzeni dnia}
 	\label{fig:etykieta-rysunku}
 \end{figure}
+W celu zbadania wpływu wielkości modelu na wyniki oraz sprawdzenia ważności różnych wejść, zaproponowano w badaniu dwa modele o różnej złożoności architektury. Oba modele korzystały z tej samej funkcji harmonogramowania tempa uczenia, która redukowała szybkość uczenia po czwartej epoce, oraz z tych samych parametrów kompilacji, w tym optymalizatora Adam z początkową szybkością uczenia 0.001, funkcji straty MSE
+Pierwszy model składał się z mniejszej liczby warstw i neuronów: warstwa normalizująca, trzy warstwy gęste z odpowiednio 64, 32 i 1 neuronami, używając funkcji aktywacji 'relu' dla pierwszych dwóch warstw i 'linear' dla warstwy wyjściowej.
+Drugi model był znacznie większy, zawierając więcej warstw i neuronów: warstwa normalizująca, sześć warstw gęstych o zwiększającej się liczbie neuronów: 1024, 512, 256, 128, 64, 32, zakończonych warstwą wyjściową z 1 neuronem, używając funkcji aktywacji 'relu' dla warstw ukrytych i 'linear' dla warstwy wyjściowej.
+Oba modele były trenowane przez 50 epok z rozmiarem partii równym 32. Celem porównania tych dwóch modeli było ustalenie, czy zwiększenie liczby warstw i neuronów w modelu wpłynie na jego
 
-% TODO
+W ramach procesu weryfikacji skuteczności zastosowanych modeli sieci neuronowych, dane zostały podzielone w proporcji 80\% do 20\%. Ta strategia podziału danych miała na celu zapewnienie solidnej bazy do nauki modeli oraz efektywnej oceny ich wydajności. Model numer 1 wykazał się niższą skutecznością w porównaniu do modelu numer 2. Świadczy o tym wartość błędu średniokwadratowego, która dla modelu pierwszego wyniosła 0.0668, natomiast dla modelu drugiego było to znacząco niższe, a mianowicie 0.0237. Ta różnica w wartościach MSE wskazuje na wyższą precyzję i efektywność modelu numer 2 w procesie uczenia i oceny na podstawie dostępnych danych.
+\section{Permutacyjna Ważność Cech}
+Permutacyjna Ważność Cech, to technika stosowana w uczeniu maszynowym do oceny znaczenia poszczególnych wejść dla modelu predykcyjnego. Metoda ta jest stosowana zarówno dla modeli klasyfikacyjnych, jak i regresyjnych. Proces ten rozpoczyna się od trenowania modelu na oryginalnym zestawie danych, co pozwala na ustalenie bazowej wydajności modelu. Następnie przeprowadza się permutację każdej cechy z osobna w zbiorze testowym, losowo mieszając jej wartości, podczas gdy wszystkie inne cechy pozostają niezmienione. Po dokonaniu permutacji, model jest ponownie oceniany na zmodyfikowanym zbiorze danych. Wyniki tej oceny są następnie porównywane z wynikami uzyskanymi na oryginalnym, niezmodyfikowanym zbiorze. Różnica w wydajności modelu, taka jak spadek dokładności w klasyfikacji lub wzrost błędu średniokwadratowego w regresji, jest wykorzystywana do oceny ważności danej cechy. Im większy spadek wydajności, tym większa uważana jest ważność tej cechy dla modelu.
+W celu implementacji techniki PFI w pracy, został wykorzystany obiekt PermutationImportance z biblioteki sklearn. Zastosowanie tego dedykowanego narzędzia umożliwiło nie tylko dokładną, ale i wydajną realizację tej metody, co pozwoliło na jej skuteczną integrację z procesem badawczym.
+
+\begin{table}[!h]
+	\centering
+	\caption{Porównianie wartości MSE dla każdego obu modelów}
+	\begin{tabular}{|c|c|c|c|c|c|c|}
+		\hline
+		             & \begin{tabular}[c]{@{}c@{}}Temperatura \\ zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność\\  zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Ciśnienie\\  atmosferyczne\end{tabular} & \begin{tabular}[c]{@{}c@{}}Prędkość\\  wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Kierunek\\  wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność \\ wewnętrzna\end{tabular} \\ \hline
+		Model krótki &                                                                   &                                                                  &                                                                    &                                                            &                                                            &                                                                  \\ \hline
+		Model długi  &                                                                   &                                                                  &                                                                    &                                                            &                                                            &                                                                  \\ \hline
+	\end{tabular}
+\end{table}
+
+\newpage
+\section{Badanie wag wejściowych pierwszej warsty}
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.7\textwidth]{img/heatmap1.png}
+	\caption{Mapa ciepła wag pierwszej warstwy dla modelu o uproszczonej architekturze}
+	\label{fig:etykieta-rysunku}
+\end{figure}
+\begin{table}[!h]
+	\centering
+	\caption{Porównianie wartości MSE dla każdego obu modelów}
+	\begin{tabular}{|c|c|c|c|c|c|c|}
+		\hline
+		             & \begin{tabular}[c]{@{}c@{}}Temperatura \\ zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność\\  zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Ciśnienie\\  atmosferyczne\end{tabular} & \begin{tabular}[c]{@{}c@{}}Prędkość\\  wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Kierunek\\  wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność \\ wewnętrzna\end{tabular} \\ \hline
+		Model krótki &                                                                   &                                                                  &                                                                    &                                                            &                                                            &                                                                  \\ \hline
+	\end{tabular}
+\end{table}
+\newpage
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.7\textwidth]{img/heatmap2.png}
+	\caption{Mapa ciepła wag pierwszej warstwy dla modelu o rozbudowanej architekturze}
+	\label{fig:etykieta-rysunku}
+\end{figure}
+\begin{table}[!h]
+	\centering
+	\caption{Porównianie wartości MSE dla każdego obu modelów}
+	\begin{tabular}{|c|c|c|c|c|c|c|}
+		\hline
+		             & \begin{tabular}[c]{@{}c@{}}Temperatura \\ zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność\\  zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Ciśnienie\\  atmosferyczne\end{tabular} & \begin{tabular}[c]{@{}c@{}}Prędkość\\  wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Kierunek\\  wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność \\ wewnętrzna\end{tabular} \\ \hline
+		Model krótki &                                                                   &                                                                  &                                                                    &                                                            &                                                            &                                                                  \\ \hline
+	\end{tabular}
+\end{table}
+
+
 \chapter{Modelowanie zbiornika CWU}
 \label{ch:05}
 \section{Metodologia}
@@ -825,25 +915,6 @@ Krótka wstawka kodu w linii tekstu jest możliwa, np.  \lstinline|int a;| (bibl
 .
 Dłuższe fragmenty lepiej jest umieszczać jako rysunek, np. kod na rys \ref{fig:pseudokod:listings}% i rys. \ref{fig:pseudokod:minted}
 , a naprawdę długie fragmenty – w załączniku.
-
-
-\begin{figure}
-	\centering
-	\begin{lstlisting}
-class test : public basic
-{
-    public:
-      test (int a);
-      friend std::ostream operator<<(std::ostream & s, 
-                                     const test & t);
-    protected:
-      int _a;  
-      
-};
-\end{lstlisting}
-	\caption{Pseudokod w \texttt{listings}.}
-	\label{fig:pseudokod:listings}
-\end{figure}
 
 %\begin{figure}
 %\centering
