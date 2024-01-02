@@ -573,13 +573,13 @@ Wstep teoretyczny o modelowaniu, opisanie rzeczy takich jak, warstwy, neurony, f
 
 \newpage
 \section{Dane wejściowe i proces ich przetwarzania}
-Projekt wykorzystuje dane zebrane przez instytut ASHRAE (American Society of Heating, Refrigerating and Air-Conditioning Enginee) w 2018 roku. Informacje o zużyciu wody zostały pozykane z 77 domostwo znajdujacych sie na terenie Kanady, zamieszkiwanym przez dwoje osób dorosłych oraz dwójke dzieci oraz posiadajacych podstawowe urządzenia AGD takie jak pralka czy zmywarka. Dane były zbierane przez 16 tygodni, w cyklach trwajacych 4 tygodnie, aby równomiernie obejmować każdą pore roku. Próbkowanie danych odbywało sie co minute, nieprzerwanie przez całą dobę. Całość danych zostało podzielone na 73 odzielne pliki w formacie .csv. W każdym plikuu znajdował sie timestamp w formacie RR-MM-DD HH:MM:SS, który określał dzien i godzine pomiaru danych. Oprócz tego zawierał informacje o zużyciu wody, oraz temperature otoczenia. Dodatkowo dane były podzielone na poszczególne poru roku.
+Projekt wykorzystuje dane zebrane przez instytut ASHRAE (American Society of Heating, Refrigerating and Air-Conditioning Enginee) w 2018 roku. Informacje o zużyciu wody zostały pozykane z 77 domostwo znajdujacych sie na terenie Kanady, zamieszkiwanym przez dwoje osób dorosłych oraz dwójke dzieci oraz posiadajacych podstawowe urządzenia AGD takie jak pralka czy zmywarka. Dane były zbierane przez 16 tygodni, w cyklach trwajacych 4 tygodnie, aby równomiernie obejmować każdą pore roku. Próbkowanie danych odbywało sie co minute, nieprzerwanie przez całą dobę. Całość danych zostało podzielone na 73 odzielne pliki w formacie .csv. W każdym plikuu znajdował sie timestamp w formacie "RR-MM-DD HH:MM:SS", który określał dzien i godzine pomiaru danych. Oprócz tego zawierał informacje o zużyciu wody, oraz temperature otoczenia. Dodatkowo dane były podzielone na poszczególne poru roku.\\
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=1\textwidth]{img/Dane_nowe_disp.png}
 	\caption{Podpis rysunku zawsze pod rysunkiem.}
 	\label{fig:etykieta-rysunku}
-\end{figure}
+\end{figure}\\
 Pierwszy wykres przestawia dane zebrane z domu nr. 13 zebrane w dniu 05/02/2018. Oś X oznaczająca godzinę, począwszy od północy. Oś Y reprezentuje przepływ wody w danym momencie dnia. Wykres Przestwia nieregularne piki o nierównomiernym rozkładzie. Okresami o zwiększonym przepływie są godziny 7-13 oraz 14-15. Okresy mniejszej aktywyności możemy zaobserwowac w godzinach późno popołudniowych oraz nocnych. Drugi i trzeci wykres przedstawiają zbiżenie na godzine 7 oraz 15. Dzięki zwężeniu analizowanego zakresu czasu, możliwe było dokładniejsze zbadanie struktury występujących pików. Ta metoda wizualizacji ujawniła, że poszczególne piki, które na ogólnym wykresie dobowym mogły sprawiać wrażenie pojedynczych punktów, w rzeczywistości są złożone z wielu pojedynczych zdarzeń. To odkrycie jest istotne, ponieważ wskazuje na bardziej złożoną dynamikę przepływu w określonych momentach doby, co na pierwszy rzut oka mogło umknąć uwadze.\\
 \newpage
 W celu lepszego wstępnego zrozumienia charakterystyki analizowanego zestawu danych, niezbędne jest także szczegółowe przyjrzenie się kilku losowo wybranym domostwom.\\
@@ -702,106 +702,7 @@ W celu dokładniejszej oceny i porównania efektywności modelu ogólnego, naucz
 
 Analizując przedstawione dane w tabeli, można zauważyć, że po dodaniu dodatkowego wejścia do systemu, czyli tygodniowego zużycia, model 2 (Model z dodatkowym wejściem) osiągnął znacznie lepsze wyniki w porównaniu z modelem bazowym. Wartości błędu średniokwadratowego dla modelu 2 są niższe w porównaniu do modelu 1 dla każdego z domostw, co wskazuje na poprawę dokładności predykcji.
 Na przykład, dla Domu nr 2, MSE zmniejszyło się z 0.0074 w modelu 1 do 0.00053 w modelu 2, co jest znaczącą poprawą. Podobne znaczące redukcje można zaobserwować w przypadku Domu nr 12, gdzie MSE spadło z 0.19 do 0.019
-% \begin{itemize}
-% 	\item  wymagania sprzętowe i programowe
-% 	\item  sposób instalacji
-% 	\item  sposób aktywacji
-% 	\item  kategorie użytkowników
-% 	\item  sposób obsługi
-% 	\item  administracja systemem
-% 	\item  kwestie bezpieczeństwa
-% 	\item  przykład działania
-% 	\item  scenariusze korzystania z systemu (ilustrowane zrzutami z ekranu lub generowanymi dokumentami)
-% \end{itemize}
 
-
-% Jeśli „Specyfikacja zewnętrzna”:
-% \begin{itemize}
-% 	\item  wymagania sprzętowe i programowe
-% 	\item  sposób instalacji
-% 	\item  sposób aktywacji
-% 	\item  kategorie użytkowników
-% 	\item  sposób obsługi
-% 	\item  administracja systemem
-% 	\item  kwestie bezpieczeństwa
-% 	\item  przykład działania
-% 	\item  scenariusze korzystania z systemu (ilustrowane zrzutami z ekranu lub generowanymi dokumentami)
-% \end{itemize}
-
-%%%%%%%%%%%%%%%%%%%%%
-%% RYSUNEK Z PLIKU
-%
-%\begin{figure}
-%\centering
-%\includegraphics[width=0.5\textwidth]{./politechnika_sl_logo_bw_pion_pl.pdf}
-%\caption{Podpis rysunku zawsze pod rysunkiem.}
-%\label{fig:etykieta-rysunku}
-%\end{figure}
-%Rys. \ref{fig:etykieta-rysunku} przestawia …
-%%%%%%%%%%%%%%%%%%%%%
-%
-%%%%%%%%%%%%%%%%%%%%%
-%% WIELE RYSUNKÓW 
-%
-%\begin{figure}
-%\centering
-%\begin{subfigure}{0.4\textwidth}
-%    \includegraphics[width=\textwidth]{./politechnika_sl_logo_bw_pion_pl.pdf}
-%    \caption{Lewy górny rysunek.}
-%    \label{fig:lewy-gorny}
-%\end{subfigure}
-%\hfill
-%\begin{subfigure}{0.4\textwidth}
-%    \includegraphics[width=\textwidth]{./politechnika_sl_logo_bw_pion_pl.pdf}
-%    \caption{Prawy górny rysunek.}
-%    \label{fig:prawy-gorny}
-%\end{subfigure}
-%
-%\begin{subfigure}{0.4\textwidth}
-%    \includegraphics[width=\textwidth]{./politechnika_sl_logo_bw_pion_pl.pdf}
-%    \caption{Lewy dolny rysunek.}
-%    \label{fig:lewy-dolny}
-%\end{subfigure}
-%\hfill
-%\begin{subfigure}{0.4\textwidth}
-%    \includegraphics[width=\textwidth]{./politechnika_sl_logo_bw_pion_pl.pdf}
-%    \caption{Prawy dolny rysunek.}
-%    \label{fig:prawy-dolny}
-%\end{subfigure}
-%        
-%\caption{Wspólny podpis kilku rysunków.}
-%\label{fig:wiele-rysunkow}
-%\end{figure}
-%Rys. \ref{fig:wiele-rysunkow} przestawia wiele ważnych informacji, np. rys. \ref{fig:prawy-gorny} jest na prawo u góry.
-%%%%%%%%%%%%%%%%%%%%%
-
-
-
-% \begin{figure}
-% 	\centering
-% 	\begin{tikzpicture}
-% 		\begin{axis}[
-% 				y tick label style={
-% 						/pgf/number format/.cd,
-% 						fixed,   % po zakomentowaniu os rzednych jest indeksowana wykladniczo
-% 						fixed zerofill, % 1.0 zamiast 1
-% 						precision=1,
-% 						/tikz/.cd
-% 					},
-% 				x tick label style={
-% 						/pgf/number format/.cd,
-% 						fixed,
-% 						fixed zerofill,
-% 						precision=2,
-% 						/tikz/.cd
-% 					}
-% 			]
-% 			\addplot [domain=0.0:0.1] {rnd};
-% 		\end{axis}
-% 	\end{tikzpicture}
-% 	\caption{Podpis rysunku po rysunkiem.}
-% 	\label{fig:2}
-% \end{figure}
 
 \chapter{Pogoda}
 \label{ch:0X}
@@ -832,14 +733,15 @@ W celu implementacji techniki PFI w pracy, został wykorzystany obiekt Permutati
 		\begin{tabular}{|c|c|c|c|c|c|c|}
 			\hline
 			             & \begin{tabular}[c]{@{}c@{}}Temperatura \\ zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność\\  zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Ciśnienie\\  atmosferyczne\end{tabular} & \begin{tabular}[c]{@{}c@{}}Prędkość\\  wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Kierunek\\  wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność \\ wewnętrzna\end{tabular} \\ \hline
-			Model krótki &                                                                   &                                                                  &                                                                    &                                                            &                                                            &                                                                  \\ \hline
-			Model długi  &                                                                   &                                                                  &                                                                    &                                                            &                                                            &                                                                  \\ \hline
+			Model krótki & 0.57                                                              & 0.45                                                             & 1.00                                                               & 0.50                                                       & 0.17                                                       & 0.60                                                             \\ \hline
+			Model długi  & 0.47                                                              & 0.11                                                             & 0.65                                                               & 0.23                                                       & 0.17                                                       & 1.00                                                             \\ \hline
 		\end{tabular}
 	}
 \end{table}
 
 \newpage
 \section{Badanie wag wejściowych pierwszej warsty}
+W analizie modeli uczenia maszynowego, interpretacja wag pierwszej warstwy może służyć jako metoda określania ważności cech wejściowych. Ponieważ wagi w pierwszej warstwie sieci neuronowej są bezpośrednio połączone z cechami wejściowymi, wartości tych wag mogą dostarczać informacji o znaczeniu poszczególnych cech dla predykcji modelu. Wysoka wartość wagowa sugeruje, że zmiana wartości tej cechy wejściowej może mieć istotny wpływ na wynik modelu. Jednakże, ta metoda interpretacji może być mniej efektywna w przypadku bardziej złożonych, głębokich sieci neuronowych. W takich modelach, liczne warstwy i skomplikowane struktury, w tym nieliniowe aktywacje i interakcje między neuronami, mogą skutkować tym, że bezpośredni wpływ pojedynczych wag jest trudniejszy do zrozumienia.
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=0.7\textwidth]{img/heatmap1.png}
@@ -857,11 +759,11 @@ W celu dokładnej analizy ważności poszczególnych wag wejściowych sieci neur
 		\begin{tabular}{|c|c|c|c|c|c|}
 			\hline
 			\begin{tabular}[c]{@{}c@{}}Temperatura \\ zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność\\  zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Ciśnienie\\  atmosferyczne\end{tabular} & \begin{tabular}[c]{@{}c@{}}Prędkość\\  wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Kierunek\\  wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność \\ wewnętrzna\end{tabular} \\ \hline
-			                                                                  &                                                                  &                                                                    &                                                            &                                                            &                                                                  \\ \hline
+			0.57                                                              & 0.45                                                             & 1.00                                                               & 0.50                                                       & 0.17                                                       & 0.60                                                             \\ \hline
 		\end{tabular}
 	}
 \end{table}
-\newpage
+
 Analizy bardziej złożonych modeli sieci neuronowych, metoda interpretacji wag pierwszej warstwy może okazać się nieefektywna. Ze względu na zwiększoną głębokość i złożoność architektury, wagi w pierwszej warstwie tracą bezpośrednią i jednoznaczną interpretowalność, która jest charakterystyczna dla prostszych modeli. W modelach rozbudowanych, cechy wejściowe przechodzą przez wiele warstw transformacji, co skutkuje utratą bezpośredniego powiązania między wagami pierwszej warstwy a wynikowymi decyzjami modelu. W efekcie, interpretacja tych wag może nie odzwierciedlać faktycznego wpływu poszczególnych cech na decyzje modelu, co jest spowodowane nakładaniem się, transformacją i połączeniem informacji w kolejnych warstwach sieci.
 
 \begin{figure}[!h]
@@ -870,6 +772,7 @@ Analizy bardziej złożonych modeli sieci neuronowych, metoda interpretacji wag 
 	\caption{Mapa ciepła wag pierwszej warstwy dla modelu o rozbudowanej architekturze}
 	\label{fig:etykieta-rysunku}
 \end{figure}
+
 \begin{table}[!h]
 	\centering
 	\caption{Todo}
@@ -877,7 +780,46 @@ Analizy bardziej złożonych modeli sieci neuronowych, metoda interpretacji wag 
 		\begin{tabular}{|c|c|c|c|c|c|}
 			\hline
 			\begin{tabular}[c]{@{}c@{}}Temperatura \\ zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność\\  zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Ciśnienie\\  atmosferyczne\end{tabular} & \begin{tabular}[c]{@{}c@{}}Prędkość\\  wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Kierunek\\  wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność \\ wewnętrzna\end{tabular} \\ \hline
-			                                                                  &                                                                  &                                                                    &                                                            &                                                            &                                                                  \\ \hline
+			1.00                                                              & 0.11                                                             & 0.75                                                               & 0.73                                                       & 0.61                                                       & 0.13                                                             \\ \hline
+		\end{tabular}
+	}
+\end{table}
+
+\newpage
+\section{LIME}
+W kontekście zrozumienia modeli uczenia maszynowego, metoda Local Interpretable Model-agnostic Explanations jest istotnym narzędziem, które umożliwia interpretację decyzji modelu na poziomie lokalnym. Metoda ta wyróżnia się spośród innych, takich jak SHAP, dzięki swojemu unikalnemu podejściu skoncentrowanemu na pojedynczych instancjach danych. Podczas gdy SHAP dąży do zapewnienia ogólnego zrozumienia wpływu cech na model przez zbieranie i analizowanie informacji z różnych instancji, LIME skupia się na wyjaśnieniu, w jaki sposób model dokonuje przewidywań dla konkretnej, wybranej próbki danych.
+
+Podstawowym elementem metody LIME jest modyfikacja danych i tworzenie na ich podstawie uproszczonego modelu, który ma za zadanie odwzorować zachowanie oryginalnego, skomplikowanego modelu, ale tylko w ograniczonym, lokalnym obszarze wokół analizowanej instancji. Proces ten rozpoczyna się od stworzenia zbioru danych przez modyfikację wybranej instancji, co skutkuje powstaniem podobnych, ale nieidentycznych przykładów. Następnie, na tych zmodyfikowanych danych, oblicza się przewidywania za pomocą oryginalnego modelu. Kluczowym krokiem jest trenowanie prostego modelu, takiego jak regresja liniowa, na podstawie tych przewidywań. Model ten służy do aproksymacji wpływu zmian w danych na przewidywania modelu. W ten sposób, analizując współczynniki modelu liniowego, można zrozumieć, które cechy miały największy wpływ na przewidywania dla danej instancji.
+
+W ramach pracy, w celu dokładnej oceny skuteczności metody LIME, zdecydowano się na zastosowanie jej na losowo wybranych próbkach ze zbioru testowego.
+
+\begin{table}[!h]
+	\caption{Todo}
+	\resizebox{\textwidth}{!}{
+		\begin{tabular}{|c|c|c|c|c|c|}
+			\hline
+			\begin{tabular}[c]{@{}c@{}}Temperatura \\ zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność\\  zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Ciśnienie\\  atmosferyczne\end{tabular} & \begin{tabular}[c]{@{}c@{}}Prędkość\\  wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Kierunek\\  wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność \\ wewnętrzna\end{tabular} \\ \hline
+			0.17                                                              & 0.57                                                             & 1.00                                                               & 0.09                                                       & 0.00                                                       & 0.00                                                             \\ \hline
+			1.00                                                              & 0.36                                                             & 0.08                                                               & 0.04                                                       & 0.02                                                       & 0.36                                                             \\ \hline
+			1.00                                                              & 0.02                                                             & 0.02                                                               & 0.04                                                       & 0.00                                                       & 0.32                                                             \\ \hline
+			0.13                                                              & 1.00                                                             & 0.53                                                               & 0.00                                                       & 0.00                                                       & 0.47                                                             \\ \hline
+		\end{tabular}
+	}
+\end{table}
+
+Mimo iż LIME jest metodą zasadniczo skoncentrowaną na dostarczaniu interpretacji lokalnych, istnieje możliwość adaptacji jej do generowania wniosków o charakterze bardziej ogólnym. Można to osiągnąć poprzez zastosowanie metody LIME wielokrotnie na różnych próbkach danych, a nastepnie wyciąganięcie średniej. Zaproponowano wybranie czterech zestawów ze zbioru testowego, zawierających odpowiednio 10, 50, 100, i 1000 próbek.
+
+
+\begin{table}[!h]
+	\caption{Todo}
+	\resizebox{\textwidth}{!}{
+		\begin{tabular}{|c|c|c|c|c|c|c|}
+			\hline
+			\begin{tabular}[c]{@{}c@{}}Ilość\\ próbek\end{tabular} & \begin{tabular}[c]{@{}c@{}}Temperatura \\ zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność\\  zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Ciśnienie\\  atmosferyczne\end{tabular} & \begin{tabular}[c]{@{}c@{}}Prędkość\\  wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Kierunek\\  wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność\\  wewnętrzna\end{tabular} \\ \hline
+			10                                                     & 0.95                                                              & 0.82                                                             & 1.00                                                               & 0.20                                                       & 0.21                                                       & 0.09                                                             \\ \hline
+			50                                                     & 1.00                                                              & 0.21                                                             & 0.53                                                               & 0.15                                                       & 0.03                                                       & 0.01                                                             \\ \hline
+			100                                                    & 1.00                                                              & 0.27                                                             & 0.53                                                               & 0.26                                                       & 0.05                                                       & 0.02                                                             \\ \hline
+			1000                                                   & 1.00                                                              & 0.41                                                             & 0.49                                                               & 0.15                                                       & 0.01                                                       & 0.01                                                             \\ \hline
 		\end{tabular}
 	}
 \end{table}
@@ -896,11 +838,11 @@ Analizy bardziej złożonych modeli sieci neuronowych, metoda interpretacji wag 
 \end{equation}
 
 \begin{equation}
-	\frac{dT_{wo}^{2}}{dt} = b_1^2 F_z (T_{zi} - T_{wo}^{2}) - b_2^2 F_w (T_{wo}^{2} - T_{wo}^{1}) - b_2^3 (T_{wo}^{2} - T_{ot}) - b_2^4 (T_{wo}^{2} - T_{wo}^{1}) + b_2^5 (T_{wo}^{3} - T_{wo}^{2})
+	\frac{dT_{wo}^{2}}{dt} = b_1^2 F_z (T_{zi} - T_{wo}^{2}) - b_2^2 F_w (T_{wo}^{2} - T_{wo}^{1}) - b_3^2 (T_{wo}^{2} - T_{ot}) - b_4^2 (T_{wo}^{2} - T_{wo}^{1}) + b_5^2 (T_{wo}^{3} - T_{wo}^{2})
 \end{equation}
 
 \begin{equation}
-	\frac{dT_{wo}^{1}}{dt} = -b_1^1 F_w (T_{wo}^{1} - T_{wi}) - b_1^3 (T_{wo}^{1} - T_{ot}) + b_1^5 (T_{wo}^{2} - T_{wo}^{1})
+	\frac{dT_{wo}^{1}}{dt} = -b_2^1 F_w (T_{wo}^{1} - T_{wi}) - b_3^1 (T_{wo}^{1} - T_{ot}) + b_5^1 (T_{wo}^{2} - T_{wo}^{1})
 \end{equation}
 
 Przedstawienie modelu warstwowego, równań stanu, pokazanie wyników symulacji modelu
@@ -1021,12 +963,14 @@ Dłuższe fragmenty lepiej jest umieszczać jako rysunek, np. kod na rys \ref{fi
 	\chapter{Spis skrótów i symboli}
 
 	\begin{itemize}
-		\item[DNA] kwas deoksyrybonukleinowy (ang. \english{deoxyribonucleic acid})
-		\item[MVC] model -- widok -- kontroler (ang. \english{model--view--controller})
-		\item[$N$] liczebność zbioru danych
-		\item[$\mu$] stopnień przyleżności do zbioru
-		\item[$\mathbb{E}$] zbiór krawędzi grafu
-		\item[$\mathcal{L}$] transformata Laplace'a
+		\item[$T_{zi}^{?}$]
+		\item[$T_{wo}^{?}$]
+		\item[$T_{ot}$]
+		\item[$Q_p$]
+		\item[$F_w$]
+		\item[$F_z$]
+		\item[n] numer warstwy
+		\item[m] numer źródła ciepła
 	\end{itemize}
 
 
