@@ -84,8 +84,8 @@
 %%%%%%%%%%
 
 \newcommand{\Supervisor}{dr inż. Szymon Ogonowski, prof. PŚ}     % dane promotora (bez $\langle$ i $\rangle$)
-\newcommand{\Title}{Tytuł pracy dyplomowej inżynierskiej}           % tytuł pracy po polsku
-\newcommand{\TitleAlt}{Thesis title in English}                     % thesis title in English
+\newcommand{\Title}{Modelowanie i analiza procesów związanych z działaniem systemu centralnego ogrzewania oraz przygotowania wody użytkowej w budynku mieszkalnym z wykorzystaniem uczenia maszynowego}           % tytuł pracy po polsku
+\newcommand{\TitleAlt}{Modeling and analysis of the heating and hot water preparation processes in residential building using machine learning}                     % thesis title in English
 \newcommand{\Program}{Automatyka i Robotyka}            % kierunek studiów  (bez $\langle$ i $\rangle$)
 \newcommand{\Specialisation}{Technologie Informacyjne}     % specjalność  (bez $\langle$ i $\rangle$)
 \newcommand{\Departament}{Katedry Pomiarów i Systemów Sterowania}        % katedra promotora  (bez $\langle$ i $\rangle$)
@@ -540,7 +540,7 @@ jak i pojedyncze symbole $x$ i $y$  składa się w trybie matematycznym.
 \label{ch:wymagania-i-narzedzia}
 % Opis narzędzi które były uzywane podczas programowania, Wiekszy opis pythona i tensorflow, ich "specyfikacja" plusy i minusy, jakie były inne mozliwe wybory oraz czemu zostały wybrane akurat te rozwiązania, krótszy opis pozostałych biblotek uzytych podczas programownia takich jak numpy, plotlib czy pandas
 \section{Python}
-Wybór głónego języka progarmowania zastowanego w projekcie, wiązał się z postawieniem pewnych wymagań. Pierwszym z tych wymagań była dostępność dedykowanej bibloteki do uczenia maszynowego, która posiada narzędzia do efektywnej pracy nad modelami czy ich tesowanie. Użycie bibloteki która jest dobrze utrzymana zapewnii ogromne wsparcie społeczności, które moze okazać sie nieocenione w procesie nauki czy rozwiązywnia problemów.\\Kolejnym wymaganiem jest aby wybrana techonologia była ciągle wspierana i aktualizowana. Machine learning jest aktulanie jedną z najszyciej rozwijających sie dziedzin programowania, co wiąże sie z szybkimi zmianami.(DOPISAĆ COŚ TUTAJ)
+Wybór głónego języka progarmowania zastowanego w projekcie, wiązał się z postawieniem pewnych wymagań. Pierwszym z tych wymagań była dostępność dedykowanej bibloteki do uczenia maszynowego, która posiada narzędzia do efektywnej pracy nad modelami czy ich tesowanie. Użycie bibloteki która jest dobrze utrzymana zapewnii ogromne wsparcie społeczności, które moze okazać sie nieocenione w procesie nauki czy rozwiązywnia problemów.\\Kolejnym wymaganiem jest aby wybrana techonologia była ciągle wspierana i aktualizowana. Machine learning jest aktulanie jedną z najszyciej rozwijających sie dziedzin programowania, co wiąże sie z szybkimi zmianami.Po dokładnej analizie postawionych wymagań, zdecydowano o wyborze dwóch głównych języków programowania, które najlepiej odpowiadają potrzebom projektu
 \begin{itemize}
 	\item R
 	\item Python
@@ -707,18 +707,23 @@ Na przykład, dla Domu nr 2, MSE zmniejszyło się z 0.0074 w modelu 1 do 0.0005
 \chapter{Pogoda}
 \label{ch:0X}
 
+NAPISAĆ TUTAJ COŚ!\\
+
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=1\textwidth]{img/Pogoda_porównanie.png}
 	\caption{Porównanie warunkuch atmosferycznych na przestrzeni dnia}
 	\label{fig:etykieta-rysunku}
 \end{figure}
+Rysunek przedstawia zestaw sześciu wykresów, które porównują warunki atmosferyczne w ciągu dnia. Każdy wykres zawiera oś X, która reprezentuje czas, oraz oś Y, która przedstawia różne zmienne meteorologiczne. W pierwszym wykresie prezentowane są zmiany temperatury zewnętrznej na przestrzeni dnia. Temperatura oscyluje w zakresie od około -0.5°C do 2.5°C, z maksymalnymi wartościami obserwowanymi w okolicach godziny ósmej. Charakterystyka tej zmienności temperatury sugeruje, że dane mogły być zbierane w okresie zimowym. Następny wykres ilustruje zmiany wilgotności powietrza na zewnątrz budynku, wyrażone w procentach. Wysoki poziom wilgotności, utrzymujący się przez cały dzień, może wskazywać na sezon zimowy lub jesienny. Prędkość wiatru, prezentowana na kolejnym wykresie, wykazuje znaczący wzrost w ciągu dnia, osiągając maksymalne wartości przekraczające 8  $\frac{m}{s}$, co może być charakterystyczne dla warunków zimowych, kiedy wiatry są silniejsze. Wykres ciśnienia atmosferycznego pokazuje wzrost wartości w pierwszej połowie dnia, po czym następuje stopniowy spadek. Wilgotność wewnętrzna, prezentowana na piątym wykresie, wykazuje wahania z ogólnym trendem spadkowym w drugiej połowie dnia. Szósty wykres przedstawia kierunek wiatru, który jest zmienny w ciągu dnia, z wyraźnymi zmianami szczególnie w środkowej części dnia, co może świadczyć o niestabilnych warunkach atmosferycznych.\\
+
 W celu zbadania wpływu wielkości modelu na wyniki oraz sprawdzenia ważności różnych wejść, zaproponowano w badaniu dwa modele o różnej złożoności architektury. Oba modele korzystały z tej samej funkcji harmonogramowania tempa uczenia, która redukowała szybkość uczenia po czwartej epoce, oraz z tych samych parametrów kompilacji, w tym optymalizatora Adam z początkową szybkością uczenia 0.001, funkcji straty MSE
 Pierwszy model składał się z mniejszej liczby warstw i neuronów: warstwa normalizująca, trzy warstwy gęste z odpowiednio 64, 32 i 1 neuronami, używając funkcji aktywacji 'relu' dla pierwszych dwóch warstw i 'linear' dla warstwy wyjściowej.
 Drugi model był znacznie większy, zawierając więcej warstw i neuronów: warstwa normalizująca, sześć warstw gęstych o zwiększającej się liczbie neuronów: 1024, 512, 256, 128, 64, 32, zakończonych warstwą wyjściową z 1 neuronem, używając funkcji aktywacji 'relu' dla warstw ukrytych i 'linear' dla warstwy wyjściowej.
 Oba modele były trenowane przez 50 epok z rozmiarem partii równym 32. Celem porównania tych dwóch modeli było ustalenie, czy zwiększenie liczby warstw i neuronów w modelu wpłynie na jego
 
 W ramach procesu weryfikacji skuteczności zastosowanych modeli sieci neuronowych, dane zostały podzielone w proporcji 80\% do 20\%. Ta strategia podziału danych miała na celu zapewnienie solidnej bazy do nauki modeli oraz efektywnej oceny ich wydajności. Model numer 1 wykazał się niższą skutecznością w porównaniu do modelu numer 2. Świadczy o tym wartość błędu średniokwadratowego, która dla modelu pierwszego wyniosła 0.0668, natomiast dla modelu drugiego było to znacząco niższe, a mianowicie 0.0237. Ta różnica w wartościach MSE wskazuje na wyższą precyzję i efektywność modelu numer 2 w procesie uczenia i oceny na podstawie dostępnych danych.
+\newpage
 \section{Permutacyjna Ważność Cech}
 Permutacyjna Ważność Cech, to technika stosowana w uczeniu maszynowym do oceny znaczenia poszczególnych wejść dla modelu predykcyjnego. Metoda ta jest stosowana zarówno dla modeli klasyfikacyjnych, jak i regresyjnych. Proces ten rozpoczyna się od trenowania modelu na oryginalnym zestawie danych, co pozwala na ustalenie bazowej wydajności modelu. Następnie przeprowadza się permutację każdej cechy z osobna w zbiorze testowym, losowo mieszając jej wartości, podczas gdy wszystkie inne cechy pozostają niezmienione. Po dokonaniu permutacji, model jest ponownie oceniany na zmodyfikowanym zbiorze danych. Wyniki tej oceny są następnie porównywane z wynikami uzyskanymi na oryginalnym, niezmodyfikowanym zbiorze. Różnica w wydajności modelu, taka jak spadek dokładności w klasyfikacji lub wzrost błędu średniokwadratowego w regresji, jest wykorzystywana do oceny ważności danej cechy. Im większy spadek wydajności, tym większa uważana jest ważność tej cechy dla modelu.
 
@@ -728,7 +733,7 @@ W celu implementacji techniki PFI w pracy, został wykorzystany obiekt Permutati
 
 \begin{table}[!h]
 	\centering
-	\caption{Porównianie wartości MSE dla każdego obu modelów}
+	\caption{Porównianie ważności wejść dla metody PFI}
 	\resizebox{\textwidth}{!}{
 		\begin{tabular}{|c|c|c|c|c|c|c|}
 			\hline
@@ -738,7 +743,7 @@ W celu implementacji techniki PFI w pracy, został wykorzystany obiekt Permutati
 		\end{tabular}
 	}
 \end{table}
-
+NAPISAĆ TUTAJ COŚ!\\
 \newpage
 \section{Badanie wag wejściowych pierwszej warsty}
 W analizie modeli uczenia maszynowego, interpretacja wag pierwszej warstwy może służyć jako metoda określania ważności cech wejściowych. Ponieważ wagi w pierwszej warstwie sieci neuronowej są bezpośrednio połączone z cechami wejściowymi, wartości tych wag mogą dostarczać informacji o znaczeniu poszczególnych cech dla predykcji modelu. Wysoka wartość wagowa sugeruje, że zmiana wartości tej cechy wejściowej może mieć istotny wpływ na wynik modelu. Jednakże, ta metoda interpretacji może być mniej efektywna w przypadku bardziej złożonych, głębokich sieci neuronowych. W takich modelach, liczne warstwy i skomplikowane struktury, w tym nieliniowe aktywacje i interakcje między neuronami, mogą skutkować tym, że bezpośredni wpływ pojedynczych wag jest trudniejszy do zrozumienia.
@@ -754,7 +759,7 @@ Mapa ciepła wag pierwszej warstwy sieci neuronowej stanowi cenne narzędzie ana
 W celu dokładnej analizy ważności poszczególnych wag wejściowych sieci neuronowej przeprowadzono obliczenie średniej wartości wagi dla każdego z wejść. Procedura ta umożliwiła identyfikację względnej ważności cech poprzez porównanie ich przeciętnego wpływu na aktywację neuronów w modelu. Następnie, aby umożliwić porównywalność wyników niezależnie od ich pierwotnej skali, dokonano normalizacji obliczonych średnich wag.
 \begin{table}[!h]
 	\centering
-	\caption{Todo}
+	\caption{Porównianie wag wejściowych dla pierwszej warstwy uproszczonego modelu}
 	\resizebox{\textwidth}{!}{
 		\begin{tabular}{|c|c|c|c|c|c|}
 			\hline
@@ -762,7 +767,9 @@ W celu dokładnej analizy ważności poszczególnych wag wejściowych sieci neur
 			0.57                                                              & 0.45                                                             & 1.00                                                               & 0.50                                                       & 0.17                                                       & 0.60                                                             \\ \hline
 		\end{tabular}
 	}
-\end{table}
+\end{table}\\
+
+NAPISAĆ TUTAJ COŚ!\\
 
 Analizy bardziej złożonych modeli sieci neuronowych, metoda interpretacji wag pierwszej warstwy może okazać się nieefektywna. Ze względu na zwiększoną głębokość i złożoność architektury, wagi w pierwszej warstwie tracą bezpośrednią i jednoznaczną interpretowalność, która jest charakterystyczna dla prostszych modeli. W modelach rozbudowanych, cechy wejściowe przechodzą przez wiele warstw transformacji, co skutkuje utratą bezpośredniego powiązania między wagami pierwszej warstwy a wynikowymi decyzjami modelu. W efekcie, interpretacja tych wag może nie odzwierciedlać faktycznego wpływu poszczególnych cech na decyzje modelu, co jest spowodowane nakładaniem się, transformacją i połączeniem informacji w kolejnych warstwach sieci.
 
@@ -773,9 +780,11 @@ Analizy bardziej złożonych modeli sieci neuronowych, metoda interpretacji wag 
 	\label{fig:etykieta-rysunku}
 \end{figure}
 
+NAPISAĆ TUTAJ COŚ!\\
+
 \begin{table}[!h]
 	\centering
-	\caption{Todo}
+	\caption{Porównianie wag wejściowych dla pierwszej warstwy rozbudowanego modelu}
 	\resizebox{\textwidth}{!}{
 		\begin{tabular}{|c|c|c|c|c|c|}
 			\hline
@@ -784,6 +793,8 @@ Analizy bardziej złożonych modeli sieci neuronowych, metoda interpretacji wag 
 		\end{tabular}
 	}
 \end{table}
+
+NAPISAĆ TUTAJ COŚ!\\
 
 \newpage
 \section{LIME}
@@ -794,36 +805,45 @@ Podstawowym elementem metody LIME jest modyfikacja danych i tworzenie na ich pod
 W ramach pracy, w celu dokładnej oceny skuteczności metody LIME, zdecydowano się na zastosowanie jej na losowo wybranych próbkach ze zbioru testowego.
 
 \begin{table}[!h]
-	\caption{Todo}
+	\caption{Porównanie ważności wejść dla metody LIME}
 	\resizebox{\textwidth}{!}{
-		\begin{tabular}{|c|c|c|c|c|c|}
+		\begin{tabular}{|c|c|c|c|c|c|c|}
 			\hline
-			\begin{tabular}[c]{@{}c@{}}Temperatura \\ zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność\\  zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Ciśnienie\\  atmosferyczne\end{tabular} & \begin{tabular}[c]{@{}c@{}}Prędkość\\  wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Kierunek\\  wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność \\ wewnętrzna\end{tabular} \\ \hline
-			0.17                                                              & 0.57                                                             & 1.00                                                               & 0.09                                                       & 0.00                                                       & 0.00                                                             \\ \hline
-			1.00                                                              & 0.36                                                             & 0.08                                                               & 0.04                                                       & 0.02                                                       & 0.36                                                             \\ \hline
-			1.00                                                              & 0.02                                                             & 0.02                                                               & 0.04                                                       & 0.00                                                       & 0.32                                                             \\ \hline
-			0.13                                                              & 1.00                                                             & 0.53                                                               & 0.00                                                       & 0.00                                                       & 0.47                                                             \\ \hline
+			                                                                   & \begin{tabular}[c]{@{}c@{}}Temperatura \\ zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność\\  zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Ciśnienie\\ atmosferyczne\end{tabular} & \begin{tabular}[c]{@{}c@{}}Prędkość\\ wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Kierunek\\ wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność\\  wewnętrzna\end{tabular} \\ \hline
+			\multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}Model\\ 1\end{tabular}} & 0.17                                                              & 0.57                                                             & 1.00                                                              & 0.09                                                      & 0.00                                                      & 0.00                                                             \\ \cline{2-7}
+			                                                                   & 1.00                                                              & 0.36                                                             & 0.08                                                              & 0.04                                                      & 0.02                                                      & 0.36                                                             \\ \cline{2-7}
+			                                                                   & 1.00                                                              & 0.02                                                             & 0.02                                                              & 0.04                                                      & 0.00                                                      & 0.32                                                             \\ \hline
+			\multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}Model\\ 2\end{tabular}} & 0.33                                                              & 0.33                                                             & 0.27                                                              & 0.13                                                      & 1.00                                                      & 0.93                                                             \\ \cline{2-7}
+			                                                                   & 1.00                                                              & 0.10                                                             & 0.15                                                              & 0.07                                                      & 0.10                                                      & 0.10                                                             \\ \cline{2-7}
+			                                                                   & 1.00                                                              & 0.023                                                            & 0.19                                                              & 0.09                                                      & 0.00                                                      & 0.78                                                             \\ \hline
 		\end{tabular}
 	}
 \end{table}
+
+NAPISAĆ TUTAJ COŚ!\\
 
 Mimo iż LIME jest metodą zasadniczo skoncentrowaną na dostarczaniu interpretacji lokalnych, istnieje możliwość adaptacji jej do generowania wniosków o charakterze bardziej ogólnym. Można to osiągnąć poprzez zastosowanie metody LIME wielokrotnie na różnych próbkach danych, a nastepnie wyciąganięcie średniej. Zaproponowano wybranie czterech zestawów ze zbioru testowego, zawierających odpowiednio 10, 50, 100, i 1000 próbek.
 
 
 \begin{table}[!h]
-	\caption{Todo}
+	\caption{Porównanie uśredninonych ważności wejść dla metody LIME dla wielu prób}
 	\resizebox{\textwidth}{!}{
-		\begin{tabular}{|c|c|c|c|c|c|c|}
+		\begin{tabular}{|c|c|c|c|c|c|c|c|}
 			\hline
-			\begin{tabular}[c]{@{}c@{}}Ilość\\ próbek\end{tabular} & \begin{tabular}[c]{@{}c@{}}Temperatura \\ zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność\\  zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Ciśnienie\\  atmosferyczne\end{tabular} & \begin{tabular}[c]{@{}c@{}}Prędkość\\  wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Kierunek\\  wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność\\  wewnętrzna\end{tabular} \\ \hline
-			10                                                     & 0.95                                                              & 0.82                                                             & 1.00                                                               & 0.20                                                       & 0.21                                                       & 0.09                                                             \\ \hline
-			50                                                     & 1.00                                                              & 0.21                                                             & 0.53                                                               & 0.15                                                       & 0.03                                                       & 0.01                                                             \\ \hline
-			100                                                    & 1.00                                                              & 0.27                                                             & 0.53                                                               & 0.26                                                       & 0.05                                                       & 0.02                                                             \\ \hline
-			1000                                                   & 1.00                                                              & 0.41                                                             & 0.49                                                               & 0.15                                                       & 0.01                                                       & 0.01                                                             \\ \hline
+			                                                                   & \begin{tabular}[c]{@{}c@{}}Ilość\\ próbek\end{tabular} & \begin{tabular}[c]{@{}c@{}}Temperatura \\ zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność\\  zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Ciśnienie\\ atmosferyczne\end{tabular} & \begin{tabular}[c]{@{}c@{}}Prędkość\\ wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Kierunek\\ wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność\\ wewnętrzna\end{tabular} \\ \hline
+			\multirow{4}{*}{\begin{tabular}[c]{@{}c@{}}Model\\ 1\end{tabular}} & 10                                                     & 0.95                                                              & 0.82                                                             & 1.00                                                              & 0.20                                                      & 0.21                                                      & 0.09                                                            \\ \cline{2-8}
+			                                                                   & 50                                                     & 1.00                                                              & 0.21                                                             & 0.53                                                              & 0.15                                                      & 0.03                                                      & 0.01                                                            \\ \cline{2-8}
+			                                                                   & 100                                                    & 1.00                                                              & 0.27                                                             & 0.53                                                              & 0.26                                                      & 0.05                                                      & 0.02                                                            \\ \cline{2-8}
+			                                                                   & 1000                                                   & 1.00                                                              & 0.41                                                             & 0.49                                                              & 0.15                                                      & 0.01                                                      & 0.01                                                            \\ \hline
+			\multirow{4}{*}{\begin{tabular}[c]{@{}c@{}}Model\\ 2\end{tabular}} & 10                                                     & 1.00                                                              & 0.35                                                             & 0.21                                                              & 0.28                                                      & 0.11                                                      & 0.01                                                            \\ \cline{2-8}
+			                                                                   & 50                                                     & 1.00                                                              & 0.30                                                             & 0.52                                                              & 0.33                                                      & 0.40                                                      & 0.03                                                            \\ \cline{2-8}
+			                                                                   & 100                                                    & 1.00                                                              & 0.44                                                             & 0.30                                                              & 0.21                                                      & 0.16                                                      & 0.03                                                            \\ \cline{2-8}
+			                                                                   & 1000                                                   & 1.00                                                              & 0.41                                                             & 0.84                                                              & 0.57                                                      & 0.27                                                      & 0.05                                                            \\ \hline
 		\end{tabular}
 	}
 \end{table}
 
+NAPISAĆ TUTAJ COŚ!\\
 
 \chapter{Modelowanie zbiornika CWU}
 \label{ch:05}
@@ -910,33 +930,6 @@ Dłuższe fragmenty lepiej jest umieszczać jako rysunek, np. kod na rys \ref{fi
 	\item wykryte i usunięte błędy
 	\item opcjonalnie wyniki badań eksperymentalnych
 \end{itemize}
-
-\begin{table}
-	\centering
-	\caption{Nagłówek tabeli jest nad tabelą.}
-	\label{id:tab:wyniki}
-	\begin{tabular}{rrrrrrrr}
-		\toprule
-		        & \multicolumn{7}{c}{metoda}                                                                                                                                  \\
-		\cmidrule{2-8}
-		        &                            &         & \multicolumn{3}{c}{alg. 3} & \multicolumn{2}{c}{alg. 4, $\gamma = 2$}                                                \\
-		\cmidrule(r){4-6}\cmidrule(r){7-8}
-		$\zeta$ & alg. 1                     & alg. 2  & $\alpha= 1.5$              & $\alpha= 2$                              & $\alpha= 3$ & $\beta = 0.1$ & $\beta = -0.1$ \\
-		\midrule
-		0       & 8.3250                     & 1.45305 & 7.5791                     & 14.8517                                  & 20.0028     & 1.16396       & 1.1365         \\
-		5       & 0.6111                     & 2.27126 & 6.9952                     & 13.8560                                  & 18.6064     & 1.18659       & 1.1630         \\
-		10      & 11.6126                    & 2.69218 & 6.2520                     & 12.5202                                  & 16.8278     & 1.23180       & 1.2045         \\
-		15      & 0.5665                     & 2.95046 & 5.7753                     & 11.4588                                  & 15.4837     & 1.25131       & 1.2614         \\
-		20      & 15.8728                    & 3.07225 & 5.3071                     & 10.3935                                  & 13.8738     & 1.25307       & 1.2217         \\
-		25      & 0.9791                     & 3.19034 & 5.4575                     & 9.9533                                   & 13.0721     & 1.27104       & 1.2640         \\
-		30      & 2.0228                     & 3.27474 & 5.7461                     & 9.7164                                   & 12.2637     & 1.33404       & 1.3209         \\
-		35      & 13.4210                    & 3.36086 & 6.6735                     & 10.0442                                  & 12.0270     & 1.35385       & 1.3059         \\
-		40      & 13.2226                    & 3.36420 & 7.7248                     & 10.4495                                  & 12.0379     & 1.34919       & 1.2768         \\
-		45      & 12.8445                    & 3.47436 & 8.5539                     & 10.8552                                  & 12.2773     & 1.42303       & 1.4362         \\
-		50      & 12.9245                    & 3.58228 & 9.2702                     & 11.2183                                  & 12.3990     & 1.40922       & 1.3724         \\
-		\bottomrule
-	\end{tabular}
-\end{table}
 
 
 
