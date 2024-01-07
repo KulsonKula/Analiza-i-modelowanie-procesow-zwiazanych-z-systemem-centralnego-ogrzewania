@@ -583,6 +583,42 @@ Opis narzędzi które zostały uzyte w celu optymalizacji pracy pythona, takie j
 \chapter{Modelowanie sieci neuronowej}
 \label{ch:04}
 \section{Metodologia projektowania modelu sieci neuronowej}
+\begin{figure}[!ht]
+	\centering
+	\resizebox{0.7\textwidth}{!}{%
+		\begin{circuitikz}
+			\tikzstyle{every node}=[font=\Large]
+			\draw  (9,12.75) circle (1.5cm);
+			\draw  (13,13.5) rectangle  node {\LARGE $f$} (16,11.75);
+			\draw  (13.25,13.25) rectangle (15.75,12);
+			\draw [->, >=Stealth] (9,10) .. controls (9,10.5) and (9,10.5) .. (9,11.25);
+			\draw [->, >=Stealth] (10.5,12.75) .. controls (11.75,12.75) and (11.75,12.75) .. (13,12.75);
+			\draw [->, >=Stealth] (16,12.75) .. controls (17.25,12.75) and (17.25,12.75) .. (18.5,12.75);
+			\node [font=\LARGE] at (9,9.25) {$b$};
+			\node [font=\Huge] at (9,12.5) {$\sum$};
+			\node [font=\LARGE] at (18.8,12.7) {y};
+			\draw [->, >=Stealth] (6.25,15.5) .. controls (7,14.5) and (7,14.5) .. (7.75,13.75);
+			\draw [->, >=Stealth] (6.25,13.5) .. controls (7,13.25) and (7,13.25) .. (7.5,13);
+			\draw [->, >=Stealth] (6.25,10) .. controls (7.25,10.75) and (7.25,10.75) .. (8,11.5);
+			\node [font=\normalsize] at (6,15.5) {$x_1$};
+			\node [font=\normalsize] at (5.75,13.5) {$x_2$};
+			\node [font=\normalsize] at (5.75,9.75) {$x_N$};
+			\node [font=\normalsize] at (7.25,14.75) {$w_1$};
+			\node [font=\normalsize] at (7,13.5) {$w_2$};
+			\node [font=\normalsize] at (7.25,10.25) {$w_N$};
+			\node [font=\LARGE] at (6.75,12) {.};
+			\node [font=\LARGE] at (6.75,11.75) {.};
+			\node [font=\LARGE] at (6.75,11.5) {.};
+			\node [font=\Large] at (11.7,13) {$v$};
+		\end{circuitikz}
+	}%
+
+	\caption{Model neuronu}
+	\label{Qp}
+\end{figure}
+\begin{equation}
+	y = f\left(\sum_{j=1}^{N} w_j x_j + b\right)
+\end{equation}
 Wstep teoretyczny o modelowaniu, opisanie rzeczy takich jak, warstwy, neurony, funckje aktywacjie, funkcje kosztu, optymalizator, liczba epok, batch size, walidacha, funckaj strat
 
 \newpage
@@ -945,6 +981,7 @@ Prędkość wiatru, która generalnie otrzymuje niższe ważności, ujawnia znac
 	Q_{wn} = \sum_{n=1}^{m(n)} Q_{m(n)} - Q_{un} - Q_{sn}
 \end{equation}
 
+\newpage
 \begin{figure}[!ht]
 	\centering
 	\resizebox{0.5\textwidth}{!}{%
@@ -1095,6 +1132,11 @@ Dłuższe fragmenty lepiej jest umieszczać jako rysunek, np. kod na rys \ref{fi
 	\begin{itemize}
 		\item[LIME] Local Interpretable Model-agnostic Explanations
 		\item[PFI] Permutation Feature Importance
+		\item[$f(\cdot)$] Funkcja aktywacji neuronu
+		\item[y] sygnał wyjściowy neuronu
+		\item[x] sygnał wejsciowy neuronu
+		\item[$w_j$]  Waga neuronu
+		\item[b] Składnik stały
 		\item[$T_{zi}^{n,m}$] Temperatura systemu grzewczego
 		\item[$T_{wo}^{n}$] Temepratura warsty
 		\item[$T_{ot}$] Temperatura otoczenia
