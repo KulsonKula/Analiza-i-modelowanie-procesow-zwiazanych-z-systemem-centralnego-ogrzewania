@@ -554,7 +554,7 @@ Decyzja o wyborze odpowiedniej biblioteki do tworzenia sieci neuronowych jest kl
 	\item Obsługa Wersjonowania Modeli: Zdolność do zarządzania różnymi wersjami modeli jest istotna w długoterminowej pracy nad projektem. TensorFlow i PyTorch oferują różne podejścia do zarządzania i wersjonowania modeli, które należy rozważyć w kontekście specyficznych wymagań projektu.
 \end{itemize}
 Po dokładnej analizie i uwzględnieniu wszystkich kluczowych wymagań zdecydowano, że najlepszym wyborem dla niniejszego projektu jest TensorFlow. Jest on idealnym wyborem zapewniajacym wysoką wydajność, ale równierz elastyczność i skalowaność
-\section{Inne bibloteki}
+\section{Narzędzia pomocnicze}
 Python odgrywa kluczową rolę w dziedzinie uczenia maszynowego i analizy danych, oferując zróżnicowany zestaw narzędzi, które ułatwiają i usprawniają kluczowe procesy, takie jak przetwarzanie danych, ich testowanie oraz wizualizacja. Korzystając z nich, możliwe jest znaczne przyspieszenie procesów związanych z uczeniem maszynowym, od przygotowania danych aż po analizę wyników, co podkreśla ich niezastąpioną wartość w projektach naukowych i przemysłowych.
 \subsection{Pandas i Numpy}
 NumPy, znany również jako Numerical Python, jest fundamentalną biblioteką do obliczeń naukowych w Pythonie. Oferuje ona wsparcie dla wielowymiarowych, jednorodnych tablic, które w znaczący sposób przewyższają standardowe listy Pythona pod względem wydajności, szczególnie przy obróbce dużych zbiorów danych. NumPy znacząco upraszcza operacje na danych dzięki wektoryzacji, umożliwiając wykonanie operacji takich jak dodawanie, mnożenie czy transpozycja tablic bez konieczności stosowania pętli i iteracji\\
@@ -568,24 +568,22 @@ Ponadto, zarówno NumPy, jak i Pandas wykazują doskonałą kompatybilność z b
 Matplotlib jest obecnie uznawana za najpopularniejszą bibliotekę do tworzenia wykresów i wizualizacji danych w języku Python. Ta wszechstronna biblioteka umożliwia tworzenie różnorodnych rodzajów wykresów, w tym wykresów liniowych, słupkowych, kołowych, a także map ciepła, które będą odgrywały kluczową rolę w jednym z badań przedstawionych w tej pracy. Matplotlib wyróżnia się także szerokimi możliwościami personalizacji wykresów, umożliwiając użytkownikom pełną kontrolę nad aspektami wizualnymi takimi jak style linii, kolory, a także możliwość dodawania adnotacji i etykiet, co znacznie zwiększa czytelność i efektywność prezentacji danych. Jedną z najważniejszych cech Matplotlib jest jej integracja z Pandas i NumPy, które są dwiema głównymi bibliotekami do przetwarzania i analizy danych używanymi w tej pracy.
 
 \subsection{Sckit-learn, ELI5 i LIME}
-\section{CUDA toolkit}
-Opis narzędzi które zostały uzyte w celu optymalizacji pracy pythona, takie jak wirtalne środowisko Conda, czy nvdia CUDA
+Scikit-learn jest biblioteka zawierająca bogaty zbiór algorytmów uczenia maszynowego, nie tylko oferuje szeroki zakres technik uczenia, ale także zapewnia dostęp do rozmaitych narzędzi przetwarzania danych. Dodatkowo, scikit-learn oferuje różnorodne metryki oceny
+ELI5 i Lime udostępniają nam narzędzia umożliwiające głębsze zrozumienie mechanizów decyzyjnych modelu. Dzięki nim jesteśmy w łatwy sposób zbadać każdą predykcje modelu jak i wpływ każdej zmiennej z osobna.
+\subsection{CUDA i Conda}
+CUDA, będąca narzędziem opracowanym przez firmę NVIDIA, stanowi kluczową technologię umożliwiającą wykorzystanie mocy obliczeniowej procesorów graficznych do przyspieszenia działania aplikacji. CUDA umożliwia znaczne przyspieszenie obliczeń w porównaniu do tradycyjnego przetwarzania na CPU, dzięki tej technologii czas potrzebny do trenowania zaawansowanych modeli uczenia maszynowego zostanie znacznie skrócony.\\
 
-% \begin{itemize}
-% 	\item wymagania funkcjonalne i niefunkcjonalne
-% 	\item przypadki użycia (diagramy UML) -- dla prac, w których mają zastosowanie
-% 	\item opis narzędzi, metod eksperymentalnych, metod modelowania itp.
-% 	\item metodyka pracy nad projektowaniem i implementacją -- dla prac, w których ma to zastosowanie
-% \end{itemize}/
+Conda jest środowiskiem wirutalnym i systemem do zarządzania pakietami. Pozwala ona na tworzenie odseparowanych środowisk dla różnych projektów, co jest bardzo ważne w momencie gdy różne projekty potrzebują różnych wersji tej tej samej bibloteki. Jest to szczególnie istotne w kontekście naszej pracy, gdzie narzędzia opisane wcześniej - mimo że idealnie współpracują ze sobą - wymagają specyficznych, niekoniecznie najnowszych wersji.
 
 
 % TODO
 \chapter{Modelowanie sieci neuronowej}
 \label{ch:04}
 \section{Metodologia projektowania modelu sieci neuronowej}
+W początkowych etapach rozwoju sieci neuronowych, neuron, będący ich najmniejszym elementem, był wzorowany na rzeczywistych neuronach ludzkiego układu nerwowego. Każdy taki neuron w sieci neuronowej funkcjonuje jako układ MISO, oznaczający wiele wejść i jedno wyjście. W praktyce oznacza to, że sygnał wyjściowy neuronu jest przekazywany do każdego neuronu w kolejnej warstwie sieci, jednak ponieważ jest to ta sama wartość, traktujemy to jako pojedyncze wyjście.
 \begin{figure}[!ht]
 	\centering
-	\resizebox{0.7\textwidth}{!}{%
+	\resizebox{0.7\textwidth}{!}{
 		\begin{circuitikz}
 			\tikzstyle{every node}=[font=\Large]
 			\draw  (9,12.75) circle (1.5cm);
@@ -595,15 +593,15 @@ Opis narzędzi które zostały uzyte w celu optymalizacji pracy pythona, takie j
 			\draw [->, >=Stealth] (10.5,12.75) .. controls (11.75,12.75) and (11.75,12.75) .. (13,12.75);
 			\draw [->, >=Stealth] (16,12.75) .. controls (17.25,12.75) and (17.25,12.75) .. (18.5,12.75);
 			\node [font=\LARGE] at (9,9.25) {$b$};
-			\node [font=\Huge] at (9,12.5) {$\sum$};
+			\node [scale=3,font=\Huge] at (9,12.7) {$\sum$};
 			\node [font=\LARGE] at (18.8,12.7) {y};
-			\draw [->, >=Stealth] (6.25,15.5) .. controls (7,14.5) and (7,14.5) .. (7.75,13.75);
+			\draw [->, >=Stealth] (6.25,15) .. controls (7,14.25) and (7,14.25) .. (7.75,13.75);
 			\draw [->, >=Stealth] (6.25,13.5) .. controls (7,13.25) and (7,13.25) .. (7.5,13);
 			\draw [->, >=Stealth] (6.25,10) .. controls (7.25,10.75) and (7.25,10.75) .. (8,11.5);
 			\node [font=\normalsize] at (6,15.5) {$x_1$};
 			\node [font=\normalsize] at (5.75,13.5) {$x_2$};
 			\node [font=\normalsize] at (5.75,9.75) {$x_N$};
-			\node [font=\normalsize] at (7.25,14.75) {$w_1$};
+			\node [font=\normalsize] at (7.25,14.5) {$w_1$};
 			\node [font=\normalsize] at (7,13.5) {$w_2$};
 			\node [font=\normalsize] at (7.25,10.25) {$w_N$};
 			\node [font=\LARGE] at (6.75,12) {.};
@@ -611,15 +609,40 @@ Opis narzędzi które zostały uzyte w celu optymalizacji pracy pythona, takie j
 			\node [font=\LARGE] at (6.75,11.5) {.};
 			\node [font=\Large] at (11.7,13) {$v$};
 		\end{circuitikz}
-	}%
-
+	}
 	\caption{Model neuronu}
 	\label{Qp}
 \end{figure}
+
+Neuron w sieci neuronowej jest sumatorem. Sumuje on wartości wszystkich wejść, przy czym każde wejście jest mnożone przez określoną wagę oraz dodawana jest do nich wartość stała. Po zsumowaniu tych wartości, sygnał wyjściowy neuronu jest przekształcany przez funkcję aktywacji, która decyduje o ostatecznej wartości wyjściowej tego neuronu.
+
+Wyjście pojedynczego neuronu można opisać za pomocą wzoru:
 \begin{equation}
 	y = f\left(\sum_{j=1}^{N} w_j x_j + b\right)
 \end{equation}
-Wstep teoretyczny o modelowaniu, opisanie rzeczy takich jak, warstwy, neurony, funckje aktywacjie, funkcje kosztu, optymalizator, liczba epok, batch size, walidacha, funckaj strat
+
+Neurony organizują się w sieci, tworząc struktury znane jako sieci neuronowe. Każda sieć neuronowa składa się z wielu neuronów, które są wzajemnie połączone i mogą być zorganizowane w różne warstwy. Charakterystyczną cechą neuronów należących do tej samej warstwy jest to, że otrzymują one wspólny sygnał wejściowy.\\
+
+Proces tworzenia architektury sieci neuronowej jest procesem wyboru hiperparametrów, czyli wartości konfiguracyjnych, które określają sposób działania i uczenia się modelu. Hiperparametry w sieciach neuronowych można podzielić na dwie kategorie:
+
+\begin{enumerate}
+	\item Hiperparametry Architektury Sieci:
+	      \begin{enumerate}
+		      \item Liczba warstw
+		      \item Liczba neuronów
+		      \item Typy warstw
+	      \end{enumerate}
+	\item Hiperparametry Procesu Uczenia:
+	      \begin{enumerate}
+		      \item Szybkość uczenia się: Wielkość kroku, o jaki wagi sa aktualizowane podczas uczenia.
+		      \item Liczba epok: Ilośc jaką zestaw uczący jest przetwarzany przez sieć.
+		      \item Rozmiar partii: Liczba próbek danych, które są przetwarzane jednocześnie w jednym kroku uczenia.
+		      \item Optymalizator: Algorytm służący do aktualizacji wag w sieci.
+		      \item Funkcja straty: Metryka oceniająca, jak dobrze model radzi sobie z zadaniem.
+	      \end{enumerate}
+\end{enumerate}
+
+Aby sieć neuronowa mogła efektywnie przewidywać wyniki, kluczowe jest jej odpowiednie nauczenie. Proces ten rozpoczyna się od inicjalizacji wag sieci, co stanowi punkt wyjściowy dla dalszego uczenia. Następnie, w trakcie procesu uczenia, wagi te są ciągle modyfikowane. Odbywa się to poprzez przesyłanie danych przez sieć i obliczanie błędu, który jest miarą różnicy między przewidywaniami sieci a rzeczywistymi wynikami. Kolejnym etapem jest obliczenie gradientu funkcji straty dla każdej wagi w sieci. Gradient ten wskazuje kierunek, w którym należy zmodyfikować wagi, aby zminimalizować błąd. Aktualizacja wag odbywa się za pomocą wybranego algorytmu optymalizacyjnego zwanego optymalizatorem. Cały ten proces jest powtarzany przez ustaloną liczbę iteracji i epok, co pozwala sieci na stopniowe 'naukę' i poprawę swojej zdolności do przewidywania wyników.
 
 \newpage
 \section{Dane wejściowe i proces ich przetwarzania}
@@ -1019,7 +1042,7 @@ Prędkość wiatru, która generalnie otrzymuje niższe ważności, ujawnia znac
 			\draw [](6.25,9.75) to[short] (13.75,9.75);
 		\end{circuitikz}
 	}%
-	\caption{Qp}
+	\caption{Trójwarstwowy model zasobnika}
 	\label{Qp}
 \end{figure}
 
@@ -1097,23 +1120,15 @@ Dłuższe fragmenty lepiej jest umieszczać jako rysunek, np. kod na rys \ref{fi
 \end{equation}
 
 
-\begin{itemize}
-	\item sposób testowania w ramach pracy (np. odniesienie do modelu V)
-	\item organizacja eksperymentów
-	\item przypadki testowe zakres testowania (pełny/niepełny)
-	\item wykryte i usunięte błędy
-	\item opcjonalnie wyniki badań eksperymentalnych
-\end{itemize}
-
 
 
 % TODO
 \chapter{Podsumowanie i wnioski}
-\begin{itemize}
-	\item uzyskane wyniki w świetle postawionych celów i zdefiniowanych wyżej wymagań
-	\item kierunki ewentualnych danych prac (rozbudowa funkcjonalna …)
-	\item problemy napotkane w trakcie pracy
-\end{itemize}
+% \begin{itemize}
+% 	\item uzyskane wyniki w świetle postawionych celów i zdefiniowanych wyżej wymagań
+% 	\item kierunki ewentualnych danych prac (rozbudowa funkcjonalna …)
+% 	\item problemy napotkane w trakcie pracy
+% \end{itemize}
 
 
 
@@ -1130,11 +1145,17 @@ Dłuższe fragmenty lepiej jest umieszczać jako rysunek, np. kod na rys \ref{fi
 	\chapter{Spis skrótów i symboli}
 
 	\begin{itemize}
+		\item[ASHRAE] American Society of Heating, Refrigerating and Air-Conditioning Enginee
+		\item[MISO] Multiple Input, Single Output
+		\item[CUDA] Compute Unified Device Architecture
+		\item[GPU] Graphics processing unit
+		\item[CPU] Central processing Unit
 		\item[LIME] Local Interpretable Model-agnostic Explanations
 		\item[PFI] Permutation Feature Importance
 		\item[$f(\cdot)$] Funkcja aktywacji neuronu
 		\item[y] sygnał wyjściowy neuronu
 		\item[x] sygnał wejsciowy neuronu
+		\item[$v$] pobudzenie neuronu
 		\item[$w_j$]  Waga neuronu
 		\item[b] Składnik stały
 		\item[$T_{zi}^{n,m}$] Temperatura systemu grzewczego
@@ -1164,37 +1185,6 @@ Dłuższe fragmenty lepiej jest umieszczać jako rysunek, np. kod na rys \ref{fi
 	\end{itemize}
 
 
-	% TODO
-	\chapter{Źródła}
-
-	Jeżeli w pracy konieczne jest umieszczenie długich fragmentów kodu źródłowego, należy je przenieść w to miejsce.
-
-	\begin{lstlisting}
-if (_nClusters < 1)
-	throw std::string ("unknown number of clusters");
-if (_nIterations < 1 and _epsilon < 0)
-	throw std::string ("You should set a maximal number of iteration or minimal difference -- epsilon.");
-if (_nIterations > 0 and _epsilon > 0)
-	throw std::string ("Both number of iterations and minimal epsilon set -- you should set either number of iterations or minimal epsilon.");
-\end{lstlisting}
-
-
-	% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-	% Pakiet minted wymaga odkomentowania w pliku config/settings.tex   %
-	% importu pakietu minted: \usepackage{minted}                       %
-	% i specjalnego kompilowania:                                       %
-	% pdflatex -shell-escape praca                                      %
-	% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-
-	%\begin{minted}[linenos,breaklines,frame=lines]{c++}
-	%if (_nClusters < 1)
-	%   throw std::string ("unknown number of clusters");
-	%if (_nIterations < 1 and _epsilon < 0)
-	%   throw std::string ("You should set a maximal number of iteration or minimal difference -- epsilon.");
-	%if (_nIterations > 0 and _epsilon > 0)
-	%   throw std::string ("Both number of iterations and minimal epsilon set -- you should set either number of iterations or minimal epsilon.");
-	%\end{minted}
-
 
 	% TODO
 	\chapter{Lista dodatkowych plików, uzupełniających tekst pracy}
@@ -1202,10 +1192,11 @@ if (_nIterations > 0 and _epsilon > 0)
 
 	W systemie do pracy dołączono dodatkowe pliki zawierające:
 	\begin{itemize}
-		\item źródła programu,
-		\item dane testowe,
-		\item film pokazujący działanie opracowanego oprogramowania lub zaprojektowanego i~wykonanego urządzenia,
-		\item itp.
+		\item Dane od ASHRAE i ich przetworzona wersja
+		\item Dane potrzebne do oceny wazności wejść DO POPRAWY
+		\item Skrypty przetawrzające dane.
+		\item Nauczone modele
+		\item Skrypty oceniające ważność wejść
 	\end{itemize}
 
 
