@@ -396,65 +396,65 @@ escapeinside={@*}{*@},%
 %%%%%%%%%%%%%%%%%%  STRONA TYTUŁOWA %%%%%%%%%%%%%%%%%%%
 \pagestyle{empty}
 {
-	\newgeometry{top=1.5cm,%
-		bottom=2.5cm,%
-		left=3cm,
-		right=2.5cm}
+  \newgeometry{top=1.5cm,%
+    bottom=2.5cm,%
+    left=3cm,
+    right=2.5cm}
 
-	\ifxetex
-		\begingroup
-		\setsansfont{Calibri}
+  \ifxetex
+    \begingroup
+    \setsansfont{Calibri}
 
-	\fi
-	\sffamily
-	\begin{center}
-		\includegraphics[width=50mm]{\Logo}
-
-
-		{\Large\bfseries\Type\par}
-
-		\vfill  \vfill
-
-		{\large\Title\par}
-
-		\vfill
-
-		{\large\bfseries\Author\par}
-
-		{\normalsize\bfseries \LeftId: \IdAuthor}
-
-		\printCoauthor
-
-		\vfill
-
-		{\large{\bfseries \LeftProgram:} \Program\par}
-
-		{\large{\bfseries \LeftSpecialisation:} \Specialisation\par}
-
-		\vfill  \vfill 	\vfill 	\vfill 	\vfill 	\vfill 	\vfill
-
-		{\large{\bfseries \LeftSUPERVISOR}\par}
-
-		{\large{\bfseries \Supervisor}\par}
-
-		{\large{\bfseries \LeftDEPARTMENT\ \Departament} \par}
-
-		{\large{\bfseries \Faculty}\par}
-
-		\vfill  \vfill
+  \fi
+  \sffamily
+  \begin{center}
+    \includegraphics[width=50mm]{\Logo}
 
 
-		\printOpiekun{\Consultant}
+    {\Large\bfseries\Type\par}
 
-		\vfill  \vfill
+    \vfill  \vfill
 
-		{\large\bfseries  Gliwice \the\year}
+    {\large\Title\par}
 
-	\end{center}
-	\ifxetex
-		\endgroup
-	\fi
-	\restoregeometry
+    \vfill
+
+    {\large\bfseries\Author\par}
+
+    {\normalsize\bfseries \LeftId: \IdAuthor}
+
+    \printCoauthor
+
+    \vfill
+
+    {\large{\bfseries \LeftProgram:} \Program\par}
+
+    {\large{\bfseries \LeftSpecialisation:} \Specialisation\par}
+
+    \vfill  \vfill 	\vfill 	\vfill 	\vfill 	\vfill 	\vfill
+
+    {\large{\bfseries \LeftSUPERVISOR}\par}
+
+    {\large{\bfseries \Supervisor}\par}
+
+    {\large{\bfseries \LeftDEPARTMENT\ \Departament} \par}
+
+    {\large{\bfseries \Faculty}\par}
+
+    \vfill  \vfill
+
+
+    \printOpiekun{\Consultant}
+
+    \vfill  \vfill
+
+    {\large\bfseries  Gliwice \the\year}
+
+  \end{center}
+  \ifxetex
+    \endgroup
+  \fi
+  \restoregeometry
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -484,16 +484,16 @@ escapeinside={@*}{*@},%
 
 \subsubsection*{Thesis title}
 \begin{otherlanguage}{british}
-	\TitleAlt
+  \TitleAlt
 \end{otherlanguage}
 
 \subsubsection*{Abstract}
 \begin{otherlanguage}{british}
-	(Thesis abstract – to be copied into an appropriate field during an electronic submission – in English.)
+  (Thesis abstract – to be copied into an appropriate field during an electronic submission – in English.)
 \end{otherlanguage}
 \subsubsection*{Key words}
 \begin{otherlanguage}{british}
-	(2-5 keywords, separated by commas)
+  (2-5 keywords, separated by commas)
 \end{otherlanguage}
 
 
@@ -547,8 +547,8 @@ W ramach rozdziału "Pogoda" niniejszej pracy dyplomowej dokonano prezentacji i 
 \section{Python}
 Wybór głównego języka programowania zastosowanego w projekcie, wiązał się z postawieniem pewnych wymagań. Pierwszym z tych wymagań była dostępność dedykowanej biblioteki do uczenia maszynowego, która posiada narzędzia do efektywnej pracy nad modelami czy ich testowanie. Użycie biblioteki która jest dobrze utrzymana zapewnia ogromne wsparcie społeczności, które może okazać się nieocenione w procesie nauki czy rozwiązywania problemów.\\Kolejnym wymaganiem jest aby wybrana technologia była ciągle wspierana i aktualizowana. Machine learning jest aktualnie jedną z najszybciej rozwijających się dziedzin programowania, co wiąże się z szybkimi zmianami. Po dokładnej analizie postawionych wymagań, zdecydowano o wyborze dwóch głównych języków programowania, które najlepiej odpowiadają potrzebom projektu
 \begin{itemize}
-	\item R
-	\item Python
+  \item R
+  \item Python
 \end{itemize}
 
 R jest językiem skoncentrowanym na analizie danych i statystyce. Posiada on bardzo bogaty ekosystem jednak może stanowić to przyczynę wielu konfliktów pomiędzy pakietami. Największą wadą tego jest języka jest problem ze skalowalnością. Praca z dużą ilością danych skutkuje zużyciem ogromnej ilości pamięci RAM.\\ Skorzystanie z Pythona będzie lepiej spełniać wymogi projektu. Jest on językiem bardziej wszechstronny oraz posiada obszerną biblioteke standardową jak i bardzo liczne zewnętrzne bibloteki. Największą wadą Pythona jest jego wydajność. Gdyż jest językiem interpretowanym, więc nie jest on kompilowany do kodu maszynowego przed jego uruchomieniem.
@@ -556,11 +556,11 @@ R jest językiem skoncentrowanym na analizie danych i statystyce. Posiada on bar
 
 Decyzja o wyborze odpowiedniej biblioteki do tworzenia sieci neuronowych jest kluczowym elementem każdego projektu związanego z uczeniem maszynowym i głębokim uczeniem. TensorFlow, będący jedną z dwóch głównych otwartych bibliotek do uczenia maszynowego w Pythonie, wyróżnia się swoją wszechstronnością i wsparciem od Google. Jego głównym konkurentem jest PyTorch, rozwijany przez Facebook, który zyskał popularność ze względu na swoją elastyczność i przyjazność dla użytkownika.
 \begin{itemize}
-	\item Rozbudowana Dokumentacja: Jest niezbędne, aby biblioteka była wyposażona we wszechstronną i precyzyjnie zorganizowaną dokumentację, która wspiera proces edukacyjny oraz efektywne rozwiązywanie problemów technicznych. W kontekście tego wymogu TensorFlow wyróżnia się, dostarczając szczegółowe instrukcje i obszerną kolekcję przykładowych zastosowań, co stanowi bezcenny zasób zarówno dla osób rozpoczynających pracę z tą technologią, jak i dla programistów o zaawansowanym poziomie doświadczenia.
-	\item Integracja z Innymi Narzędziami i Bibliotekami: Python oferuje szeroką gamę pomocniczych bibliotek, które dostarczają zróżnicowanych typów danych, co jest istotnym aspektem jego funkcjonalności, więc ważne aby biblioteka była z nimi kompatybilna. TensorFlow oferuje szerokie możliwości integracji, zwłaszcza z narzędziami Google Cloud, podczas gdy PyTorch jest bardziej ukierunkowany na modułowość i elastyczność w integracji z różnorodnymi ekosystemami.
-	\item Łatwość Użycia: Intuicyjność i prostota użytkowania są niezbędne dla szybkiego prototypowania i eksperymentowania. PyTorch, ze swoim dynamicznym grafem obliczeń, jest często postrzegany jako bardziej dostępny dla nowych użytkowników oraz bardziej elastyczny w badaniach.
-	\item Wydajność i Optymalizacja: Optymalna wydajność i możliwości skalowania są kluczowe w aplikacjach przemysłowych. TensorFlow, z lepszym wsparciem dla TPU i rozbudowanymi opcjami treningu rozproszonego, często przewyższa PyTorch w dużych projektach i zastosowaniach o dużym obciążeniu.
-	\item Obsługa Wersjonowania Modeli: Zdolność do zarządzania różnymi wersjami modeli jest istotna w długoterminowej pracy nad projektem. TensorFlow i PyTorch oferują różne podejścia do zarządzania i wersjonowania modeli, które należy rozważyć w kontekście specyficznych wymagań projektu.
+  \item Rozbudowana Dokumentacja: Jest niezbędne, aby biblioteka była wyposażona we wszechstronną i precyzyjnie zorganizowaną dokumentację, która wspiera proces edukacyjny oraz efektywne rozwiązywanie problemów technicznych. W kontekście tego wymogu TensorFlow wyróżnia się, dostarczając szczegółowe instrukcje i obszerną kolekcję przykładowych zastosowań, co stanowi bezcenny zasób zarówno dla osób rozpoczynających pracę z tą technologią, jak i dla programistów o zaawansowanym poziomie doświadczenia.
+  \item Integracja z Innymi Narzędziami i Bibliotekami: Python oferuje szeroką gamę pomocniczych bibliotek, które dostarczają zróżnicowanych typów danych, co jest istotnym aspektem jego funkcjonalności, więc ważne aby biblioteka była z nimi kompatybilna. TensorFlow oferuje szerokie możliwości integracji, zwłaszcza z narzędziami Google Cloud\cite{bib:COLAB}, podczas gdy PyTorch jest bardziej ukierunkowany na modułowość i elastyczność w integracji z różnorodnymi ekosystemami.
+  \item Łatwość Użycia: Intuicyjność i prostota użytkowania są niezbędne dla szybkiego prototypowania i eksperymentowania. PyTorch, ze swoim dynamicznym grafem obliczeń, jest często postrzegany jako bardziej dostępny dla nowych użytkowników oraz bardziej elastyczny w badaniach.
+  \item Wydajność i Optymalizacja: Optymalna wydajność i możliwości skalowania są kluczowe w aplikacjach przemysłowych. TensorFlow, z lepszym wsparciem dla TPU\cite{bib:TPU} i rozbudowanymi opcjami treningu rozproszonego, często przewyższa PyTorch w dużych projektach i zastosowaniach o dużym obciążeniu.
+  \item Obsługa Wersjonowania Modeli: Zdolność do zarządzania różnymi wersjami modeli jest istotna w długoterminowej pracy nad projektem. TensorFlow i PyTorch oferują różne podejścia do zarządzania i wersjonowania modeli, które należy rozważyć w kontekście specyficznych wymagań projektu.
 \end{itemize}
 Po dokładnej analizie i uwzględnieniu wszystkich kluczowych wymagań zdecydowano, że najlepszym wyborem dla niniejszego projektu jest TensorFlow. Jest on idealnym wyborem zapewniającym wysoką wydajność, ale również elastyczność i skalowalność
 \section{Narzędzia pomocnicze}
@@ -591,43 +591,43 @@ Conda jest środowiskiem wirtualnym i systemem do zarządzania pakietami. Pozwal
 \section{Metodologia projektowania modelu sieci neuronowej}
 W początkowych etapach rozwoju sieci neuronowych, neuron, będący ich najmniejszym elementem był wzorowany na rzeczywistych neuronach ludzkiego układu nerwowego. Każdy taki neuron w sieci neuronowej funkcjonuje jako układ MISO, oznaczający wiele wejść i jedno wyjście. W praktyce oznacza to, że sygnał wyjściowy neuronu jest przekazywany do każdego neuronu w kolejnej warstwie sieci, jednak ponieważ jest to ta sama wartość, traktujemy to jako pojedyncze wyjście.
 \begin{figure}[!ht]
-	\centering
-	\resizebox{0.7\textwidth}{!}{
-		\begin{circuitikz}
-			\tikzstyle{every node}=[font=\Large]
-			\draw  (9,12.75) circle (1.5cm);
-			\draw  (13,13.5) rectangle  node {\LARGE $f$} (16,11.75);
-			\draw  (13.25,13.25) rectangle (15.75,12);
-			\draw [->, >=Stealth] (9,10) .. controls (9,10.5) and (9,10.5) .. (9,11.25);
-			\draw [->, >=Stealth] (10.5,12.75) .. controls (11.75,12.75) and (11.75,12.75) .. (13,12.75);
-			\draw [->, >=Stealth] (16,12.75) .. controls (17.25,12.75) and (17.25,12.75) .. (18.5,12.75);
-			\node [font=\LARGE] at (9,9.25) {$b$};
-			\node [scale=3,font=\Huge] at (9,12.7) {$\sum$};
-			\node [font=\LARGE] at (18.8,12.7) {y};
-			\draw [->, >=Stealth] (6.25,15) .. controls (7,14.25) and (7,14.25) .. (7.75,13.75);
-			\draw [->, >=Stealth] (6.25,13.5) .. controls (7,13.25) and (7,13.25) .. (7.5,13);
-			\draw [->, >=Stealth] (6.25,10) .. controls (7.25,10.75) and (7.25,10.75) .. (8,11.5);
-			\node [font=\normalsize] at (6,15.5) {$x_1$};
-			\node [font=\normalsize] at (5.75,13.5) {$x_2$};
-			\node [font=\normalsize] at (5.75,9.75) {$x_N$};
-			\node [font=\normalsize] at (7.25,14.5) {$w_1$};
-			\node [font=\normalsize] at (7,13.5) {$w_2$};
-			\node [font=\normalsize] at (7.25,10.25) {$w_N$};
-			\node [font=\LARGE] at (6.75,12) {.};
-			\node [font=\LARGE] at (6.75,11.75) {.};
-			\node [font=\LARGE] at (6.75,11.5) {.};
-			\node [font=\Large] at (11.7,13) {$v$};
-		\end{circuitikz}
-	}
-	\caption{Model neuronu}
-	\label{Qp}
+  \centering
+  \resizebox{0.7\textwidth}{!}{
+    \begin{circuitikz}
+      \tikzstyle{every node}=[font=\Large]
+      \draw  (9,12.75) circle (1.5cm);
+      \draw  (13,13.5) rectangle  node {\LARGE $f$} (16,11.75);
+      \draw  (13.25,13.25) rectangle (15.75,12);
+      \draw [->, >=Stealth] (9,10) .. controls (9,10.5) and (9,10.5) .. (9,11.25);
+      \draw [->, >=Stealth] (10.5,12.75) .. controls (11.75,12.75) and (11.75,12.75) .. (13,12.75);
+      \draw [->, >=Stealth] (16,12.75) .. controls (17.25,12.75) and (17.25,12.75) .. (18.5,12.75);
+      \node [font=\LARGE] at (9,9.25) {$b$};
+      \node [scale=3,font=\Huge] at (9,12.7) {$\sum$};
+      \node [font=\LARGE] at (18.8,12.7) {y};
+      \draw [->, >=Stealth] (6.25,15) .. controls (7,14.25) and (7,14.25) .. (7.75,13.75);
+      \draw [->, >=Stealth] (6.25,13.5) .. controls (7,13.25) and (7,13.25) .. (7.5,13);
+      \draw [->, >=Stealth] (6.25,10) .. controls (7.25,10.75) and (7.25,10.75) .. (8,11.5);
+      \node [font=\normalsize] at (6,15.5) {$x_1$};
+      \node [font=\normalsize] at (5.75,13.5) {$x_2$};
+      \node [font=\normalsize] at (5.75,9.75) {$x_N$};
+      \node [font=\normalsize] at (7.25,14.5) {$w_1$};
+      \node [font=\normalsize] at (7,13.5) {$w_2$};
+      \node [font=\normalsize] at (7.25,10.25) {$w_N$};
+      \node [font=\LARGE] at (6.75,12) {.};
+      \node [font=\LARGE] at (6.75,11.75) {.};
+      \node [font=\LARGE] at (6.75,11.5) {.};
+      \node [font=\Large] at (11.7,13) {$v$};
+    \end{circuitikz}
+  }
+  \caption{Model neuronu}
+  \label{Qp}
 \end{figure}
 
 Neuron w sieci neuronowej jest sumatorem. Sumuje on wartości wszystkich wejść, przy czym każde wejście jest mnożone przez określoną wagę oraz dodawana jest do nich wartość stała. Po zsumowaniu tych wartości sygnał wyjściowy neuronu jest przekształcany przez funkcję aktywacji, która decyduje o ostatecznej wartości wyjściowej tego neuronu.\cite{bib:ksiazka_sieci}
 
 Wyjście pojedynczego neuronu można opisać za pomocą wzoru:
 \begin{equation}
-	y = f\left(\sum_{j=1}^{N} w_j x_j + b\right)
+  y = f\left(\sum_{j=1}^{N} w_j x_j + b\right)
 \end{equation}
 
 Neurony organizują się w sieci, tworząc struktury znane jako sieci neuronowe. Każda sieć neuronowa składa się z wielu neuronów, które są wzajemnie połączone i mogą być zorganizowane w różne warstwy. Charakterystyczną cechą neuronów należących do tej samej warstwy jest to, że otrzymują one wspólny sygnał wejściowy.\\
@@ -635,20 +635,20 @@ Neurony organizują się w sieci, tworząc struktury znane jako sieci neuronowe.
 Proces tworzenia architektury sieci neuronowej jest procesem wyboru hiperparametrów, czyli wartości konfiguracyjnych, które określają sposób działania i uczenia się modelu. Hiperparametry w sieciach neuronowych można podzielić na dwie kategorie:
 
 \begin{enumerate}
-	\item Hiperparametry Architektury Sieci:
-	      \begin{enumerate}
-		      \item Liczba warstw
-		      \item Liczba neuronów
-		      \item Typy warstw
-	      \end{enumerate}
-	\item Hiperparametry Procesu Uczenia:
-	      \begin{enumerate}
-		      \item Szybkość uczenia się: Wielkość kroku, o jaki wagi sa aktualizowane podczas uczenia.
-		      \item Liczba epok: Ilośc jaką zestaw uczący jest przetwarzany przez sieć.
-		      \item Rozmiar partii: Liczba próbek danych, które są przetwarzane jednocześnie w jednym kroku uczenia.
-		      \item Optymalizator: Algorytm służący do aktualizacji wag w sieci.
-		      \item Funkcja straty: Metryka oceniająca, jak dobrze model radzi sobie z zadaniem.
-	      \end{enumerate}
+  \item Hiperparametry Architektury Sieci:
+        \begin{enumerate}
+          \item Liczba warstw
+          \item Liczba neuronów
+          \item Typy warstw
+        \end{enumerate}
+  \item Hiperparametry Procesu Uczenia:
+        \begin{enumerate}
+          \item Szybkość uczenia się: Wielkość kroku, o jaki wagi sa aktualizowane podczas uczenia.
+          \item Liczba epok: Ilośc jaką zestaw uczący jest przetwarzany przez sieć.
+          \item Rozmiar partii: Liczba próbek danych, które są przetwarzane jednocześnie w jednym kroku uczenia.
+          \item Optymalizator: Algorytm służący do aktualizacji wag w sieci.
+          \item Funkcja straty: Metryka oceniająca, jak dobrze model radzi sobie z zadaniem.
+        \end{enumerate}
 \end{enumerate}
 
 Aby sieć neuronowa mogła efektywnie przewidywać wyniki, kluczowe jest jej odpowiednie nauczenie. Proces ten rozpoczyna się od inicjalizacji wag sieci, co stanowi punkt wyjściowy dla dalszego uczenia. Następnie, w trakcie procesu uczenia, wagi te są ciągle modyfikowane. Odbywa się to poprzez przesyłanie danych przez sieć i obliczanie błędu, który jest miarą różnicy między przewidywaniami sieci a rzeczywistymi wynikami. Kolejnym etapem jest obliczenie gradientu funkcji straty dla każdej wagi w sieci. Gradient ten wskazuje kierunek, w którym należy zmodyfikować wagi, aby zminimalizować błąd. Aktualizacja wag odbywa się przy pomocą wybranego algorytmu optymalizacyjnego zwanego optymalizatorem. Cały ten proces jest powtarzany przez ustaloną liczbę iteracji i epok, co pozwala sieci na stopniowe 'naukę' i poprawę swojej zdolności do przewidywania wyników.\cite{bib:ksiazka_sieci_algorytmy}
@@ -657,29 +657,29 @@ Aby sieć neuronowa mogła efektywnie przewidywać wyniki, kluczowe jest jej odp
 \section{Dane wejściowe i proces ich przetwarzania}
 Projekt wykorzystuje dane zebrane przez M.J. Ritchie et al.\cite{bib:artykul_dane} w 2018 roku. Informacje o zużyciu wody zostały pozyskane z 77 domostwo znajdujących się na terenie Południowej Afryki, zamieszkiwanym przez dwoje osób dorosłych oraz dwójkę dzieci, oraz posiadających podstawowe urządzenia AGD takie jak pralka czy zmywarka. Dane były zbierane przez 16 tygodni, w cyklach trwających 4 tygodnie, aby równomiernie obejmować każdą porę roku. Próbkowanie danych odbywało sie co minute, nieprzerwanie przez całą dobę. Całość danych zostało podzielone na 73 oddzielne pliki w formacie .csv. W każdym pliku znajdował się timestamp w formacie "RR-MM-DD HH:MM:SS", który określał dzień i godzinę pomiaru danych. Oprócz tego zawierał informacje o zużyciu wody, oraz temperaturę otoczenia. Dodatkowo dane były podzielone na poszczególne poru roku.\\
 \begin{figure}[!h]
-	\centering
-	\includegraphics[width=1\textwidth]{img/Dane_nowe_disp.png}
-	\caption{Podpis rysunku zawsze pod rysunkiem.}
-	\label{fig:etykieta-rysunku}
+  \centering
+  \includegraphics[width=1\textwidth]{img/Dane_nowe_disp.png}
+  \caption{Podpis rysunku zawsze pod rysunkiem.}
+  \label{fig:etykieta-rysunku}
 \end{figure}\\
 Pierwszy wykres przestawia dane zebrane z domu nr. 13 zebrane w dniu 05/02/2018. Oś X oznaczająca godzinę, począwszy od północy. Oś Y reprezentuje przepływ wody w danym momencie dnia. Wykres przedstwia nieregularne piki o nierównomiernym rozkładzie. Okresami o zwiększonym przepływie są godziny 7-13 oraz 14-15. Okresy mniejszej aktywności możemy zaobserwować w godzinach późno popołudniowych oraz nocnych. Drugi i trzeci wykres przedstawiają zbliżenie na godzinę 7 oraz 15. Dzięki zwężeniu analizowanego zakresu czasu możliwe było dokładniejsze zbadanie struktury występujących pików. Ta metoda wizualizacji ujawniła, że poszczególne piki, które na ogólnym wykresie dobowym mogły sprawiać wrażenie pojedynczych punktów, w rzeczywistości są złożone z wielu pojedynczych zdarzeń. To odkrycie jest istotne, ponieważ wskazuje na bardziej złożoną dynamikę przepływu w określonych momentach doby, co na pierwszy rzut oka mogło umknąć uwadze.\\
 \newpage
 W celu lepszego wstępnego zrozumienia charakterystyki analizowanego zestawu danych, niezbędne jest także szczegółowe przyjrzenie się kilku losowo wybranym domostwom.\\
 \begin{figure}[!h]
-	\centering
-	\includegraphics[width=1\textwidth]{img/Dane_nowe_compare.png}
-	\caption{Porównanie przepływów dla przykładowych domów w dniu 05/02/2018}
-	\label{fig:etykieta-rysunku}
+  \centering
+  \includegraphics[width=1\textwidth]{img/Dane_nowe_compare.png}
+  \caption{Porównanie przepływów dla przykładowych domów w dniu 05/02/2018}
+  \label{fig:etykieta-rysunku}
 \end{figure}\\
 Analiza przedstawionych histogramów przepływów dla poszczególnych losowo wybranych domostw, wykonana na podstawie danych z dnia 05/02/2018, ukazuje wyraźne różnice w charakterystyce przepływów dla każdego z nich. Zgodnie z Rysunkiem 3.2, można stwierdzić, że każdy dom prezentuje unikalny wzór aktywności, co może odzwierciedlać różnorodność nawyków, planów dnia lub specyficznych potrzeb mieszkańców. Na przykład, dla domu nr 5 zużycie wody jest rozłożone przez większą część dnia, z obserwowaną aktywnością w rozmaitych godzinach. Jednakże zarejestrowano również pojedyncze zużycie w nocy. Z kolei Dom 52 charakteryzuje się wyraźnym szczytem wieczornym, co stanowi kontrast w stosunku do pozostałych domów.\\W przypadku Domu nr 4, nie odnotowano żadnego przepływu w analizowanym dniu. Brak danych może wynikać z co najmniej dwóch potencjalnych przyczyn. Pierwszą z nich jest zastosowany czas próbkowania, który wynosił jedną minutę. Taki interwał może nie być wystarczająco krótki, aby zarejestrować sporadyczne lub krótkotrwałe zdarzenia przepływu. Drugą możliwością, która może wyjaśniać brak zarejestrowanej aktywności, jest potencjalna nieobecność mieszkańców w domu w danym dniu.
 
 \newpage
 Pomimo iż zgromadzone dane charakteryzowały się wysoką jakością, ich specyficzny format wymagał przygotowania skryptu celem ich przetwarzania i ekstrakcję istotnych informacji.\\
 \begin{figure}[!h]
-	\centering
-	\lstinputlisting[language=Python]{kod/Przetwarzanie_nowe_dane.py}
-	\caption{Fragment skryptu przetwarzającego dane.}
-	\label{fig:pseudokod:listings}
+  \centering
+  \lstinputlisting[language=Python]{kod/Przetwarzanie_nowe_dane.py}
+  \caption{Fragment skryptu przetwarzającego dane.}
+  \label{fig:pseudokod:listings}
 \end{figure}
 
 W ramach procesu dostowania formatu aby przystosować go do wymagań tensorflow dzień tygodnia został zamieniona na etykietę liczbową, która przyjmuje wartość od 1 do 7, co odpowiada kolejnym dniom tygodnia. Podobny proces został zastosowany do etykietowania pór roku. Każda została zakodowana jako etykieta w zakresie od 1 do 4 co prezentuje kolejno wiosnę, lato, jesień i zimę. Dodatkowo czas dnia został zmieniony na procent dnia w skali od 0 do 1.
@@ -693,13 +693,13 @@ Czas uczenia sieci był znacząco różny dla poszczególnych zestawów danych. 
 
 Początkowo hiperparametry były testowane na najmniejszym zbiorze, co pozwalało na szybką i efektywną ocenę różnych konfiguracji. Po uzyskaniu zadowalających wyników na zbiorze pojedynczego domostwa testy były rozszerzane kolejno na zbiór wybranych domostw, a następnie na pełny zbiór danych. Taka strategia pozwoliła na stopniowe i metodyczne dostosowywanie hiperparametrów, minimalizując przy tym czas i zasoby potrzebne do przeprowadzenia eksperymentów, a jednocześnie maksymalizując ogólną skuteczność modelu. Na podstawie serii przeprowadzonych testów dotyczących dostrajania modelu wybrano następujące hiperparametry
 \begin{table}[!h]
-	\centering
-	\caption{Hiperparametry Sieci Neuronowej}
-	\begin{tabular}{|c|c|c|c|}
-		\hline
-		Optymalizator & Funkcja strat & Początkowy współczynnik uczenia & Rozmiar partii \\ \hline
-		Adam          & mse           & 0.0001                          & 64             \\ \hline
-	\end{tabular}
+  \centering
+  \caption{Hiperparametry Sieci Neuronowej}
+  \begin{tabular}{|c|c|c|c|}
+    \hline
+    Optymalizator & Funkcja strat & Początkowy współczynnik uczenia & Rozmiar partii \\ \hline
+    Adam          & mse           & 0.0001                          & 64             \\ \hline
+  \end{tabular}
 \end{table}
 
 Po przeprowadzeniu serii eksperymentów, w procesie selekcji optymalnej architektury sieci neuronowej, najbardziej efektywną konfiguracją okazała się struktura składająca się z sześciu warstw, z których cztery pełniły funkcję warstw ukrytych. W procesie iteracyjnego dostosowywania i ewaluacji różnych architektur sieci, model o takiej budowie wykazał najlepsze wyniki w zakresie dokładności i generalizacji na testowanych zbiorach danych. Architektura ta charakteryzowała się kolejno malejącą liczbą neuronów w poszczególnych warstwach: pierwsza warstwa zawierała 512 neuronów, druga 256, trzecia 128, czwarta 64, piąta 32, a szósta, będąca warstwą wyjściową, miała 1 neuron. Wszystkie warstwy, z wyjątkiem ostatniej, wykorzystywały funkcję aktywacji ReLU. Natomiast ostatnia warstwa, pełniąca rolę warstwy wyjściowej, zastosowała funkcję aktywacji typu 'linear'
@@ -707,37 +707,37 @@ Po przeprowadzeniu serii eksperymentów, w procesie selekcji optymalnej architek
 
 W ramach opracowanego modelu sieci neuronowej zastosowano dynamicznie zmieniający się współczynnik uczenia, oparty na metodzie wykładniczego spadku, opisanego wzorem:
 \begin{equation}
-	\text{Wspołczynik uczenia}(epoka) =
-	\begin{cases}
-		\text{Początkowy wspołczynik uczenia}                 & \text{jeżeli } epoka < 5    \\
-		\text{Wspołczynik uczenia}(epoka - 1) \times e^{-0.1} & \text{jeżeli } epoka \geq 5
-	\end{cases}
+  \text{Wspołczynik uczenia}(epoka) =
+  \begin{cases}
+    \text{Początkowy wspołczynik uczenia}                 & \text{jeżeli } epoka < 5    \\
+    \text{Wspołczynik uczenia}(epoka - 1) \times e^{-0.1} & \text{jeżeli } epoka \geq 5
+  \end{cases}
 \end{equation}
 Użycie tej motody pozwoliło na zmniejszanie wartości współczynnika uczenia w trakcie procesu trenowania, co zwiększyło zdolności adaptacyjne sieci. Został on zastosowany, gdyż częstym zjawiskiem było generowanie przez sieć stałej wartości wyjściowej, niezależnie od różnych danych wejściowych.
 
 W ramach procesu testowania różnych konfiguracji sieci neuronowej zaproponowano eksplorację wydajności modeli przy różnorodnych kombinacjach wejść. Celem tego podejścia było zbadanie, jak zmiana danych wejściowych wpłynie na zdolność modelu do nauki i generalizacji przewidywania przepływu. Poniżej przedstawiono zestawienie modeli, które zostały uwzględnione w analizie:
 
 \begin{enumerate}
-	\item Model A
-	      \begin{enumerate}
-		      \item Wejścia: Dzień tygodnia, pora dnia
-		      \item Wyjście: Przepływ
-	      \end{enumerate}
-	\item Model B
-	      \begin{enumerate}
-		      \item Wejścia: pora dnia
-		      \item Wyjście: Przepływ
-	      \end{enumerate}
-	\item Model C
-	      \begin{enumerate}
-		      \item Wejścia: pora roku, dzień tygodnia, pora dnia
-		      \item Wyjście: Przepływ
-	      \end{enumerate}
-	\item Model D
-	      \begin{enumerate}
-		      \item Wejścia: pora roku, pora dnia
-		      \item Wyjście: Przepływ
-	      \end{enumerate}
+  \item Model A
+        \begin{enumerate}
+          \item Wejścia: Dzień tygodnia, pora dnia
+          \item Wyjście: Przepływ
+        \end{enumerate}
+  \item Model B
+        \begin{enumerate}
+          \item Wejścia: pora dnia
+          \item Wyjście: Przepływ
+        \end{enumerate}
+  \item Model C
+        \begin{enumerate}
+          \item Wejścia: pora roku, dzień tygodnia, pora dnia
+          \item Wyjście: Przepływ
+        \end{enumerate}
+  \item Model D
+        \begin{enumerate}
+          \item Wejścia: pora roku, pora dnia
+          \item Wyjście: Przepływ
+        \end{enumerate}
 \end{enumerate}
 
 Wyniki te dostarczą wglądu w to, które wejścia są najbardziej wartościowe dla modelowania przepływu oraz czy dodanie dodatkowych informacji kontekstowych przyczynia się do znaczącej poprawy wyników predykcyjnych.
@@ -747,10 +747,10 @@ Wyniki te dostarczą wglądu w to, które wejścia są najbardziej wartościowe 
 W celu weryfikacji poprawności i efektywności opracowanego modelu sieci neuronowej przeprowadzono porównanie modelu nauczonych na danych ze wszystkich 12 domostw z modelami utworzonymi dla każdego z tych domów osobno. Taki eksperyment miał na celu ocenę zdolności generalizacji modelu nauczonych na zbiorze 12 domostw w porównaniu z modelami specyficznymi dla poszczególnych domów.
 
 \begin{figure}[!h]
-	\centering
-	\includegraphics[width=1\textwidth]{img/szczegółowy_ogolny_porówniaie.png}
-	\caption{Porównianie modelu ogólnego z modelami szczególnymi}
-	\label{fig:etykieta-rysunku}
+  \centering
+  \includegraphics[width=1\textwidth]{img/szczegółowy_ogolny_porówniaie.png}
+  \caption{Porównianie modelu ogólnego z modelami szczególnymi}
+  \label{fig:etykieta-rysunku}
 \end{figure}
 
 W celu dalszego zwiększenia skuteczności modelu sieci neuronowej zaproponowano wprowadzenie dodatkowego wejścia do systemu – tygodniowego zużycia. Implementacja tego rozwiązania została przeprowadzona w specyficzny sposób, mający na celu uniknięcie przekształcenia tego parametru w niezamierzony label identyfikujący poszczególne domy. W fazie uczenia modelu, do każdego tygodnia przypisywano sumę zużycia zarejestrowanego w tym okresie. Natomiast w fazie testowania, model otrzymywał średnią wartość tygodniowego zużycia. Celem tej strategii było umożliwienie modelowi korzystania z danych historycznych zużycia w sposób, który poprawiałby jego zdolność do przewidywania, jednocześnie zachowując elastyczność i możliwość generalizacji wyników na różne domostwa.
@@ -758,10 +758,10 @@ W celu dalszego zwiększenia skuteczności modelu sieci neuronowej zaproponowano
 \newpage
 
 \begin{figure}[!h]
-	\centering
-	\includegraphics[width=1\textwidth]{img/szczegółowy_ogolny_porówniaie_dodatkowy.png}
-	\caption{Porównianie modelu ogólnego z modelami szczególnymi po dodaniu kolejnego wejścia do sieci}
-	\label{fig:etykieta-rysunku}
+  \centering
+  \includegraphics[width=1\textwidth]{img/szczegółowy_ogolny_porówniaie_dodatkowy.png}
+  \caption{Porównianie modelu ogólnego z modelami szczególnymi po dodaniu kolejnego wejścia do sieci}
+  \label{fig:etykieta-rysunku}
 \end{figure}
 
 Analizując charakterystykę modelu ogólnego i szczególnego dla każdego z domostw, przedstawioną na Rysunku 3.5, można zauważyć, że dla domostwa nr 10 i 12 model ogólny wykazał się wysoką zgodnością z modelem szczegółowym, co świadczy o jego zdolności do precyzyjnego odwzorowania charakterystyki przewidywania przepływu w ciągu dnia. W przypadku tych dwóch domów przebieg przewidywań dla obu modeli jest podobny, co wskazuje na to, że model ogólny efektywnie uchwycił dynamikę zużycia charakterystyczną dla tych konkretnych domostw. Natomiast w kontekście Domu nr 5, wyniki ukazują, że model ogólny miał znaczne trudności z dopasowaniem się do wzorców przepływu.
@@ -769,17 +769,17 @@ Analizując charakterystykę modelu ogólnego i szczególnego dla każdego z dom
 W celu dokładniejszej oceny i porównania efektywności modelu ogólnego, nauczonego na danych z 12 domostw, z modelami szczegółowymi, nauczonymi dla poszczególnych domów, zastosowano wskaźnik błędu średniokwadratowego. MSE, obliczany jako średnia kwadratów różnic między wartościami przewidywanymi przez model a rzeczywistymi danymi, posłużył jako miara odchylenia modelu ogólnego od wyników modeli szczegółowych. W tym kontekście niższa wartość MSE wskazywała na lepszą zgodność modelu ogólnego z wynikami modeli szczegółowych, sugerując, że model ogólny skuteczniej generalizuje dane, zbliżając się do precyzji modeli trenowanych na danych z pojedynczych domostw.
 
 \begin{table}[!h]
-	\centering
-	\caption{Porównianie wartości MSE dla każdego obu modelów}
-	\resizebox{\textwidth}{!}{
-		\begin{tabular}{|c|cccccccccccc|}
-			\hline
-			\multirow{2}{*}{MSE} & \multicolumn{12}{c|}{DOMOSTWO}                                                                                                                                                                                                                                                                                                                        \\ \cline{2-13}
-			                     & \multicolumn{1}{c|}{1}         & \multicolumn{1}{c|}{2}       & \multicolumn{1}{c|}{3}     & \multicolumn{1}{c|}{4}       & \multicolumn{1}{c|}{5}      & \multicolumn{1}{c|}{6}      & \multicolumn{1}{c|}{7}       & \multicolumn{1}{c|}{8}       & \multicolumn{1}{c|}{9}      & \multicolumn{1}{c|}{10}    & \multicolumn{1}{c|}{11}      & 12    \\ \hline
-			Model 1              & \multicolumn{1}{c|}{0.022}     & \multicolumn{1}{c|}{0.0074}  & \multicolumn{1}{c|}{0.037} & \multicolumn{1}{c|}{0.0067}  & \multicolumn{1}{c|}{0.011}  & \multicolumn{1}{c|}{0.0039} & \multicolumn{1}{c|}{0.0084}  & \multicolumn{1}{c|}{0.0095}  & \multicolumn{1}{c|}{0.0072} & \multicolumn{1}{c|}{0.22}  & \multicolumn{1}{c|}{0.010}   & 0.19  \\ \hline
-			Model 2              & \multicolumn{1}{c|}{0.019}     & \multicolumn{1}{c|}{0.00053} & \multicolumn{1}{c|}{0.034} & \multicolumn{1}{c|}{0.00085} & \multicolumn{1}{c|}{0.0013} & \multicolumn{1}{c|}{0.0025} & \multicolumn{1}{c|}{0.00055} & \multicolumn{1}{c|}{0.00069} & \multicolumn{1}{c|}{0.0027} & \multicolumn{1}{c|}{0.075} & \multicolumn{1}{c|}{0.00013} & 0.019 \\ \hline
-		\end{tabular}
-	}
+  \centering
+  \caption{Porównianie wartości MSE dla każdego obu modelów}
+  \resizebox{\textwidth}{!}{
+    \begin{tabular}{|c|cccccccccccc|}
+      \hline
+      \multirow{2}{*}{MSE} & \multicolumn{12}{c|}{DOMOSTWO}                                                                                                                                                                                                                                                                                                                        \\ \cline{2-13}
+                           & \multicolumn{1}{c|}{1}         & \multicolumn{1}{c|}{2}       & \multicolumn{1}{c|}{3}     & \multicolumn{1}{c|}{4}       & \multicolumn{1}{c|}{5}      & \multicolumn{1}{c|}{6}      & \multicolumn{1}{c|}{7}       & \multicolumn{1}{c|}{8}       & \multicolumn{1}{c|}{9}      & \multicolumn{1}{c|}{10}    & \multicolumn{1}{c|}{11}      & 12    \\ \hline
+      Model 1              & \multicolumn{1}{c|}{0.022}     & \multicolumn{1}{c|}{0.0074}  & \multicolumn{1}{c|}{0.037} & \multicolumn{1}{c|}{0.0067}  & \multicolumn{1}{c|}{0.011}  & \multicolumn{1}{c|}{0.0039} & \multicolumn{1}{c|}{0.0084}  & \multicolumn{1}{c|}{0.0095}  & \multicolumn{1}{c|}{0.0072} & \multicolumn{1}{c|}{0.22}  & \multicolumn{1}{c|}{0.010}   & 0.19  \\ \hline
+      Model 2              & \multicolumn{1}{c|}{0.019}     & \multicolumn{1}{c|}{0.00053} & \multicolumn{1}{c|}{0.034} & \multicolumn{1}{c|}{0.00085} & \multicolumn{1}{c|}{0.0013} & \multicolumn{1}{c|}{0.0025} & \multicolumn{1}{c|}{0.00055} & \multicolumn{1}{c|}{0.00069} & \multicolumn{1}{c|}{0.0027} & \multicolumn{1}{c|}{0.075} & \multicolumn{1}{c|}{0.00013} & 0.019 \\ \hline
+    \end{tabular}
+  }
 \end{table}
 
 Analizując przedstawione dane w tabeli, można zauważyć, że po dodaniu dodatkowego wejścia do systemu, czyli tygodniowego zużycia, model 2 (Model z dodatkowym wejściem) osiągnął znacznie lepsze wyniki w porównaniu z modelem bazowym. Wartości błędu średniokwadratowego dla modelu 2 są niższe w porównaniu do modelu 1 dla każdego z domostw, co wskazuje na poprawę dokładności predykcji.
@@ -792,10 +792,10 @@ Na przykład, dla Domu nr 2, MSE zmniejszyło się z 0.0074 w modelu 1 do 0.0005
 NAPISAĆ TUTAJ COŚ!\\
 
 \begin{figure}[!h]
-	\centering
-	\includegraphics[width=1\textwidth]{img/Pogoda_porównanie.png}
-	\caption{Porównanie warunkuch atmosferycznych na przestrzeni dnia}
-	\label{fig:etykieta-rysunku}
+  \centering
+  \includegraphics[width=1\textwidth]{img/Pogoda_porównanie.png}
+  \caption{Porównanie warunkuch atmosferycznych na przestrzeni dnia}
+  \label{fig:etykieta-rysunku}
 \end{figure}
 Rysunek przedstawia zestaw sześciu wykresów, które porównują warunki atmosferyczne w ciągu dnia. Każdy wykres zawiera oś X, która reprezentuje czas, oraz oś Y, która przedstawia różne zmienne meteorologiczne. W pierwszym wykresie prezentowane są zmiany temperatury zewnętrznej na przestrzeni dnia. Temperatura oscyluje w zakresie od około -0.5°C do 2.5°C, z maksymalnymi wartościami obserwowanymi w okolicach godziny ósmej. Charakterystyka tej zmienności temperatury sugeruje, że dane mogły być zbierane w okresie zimowym. Następny wykres ilustruje zmiany wilgotności powietrza na zewnątrz budynku, wyrażone w procentach. Wysoki poziom wilgotności, utrzymujący się przez cały dzień, może wskazywać na sezon zimowy lub jesienny. Prędkość wiatru, prezentowana na kolejnym wykresie, wykazuje znaczący wzrost w ciągu dnia, osiągając maksymalne wartości przekraczające 8  $\frac{m}{s}$, co może być charakterystyczne dla warunków zimowych, kiedy wiatry są silniejsze. Wykres ciśnienia atmosferycznego pokazuje wzrost wartości w pierwszej połowie dnia, po czym następuje stopniowy spadek. Wilgotność wewnętrzna, prezentowana na piątym wykresie, wykazuje wahania z ogólnym trendem spadkowym w drugiej połowie dnia. Szósty wykres przedstawia kierunek wiatru, który jest zmienny w ciągu dnia, z wyraźnymi zmianami szczególnie w środkowej części dnia, co może świadczyć o niestabilnych warunkach atmosferycznych.\\
 
@@ -814,41 +814,41 @@ W kontekście wykorzystania PFI do oceny ważności cech w modelu istotne jest z
 W celu implementacji techniki PFI w pracy został wykorzystany obiekt PermutationImportance z biblioteki sklearn. Zastosowanie tego dedykowanego narzędzia umożliwiło nie tylko dokładną, ale i wydajną realizację tej metody, co pozwoliło na jej skuteczną integrację z procesem badawczym.
 
 \begin{table}[!h]
-	\centering
-	\caption{Porównianie ważności wejść dla metody PFI}
-	\resizebox{\textwidth}{!}{
-		\begin{tabular}{|c|c|c|c|c|c|c|}
-			\hline
-			             & \begin{tabular}[c]{@{}c@{}}Temperatura \\ zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność\\  zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Ciśnienie\\  atmosferyczne\end{tabular} & \begin{tabular}[c]{@{}c@{}}Prędkość\\  wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Kierunek\\  wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność \\ wewnętrzna\end{tabular} \\ \hline
-			Model krótki & 0.48                                                              & 1.00                                                             & 0.39                                                               & 0.07                                                       & 0.03                                                       & 0.36                                                             \\ \hline
-			Model długi  & 0.47                                                              & 0.11                                                             & 0.65                                                               & 0.23                                                       & 0.17                                                       & 1.00                                                             \\ \hline
-		\end{tabular}
-	}
+  \centering
+  \caption{Porównianie ważności wejść dla metody PFI}
+  \resizebox{\textwidth}{!}{
+    \begin{tabular}{|c|c|c|c|c|c|c|}
+      \hline
+                   & \begin{tabular}[c]{@{}c@{}}Temperatura \\ zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność\\  zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Ciśnienie\\  atmosferyczne\end{tabular} & \begin{tabular}[c]{@{}c@{}}Prędkość\\  wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Kierunek\\  wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność \\ wewnętrzna\end{tabular} \\ \hline
+      Model krótki & 0.48                                                              & 1.00                                                             & 0.39                                                               & 0.07                                                       & 0.03                                                       & 0.36                                                             \\ \hline
+      Model długi  & 0.47                                                              & 0.11                                                             & 0.65                                                               & 0.23                                                       & 0.17                                                       & 1.00                                                             \\ \hline
+    \end{tabular}
+  }
 \end{table}
 Tabela 4.1 porównuje znormalizowane wartości wejść dla dwóch wariantów modelu dla metody PFI, w modelu uproszczonym, najwyższą ważność ma wilgotność zewnętrzna, co sugeruje, że jest to główny predyktor w tym modelu. Temperatura zewnętrzna i wilgotność wewnętrzna również odgrywają znaczące role. Wilgotność zewnętrzna mają umiarkowaną ważność, podczas gdy kierunek i prędkość wiatru ma stosunkowo niższą ważność. W Modelu rozszerzonym obserwujemy wzrost ważności ciśnienia atmosferycznego. Interesująco, wilgotność wewnętrzna otrzymuje maksymalną ważność, co czyni ją najważniejszą cechą dla tego modelu, z kolei prędkość i kierunek wiatru mają większy wpływ w porównaniu do Modelu krótkiego. Wilgotność zewnętrzna doznaje znaczącego obniżenia ważności, zostajac cechą o najniższej wartości.
 \newpage
 \section{Badanie wag wejściowych pierwszej warsty}
 W analizie modeli uczenia maszynowego, interpretacja wag pierwszej warstwy może służyć jako metoda określania ważności cech wejściowych. Ponieważ wagi w pierwszej warstwie sieci neuronowej są bezpośrednio połączone z cechami wejściowymi, wartości tych wag mogą dostarczać informacji o znaczeniu poszczególnych cech dla predykcji modelu. Wysoka wartość wagowa sugeruje, że zmiana wartości tej cechy wejściowej może mieć istotny wpływ na wynik modelu. Jednakże, ta metoda interpretacji może być mniej efektywna w przypadku bardziej złożonych, głębokich sieci neuronowych. W takich modelach, liczne warstwy i skomplikowane struktury, w tym nieliniowe aktywacje i interakcje między neuronami, mogą skutkować tym, że bezpośredni wpływ pojedynczych wag jest trudniejszy do zrozumienia.
 \begin{figure}[!h]
-	\centering
-	\includegraphics[width=0.7\textwidth]{img/heatmap1.png}
-	\caption{Mapa ciepła wag pierwszej warstwy dla modelu o uproszczonej architekturze}
-	\label{fig:etykieta-rysunku}
+  \centering
+  \includegraphics[width=0.7\textwidth]{img/heatmap1.png}
+  \caption{Mapa ciepła wag pierwszej warstwy dla modelu o uproszczonej architekturze}
+  \label{fig:etykieta-rysunku}
 \end{figure}
 
 Mapa ciepła wag pierwszej warstwy sieci neuronowej stanowi cenne narzędzie analityczne, pozwalające na wizualną interpretację i zrozumienie wpływu dużej liczby cech na proces uczenia. Jest to instrument szczególnie użyteczny w kontekście wysokowymiarowych zbiorów danych, gdzie tradycyjne metody analizy mogą okazać się niewystarczające. W przedstawionym przypadku, analiza mapy ciepła nie ujawnia istotnych anomalii w rozkładzie wag. Obserwuje się jedynie sporadyczne wartości, które odstają od średnich wag, lecz nie osiągają one poziomu znacząco wpływającego na wyniki modelu.
 
 W celu dokładnej analizy ważności poszczególnych wag wejściowych sieci neuronowej przeprowadzono obliczenie średniej wartości wagi dla każdego z wejść. Procedura ta umożliwiła identyfikację względnej ważności cech poprzez porównanie ich przeciętnego wpływu na aktywację neuronów w modelu. Następnie, aby umożliwić porównywalność wyników niezależnie od ich pierwotnej skali, dokonano normalizacji obliczonych średnich wag.
 \begin{table}[!h]
-	\centering
-	\caption{Porównianie wag wejściowych dla pierwszej warstwy uproszczonego modelu}
-	\resizebox{\textwidth}{!}{
-		\begin{tabular}{|c|c|c|c|c|c|}
-			\hline
-			\begin{tabular}[c]{@{}c@{}}Temperatura \\ zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność\\  zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Ciśnienie\\  atmosferyczne\end{tabular} & \begin{tabular}[c]{@{}c@{}}Prędkość\\  wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Kierunek\\  wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność \\ wewnętrzna\end{tabular} \\ \hline
-			0.92                                                              & 0.48                                                             & 1.00                                                               & 0.56                                                       & 0.53                                                       & 0.40                                                             \\ \hline
-		\end{tabular}
-	}
+  \centering
+  \caption{Porównianie wag wejściowych dla pierwszej warstwy uproszczonego modelu}
+  \resizebox{\textwidth}{!}{
+    \begin{tabular}{|c|c|c|c|c|c|}
+      \hline
+      \begin{tabular}[c]{@{}c@{}}Temperatura \\ zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność\\  zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Ciśnienie\\  atmosferyczne\end{tabular} & \begin{tabular}[c]{@{}c@{}}Prędkość\\  wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Kierunek\\  wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność \\ wewnętrzna\end{tabular} \\ \hline
+      0.92                                                              & 0.48                                                             & 1.00                                                               & 0.56                                                       & 0.53                                                       & 0.40                                                             \\ \hline
+    \end{tabular}
+  }
 \end{table}\\
 
 Analiza ważności wejść pierwszej warstwy sieci neuronowej, przeprowadzona za pomocą metody badania wag wejściowych, ujawnia istotne różnice w porównaniu z wynikami uzyskanymi metodą Permutation Feature Importance dla modelu o mniej rozbudowanej architekturze. W przeprowadzonych badaniach największą ważność przyznano ciśnieniu atmosferycznemu, co stanowi odchylenie od wyników w wynikach PFI.
@@ -860,24 +860,24 @@ Z kolei kierunek wiatru został oceniony jako cecha o najniższej ważności w b
 Analizy bardziej złożonych modeli sieci neuronowych, metoda interpretacji wag pierwszej warstwy może okazać się nieefektywna. Ze względu na zwiększoną głębokość i złożoność architektury, wagi w pierwszej warstwie tracą bezpośrednią i jednoznaczną interpretowalność, która jest charakterystyczna dla prostszych modeli. W modelach rozbudowanych, cechy wejściowe przechodzą przez wiele warstw transformacji, co skutkuje utratą bezpośredniego powiązania między wagami pierwszej warstwy a wynikowymi decyzjami modelu. W efekcie, interpretacja tych wag może nie odzwierciedlać faktycznego wpływu poszczególnych cech na decyzje modelu, co jest spowodowane nakładaniem się, transformacją i połączeniem informacji w kolejnych warstwach sieci.
 \newpage
 \begin{figure}[!h]
-	\centering
-	\includegraphics[width=0.6\textwidth]{img/heatmap2.png}
-	\caption{Mapa ciepła wag pierwszej warstwy dla modelu o rozbudowanej architekturze}
-	\label{fig:etykieta-rysunku}
+  \centering
+  \includegraphics[width=0.6\textwidth]{img/heatmap2.png}
+  \caption{Mapa ciepła wag pierwszej warstwy dla modelu o rozbudowanej architekturze}
+  \label{fig:etykieta-rysunku}
 \end{figure}
 
 Na przedstawionej mapie cieplnej, ilustrującej wagi przypisane poszczególnym neuronom w warstwie wejściowej sieci neuronowej o rozmiarze 1024 jednostek, zaobserwować można istotne wzorce, choć sama mapa staje się trudna do interpretacji ze względu na dużą gęstość neuronów. Mimo tej wizualnej złożoności, zauważyć można, że temperatura zewnętrzna jest reprezentowana przez znacząco większą liczbę wag o dodatnich wartościach. W przeciwieństwie, ciśnienie atmosferyczne wykazuje tendencję do posiadania większej ilości wag o wartościach ujemnych. Wagi odpowiadające kierunkowi wiatru wydają się charakteryzować przewagą wartości bliskich zeru, co sugeruje mniejszy wpływ tej cechy na model.
 
 \begin{table}[!h]
-	\centering
-	\caption{Porównianie wag wejściowych dla pierwszej warstwy rozbudowanego modelu}
-	\resizebox{\textwidth}{!}{
-		\begin{tabular}{|c|c|c|c|c|c|}
-			\hline
-			\begin{tabular}[c]{@{}c@{}}Temperatura \\ zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność\\  zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Ciśnienie\\  atmosferyczne\end{tabular} & \begin{tabular}[c]{@{}c@{}}Prędkość\\  wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Kierunek\\  wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność \\ wewnętrzna\end{tabular} \\ \hline
-			1.00                                                              & 0.11                                                             & 0.75                                                               & 0.73                                                       & 0.61                                                       & 0.13                                                             \\ \hline
-		\end{tabular}
-	}
+  \centering
+  \caption{Porównianie wag wejściowych dla pierwszej warstwy rozbudowanego modelu}
+  \resizebox{\textwidth}{!}{
+    \begin{tabular}{|c|c|c|c|c|c|}
+      \hline
+      \begin{tabular}[c]{@{}c@{}}Temperatura \\ zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność\\  zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Ciśnienie\\  atmosferyczne\end{tabular} & \begin{tabular}[c]{@{}c@{}}Prędkość\\  wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Kierunek\\  wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność \\ wewnętrzna\end{tabular} \\ \hline
+      1.00                                                              & 0.11                                                             & 0.75                                                               & 0.73                                                       & 0.61                                                       & 0.13                                                             \\ \hline
+    \end{tabular}
+  }
 \end{table}
 
 Analiza przeprowadzona z wykorzystaniem mapy cieplnej okazała się w tym przypadku być wyjątkowo efektywnym narzędziem, pozwalającym na wizualne wyodrębnienie cech o dużej wadze dla modelu. Obserwacje dotyczące tempetaru zewnętrznej i ciśnienia atmosferyznego pokrywają sie z wynikami otrzymanymi z analizy wag wejść do pierwszej warstywy. Interesującym zaskoczeniem okazała się natomiast rola kierunku wiatru, który początkowo oszacowany jako cecha mało znacząca, okazał sie znacznie znaczącym.
@@ -891,19 +891,19 @@ Podstawowym elementem metody LIME jest modyfikacja danych i tworzenie na ich pod
 W ramach pracy, w celu dokładnej oceny skuteczności metody LIME, zdecydowano się na zastosowanie jej na losowo wybranych próbkach ze zbioru testowego.
 
 \begin{table}[!h]
-	\caption{Porównanie ważności wejść dla metody LIME}
-	\resizebox{\textwidth}{!}{
-		\begin{tabular}{|c|c|c|c|c|c|c|}
-			\hline
-			                                                                   & \begin{tabular}[c]{@{}c@{}}Temperatura \\ zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność\\  zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Ciśnienie\\ atmosferyczne\end{tabular} & \begin{tabular}[c]{@{}c@{}}Prędkość\\ wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Kierunek\\ wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność\\  wewnętrzna\end{tabular} \\ \hline
-			\multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}Model\\ 1\end{tabular}} & 0.17                                                              & 0.57                                                             & 1.00                                                              & 0.09                                                      & 0.00                                                      & 0.00                                                             \\ \cline{2-7}
-			                                                                   & 1.00                                                              & 0.36                                                             & 0.08                                                              & 0.04                                                      & 0.02                                                      & 0.36                                                             \\ \cline{2-7}
-			                                                                   & 1.00                                                              & 0.02                                                             & 0.02                                                              & 0.04                                                      & 0.00                                                      & 0.32                                                             \\ \hline
-			\multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}Model\\ 2\end{tabular}} & 0.33                                                              & 0.33                                                             & 0.27                                                              & 0.13                                                      & 1.00                                                      & 0.93                                                             \\ \cline{2-7}
-			                                                                   & 1.00                                                              & 0.10                                                             & 0.15                                                              & 0.07                                                      & 0.10                                                      & 0.10                                                             \\ \cline{2-7}
-			                                                                   & 1.00                                                              & 0.02                                                             & 0.19                                                              & 0.09                                                      & 0.00                                                      & 0.78                                                             \\ \hline
-		\end{tabular}
-	}
+  \caption{Porównanie ważności wejść dla metody LIME}
+  \resizebox{\textwidth}{!}{
+    \begin{tabular}{|c|c|c|c|c|c|c|}
+      \hline
+                                                                         & \begin{tabular}[c]{@{}c@{}}Temperatura \\ zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność\\  zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Ciśnienie\\ atmosferyczne\end{tabular} & \begin{tabular}[c]{@{}c@{}}Prędkość\\ wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Kierunek\\ wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność\\  wewnętrzna\end{tabular} \\ \hline
+      \multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}Model\\ 1\end{tabular}} & 0.17                                                              & 0.57                                                             & 1.00                                                              & 0.09                                                      & 0.00                                                      & 0.00                                                             \\ \cline{2-7}
+                                                                         & 1.00                                                              & 0.36                                                             & 0.08                                                              & 0.04                                                      & 0.02                                                      & 0.36                                                             \\ \cline{2-7}
+                                                                         & 1.00                                                              & 0.02                                                             & 0.02                                                              & 0.04                                                      & 0.00                                                      & 0.32                                                             \\ \hline
+      \multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}Model\\ 2\end{tabular}} & 0.33                                                              & 0.33                                                             & 0.27                                                              & 0.13                                                      & 1.00                                                      & 0.93                                                             \\ \cline{2-7}
+                                                                         & 1.00                                                              & 0.10                                                             & 0.15                                                              & 0.07                                                      & 0.10                                                      & 0.10                                                             \\ \cline{2-7}
+                                                                         & 1.00                                                              & 0.02                                                             & 0.19                                                              & 0.09                                                      & 0.00                                                      & 0.78                                                             \\ \hline
+    \end{tabular}
+  }
 \end{table}
 
 Tabela przedstawia wyniki sześciu losowo wybranych prób oceny ważności wejść, z zastosowaniem zarówno modelu uproszczonego, jak i rozszerzonego. W celu ułatwienia porównania, wyniki te zostały znormalizowane i zaokrąglone do dwóch miejsc po przecinku. Analiza danych wykazała, że w dwóch na trzy przypadki, zarówno w modelu uproszczonym, jak i rozszerzonym, najważniejszym wejściem okazała się być temperatura zewnętrzna. Ponadto, w pięciu z sześciu analizowanych przypadków, kierunek wiatru został oceniony jako najmniej znaczący.
@@ -914,21 +914,21 @@ Mimo iż LIME jest metodą zasadniczo skoncentrowaną na dostarczaniu interpreta
 
 
 \begin{table}[!h]
-	\caption{Porównanie uśredninonych ważności wejść dla metody LIME dla wielu prób}
-	\resizebox{\textwidth}{!}{
-		\begin{tabular}{|c|c|c|c|c|c|c|c|}
-			\hline
-			                                                                   & \begin{tabular}[c]{@{}c@{}}Ilość\\ próbek\end{tabular} & \begin{tabular}[c]{@{}c@{}}Temperatura \\ zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność\\  zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Ciśnienie\\ atmosferyczne\end{tabular} & \begin{tabular}[c]{@{}c@{}}Prędkość\\ wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Kierunek\\ wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność\\ wewnętrzna\end{tabular} \\ \hline
-			\multirow{4}{*}{\begin{tabular}[c]{@{}c@{}}Model\\ 1\end{tabular}} & 10                                                     & 0.95                                                              & 0.82                                                             & 1.00                                                              & 0.20                                                      & 0.21                                                      & 0.09                                                            \\ \cline{2-8}
-			                                                                   & 50                                                     & 1.00                                                              & 0.21                                                             & 0.53                                                              & 0.15                                                      & 0.03                                                      & 0.01                                                            \\ \cline{2-8}
-			                                                                   & 100                                                    & 1.00                                                              & 0.27                                                             & 0.53                                                              & 0.26                                                      & 0.05                                                      & 0.02                                                            \\ \cline{2-8}
-			                                                                   & 1000                                                   & 1.00                                                              & 0.41                                                             & 0.49                                                              & 0.15                                                      & 0.01                                                      & 0.01                                                            \\ \hline
-			\multirow{4}{*}{\begin{tabular}[c]{@{}c@{}}Model\\ 2\end{tabular}} & 10                                                     & 1.00                                                              & 0.35                                                             & 0.21                                                              & 0.28                                                      & 0.11                                                      & 0.01                                                            \\ \cline{2-8}
-			                                                                   & 50                                                     & 1.00                                                              & 0.30                                                             & 0.52                                                              & 0.33                                                      & 0.40                                                      & 0.03                                                            \\ \cline{2-8}
-			                                                                   & 100                                                    & 1.00                                                              & 0.44                                                             & 0.30                                                              & 0.21                                                      & 0.16                                                      & 0.03                                                            \\ \cline{2-8}
-			                                                                   & 1000                                                   & 1.00                                                              & 0.41                                                             & 0.84                                                              & 0.57                                                      & 0.27                                                      & 0.05                                                            \\ \hline
-		\end{tabular}
-	}
+  \caption{Porównanie uśredninonych ważności wejść dla metody LIME dla wielu prób}
+  \resizebox{\textwidth}{!}{
+    \begin{tabular}{|c|c|c|c|c|c|c|c|}
+      \hline
+                                                                         & \begin{tabular}[c]{@{}c@{}}Ilość\\ próbek\end{tabular} & \begin{tabular}[c]{@{}c@{}}Temperatura \\ zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność\\  zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Ciśnienie\\ atmosferyczne\end{tabular} & \begin{tabular}[c]{@{}c@{}}Prędkość\\ wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Kierunek\\ wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność\\ wewnętrzna\end{tabular} \\ \hline
+      \multirow{4}{*}{\begin{tabular}[c]{@{}c@{}}Model\\ 1\end{tabular}} & 10                                                     & 0.95                                                              & 0.82                                                             & 1.00                                                              & 0.20                                                      & 0.21                                                      & 0.09                                                            \\ \cline{2-8}
+                                                                         & 50                                                     & 1.00                                                              & 0.21                                                             & 0.53                                                              & 0.15                                                      & 0.03                                                      & 0.01                                                            \\ \cline{2-8}
+                                                                         & 100                                                    & 1.00                                                              & 0.27                                                             & 0.53                                                              & 0.26                                                      & 0.05                                                      & 0.02                                                            \\ \cline{2-8}
+                                                                         & 1000                                                   & 1.00                                                              & 0.41                                                             & 0.49                                                              & 0.15                                                      & 0.01                                                      & 0.01                                                            \\ \hline
+      \multirow{4}{*}{\begin{tabular}[c]{@{}c@{}}Model\\ 2\end{tabular}} & 10                                                     & 1.00                                                              & 0.35                                                             & 0.21                                                              & 0.28                                                      & 0.11                                                      & 0.01                                                            \\ \cline{2-8}
+                                                                         & 50                                                     & 1.00                                                              & 0.30                                                             & 0.52                                                              & 0.33                                                      & 0.40                                                      & 0.03                                                            \\ \cline{2-8}
+                                                                         & 100                                                    & 1.00                                                              & 0.44                                                             & 0.30                                                              & 0.21                                                      & 0.16                                                      & 0.03                                                            \\ \cline{2-8}
+                                                                         & 1000                                                   & 1.00                                                              & 0.41                                                             & 0.84                                                              & 0.57                                                      & 0.27                                                      & 0.05                                                            \\ \hline
+    \end{tabular}
+  }
 \end{table}
 
 Zarówno w Modelu 1, jak i Modelu 2, temperatura zewnętrzna jest systematycznie uznawana za cechę o największym wpływie na przewidywania modelu, co wskazuje na jej przewodnią rolę w analizowanych danych meteorologicznych. Niezmiennie wysokie wartości ważności tej zmiennej świadczą o jej dominującej pozycji w obu modelach, niezależnie od wielkości próby. Dla obu modelów, wilgotność jak i ciśnienie wykazują stabilne wartości, tylko w pojedyńczych próbach ciśnienie staja sie dominującą zmienną.
@@ -940,135 +940,135 @@ Prędkość wiatru, która generalnie otrzymuje niższe ważności, ujawnia znac
 
 \subsection{Model jednowarstwowy}
 \begin{figure}[!ht]
-	\centering
-	\resizebox{0.5\textwidth}{!}{%
-		\begin{circuitikz}
-			\tikzstyle{every node}=[font=\LARGE]
-			\draw  (8.75,13.75) rectangle (11.25,8.75);
-			\draw [->, >=Stealth] (10,7.5) .. controls (10,8) and (10,8) .. (10,8.75);
-			\draw [->, >=Stealth] (10,15) .. controls (11.25,15) and (11.25,15) .. (12.5,15);
-			\draw [->, >=Stealth] (6.5,11.25) .. controls (7.5,11.25) and (7.5,11.25) .. (8.5,11.25);
-			\draw  (5,11.25) circle (1cm);
-			\node [font=\LARGE] at (5,11.25) {$Q_p$};
-			\draw [](10,13.75) to[short] (10,15);
-			\node [font=\LARGE] at (7.5,11.75) {$F_z, T_{zi}$};
-			\draw [](10,7.5) to[short] (12.5,7.5);
-			\draw [](11.5,11.25) to[short, -o] (13.25,11.25);
-			\node [font=\LARGE] at (11,7.9) {$T_{wi}$};
-			\node [font=\LARGE] at (12.5,11.75) {$T_{ot}$};
-			\node [font=\LARGE] at (11.25,15.5) {$F_w,T_{ow}$};
-		\end{circuitikz}
-	}%
-	\caption{Model zasobnika - pojedyńcza warstwa}
-	\label{Qp}
+  \centering
+  \resizebox{0.5\textwidth}{!}{%
+    \begin{circuitikz}
+      \tikzstyle{every node}=[font=\LARGE]
+      \draw  (8.75,13.75) rectangle (11.25,8.75);
+      \draw [->, >=Stealth] (10,7.5) .. controls (10,8) and (10,8) .. (10,8.75);
+      \draw [->, >=Stealth] (10,15) .. controls (11.25,15) and (11.25,15) .. (12.5,15);
+      \draw [->, >=Stealth] (6.5,11.25) .. controls (7.5,11.25) and (7.5,11.25) .. (8.5,11.25);
+      \draw  (5,11.25) circle (1cm);
+      \node [font=\LARGE] at (5,11.25) {$Q_p$};
+      \draw [](10,13.75) to[short] (10,15);
+      \node [font=\LARGE] at (7.5,11.75) {$F_z, T_{zi}$};
+      \draw [](10,7.5) to[short] (12.5,7.5);
+      \draw [](11.5,11.25) to[short, -o] (13.25,11.25);
+      \node [font=\LARGE] at (11,7.9) {$T_{wi}$};
+      \node [font=\LARGE] at (12.5,11.75) {$T_{ot}$};
+      \node [font=\LARGE] at (11.25,15.5) {$F_w,T_{ow}$};
+    \end{circuitikz}
+  }%
+  \caption{Model zasobnika - pojedyńcza warstwa}
+  \label{Qp}
 \end{figure}
 
 \begin{equation}
-	\rho C_w V \frac{dT_{wo}}{dt} = Q_p - \rho C_w F_w (T_{wo} - T_{wi}) - \frac{\lambda A}{d} (T_{wo} - T_{ot})
+  \rho C_w V \frac{dT_{wo}}{dt} = Q_p - \rho C_w F_w (T_{wo} - T_{wi}) - \frac{\lambda A}{d} (T_{wo} - T_{ot})
 \end{equation}
 
 \newpage
 \subsection{Model wielowarstwowy}
 
 \begin{figure}[!ht]
-	\centering
-	\resizebox{0.5\textwidth}{!}{%
-		\begin{circuitikz}
-			\tikzstyle{every node}=[font=\Large]
-			\draw  (8.75,13.75) rectangle (11.25,8.75);
-			\draw [short] (8.25,13.25) .. controls (10,13.25) and (10,13.25) .. (11.75,13.25);
-			\draw [short] (8.25,12.75) .. controls (10,12.75) and (10,12.75) .. (11.75,12.75);
-			\draw [short] (8.25,12.25) .. controls (10,12.25) and (10,12.25) .. (11.75,12.25);
-			\draw [short] (8.25,9.25) .. controls (10,9.25) and (10,9.25) .. (11.75,9.25);
-			\draw [short] (8.25,9.75) .. controls (10,9.75) and (10,9.75) .. (11.75,9.75);
-			\draw [short] (8.25,10.25) .. controls (10,10.25) and (10,10.25) .. (11.75,10.25);
-			\draw [->, >=Stealth] (10,14.25) .. controls (10,15.25) and (10,15.25) .. (10,16.25);
-			\draw [->, >=Stealth] (6.5,12.75) .. controls (7.25,12.75) and (7.25,12.75) .. (8,12.75);
-			\draw [->, >=Stealth] (6.5,9.75) .. controls (7.25,9.75) and (7.25,9.75) .. (8,9.75);
-			\draw [->, >=Stealth] (12.25,11.25) .. controls (13.5,11.25) and (13.5,11.25) .. (14.5,11.25);
-			\node [font=\Large] at (7,13.2) {$Q_{z1}$};
-			\node [font=\Large] at (7,10.2) {$Q_{zm}$};
-			\node [font=\Large] at (13.25,11.7) {$Q_s$};
-			\node [font=\Large] at (10.7,15) {$Q_u$};
-			\node [font=\normalsize] at (12,13.5) {$Q_{wn}$};
-			\node [font=\normalsize] at (12,8.75) {$Q_{w1}$};
-			\node [font=\Large] at (10,11.25) {$Q_w$};
-			\node [font=\Large] at (7,11.75) {.};
-			\node [font=\Large] at (7,11.5) {.};
-			\node [font=\Large] at (7,11.25) {.};
-			\node [font=\Large] at (11.75,11.75) {.};
-			\node [font=\Large] at (11.75,11.25) {.};
-			\node [font=\Large] at (11.75,10.75) {.};
-		\end{circuitikz}
-	}%
-	\caption{Model zasobnika - wiele warstwa}
-	\label{Model zasobnika - wiele warstwa}
+  \centering
+  \resizebox{0.5\textwidth}{!}{%
+    \begin{circuitikz}
+      \tikzstyle{every node}=[font=\Large]
+      \draw  (8.75,13.75) rectangle (11.25,8.75);
+      \draw [short] (8.25,13.25) .. controls (10,13.25) and (10,13.25) .. (11.75,13.25);
+      \draw [short] (8.25,12.75) .. controls (10,12.75) and (10,12.75) .. (11.75,12.75);
+      \draw [short] (8.25,12.25) .. controls (10,12.25) and (10,12.25) .. (11.75,12.25);
+      \draw [short] (8.25,9.25) .. controls (10,9.25) and (10,9.25) .. (11.75,9.25);
+      \draw [short] (8.25,9.75) .. controls (10,9.75) and (10,9.75) .. (11.75,9.75);
+      \draw [short] (8.25,10.25) .. controls (10,10.25) and (10,10.25) .. (11.75,10.25);
+      \draw [->, >=Stealth] (10,14.25) .. controls (10,15.25) and (10,15.25) .. (10,16.25);
+      \draw [->, >=Stealth] (6.5,12.75) .. controls (7.25,12.75) and (7.25,12.75) .. (8,12.75);
+      \draw [->, >=Stealth] (6.5,9.75) .. controls (7.25,9.75) and (7.25,9.75) .. (8,9.75);
+      \draw [->, >=Stealth] (12.25,11.25) .. controls (13.5,11.25) and (13.5,11.25) .. (14.5,11.25);
+      \node [font=\Large] at (7,13.2) {$Q_{z1}$};
+      \node [font=\Large] at (7,10.2) {$Q_{zm}$};
+      \node [font=\Large] at (13.25,11.7) {$Q_s$};
+      \node [font=\Large] at (10.7,15) {$Q_u$};
+      \node [font=\normalsize] at (12,13.5) {$Q_{wn}$};
+      \node [font=\normalsize] at (12,8.75) {$Q_{w1}$};
+      \node [font=\Large] at (10,11.25) {$Q_w$};
+      \node [font=\Large] at (7,11.75) {.};
+      \node [font=\Large] at (7,11.5) {.};
+      \node [font=\Large] at (7,11.25) {.};
+      \node [font=\Large] at (11.75,11.75) {.};
+      \node [font=\Large] at (11.75,11.25) {.};
+      \node [font=\Large] at (11.75,10.75) {.};
+    \end{circuitikz}
+  }%
+  \caption{Model zasobnika - wiele warstwa}
+  \label{Model zasobnika - wiele warstwa}
 \end{figure}
 
 \begin{equation}
-	Q_w = \sum_{m=1}^{m} Q_m - Q_u - Q_s
+  Q_w = \sum_{m=1}^{m} Q_m - Q_u - Q_s
 \end{equation}
 
 \begin{equation}
-	Q_{wn} = \sum_{n=1}^{m(n)} Q_{m(n)} - Q_{un} - Q_{sn}
+  Q_{wn} = \sum_{n=1}^{m(n)} Q_{m(n)} - Q_{un} - Q_{sn}
 \end{equation}
 
 \newpage
 \begin{figure}[!ht]
-	\centering
-	\resizebox{0.5\textwidth}{!}{%
-		\begin{circuitikz}
-			\tikzstyle{every node}=[font=\Large]
-			\draw  (8.75,15) rectangle (11.25,10);
-			\draw [->, >=Stealth] (10,8.75) .. controls (10,9.25) and (10,9.25) .. (10,10);
-			\draw [->, >=Stealth] (10,16.25) .. controls (11.25,16.25) and (11.25,16.25) .. (12.5,16.25);
-			\draw [line width=1pt, ->, >=Stealth] (8.75,12.25) .. controls (8.25,12.25) and (8.25,12.25) .. (7.5,12.25);
-			\draw [line width=1pt,->, >=Stealth] (7.25,14.25) .. controls (7.5,14.25) and (7.5,14.25) .. (7.75,14.25);
-			\draw[, line width=1pt] (7.5,12.25) to[short] (7.25,12.25);
-			\draw [line width=1pt, short] (7.75,14.25) .. controls (9,14.25) and (9,14.25) .. (10,14.25);
-			\draw [line width=1pt, short] (10,14.25) .. controls (9.75,14) and (9.75,14) .. (9.5,13.75);
-			\draw [line width=1pt, short] (9.5,13.75) .. controls (9.75,13.5) and (9.75,13.5) .. (10,13.25);
-			\draw [line width=1pt, short] (10,13.25) .. controls (9.75,13) and (9.75,13) .. (9.5,12.75);
-			\draw [line width=1pt, short] (9.5,12.75) .. controls (9.75,12.5) and (9.75,12.5) .. (10,12.25);
-			\draw [line width=1pt, short] (10,12.25) .. controls (9.5,12.25) and (9.5,12.25) .. (8.75,12.25);
-			\draw [short] (10,15) .. controls (10,15.5) and (10,15.5) .. (10,16.25);
-			\draw [short] (10,8.75) .. controls (11.25,8.75) and (11.25,8.75) .. (12.5,8.75);
-			\node [font=\Large] at (7.75,14.6) {$F_z, T_{zi}$};
-			\node [font=\Large] at (11.5,16.6) {$F_w, T_{wo}$};
-			\node [font=\Large] at (11.25,9.1) {$T_{wi}$};
-			\draw [](13.75,13.25) to[short] (13.75,15.25);
-			\draw [](6.25,15.25) to[short] (6.25,13.25);
-			\draw [](6.25,13) to[short] (13.75,13);
-			\draw [](13.75,13) to[short] (13.75,11.5);
-			\draw[] (13.75,11.5) to[short] (6.25,11.5);
-			\draw [](6.25,13) to[short] (6.25,11.5);
-			\draw [](6.25,11.25) to[short] (6.25,10.25);
-			\draw [](6.25,10.25) to[short] (6.25,9.75);
-			\draw [](13.75,9.75) to[short] (13.75,11.25);
-			\draw [](6.25,13.25) to[short] (13.75,13.25);
-			\draw [](6.25,15.25) to[short] (13.75,15.25);
-			\draw [](6.25,11.25) to[short] (13.75,11.25);
-			\draw [](6.25,9.75) to[short] (13.75,9.75);
-		\end{circuitikz}
-	}%
-	\caption{Trójwarstwowy model zasobnika}
-	\label{Qp}
+  \centering
+  \resizebox{0.5\textwidth}{!}{%
+    \begin{circuitikz}
+      \tikzstyle{every node}=[font=\Large]
+      \draw  (8.75,15) rectangle (11.25,10);
+      \draw [->, >=Stealth] (10,8.75) .. controls (10,9.25) and (10,9.25) .. (10,10);
+      \draw [->, >=Stealth] (10,16.25) .. controls (11.25,16.25) and (11.25,16.25) .. (12.5,16.25);
+      \draw [line width=1pt, ->, >=Stealth] (8.75,12.25) .. controls (8.25,12.25) and (8.25,12.25) .. (7.5,12.25);
+      \draw [line width=1pt,->, >=Stealth] (7.25,14.25) .. controls (7.5,14.25) and (7.5,14.25) .. (7.75,14.25);
+      \draw[, line width=1pt] (7.5,12.25) to[short] (7.25,12.25);
+      \draw [line width=1pt, short] (7.75,14.25) .. controls (9,14.25) and (9,14.25) .. (10,14.25);
+      \draw [line width=1pt, short] (10,14.25) .. controls (9.75,14) and (9.75,14) .. (9.5,13.75);
+      \draw [line width=1pt, short] (9.5,13.75) .. controls (9.75,13.5) and (9.75,13.5) .. (10,13.25);
+      \draw [line width=1pt, short] (10,13.25) .. controls (9.75,13) and (9.75,13) .. (9.5,12.75);
+      \draw [line width=1pt, short] (9.5,12.75) .. controls (9.75,12.5) and (9.75,12.5) .. (10,12.25);
+      \draw [line width=1pt, short] (10,12.25) .. controls (9.5,12.25) and (9.5,12.25) .. (8.75,12.25);
+      \draw [short] (10,15) .. controls (10,15.5) and (10,15.5) .. (10,16.25);
+      \draw [short] (10,8.75) .. controls (11.25,8.75) and (11.25,8.75) .. (12.5,8.75);
+      \node [font=\Large] at (7.75,14.6) {$F_z, T_{zi}$};
+      \node [font=\Large] at (11.5,16.6) {$F_w, T_{wo}$};
+      \node [font=\Large] at (11.25,9.1) {$T_{wi}$};
+      \draw [](13.75,13.25) to[short] (13.75,15.25);
+      \draw [](6.25,15.25) to[short] (6.25,13.25);
+      \draw [](6.25,13) to[short] (13.75,13);
+      \draw [](13.75,13) to[short] (13.75,11.5);
+      \draw[] (13.75,11.5) to[short] (6.25,11.5);
+      \draw [](6.25,13) to[short] (6.25,11.5);
+      \draw [](6.25,11.25) to[short] (6.25,10.25);
+      \draw [](6.25,10.25) to[short] (6.25,9.75);
+      \draw [](13.75,9.75) to[short] (13.75,11.25);
+      \draw [](6.25,13.25) to[short] (13.75,13.25);
+      \draw [](6.25,15.25) to[short] (13.75,15.25);
+      \draw [](6.25,11.25) to[short] (13.75,11.25);
+      \draw [](6.25,9.75) to[short] (13.75,9.75);
+    \end{circuitikz}
+  }%
+  \caption{Trójwarstwowy model zasobnika}
+  \label{Qp}
 \end{figure}
 
 \begin{equation}
-	\frac{dT_{wo}^{3}}{dt} = b_1^3 F_z (T_{zi} - T_{wo}^{3}) - b_2^3 F_w (T_{wo}^{3} - T_{wo}^{2}) - b_3^4 (T_{wo}^{3} - T_{ot})
+  \frac{dT_{wo}^{3}}{dt} = b_1^3 F_z (T_{zi} - T_{wo}^{3}) - b_2^3 F_w (T_{wo}^{3} - T_{wo}^{2}) - b_3^4 (T_{wo}^{3} - T_{ot})
 \end{equation}
 
 \begin{equation}
-	\frac{dT_{zi}}{dt} = p_1 Q_g - p_2 F_z (T_{zi} - T_{wo}^{3}) - p_3 (T_{zi} - T_{ot})
+  \frac{dT_{zi}}{dt} = p_1 Q_g - p_2 F_z (T_{zi} - T_{wo}^{3}) - p_3 (T_{zi} - T_{ot})
 \end{equation}
 
 \begin{equation}
-	\frac{dT_{wo}^{2}}{dt} = b_1^2 F_z (T_{zi} - T_{wo}^{2}) - b_2^2 F_w (T_{wo}^{2} - T_{wo}^{1}) - b_3^2 (T_{wo}^{2} - T_{ot}) - b_4^2 (T_{wo}^{2} - T_{wo}^{1}) + b_5^2 (T_{wo}^{3} - T_{wo}^{2})
+  \frac{dT_{wo}^{2}}{dt} = b_1^2 F_z (T_{zi} - T_{wo}^{2}) - b_2^2 F_w (T_{wo}^{2} - T_{wo}^{1}) - b_3^2 (T_{wo}^{2} - T_{ot}) - b_4^2 (T_{wo}^{2} - T_{wo}^{1}) + b_5^2 (T_{wo}^{3} - T_{wo}^{2})
 \end{equation}
 
 \begin{equation}
-	\frac{dT_{wo}^{1}}{dt} = -b_2^1 F_w (T_{wo}^{1} - T_{wi}) - b_3^1 (T_{wo}^{1} - T_{ot}) + b_5^1 (T_{wo}^{2} - T_{wo}^{1})
+  \frac{dT_{wo}^{1}}{dt} = -b_2^1 F_w (T_{wo}^{1} - T_{wi}) - b_3^1 (T_{wo}^{1} - T_{ot}) + b_5^1 (T_{wo}^{2} - T_{wo}^{1})
 \end{equation}
 
 Przedstawienie modelu warstwowego, równań stanu, pokazanie wyników symulacji modelu
@@ -1079,11 +1079,11 @@ Przedstawienie modelu warstwowego, równań stanu, pokazanie wyników symulacji 
 \label{ch:06}
 \section{Funkcja kosztów}
 \begin{equation}
-	G = \int p_1 Q_g \, dt
+  G = \int p_1 Q_g \, dt
 \end{equation}
 \section{Funkcja komfortu}
 \begin{equation}
-	J = \int \left( T_{wo} - T_{wym} \right)^2 \left| \frac{\text{sign}(T_{wo} - T_{wym} - \delta) + \text{sign}(T_{wo} - T_{wym} + \delta)}{2} \right| \, dt
+  J = \int \left( T_{wo} - T_{wym} \right)^2 \left| \frac{\text{sign}(T_{wo} - T_{wym} - \delta) + \text{sign}(T_{wo} - T_{wym} + \delta)}{2} \right| \, dt
 \end{equation}
 
 
@@ -1108,75 +1108,75 @@ Przedstawienie modelu warstwowego, równań stanu, pokazanie wyników symulacji 
 
 \begin{appendices}
 
-	% TODO
-	\chapter{Spis skrótów i symboli}
+  % TODO
+  \chapter{Spis skrótów i symboli}
 
-	\begin{itemize}
-		\item[ASHRAE] American Society of Heating, Refrigerating and Air-Conditioning Enginee
-		\item[ARIMA] Autoregressive integrated moving average
-		\item[MISO] Multiple Input, Single Output
-		\item[CUDA] Compute Unified Device Architecture
-		\item[GPU] Graphics processing unit
-		\item[CPU] Central processing Unit
-		\item[LIME] Local Interpretable Model-agnostic Explanations
-		\item[PFI] Permutation Feature Importance
-		\item[$f(\cdot)$] Funkcja aktywacji neuronu
-		\item[y] sygnał wyjściowy neuronu
-		\item[x] sygnał wejsciowy neuronu
-		\item[$v$] pobudzenie neuronu
-		\item[$w_j$]  Waga neuronu
-		\item[b] Składnik stały
-		\item[$T_{zi}^{n,m}$] Temperatura systemu grzewczego
-		\item[$T_{wo}^{n}$] Temepratura warsty
-		\item[$T_{ot}$] Temperatura otoczenia
-		\item[$F_w$] Przepływ wody w zbiorniku
-		\item[$F_z$] Przepływ wody systemu grzewczego
-		\item[$Q_p$] Ciepło systemu grzewczego
-		\item[$Q_{zm}$] Cieplo dostarczane do zasobnika
-		\item[$Q_m$]
-		\item[$Q_w$] Ciepło całego zbiornika
-		\item[$Q_{wm}$] Ciepło warstwy
-		\item[$Q_u$] Ciepło upuszczające zbiornik DO POPRAWY
-		\item[$Q_s$] Straty ciepła
-		\item[A] Powierzchnia wymiany ciepła DO POPRAWY
-		\item[d] powierzchnia wymiany ciepła DO POPRAWY
-		\item[V] Objętość
-		\item[$C_w$] Ciepło właściwe
-		\item[$\lambda$] Wspołczynnik wymiany ciepła
-		\item[n] numer warstwy
-		\item[m] numer źródła ciepła
-		\item[$\phi$] wilgotność zewnętrzna
-		\item[$\longrightarrow$] Kierunek wiatru
-		\item[V$_{wia}$] Prędkość wiatru
-		\item[T$_{zew}$] Temperatura zewnętrzna
-		\item[P$_{zew}$] Ciśnienie zewnętrzne
-	\end{itemize}
-
-
-
-	% TODO
-	\chapter{Lista dodatkowych plików, uzupełniających tekst pracy}
-
-	\begin{enumerate}
-		\item Dane
-		      \begin{enumerate}
-			      \item Dane od ASHRAE i ich przetworzona wersja
-			      \item Dane potrzebne do oceny wazności wejść
-		      \end{enumerate}
-		\item Skrypty
-		      \begin{enumerate}
-			      \item Skrypt 1.py -robi coś
-			      \item Skrypt 1.py -robi coś
-		      \end{enumerate}
-		\item Archiwum modeli opisanych w pracy
-	\end{enumerate}
+  \begin{itemize}
+    \item[ASHRAE] American Society of Heating, Refrigerating and Air-Conditioning Enginee
+    \item[ARIMA] Autoregressive integrated moving average
+    \item[MISO] Multiple Input, Single Output
+    \item[CUDA] Compute Unified Device Architecture
+    \item[GPU] Graphics processing unit
+    \item[CPU] Central processing Unit
+    \item[LIME] Local Interpretable Model-agnostic Explanations
+    \item[PFI] Permutation Feature Importance
+    \item[$f(\cdot)$] Funkcja aktywacji neuronu
+    \item[y] sygnał wyjściowy neuronu
+    \item[x] sygnał wejsciowy neuronu
+    \item[$v$] pobudzenie neuronu
+    \item[$w_j$]  Waga neuronu
+    \item[b] Składnik stały
+    \item[$T_{zi}^{n,m}$] Temperatura systemu grzewczego
+    \item[$T_{wo}^{n}$] Temepratura warsty
+    \item[$T_{ot}$] Temperatura otoczenia
+    \item[$F_w$] Przepływ wody w zbiorniku
+    \item[$F_z$] Przepływ wody systemu grzewczego
+    \item[$Q_p$] Ciepło systemu grzewczego
+    \item[$Q_{zm}$] Cieplo dostarczane do zasobnika
+    \item[$Q_m$]
+    \item[$Q_w$] Ciepło całego zbiornika
+    \item[$Q_{wm}$] Ciepło warstwy
+    \item[$Q_u$] Ciepło upuszczające zbiornik DO POPRAWY
+    \item[$Q_s$] Straty ciepła
+    \item[A] Powierzchnia wymiany ciepła DO POPRAWY
+    \item[d] powierzchnia wymiany ciepła DO POPRAWY
+    \item[V] Objętość
+    \item[$C_w$] Ciepło właściwe
+    \item[$\lambda$] Wspołczynnik wymiany ciepła
+    \item[n] numer warstwy
+    \item[m] numer źródła ciepła
+    \item[$\phi$] wilgotność zewnętrzna
+    \item[$\longrightarrow$] Kierunek wiatru
+    \item[V$_{wia}$] Prędkość wiatru
+    \item[T$_{zew}$] Temperatura zewnętrzna
+    \item[P$_{zew}$] Ciśnienie zewnętrzne
+  \end{itemize}
 
 
 
-	\listoffigures
-	\addcontentsline{toc}{chapter}{Spis rysunków}
-	\listoftables
-	\addcontentsline{toc}{chapter}{Spis tabel}
+  % TODO
+  \chapter{Lista dodatkowych plików, uzupełniających tekst pracy}
+
+  \begin{enumerate}
+    \item Dane
+          \begin{enumerate}
+            \item Dane od ASHRAE i ich przetworzona wersja
+            \item Dane potrzebne do oceny wazności wejść
+          \end{enumerate}
+    \item Skrypty
+          \begin{enumerate}
+            \item Skrypt 1.py -robi coś
+            \item Skrypt 1.py -robi coś
+          \end{enumerate}
+    \item Archiwum modeli opisanych w pracy
+  \end{enumerate}
+
+
+
+  \listoffigures
+  \addcontentsline{toc}{chapter}{Spis rysunków}
+  \listoftables
+  \addcontentsline{toc}{chapter}{Spis tabel}
 
 \end{appendices}
 
