@@ -524,9 +524,9 @@ wprowadzenie w problem/zagadnienie
 \section{Aktualny stan wiedzy}
 
 \subsection{Data-Collected models}
-Modele oparte na zebranych danych są szeroką kategorią modeli statystycznych i analitycznych, które wykorzystują dane zebrane z różnych źródeł do formułowania wniosków, Edwards et al.\cite{bib:data_model} stworzyli roczne profile poboru wody, na podstawie danych pomiarowych z 73 domostw w Québec(Kanada). Utworzone profile poboru ciepłej wody użytkowej trzy kluczowe elementy: Wysoka rozdzielczość czasowa, Cztery poziomy zużycia - odpowidały one średniej, medianie, a także procentylom. Trzy wzorce czasowe - koncentowały sie one na porannym, wieczornym lub równomiernym zużyciu wody przez cały dzień, aby uwzględnić różne style życia i zwyczaje mieszkańców.\\
+Modele oparte na zebranych danych są szeroką kategorią modeli statystycznych i analitycznych, które wykorzystują dane zebrane z różnych źródeł do formułowania wniosków, Edwards et al.\cite{bib:data_model} stworzyli roczne profile poboru wody, na podstawie danych pomiarowych z 73 domostw w Québec(Kanada). Utworzone profile poboru ciepłej wody użytkowej mają trzy kluczowe elementy: Wysoka rozdzielczość czasowa. Cztery poziomy zużycia - odpowidały one średniej, medianie, a także procentylom. Trzy wzorce czasowe - koncentowały sie one na porannym, wieczornym lub równomiernym zużyciu wody przez cały dzień, aby uwzględnić różne style życia i zwyczaje mieszkańców.\\
 
-Modele szeregów czasowych są specjalną kategorią modeli statystycznych przeznaczonych do analizowania i prognozowania danych, które są zebrane lub obserwowane w regularnych odstępach czasu. Gelazanskas i Gamage\cite{bib:Time_series} zauważywszy silną dzienną i tygodniową korealcje zastosowali kobinacje metode dekompozycji sezonowej oraz model ARIMA. Po porównianiu zaproponowanego modelu wraz z wybranymi modelami referencyjnymi, stwierdzono, że rozdzielenie szeregów czasowych na kilka składowych odgrywa znaczącą rolę w dokładności prognoz - uwzględnienie sezonowych wzorców zużycia może znacząco poprawić jakość prognoz.\\
+Modele szeregów czasowych są specjalną kategorią modeli statystycznych przeznaczonych do analizowania i prognozowania danych, które są zebrane lub obserwowane w regularnych odstępach czasu. Gelazanskas i Gamage\cite{bib:Time_series} zauważywszy silną dzienną i tygodniową korealcje. Zastosowali kobinacje metode dekompozycji sezonowej oraz model ARIMA. Po porównianiu zaproponowanego modelu wraz z wybranymi modelami referencyjnymi, stwierdzono, że rozdzielenie szeregów czasowych na kilka składowych odgrywa znaczącą rolę w dokładności prognoz - uwzględnienie sezonowych wzorców zużycia może znacząco poprawić jakość prognoz.\\
 
 \subsection{Model Behawioralny}
 Modele behawioralne, są to modele oparte na zachowaniu ludzi w określonych sytuacjach, biorą one pod uwagę różne czynniki takie jak motywację, preferencje czy wpływ społeczny. Są one zazwyczaj stosowane w dziedzinach naukowych takich jak psychologia czy ekonomia, ale również w inżynierii. Model behawioralne stworzony przez  N.D. Pflugradt\cite{bib:Behavioural} symulował indywidualne zachowania w celu przewidywania zużycia energii i wody w gospodarstwie domowym. Model został stworzony w celu uniknięcia polegania na statystycznych rozkładach prawdopodobieństwa. Autor stwierdził, że przewidywania modelu są bardzo dobre dla gospodarstw zamieszkanych przez jedną osobę, gdyż największym problem modelu jest jego skalowalność, ze względu na konieczność dokonania dużej ilość założeń i trudności w gromadzeniu danych o zachowaniach wielu mieszkańców.\\
@@ -534,11 +534,14 @@ Modele behawioralne, są to modele oparte na zachowaniu ludzi w określonych syt
 
 \newpage
 \section{Charakterystyka rozdziałów}
+
+ (...)
+
 W rozdziale drugim, zatytułowanym "Zastosowane Narzędzia w Pracy", zostanie szczegółowo omówione wymagania dotyczących języka programowania oraz głównej biblioteki używanej do tworzenia sieci neuronowych. Najpierw zostaną rozpatrzone dwa główne języki, które są popularne w dziedzinie uczenia maszynowego i zostanie dokonany wybór, który lepiej odpowiada wymaganiom. Następnie koncentracja zostanie położona na wybór biblioteki do tworzenia sieci neuronowe. Ponownie zostaną przedstawione dwie popularne biblioteki, które zostaną przeanalizowane pod kątem funkcjonalności, wydajności i wsparcia społeczności. Następnie zostanie wybrana jedna, która najbardziej sprzyja realizacji założeń. W dalszej części zostaną przedstawione biblioteki pomocnicze, które są niezbędne do przetwarzania i analizy danych. Zostaną opisane najważniejsze funkcje i zastosowania tych narzędzi. Zostanie także poruszony wątek kompatybilności tych bibliotek.\\
 
-W kolejnym rozdziale pracy zostanie przedstawiona metodologia projektowania modelu sieci neuronowej. Szczegółowo omówione zostaną hiperparametry oraz zasady działania sieci neuronowych, aby zapewnić solidne podstawy teoretyczne dla dalszej części badań. Następnie przedstawimy dane wejściowe, które są niezbędne do stworzenia modelu prognozującego dzienne zużycie wody. Szczególna uwaga zostanie poświęcona sposobom przetwarzania tych danych, aby były one adekwatne do zastosowania w sieciach neuronowych. W dalszej części rozdziału zaprezentujemy cztery różne modele sieci neuronowych, które będą się różnić ilością wejść. Dokładnie zostaną omówione wyniki generowane przez każdy z modeli dla trzech różnych zestawów danych. Na zakończenie rozdziału zostanie zaproponowany sposób ulepszenia wybranego modelu sieci neuronowej. Ulepszenie to będzie polegało na wprowadzeniu dodatkowego parametru wykorzystującego dane historyczne.\\
+W kolejnym rozdziale pracy zostanie przedstawiona metodologia projektowania modelu sieci neuronowej. Szczegółowo omówione zostaną hiperparametry oraz zasady działania sieci neuronowych, aby zapewnić solidne podstawy teoretyczne dla dalszej części badań. Następnie zostaną omówione dane wejściowe, które są niezbędne do stworzenia modelu prognozującego dzienne zużycie wody. Szczególna uwaga zostanie poświęcona sposobom przetwarzania tych danych, aby były one adekwatne do zastosowania w sieciach neuronowych. W dalszej części rozdziału zaprezentujemy cztery różne modele sieci neuronowych, które będą się różnić ilością wejść. Dokładnie zostaną omówione wyniki generowane przez każdy z modeli dla trzech różnych zestawów danych. Na zakończenie rozdziału zostanie zaproponowany sposób ulepszenia wybranego modelu sieci neuronowej. Ulepszenie to będzie polegało na wprowadzeniu dodatkowego parametru wykorzystującego dane historyczne.\\
 
-W ramach rozdziału "Pogoda" niniejszej pracy dyplomowej dokonano prezentacji i analizy danych meteorologicznych, które posłużyły jako fundament dla procesu nauki dwóch modeli sieci neuronowych o zróżnicowanej złożoności architektonicznej. Następnie, w dalszej części rozdziału, skoncentrowano się na szczegółowym badaniu i ocenie ważności poszczególnych wejść dla obu modeli. Do tego celu wykorzystano trzy zaawansowane metody analityczne: Permutacyjną Ważność Cech, analizę wag wejściowych modelu oraz metodę Local Interpretable Model-agnostic Explanations. Każda z tych technik dostarcza istotnych informacji o znaczeniu poszczególnych zmiennych wejściowych w kontekście ich wpływu na wydajność i dokładność modeli.
+W ramach rozdziału "Pogoda" niniejszej pracy dyplomowej dokonano prezentacji i analizy danych meteorologicznych, które posłużyły jako fundament dla procesu nauki dwóch modeli sieci neuronowych o zróżnicowanej złożoności architektonicznej. Następnie, w dalszej części rozdziału, skoncentrowano się na szczegółowym badaniu i ocenie ważności poszczególnych wejść dla obu modeli. Do tego celu wykorzystano trzy zaawansowane metody analityczne: Permutacyjną Ważność Cech, analizę wag wejściowych modelu oraz metodę LIME(Local Interpretable Model-agnostic Explanations). Każda z tych technik dostarcza istotnych informacji o znaczeniu poszczególnych zmiennych wejściowych w kontekście ich wpływu na wydajność i dokładność modeli.
 
 
 \chapter{Zastosowane narzędzia w pracy}
@@ -629,6 +632,15 @@ Wyjście pojedynczego neuronu można opisać za pomocą wzoru:
 \begin{equation}
   y = f\left(\sum_{j=1}^{N} w_j x_j + b\right)
 \end{equation}
+gdzie:
+\begin{itemize}
+  \item \( y \) - sygnał wyjściowy neuronu,
+  \item \( x_j \) - sygnał wejściowy neuronu dla \( j \)-tego wejścia,
+  \item \( w_j \) - waga przypisana do \( j \)-tego sygnału wejściowego neuronu,
+  \item \( b \) - składnik stały,
+  \item \( f(\cdot) \) - funkcja aktywacji neuronu,
+  \item \( N \) - liczba wejść neuronu.
+\end{itemize}
 
 Neurony organizują się w sieci, tworząc struktury znane jako sieci neuronowe. Każda sieć neuronowa składa się z wielu neuronów, które są wzajemnie połączone i mogą być zorganizowane w różne warstwy. Charakterystyczną cechą neuronów należących do tej samej warstwy jest to, że otrzymują one wspólny sygnał wejściowy.\\
 
@@ -914,7 +926,7 @@ Mimo iż LIME jest metodą zasadniczo skoncentrowaną na dostarczaniu interpreta
 
 
 \begin{table}[!h]
-  \caption{Porównanie uśredninonych ważności wejść dla metody LIME dla wielu prób}
+  \caption{Porównanie uśrednionych ważności wejść dla metody LIME dla wielu prób}
   \resizebox{\textwidth}{!}{
     \begin{tabular}{|c|c|c|c|c|c|c|c|}
       \hline
@@ -937,7 +949,9 @@ Prędkość wiatru, która generalnie otrzymuje niższe ważności, ujawnia znac
 \chapter{Modelowanie zbiornika CWU}
 \label{ch:05}
 \section{Metodologia}
-
+linearyzacja \cite{bib:linearyzacja} \\
+inne podejścia\cite{bib:model_1,bib:model_2}
+\newpage
 \subsection{Model jednowarstwowy}
 \begin{figure}[!ht]
   \centering
@@ -956,7 +970,7 @@ Prędkość wiatru, która generalnie otrzymuje niższe ważności, ujawnia znac
       \draw [](11.5,11.25) to[short, -o] (13.25,11.25);
       \node [font=\LARGE] at (11,7.9) {$T_{wi}$};
       \node [font=\LARGE] at (12.5,11.75) {$T_{ot}$};
-      \node [font=\LARGE] at (11.25,15.5) {$F_w,T_{ow}$};
+      \node [font=\LARGE] at (11.25,15.5) {$F_w,T_{wo}$};
     \end{circuitikz}
   }%
   \caption{Model zasobnika - pojedyńcza warstwa}
@@ -967,6 +981,20 @@ Prędkość wiatru, która generalnie otrzymuje niższe ważności, ujawnia znac
   \rho C_w V \frac{dT_{wo}}{dt} = Q_p - \rho C_w F_w (T_{wo} - T_{wi}) - \frac{\lambda A}{d} (T_{wo} - T_{ot})
 \end{equation}
 
+gdzie:
+\begin{itemize}
+  \item[A] Powierzchnia wymiany ciepła DO POPRAWY
+  \item[d] powierzchnia wymiany ciepła DO POPRAWY
+  \item[V] Objętość
+  \item[$C_w$] Ciepło właściwe
+  \item[$\lambda$] Wspołczynnik wymiany ciepła
+  \item[$Q_p$] Ciepło systemu grzewczego
+  \item[$T_{ot}$] Temperatura otoczenia
+  \item[$T_{wo}$] Temepratura wyjściowa
+  \item[$T_{wi}$] Temperatura wejściowa
+  \item[$F_{w}$] TODO
+  \item[$F_{z}$] TODO
+\end{itemize}
 \newpage
 \subsection{Model wielowarstwowy}
 
@@ -1012,6 +1040,14 @@ Prędkość wiatru, która generalnie otrzymuje niższe ważności, ujawnia znac
 \begin{equation}
   Q_{wn} = \sum_{n=1}^{m(n)} Q_{m(n)} - Q_{un} - Q_{sn}
 \end{equation}
+
+\begin{itemize}
+  \item[$Q_m$]
+  \item[$Q_w$] Ciepło całego zbiornika
+  \item[$Q_{wm}$] Ciepło warstwy
+  \item[$Q_u$] Ciepło upuszczające zbiornik DO POPRAWY
+  \item[$Q_s$] Straty ciepła
+\end{itemize}
 
 \newpage
 \begin{figure}[!ht]
@@ -1145,7 +1181,8 @@ Przedstawienie modelu warstwowego, równań stanu, pokazanie wyników symulacji 
     \item[$\lambda$] Wspołczynnik wymiany ciepła
     \item[n] numer warstwy
     \item[m] numer źródła ciepła
-    \item[$\phi$] wilgotność zewnętrzna
+    \item[$\phi_{zew}$] wilgotność zewnętrzna
+    \item[$\phi_{wew}$] wilgotność wewnętrzna
     \item[$\longrightarrow$] Kierunek wiatru
     \item[V$_{wia}$] Prędkość wiatru
     \item[T$_{zew}$] Temperatura zewnętrzna
