@@ -547,7 +547,7 @@ W ramach rozdziału "Pogoda" niniejszej pracy dyplomowej dokonano prezentacji i 
 \chapter{Zastosowane narzędzia w pracy}
 \label{ch:wymagania-i-narzedzia}
 % Opis narzędzi które były uzywane podczas programowania, Wiekszy opis pythona i tensorflow, ich "specyfikacja" plusy i minusy, jakie były inne mozliwe wybory oraz czemu zostały wybrane akurat te rozwiązania, krótszy opis pozostałych biblotek uzytych podczas programownia takich jak numpy, plotlib czy pandas
-\section{Python}
+\section{Język programowania}
 Wybór głównego języka programowania zastosowanego w projekcie, wiązał się z postawieniem pewnych wymagań. Pierwszym z tych wymagań była dostępność dedykowanej biblioteki do uczenia maszynowego, która posiada narzędzia do efektywnej pracy nad modelami czy ich testowanie. Użycie biblioteki która jest dobrze utrzymana zapewnia ogromne wsparcie społeczności, które może okazać się nieocenione w procesie nauki czy rozwiązywania problemów.\\Kolejnym wymaganiem jest aby wybrana technologia była ciągle wspierana i aktualizowana. Machine learning jest aktualnie jedną z najszybciej rozwijających się dziedzin programowania, co wiąże się z szybkimi zmianami. Po dokładnej analizie postawionych wymagań, zdecydowano o wyborze dwóch głównych języków programowania, które najlepiej odpowiadają potrzebom projektu
 \begin{itemize}
   \item R
@@ -555,7 +555,7 @@ Wybór głównego języka programowania zastosowanego w projekcie, wiązał się
 \end{itemize}
 
 R jest językiem skoncentrowanym na analizie danych i statystyce. Posiada on bardzo bogaty ekosystem jednak może stanowić to przyczynę wielu konfliktów pomiędzy pakietami. Największą wadą tego jest języka jest problem ze skalowalnością. Praca z dużą ilością danych skutkuje zużyciem ogromnej ilości pamięci RAM.\\ Skorzystanie z Pythona będzie lepiej spełniać wymogi projektu. Jest on językiem bardziej wszechstronny oraz posiada obszerną biblioteke standardową jak i bardzo liczne zewnętrzne bibloteki. Największą wadą Pythona jest jego wydajność. Gdyż jest językiem interpretowanym, więc nie jest on kompilowany do kodu maszynowego przed jego uruchomieniem.
-\section{Tensorflow}
+\section{Biblioteka ML}
 
 Decyzja o wyborze odpowiedniej biblioteki do tworzenia sieci neuronowych jest kluczowym elementem każdego projektu związanego z uczeniem maszynowym i głębokim uczeniem. TensorFlow, będący jedną z dwóch głównych otwartych bibliotek do uczenia maszynowego w Pythonie, wyróżnia się swoją wszechstronnością i wsparciem od Google. Jego głównym konkurentem jest PyTorch, rozwijany przez Facebook, który zyskał popularność ze względu na swoją elastyczność i przyjazność dla użytkownika.
 \begin{itemize}
@@ -704,15 +704,14 @@ Podział zbioru danych na trzy zestawy okazał się kluczowy dla efektywnego dob
 Czas uczenia sieci był znacząco różny dla poszczególnych zestawów danych. Przykładowo, dla całego zbioru danych proces uczenia trwający 10 epok przy rozmiarze partii równym 64 zajmował około 46 minut. Tymczasem dla wybranych domostw czas ten skracał się do 9 minut, a dla pojedynczego domostwa uczenie trwało zaledwie 40 sekund. W ramach badań podjęto próby wykorzystania Google Colab, będącego popularnym narzędziem służącym do programowania i przetwarzania danych w chmurze. Po odpowiednim skonfigurowaniu środowiska napotkano na pierwszy znaczący problem - czas trwania uploadu pliku. Zaskakująco, przesyłanie pliku o rozmiarze 300 MB, zawierającego 12,5 miliona wierszy, zajęło znacznie więcej czasu, niż można było przewidywać. Kolejnym krokiem było przeprowadzenie procesu uczenia maszynowego na danych, zaplanowanego na 10 epok. Niestety, cały proces trwał ponad 100 minut, co wskazuje na ograniczenia wersji darmowej Google Colab. W związku z tym stwierdzono, że bez inwestycji w wersję płatną, Google Colab nie zapewnia oczekiwanej redukcji czasu niezbędnego do nauki modelu\\
 
 Początkowo hiperparametry były testowane na najmniejszym zbiorze, co pozwalało na szybką i efektywną ocenę różnych konfiguracji. Po uzyskaniu zadowalających wyników na zbiorze pojedynczego domostwa testy były rozszerzane kolejno na zbiór wybranych domostw, a następnie na pełny zbiór danych. Taka strategia pozwoliła na stopniowe i metodyczne dostosowywanie hiperparametrów, minimalizując przy tym czas i zasoby potrzebne do przeprowadzenia eksperymentów, a jednocześnie maksymalizując ogólną skuteczność modelu. Na podstawie serii przeprowadzonych testów dotyczących dostrajania modelu wybrano następujące hiperparametry
-\begin{table}[!h]
-  \centering
-  \caption{Hiperparametry Sieci Neuronowej}
-  \begin{tabular}{|c|c|c|c|}
-    \hline
-    Optymalizator & Funkcja strat & Początkowy współczynnik uczenia & Rozmiar partii \\ \hline
-    Adam          & mse           & 0.0001                          & 64             \\ \hline
-  \end{tabular}
-\end{table}
+
+\begin{itemize}
+  \item Optymalizator: Adam
+  \item Funkcja strat: mse
+  \item Rozmiar partii: 64
+  \item Początkowy współczynnik uczenia: 0.0001
+\end{itemize}
+
 
 Po przeprowadzeniu serii eksperymentów, w procesie selekcji optymalnej architektury sieci neuronowej, najbardziej efektywną konfiguracją okazała się struktura składająca się z sześciu warstw, z których cztery pełniły funkcję warstw ukrytych. W procesie iteracyjnego dostosowywania i ewaluacji różnych architektur sieci, model o takiej budowie wykazał najlepsze wyniki w zakresie dokładności i generalizacji na testowanych zbiorach danych. Architektura ta charakteryzowała się kolejno malejącą liczbą neuronów w poszczególnych warstwach: pierwsza warstwa zawierała 512 neuronów, druga 256, trzecia 128, czwarta 64, piąta 32, a szósta, będąca warstwą wyjściową, miała 1 neuron. Wszystkie warstwy, z wyjątkiem ostatniej, wykorzystywały funkcję aktywacji ReLU. Natomiast ostatnia warstwa, pełniąca rolę warstwy wyjściowej, zastosowała funkcję aktywacji typu 'linear'
 
@@ -754,6 +753,7 @@ W ramach procesu testowania różnych konfiguracji sieci neuronowej zaproponowan
 
 Wyniki te dostarczą wglądu w to, które wejścia są najbardziej wartościowe dla modelowania przepływu oraz czy dodanie dodatkowych informacji kontekstowych przyczynia się do znaczącej poprawy wyników predykcyjnych.
 \newpage
+\subsection*{Modele A}
 \begin{figure}[!h]
   \centering
   \includegraphics[width=1\textwidth]{img/Model_A.png}
@@ -762,6 +762,7 @@ Wyniki te dostarczą wglądu w to, które wejścia są najbardziej wartościowe 
 \end{figure}
 
 \newpage
+\subsection*{Modele B}
 \begin{figure}[!h]
   \centering
   \includegraphics[width=1\textwidth]{img/Model_B.png}
@@ -770,6 +771,7 @@ Wyniki te dostarczą wglądu w to, które wejścia są najbardziej wartościowe 
 \end{figure}
 
 \newpage
+\subsection*{Modele C}
 \begin{figure}[!h]
   \centering
   \includegraphics[width=1\textwidth]{img/Model_C.png}
@@ -778,12 +780,25 @@ Wyniki te dostarczą wglądu w to, które wejścia są najbardziej wartościowe 
 \end{figure}
 
 \newpage
+\subsection*{Modele C}
 \begin{figure}[!h]
   \centering
   \includegraphics[width=1\textwidth]{img/Model_D.png}
-  \caption{Porównanie symulacji dla modelów typu C}
+  \caption{Porównanie symulacji dla modelów typu D}
   \label{fig:etykieta-rysunku}
 \end{figure}
+
+\begin{table}[!h]
+  \centering
+  \caption{Porównianie wartości MSE modeli}
+  \begin{tabular}{|c|c|c|c|c|}
+    \hline
+    Ilość domostw & Model A & Model B & Model C & Model D \\ \hline
+    Calość        & 0.5841  & 0.5891  & 0.5883  & 0.5842  \\ \hline
+    Wybrane       & 0.5649  & 0.5648  & 0.5650  & 0.5572  \\ \hline
+    Pojedyńcze    & 0.7276  & 0.7277  & 0.7271  & 0.7271  \\ \hline
+  \end{tabular}
+\end{table}
 
 \newpage
 \section{Walidacja i próby dostrajania (?)}
@@ -795,6 +810,7 @@ W celu weryfikacji poprawności i efektywności opracowanego modelu sieci neuron
   \caption{Porównianie modelu ogólnego z modelami szczególnymi}
   \label{fig:etykieta-rysunku}
 \end{figure}
+
 
 W celu dalszego zwiększenia skuteczności modelu sieci neuronowej zaproponowano wprowadzenie dodatkowego wejścia do systemu – tygodniowego zużycia. Implementacja tego rozwiązania została przeprowadzona w specyficzny sposób, mający na celu uniknięcie przekształcenia tego parametru w niezamierzony label identyfikujący poszczególne domy. W fazie uczenia modelu, do każdego tygodnia przypisywano sumę zużycia zarejestrowanego w tym okresie. Natomiast w fazie testowania, model otrzymywał średnią wartość tygodniowego zużycia. Celem tej strategii było umożliwienie modelowi korzystania z danych historycznych zużycia w sposób, który poprawiałby jego zdolność do przewidywania, jednocześnie zachowując elastyczność i możliwość generalizacji wyników na różne domostwa.
 
@@ -819,7 +835,7 @@ W celu dokładniejszej oceny i porównania efektywności modelu ogólnego, naucz
       \hline
       \multirow{2}{*}{MSE} & \multicolumn{12}{c|}{DOMOSTWO}                                                                                                                                                                                                                                                                                                                        \\ \cline{2-13}
                            & \multicolumn{1}{c|}{1}         & \multicolumn{1}{c|}{2}       & \multicolumn{1}{c|}{3}     & \multicolumn{1}{c|}{4}       & \multicolumn{1}{c|}{5}      & \multicolumn{1}{c|}{6}      & \multicolumn{1}{c|}{7}       & \multicolumn{1}{c|}{8}       & \multicolumn{1}{c|}{9}      & \multicolumn{1}{c|}{10}    & \multicolumn{1}{c|}{11}      & 12    \\ \hline
-      Model 1              & \multicolumn{1}{c|}{0.022}     & \multicolumn{1}{c|}{0.0074}  & \multicolumn{1}{c|}{0.037} & \multicolumn{1}{c|}{0.0067}  & \multicolumn{1}{c|}{0.011}  & \multicolumn{1}{c|}{0.0039} & \multicolumn{1}{c|}{0.0084}  & \multicolumn{1}{c|}{0.0095}  & \multicolumn{1}{c|}{0.0072} & \multicolumn{1}{c|}{0.22}  & \multicolumn{1}{c|}{0.010}   & 0.19  \\ \hline
+      Model 1              & \multicolumn{1}{c|}{0.022}     & \multicolumn{1}{c|}{0.00740} & \multicolumn{1}{c|}{0.037} & \multicolumn{1}{c|}{0.00670} & \multicolumn{1}{c|}{0.0110} & \multicolumn{1}{c|}{0.0039} & \multicolumn{1}{c|}{0.00840} & \multicolumn{1}{c|}{0.00950} & \multicolumn{1}{c|}{0.0072} & \multicolumn{1}{c|}{0.220} & \multicolumn{1}{c|}{0.01000} & 0.190 \\ \hline
       Model 2              & \multicolumn{1}{c|}{0.019}     & \multicolumn{1}{c|}{0.00053} & \multicolumn{1}{c|}{0.034} & \multicolumn{1}{c|}{0.00085} & \multicolumn{1}{c|}{0.0013} & \multicolumn{1}{c|}{0.0025} & \multicolumn{1}{c|}{0.00055} & \multicolumn{1}{c|}{0.00069} & \multicolumn{1}{c|}{0.0027} & \multicolumn{1}{c|}{0.075} & \multicolumn{1}{c|}{0.00013} & 0.019 \\ \hline
     \end{tabular}
   }
@@ -881,19 +897,6 @@ W analizie modeli uczenia maszynowego, interpretacja wag pierwszej warstwy może
 
 Mapa ciepła wag pierwszej warstwy sieci neuronowej stanowi cenne narzędzie analityczne, pozwalające na wizualną interpretację i zrozumienie wpływu dużej liczby cech na proces uczenia. Jest to instrument szczególnie użyteczny w kontekście wysokowymiarowych zbiorów danych, gdzie tradycyjne metody analizy mogą okazać się niewystarczające. W przedstawionym przypadku, analiza mapy ciepła nie ujawnia istotnych anomalii w rozkładzie wag. Obserwuje się jedynie sporadyczne wartości, które odstają od średnich wag, lecz nie osiągają one poziomu znacząco wpływającego na wyniki modelu.
 
-W celu dokładnej analizy ważności poszczególnych wag wejściowych sieci neuronowej przeprowadzono obliczenie średniej wartości wagi dla każdego z wejść. Procedura ta umożliwiła identyfikację względnej ważności cech poprzez porównanie ich przeciętnego wpływu na aktywację neuronów w modelu. Następnie, aby umożliwić porównywalność wyników niezależnie od ich pierwotnej skali, dokonano normalizacji obliczonych średnich wag.
-\begin{table}[!h]
-  \centering
-  \caption{Porównianie wag wejściowych dla pierwszej warstwy uproszczonego modelu}
-  \resizebox{\textwidth}{!}{
-    \begin{tabular}{|c|c|c|c|c|c|}
-      \hline
-      \begin{tabular}[c]{@{}c@{}}Temperatura \\ zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność\\  zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Ciśnienie\\  atmosferyczne\end{tabular} & \begin{tabular}[c]{@{}c@{}}Prędkość\\  wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Kierunek\\  wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność \\ wewnętrzna\end{tabular} \\ \hline
-      0.83                                                              & 1.00                                                             & 0.83                                                               & 0.48                                                       & 0.58                                                       & 0.73                                                             \\ \hline
-    \end{tabular}
-  }
-\end{table}\\
-
 Analiza ważności wejść pierwszej warstwy sieci neuronowej, przeprowadzona za pomocą metody badania wag wejściowych, ujawnia istotne różnice w porównaniu z wynikami uzyskanymi metodą Permutation Feature Importance dla modelu o mniej rozbudowanej architekturze. W przeprowadzonych badaniach największą ważność przyznano ciśnieniu atmosferycznemu, co stanowi odchylenie od wyników w wynikach PFI.
 
 Dodatkowo, warto zauważyć, że w badaniu wag wejściowych pierwszej warstwy, temperatura zewnętrzna otrzymała ważność równą 0.92, co jest wynikiem świadczącym o jej istotnym wpływie na model. Jest to wartość znacznie przewyższająca inne cechy, co sugeruje, że temperatura zewnętrznai ciśnienie atmosferyczne pełnią dominującą rolę w przewidywaniach modelu. W kontraście do nich, wilgotność zewnętrzna, prędkość wiatru oraz kierunek wiatru uzyskały ważności w okolicach 0.5, co wskazuje na ich umiarkowany, lecz w miarę zrównoważony wkład w działanie modelu.
@@ -909,7 +912,9 @@ Analizy bardziej złożonych modeli sieci neuronowych, metoda interpretacji wag 
   \label{fig:etykieta-rysunku}
 \end{figure}
 
-Na przedstawionej mapie cieplnej, ilustrującej wagi przypisane poszczególnym neuronom w warstwie wejściowej sieci neuronowej o rozmiarze 1024 jednostek, zaobserwować można istotne wzorce, choć sama mapa staje się trudna do interpretacji ze względu na dużą gęstość neuronów. Mimo tej wizualnej złożoności, zauważyć można, że temperatura zewnętrzna jest reprezentowana przez znacząco większą liczbę wag o dodatnich wartościach. W przeciwieństwie, ciśnienie atmosferyczne wykazuje tendencję do posiadania większej ilości wag o wartościach ujemnych. Wagi odpowiadające kierunkowi wiatru wydają się charakteryzować przewagą wartości bliskich zeru, co sugeruje mniejszy wpływ tej cechy na model.
+Na przedstawionej mapie cieplnej, ilustrującej wagi przypisane poszczególnym neuronom w warstwie wejściowej sieci neuronowej o rozmiarze 1024 jednostek, zaobserwować można istotne wzorce, choć sama mapa staje się trudna do interpretacji ze względu na dużą gęstość neuronów. Mimo tej wizualnej złożoności, zauważyć można, że temperatura zewnętrzna jest reprezentowana przez znacząco większą liczbę wag o dodatnich wartościach. W przeciwieństwie, ciśnienie atmosferyczne wykazuje tendencję do posiadania większej ilości wag o wartościach ujemnych. Wagi odpowiadające kierunkowi wiatru wydają się charakteryzować przewagą wartości bliskich zeru, co sugeruje mniejszy wpływ tej cechy na model.\\
+
+W celu dokładnej analizy ważności poszczególnych wag wejściowych sieci neuronowej przeprowadzono obliczenie średniej wartości wagi dla każdego z wejść. Procedura ta umożliwiła identyfikację względnej ważności cech poprzez porównanie ich przeciętnego wpływu na aktywację neuronów w modelu. Następnie, aby umożliwić porównywalność wyników niezależnie od ich pierwotnej skali, dokonano normalizacji obliczonych średnich wag.
 
 \begin{table}[!h]
   \centering
@@ -918,7 +923,8 @@ Na przedstawionej mapie cieplnej, ilustrującej wagi przypisane poszczególnym n
     \begin{tabular}{|c|c|c|c|c|c|}
       \hline
       \begin{tabular}[c]{@{}c@{}}Temperatura \\ zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność\\  zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Ciśnienie\\  atmosferyczne\end{tabular} & \begin{tabular}[c]{@{}c@{}}Prędkość\\  wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Kierunek\\  wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność \\ wewnętrzna\end{tabular} \\ \hline
-      0.82                                                              & 1.00                                                             & 0.78                                                               & 0.47                                                       & 0.50                                                       & 0.69                                                             \\ \hline\end{tabular}
+      0.82                                                              & 1.00                                                             & 0.78                                                               & 0.47                                                       & 0.50                                                       & 0.69                                                             \\ \hline
+      0.83                                                              & 1.00                                                             & 0.83                                                               & 0.48                                                       & 0.58                                                       & 0.73                                                             \\ \hline\end{tabular}
   }
 \end{table}
 
