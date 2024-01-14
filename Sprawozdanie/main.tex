@@ -754,7 +754,38 @@ W ramach procesu testowania różnych konfiguracji sieci neuronowej zaproponowan
 
 Wyniki te dostarczą wglądu w to, które wejścia są najbardziej wartościowe dla modelowania przepływu oraz czy dodanie dodatkowych informacji kontekstowych przyczynia się do znaczącej poprawy wyników predykcyjnych.
 \newpage
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=1\textwidth]{img/Model_A.png}
+  \caption{Porównanie symulacji dla modelów typu A}
+  \label{fig:etykieta-rysunku}
+\end{figure}
 
+\newpage
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=1\textwidth]{img/Model_B.png}
+  \caption{Porównanie symulacji dla modelów typu B}
+  \label{fig:etykieta-rysunku}
+\end{figure}
+
+\newpage
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=1\textwidth]{img/Model_C.png}
+  \caption{Porównanie symulacji dla modelów typu C}
+  \label{fig:etykieta-rysunku}
+\end{figure}
+
+\newpage
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=1\textwidth]{img/Model_D.png}
+  \caption{Porównanie symulacji dla modelów typu C}
+  \label{fig:etykieta-rysunku}
+\end{figure}
+
+\newpage
 \section{Walidacja i próby dostrajania (?)}
 W celu weryfikacji poprawności i efektywności opracowanego modelu sieci neuronowej przeprowadzono porównanie modelu nauczonych na danych ze wszystkich 12 domostw z modelami utworzonymi dla każdego z tych domów osobno. Taki eksperyment miał na celu ocenę zdolności generalizacji modelu nauczonych na zbiorze 12 domostw w porównaniu z modelami specyficznymi dla poszczególnych domów.
 
@@ -858,7 +889,7 @@ W celu dokładnej analizy ważności poszczególnych wag wejściowych sieci neur
     \begin{tabular}{|c|c|c|c|c|c|}
       \hline
       \begin{tabular}[c]{@{}c@{}}Temperatura \\ zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność\\  zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Ciśnienie\\  atmosferyczne\end{tabular} & \begin{tabular}[c]{@{}c@{}}Prędkość\\  wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Kierunek\\  wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność \\ wewnętrzna\end{tabular} \\ \hline
-      0.63                                                              & 1.00                                                             & 0.31                                                               & 0.13                                                       & 0.22                                                       & 0.72                                                             \\ \hline
+      0.83                                                              & 1.00                                                             & 0.83                                                               & 0.48                                                       & 0.58                                                       & 0.73                                                             \\ \hline
     \end{tabular}
   }
 \end{table}\\
@@ -887,8 +918,7 @@ Na przedstawionej mapie cieplnej, ilustrującej wagi przypisane poszczególnym n
     \begin{tabular}{|c|c|c|c|c|c|}
       \hline
       \begin{tabular}[c]{@{}c@{}}Temperatura \\ zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność\\  zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Ciśnienie\\  atmosferyczne\end{tabular} & \begin{tabular}[c]{@{}c@{}}Prędkość\\  wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Kierunek\\  wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność \\ wewnętrzna\end{tabular} \\ \hline
-      1.00                                                              & 0.46                                                             & 0.63                                                               & 0.41                                                       & 0.20                                                       & 0.00                                                             \\ \hline
-    \end{tabular}
+      0.82                                                              & 1.00                                                             & 0.78                                                               & 0.47                                                       & 0.50                                                       & 0.69                                                             \\ \hline\end{tabular}
   }
 \end{table}
 
@@ -946,6 +976,7 @@ Mimo iż LIME jest metodą zasadniczo skoncentrowaną na dostarczaniu interpreta
 Zarówno w Modelu 1, jak i Modelu 2, temperatura zewnętrzna jest systematycznie uznawana za cechę o największym wpływie na przewidywania modelu, co wskazuje na jej przewodnią rolę w analizowanych danych meteorologicznych. Niezmiennie wysokie wartości ważności tej zmiennej świadczą o jej dominującej pozycji w obu modelach, niezależnie od wielkości próby. Dla obu modelów, wilgotność jak i ciśnienie wykazują stabilne wartości, tylko w pojedyńczych próbach ciśnienie staja sie dominującą zmienną.
 Prędkość wiatru, która generalnie otrzymuje niższe ważności, ujawnia znaczący wzrost w przypadku 1000 próbek w Modelu 2. To może wskazywać na to, że dla bardziej złożonych analiz, gdy dostępna jest większa liczba danych, prędkość wiatru zaczyna wykazywać silniejsze korelacje z wynikami modelu bardzo złożonego.Kierunek wiatru dla modelu pierwszego pozostaje cechą o niskiej ważności, lecz dla modelu rozbudowanego zystkujena znaczniu. Wilgotność wewnętrzna konsekwentnie otrzymuje najniższe wartości ważności, co wskazuje na jej marginalną rolę w procesie decyzyjnym obu modeli. Wilgotność wewnętrzna i zewnętrzna zostały zidentyfikowane jako wejścia o najmniejszym wpływie na model.
 
+\newpage
 \subsection{Dodanie nowego parametru}
 
 \begin{table}[!h]
@@ -953,9 +984,9 @@ Prędkość wiatru, która generalnie otrzymuje niższe ważności, ujawnia znac
   \caption{TODO}
   \begin{tabular}{|c|c|c|}
     \hline
-                                                      & \begin{tabular}[c]{@{}c@{}}Bez dodatkowego\\ parametru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Z dodatkowego\\ parametru\end{tabular} \\ \hline
-    \begin{tabular}[c]{@{}c@{}}Model\\ 1\end{tabular} & 0.0706                                                              & 0.0691                                                            \\ \hline
-    \begin{tabular}[c]{@{}c@{}}Model\\ 2\end{tabular} & 0.0262                                                              & 0.0230                                                            \\ \hline
+                                                                & \begin{tabular}[c]{@{}c@{}}Bez dodatkowego\\ parametru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Z dodatkowego\\ parametru\end{tabular} \\ \hline
+    \begin{tabular}[c]{@{}c@{}}Model\\ uproszczony\end{tabular} & 0.0706                                                              & 0.0691                                                            \\ \hline
+    \begin{tabular}[c]{@{}c@{}}Model\\ rozszerzony\end{tabular} & 0.0262                                                              & 0.0230                                                            \\ \hline
   \end{tabular}
 \end{table}
 
@@ -987,10 +1018,10 @@ Prędkość wiatru, która generalnie otrzymuje niższe ważności, ujawnia znac
       \hline
                                                                          & Metoda           & \begin{tabular}[c]{@{}c@{}}Temperatura\\ SET\end{tabular} & \begin{tabular}[c]{@{}c@{}}Temperatura \\ zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność\\  zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Ciśnienie\\ atmosferyczne\end{tabular} & \begin{tabular}[c]{@{}c@{}}Prędkość\\ wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Kierunek\\ wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność\\ wewnętrzna\end{tabular} \\ \hline
       \multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}Model\\ 1\end{tabular}} & PFI              & 1 00                                                      & 0.50                                                              & 0.00                                                             & 0.48                                                              & 0.86                                                      & 0.87                                                      & 0.46                                                            \\ \cline{2-9}
-                                                                         & Wagi wejściowe   & 1.00                                                      & 0.19                                                              & 0.28                                                             & 0.37                                                              & 0.41                                                      & 0.03                                                      & 0.00                                                            \\ \cline{2-9}
+                                                                         & Wagi wejściowe   & 1.00                                                      & 0.34                                                              & 0.35                                                             & 0.41                                                              & 0.22                                                      & 0.31                                                      & 0.31                                                            \\ \cline{2-9}
                                                                          & LIME$_{śr(100)}$ & 1.00                                                      & 0.11                                                              & 0.40                                                             & 0.34                                                              & 0.09                                                      & 0.05                                                      & 0.01                                                            \\ \hline
       \multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}Model\\ 2\end{tabular}} & PFI              & 1 00                                                      & 0.62                                                              & 0.00                                                             & 0.13                                                              & 0.58                                                      & 0.73                                                      & 0.11                                                            \\ \cline{2-9}
-                                                                         & Wagi wejściowe   & 0.80                                                      & 0.76                                                              & 0.28                                                             & 1.00                                                              & 0.70                                                      & 0.24                                                      & 0.05                                                            \\ \cline{2-9}
+                                                                         & Wagi wejściowe   & 1.00                                                      & 0.54                                                              & 0.61                                                             & 0.59                                                              & 0.33                                                      & 0.34                                                      & 0.49                                                            \\ \cline{2-9}
                                                                          & LIME$_{śr(100)}$ & 1.00                                                      & 0.17                                                              & 0.11                                                             & 0.07                                                              & 0.02                                                      & 0.00                                                      & 0.01                                                            \\ \hline
     \end{tabular}
   }
