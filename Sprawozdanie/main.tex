@@ -127,7 +127,7 @@
 \usepackage{ifthen}
 
 \usepackage{multirow}
-
+\usepackage{array}
 
 \usepackage{ifxetex}
 
@@ -555,7 +555,7 @@ Wybór głównego języka programowania zastosowanego w projekcie, wiązał się
 \end{itemize}
 
 R jest językiem skoncentrowanym na analizie danych i statystyce. Posiada on bardzo bogaty ekosystem jednak może stanowić to przyczynę wielu konfliktów pomiędzy pakietami. Największą wadą tego jest języka jest problem ze skalowalnością. Praca z dużą ilością danych skutkuje zużyciem ogromnej ilości pamięci RAM.\\ Skorzystanie z Pythona będzie lepiej spełniać wymogi projektu. Jest on językiem bardziej wszechstronny oraz posiada obszerną biblioteke standardową jak i bardzo liczne zewnętrzne bibloteki. Największą wadą Pythona jest jego wydajność. Gdyż jest językiem interpretowanym, więc nie jest on kompilowany do kodu maszynowego przed jego uruchomieniem.
-\section{Biblioteka ML}
+\section{Biblioteka uczenia maszynowego}
 
 Decyzja o wyborze odpowiedniej biblioteki do tworzenia sieci neuronowych jest kluczowym elementem każdego projektu związanego z uczeniem maszynowym i głębokim uczeniem. TensorFlow, będący jedną z dwóch głównych otwartych bibliotek do uczenia maszynowego w Pythonie, wyróżnia się swoją wszechstronnością i wsparciem od Google. Jego głównym konkurentem jest PyTorch, rozwijany przez Facebook, który zyskał popularność ze względu na swoją elastyczność i przyjazność dla użytkownika.
 \begin{itemize}
@@ -703,7 +703,7 @@ Podział zbioru danych na trzy zestawy okazał się kluczowy dla efektywnego dob
 
 Czas uczenia sieci był znacząco różny dla poszczególnych zestawów danych. Przykładowo, dla całego zbioru danych proces uczenia trwający 10 epok przy rozmiarze partii równym 64 zajmował około 46 minut. Tymczasem dla wybranych domostw czas ten skracał się do 9 minut, a dla pojedynczego domostwa uczenie trwało zaledwie 40 sekund. W ramach badań podjęto próby wykorzystania Google Colab, będącego popularnym narzędziem służącym do programowania i przetwarzania danych w chmurze. Po odpowiednim skonfigurowaniu środowiska napotkano na pierwszy znaczący problem - czas trwania uploadu pliku. Zaskakująco, przesyłanie pliku o rozmiarze 300 MB, zawierającego 12,5 miliona wierszy, zajęło znacznie więcej czasu, niż można było przewidywać. Kolejnym krokiem było przeprowadzenie procesu uczenia maszynowego na danych, zaplanowanego na 10 epok. Niestety, cały proces trwał ponad 100 minut, co wskazuje na ograniczenia wersji darmowej Google Colab. W związku z tym stwierdzono, że bez inwestycji w wersję płatną, Google Colab nie zapewnia oczekiwanej redukcji czasu niezbędnego do nauki modelu\\
 
-Początkowo hiperparametry były testowane na najmniejszym zbiorze, co pozwalało na szybką i efektywną ocenę różnych konfiguracji. Po uzyskaniu zadowalających wyników na zbiorze pojedynczego domostwa testy były rozszerzane kolejno na zbiór wybranych domostw, a następnie na pełny zbiór danych. Taka strategia pozwoliła na stopniowe i metodyczne dostosowywanie hiperparametrów, minimalizując przy tym czas i zasoby potrzebne do przeprowadzenia eksperymentów, a jednocześnie maksymalizując ogólną skuteczność modelu. Na podstawie serii przeprowadzonych testów dotyczących dostrajania modelu wybrano następujące hiperparametry
+Początkowo hiperparametry były testowane na najmniejszym zbiorze, co pozwalało na szybką i efektywną ocenę różnych konfiguracji. Po uzyskaniu zadowalających wyników na zbiorze pojedynczego domostwa testy były rozszerzane kolejno na zbiór wybranych domostw, a następnie na pełny zbiór danych. Taka strategia pozwoliła na stopniowe i metodyczne dostosowywanie hiperparametrów, minimalizując przy tym czas i zasoby potrzebne do przeprowadzenia eksperymentów, a jednocześnie maksymalizując ogólną skuteczność modelu. Na podstawie serii przeprowadzonych testów dotyczących dostrajania modelu wybrano następujące hiperparametry:
 
 \begin{itemize}
   \item Optymalizator: Adam
@@ -752,7 +752,6 @@ W ramach procesu testowania różnych konfiguracji sieci neuronowej zaproponowan
 \end{enumerate}
 
 Wyniki te dostarczą wglądu w to, które wejścia są najbardziej wartościowe dla modelowania przepływu oraz czy dodanie dodatkowych informacji kontekstowych przyczynia się do znaczącej poprawy wyników predykcyjnych.
-\newpage
 \subsection*{Modele A}
 \begin{figure}[!h]
   \centering
@@ -814,7 +813,6 @@ W celu weryfikacji poprawności i efektywności opracowanego modelu sieci neuron
 
 W celu dalszego zwiększenia skuteczności modelu sieci neuronowej zaproponowano wprowadzenie dodatkowego wejścia do systemu – tygodniowego zużycia. Implementacja tego rozwiązania została przeprowadzona w specyficzny sposób, mający na celu uniknięcie przekształcenia tego parametru w niezamierzony label identyfikujący poszczególne domy. W fazie uczenia modelu, do każdego tygodnia przypisywano sumę zużycia zarejestrowanego w tym okresie. Natomiast w fazie testowania, model otrzymywał średnią wartość tygodniowego zużycia. Celem tej strategii było umożliwienie modelowi korzystania z danych historycznych zużycia w sposób, który poprawiałby jego zdolność do przewidywania, jednocześnie zachowując elastyczność i możliwość generalizacji wyników na różne domostwa.
 
-\newpage
 
 \begin{figure}[!h]
   \centering
@@ -868,9 +866,7 @@ W ramach procesu weryfikacji skuteczności zastosowanych modeli sieci neuronowyc
 \section{Permutacyjna Ważność Cech}
 Permutacyjna Ważność Cech, to technika stosowana w uczeniu maszynowym do oceny znaczenia poszczególnych wejść dla modelu predykcyjnego. Metoda ta jest stosowana zarówno dla modeli klasyfikacyjnych, jak i regresyjnych. Proces ten rozpoczyna się od trenowania modelu na oryginalnym zestawie danych, co pozwala na ustalenie bazowej wydajności modelu. Następnie przeprowadza się permutację każdej cechy z osobna w zbiorze testowym, losowo mieszając jej wartości, podczas gdy wszystkie inne cechy pozostają niezmienione. Po dokonaniu permutacji model jest ponownie oceniany na zmodyfikowanym zbiorze danych. Wyniki tej oceny są następnie porównywane z wynikami uzyskanymi na oryginalnym, niezmodyfikowanym zbiorze. Różnica w wydajności modelu, taka jak spadek dokładności w klasyfikacji lub wzrost błędu średniokwadratowego w regresji, jest wykorzystywana do oceny ważności danej cechy. Im większy spadek wydajności, tym większa uważana jest ważność tej cechy dla modelu.
 
-W kontekście wykorzystania PFI do oceny ważności cech w modelu istotne jest zwrócenie uwagi na kwestię korelacji między danymi. PFI opiera się na permutacji pojedynczych cech, co oznacza zmianę wartości jednej zmiennej niezależnie od pozostałych. W przypadku, gdy dane są silnie skorelowane, taka metoda permutacji może prowadzić do błędnych wniosków
-
-W celu implementacji techniki PFI w pracy został wykorzystany obiekt PermutationImportance z biblioteki sklearn. Zastosowanie tego dedykowanego narzędzia umożliwiło nie tylko dokładną, ale i wydajną realizację tej metody, co pozwoliło na jej skuteczną integrację z procesem badawczym.
+W kontekście wykorzystania PFI do oceny ważności cech w modelu istotne jest zwrócenie uwagi na kwestię korelacji między danymi. PFI opiera się na permutacji pojedynczych cech, co oznacza zmianę wartości jednej zmiennej niezależnie od pozostałych. W przypadku, gdy dane są silnie skorelowane, taka metoda permutacji może prowadzić do błędnych wniosków. W celu implementacji techniki PFI w pracy został wykorzystany obiekt PermutationImportance z biblioteki sklearn. Zastosowanie tego dedykowanego narzędzia umożliwiło nie tylko dokładną, ale i wydajną realizację tej metody, co pozwoliło na jej skuteczną integrację z procesem badawczym.
 
 \begin{table}[!h]
   \centering
@@ -878,9 +874,9 @@ W celu implementacji techniki PFI w pracy został wykorzystany obiekt Permutatio
   \resizebox{\textwidth}{!}{
     \begin{tabular}{|c|c|c|c|c|c|c|}
       \hline
-                   & \begin{tabular}[c]{@{}c@{}}Temperatura \\ zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność\\  zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Ciśnienie\\  atmosferyczne\end{tabular} & \begin{tabular}[c]{@{}c@{}}Prędkość\\  wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Kierunek\\  wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność \\ wewnętrzna\end{tabular} \\ \hline
-      Model krótki & 0.39                                                              & 1.00                                                             & 0.66                                                               & 0.15                                                       & 0.01                                                       & 0.44                                                             \\ \hline
-      Model długi  & 0.64                                                              & 1.                                                               & 0.54                                                               & 0.04                                                       & 0.19                                                       & 0.81                                                             \\ \hline
+                                                                   & \begin{tabular}[c]{@{}c@{}}Temperatura \\ zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność\\  zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Ciśnienie\\  atmosferyczne\end{tabular} & \begin{tabular}[c]{@{}c@{}}Prędkość\\  wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Kierunek\\  wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność \\ wewnętrzna\end{tabular} \\ \hline
+      \begin{tabular}[c]{@{}c@{}}Model \\ uproszczony\end{tabular} & 0.39                                                              & 1.00                                                             & 0.66                                                               & 0.15                                                       & 0.01                                                       & 0.44                                                             \\ \hline
+      \begin{tabular}[c]{@{}c@{}}Model \\ rozszerzony\end{tabular} & 0.64                                                              & 1.00                                                             & 0.54                                                               & 0.04                                                       & 0.19                                                       & 0.81                                                             \\ \hline
     \end{tabular}
   }
 \end{table}
@@ -904,7 +900,7 @@ Dodatkowo, warto zauważyć, że w badaniu wag wejściowych pierwszej warstwy, t
 Z kolei kierunek wiatru został oceniony jako cecha o najniższej ważności w badaniu wag wejściowych, jednakże nawet ta najniższa wartość (0.4) jest znacznie wyższa niż najniższe ważności zarejestrowane w metodzie PFI, gdzie dla wilgotności wewnętrznej odnotowano wartość minimalną na poziomie 0.03. Jest to szczególnie godne uwagi, gdyż wskazuje to na różnice w interpretacji znaczenia poszczególnych cech w zależności od zastosowanej metody analizy ważności wejść.\\
 
 Analizy bardziej złożonych modeli sieci neuronowych, metoda interpretacji wag pierwszej warstwy może okazać się nieefektywna. Ze względu na zwiększoną głębokość i złożoność architektury, wagi w pierwszej warstwie tracą bezpośrednią i jednoznaczną interpretowalność, która jest charakterystyczna dla prostszych modeli. W modelach rozbudowanych, cechy wejściowe przechodzą przez wiele warstw transformacji, co skutkuje utratą bezpośredniego powiązania między wagami pierwszej warstwy a wynikowymi decyzjami modelu. W efekcie, interpretacja tych wag może nie odzwierciedlać faktycznego wpływu poszczególnych cech na decyzje modelu, co jest spowodowane nakładaniem się, transformacją i połączeniem informacji w kolejnych warstwach sieci.
-\newpage
+
 \begin{figure}[!h]
   \centering
   \includegraphics[width=0.6\textwidth]{img/heatmap2.png}
@@ -916,15 +912,17 @@ Na przedstawionej mapie cieplnej, ilustrującej wagi przypisane poszczególnym n
 
 W celu dokładnej analizy ważności poszczególnych wag wejściowych sieci neuronowej przeprowadzono obliczenie średniej wartości wagi dla każdego z wejść. Procedura ta umożliwiła identyfikację względnej ważności cech poprzez porównanie ich przeciętnego wpływu na aktywację neuronów w modelu. Następnie, aby umożliwić porównywalność wyników niezależnie od ich pierwotnej skali, dokonano normalizacji obliczonych średnich wag.
 
+
 \begin{table}[!h]
   \centering
-  \caption{Porównianie wag wejściowych dla pierwszej warstwy rozbudowanego modelu}
+  \caption{Porównianie ważności wejść dla metody PFI}
   \resizebox{\textwidth}{!}{
-    \begin{tabular}{|c|c|c|c|c|c|}
+    \begin{tabular}{|c|c|c|c|c|c|c|}
       \hline
-      \begin{tabular}[c]{@{}c@{}}Temperatura \\ zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność\\  zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Ciśnienie\\  atmosferyczne\end{tabular} & \begin{tabular}[c]{@{}c@{}}Prędkość\\  wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Kierunek\\  wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność \\ wewnętrzna\end{tabular} \\ \hline
-      0.82                                                              & 1.00                                                             & 0.78                                                               & 0.47                                                       & 0.50                                                       & 0.69                                                             \\ \hline
-      0.83                                                              & 1.00                                                             & 0.83                                                               & 0.48                                                       & 0.58                                                       & 0.73                                                             \\ \hline\end{tabular}
+                                                                   & \begin{tabular}[c]{@{}c@{}}Temperatura \\ zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność\\  zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Ciśnienie\\  atmosferyczne\end{tabular} & \begin{tabular}[c]{@{}c@{}}Prędkość\\  wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Kierunek\\  wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność \\ wewnętrzna\end{tabular} \\ \hline
+      \begin{tabular}[c]{@{}c@{}}Model \\ uproszczony\end{tabular} & 0.82                                                              & 1.00                                                             & 0.78                                                               & 0.47                                                       & 0.50                                                       & 0.69                                                             \\ \hline
+      \begin{tabular}[c]{@{}c@{}}Model \\ rozszerzony\end{tabular} & 0.83                                                              & 1.00                                                             & 0.83                                                               & 0.48                                                       & 0.58                                                       & 0.73                                                             \\ \hline
+    \end{tabular}
   }
 \end{table}
 
@@ -943,13 +941,13 @@ W ramach pracy, w celu dokładnej oceny skuteczności metody LIME, zdecydowano s
   \resizebox{\textwidth}{!}{
     \begin{tabular}{|c|c|c|c|c|c|c|}
       \hline
-                                                                         & \begin{tabular}[c]{@{}c@{}}Temperatura \\ zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność\\  zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Ciśnienie\\ atmosferyczne\end{tabular} & \begin{tabular}[c]{@{}c@{}}Prędkość\\ wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Kierunek\\ wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność\\  wewnętrzna\end{tabular} \\ \hline
-      \multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}Model\\ 1\end{tabular}} & 1.00                                                              & 0.08                                                             & 0.68                                                              & 0.39                                                      & 0.04                                                      & 0.81                                                             \\ \cline{2-7}
-                                                                         & 1.00                                                              & 0.37                                                             & 0.58                                                              & 0.28                                                      & 0.22                                                      & 0.15                                                             \\ \cline{2-7}
-                                                                         & 0.82                                                              & 0.14                                                             & 1.00                                                              & 0.34                                                      & 0.05                                                      & 0.62                                                             \\ \hline
-      \multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}Model\\ 2\end{tabular}} & 1.00                                                              & 0.79                                                             & 0.41                                                              & 0.20                                                      & 0.25                                                      & 0.08                                                             \\ \cline{2-7}
-                                                                         & 1.00                                                              & 0.16                                                             & 0.14                                                              & 0.11                                                      & 0.09                                                      & 0.76                                                             \\ \cline{2-7}
-                                                                         & 0.60                                                              & 1.00                                                             & 0.20                                                              & 0.30                                                      & 0.70                                                      & 0.50                                                             \\ \hline
+                                                                                   & \begin{tabular}[c]{@{}c@{}}Temperatura \\ zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność\\  zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Ciśnienie\\ atmosferyczne\end{tabular} & \begin{tabular}[c]{@{}c@{}}Prędkość\\ wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Kierunek\\ wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność\\  wewnętrzna\end{tabular} \\ \hline
+      \multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}Model\\ uproszczony\end{tabular}} & 1.00                                                              & 0.08                                                             & 0.68                                                              & 0.39                                                      & 0.04                                                      & 0.81                                                             \\ \cline{2-7}
+                                                                                   & 1.00                                                              & 0.37                                                             & 0.58                                                              & 0.28                                                      & 0.22                                                      & 0.15                                                             \\ \cline{2-7}
+                                                                                   & 0.82                                                              & 0.14                                                             & 1.00                                                              & 0.34                                                      & 0.05                                                      & 0.62                                                             \\ \hline
+      \multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}Model\\ rozszerzony\end{tabular}} & 1.00                                                              & 0.79                                                             & 0.41                                                              & 0.20                                                      & 0.25                                                      & 0.08                                                             \\ \cline{2-7}
+                                                                                   & 1.00                                                              & 0.16                                                             & 0.14                                                              & 0.11                                                      & 0.09                                                      & 0.76                                                             \\ \cline{2-7}
+                                                                                   & 0.60                                                              & 1.00                                                             & 0.20                                                              & 0.30                                                      & 0.70                                                      & 0.50                                                             \\ \hline
     \end{tabular}
   }
 \end{table}
@@ -987,7 +985,7 @@ Prędkość wiatru, która generalnie otrzymuje niższe ważności, ujawnia znac
 
 \begin{table}[!h]
   \centering
-  \caption{TODO}
+  \caption{Porównianie wartości MSE modelów}
   \begin{tabular}{|c|c|c|}
     \hline
                                                                 & \begin{tabular}[c]{@{}c@{}}Bez dodatkowego\\ parametru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Z dodatkowego\\ parametru\end{tabular} \\ \hline
@@ -999,18 +997,18 @@ Prędkość wiatru, która generalnie otrzymuje niższe ważności, ujawnia znac
 
 \begin{figure}[!h]
   \centering
-  \begin{subfigure}{0.4\textwidth}
+  \begin{subfigure}{0.49\textwidth}
     \includegraphics[width=\textwidth]{img/heatmap1_zdodatkowym.png}
-    \caption{TODO}
+    \caption{Model uproszczony}
     \label{fig:lewy-gorny}
   \end{subfigure}
   \hfill
-  \begin{subfigure}{0.4\textwidth}
+  \begin{subfigure}{0.49\textwidth}
     \includegraphics[width=\textwidth]{img/heatmap2_zdodatkowym.png}
-    \caption{TODO}
+    \caption{Model rozszerzony}
     \label{fig:prawy-gorny}
   \end{subfigure}
-  \caption{TODO}
+  \caption{Mapy cieplne modelów z dodatkowym wejściem}
   \label{fig:wiele-rysunkow}
 \end{figure}
 
@@ -1018,7 +1016,7 @@ Prędkość wiatru, która generalnie otrzymuje niższe ważności, ujawnia znac
 
 
 \begin{table}[!h]
-  \caption{TODO}
+  \caption{Porównanie ważności wejść dla wszystkich metod}
   \resizebox{\textwidth}{!}{
     \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
       \hline
