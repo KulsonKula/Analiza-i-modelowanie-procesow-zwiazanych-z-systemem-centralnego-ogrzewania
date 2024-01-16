@@ -800,6 +800,7 @@ Zaproponowany model i zestawienie hiperparametrów nie są adekwatne do dokładn
 W celu oceny skuteczności zaproponowanych modeli przeprowadzono proces walidacji krzyżowej, z wykorzystaniem metody holdout. Dane zostały podzielone na dwa podzbiory: zbiór uczący i zbiór testowy, stosując proporcję 80-20. Oznacza to, że 80\% dostępnych danych zostało przeznaczone do trenowania modelu , podczas gdy pozostałe 20\% stanowiło niezależny zbiór testowy, służący do oceny skuteczności modeli w warunkach nieznanych.
 \begin{table}[!h]
   \centering
+  \renewcommand{\arraystretch}{1.5}
   \caption{Porównianie wartości MSE modeli}
   \begin{tabular}{|c|c|c|c|c|}
     \hline
@@ -845,14 +846,15 @@ W celu dokładniejszej oceny i porównania efektywności modelu ogólnego, naucz
 
 \begin{table}[!h]
   \centering
-  \caption{Porównianie wartości MSE dla każdego obu modelów}
+  \caption{Porównianie wartości MSE dla każdego z modeli}
+  \renewcommand{\arraystretch}{1.5}
   \resizebox{\textwidth}{!}{
     \begin{tabular}{|c|cccccccccccc|}
       \hline
-      \multirow{2}{*}{MSE} & \multicolumn{12}{c|}{DOMOSTWO}                                                                                                                                                                                                                                                                                                                        \\ \cline{2-13}
-                           & \multicolumn{1}{c|}{1}         & \multicolumn{1}{c|}{2}       & \multicolumn{1}{c|}{3}     & \multicolumn{1}{c|}{4}       & \multicolumn{1}{c|}{5}      & \multicolumn{1}{c|}{6}      & \multicolumn{1}{c|}{7}       & \multicolumn{1}{c|}{8}       & \multicolumn{1}{c|}{9}      & \multicolumn{1}{c|}{10}    & \multicolumn{1}{c|}{11}      & 12    \\ \hline
-      Model 1              & \multicolumn{1}{c|}{0.022}     & \multicolumn{1}{c|}{0.00740} & \multicolumn{1}{c|}{0.037} & \multicolumn{1}{c|}{0.00670} & \multicolumn{1}{c|}{0.0110} & \multicolumn{1}{c|}{0.0039} & \multicolumn{1}{c|}{0.00840} & \multicolumn{1}{c|}{0.00950} & \multicolumn{1}{c|}{0.0072} & \multicolumn{1}{c|}{0.220} & \multicolumn{1}{c|}{0.01000} & 0.190 \\ \hline
-      Model 2              & \multicolumn{1}{c|}{0.019}     & \multicolumn{1}{c|}{0.00053} & \multicolumn{1}{c|}{0.034} & \multicolumn{1}{c|}{0.00085} & \multicolumn{1}{c|}{0.0013} & \multicolumn{1}{c|}{0.0025} & \multicolumn{1}{c|}{0.00055} & \multicolumn{1}{c|}{0.00069} & \multicolumn{1}{c|}{0.0027} & \multicolumn{1}{c|}{0.075} & \multicolumn{1}{c|}{0.00013} & 0.019 \\ \hline
+      \multirow{2}{*}{MSE}                                         & \multicolumn{12}{c|}{DOMOSTWO}                                                                                                                                                                                                                                                                                                                        \\ \cline{2-13}
+                                                                   & \multicolumn{1}{c|}{1}         & \multicolumn{1}{c|}{2}       & \multicolumn{1}{c|}{3}     & \multicolumn{1}{c|}{4}       & \multicolumn{1}{c|}{5}      & \multicolumn{1}{c|}{6}      & \multicolumn{1}{c|}{7}       & \multicolumn{1}{c|}{8}       & \multicolumn{1}{c|}{9}      & \multicolumn{1}{c|}{10}    & \multicolumn{1}{c|}{11}      & 12    \\ \hline
+      \begin{tabular}[c]{@{}c@{}}Model\\ uproszczony\end{tabular}  & \multicolumn{1}{c|}{0.022}     & \multicolumn{1}{c|}{0.00740} & \multicolumn{1}{c|}{0.037} & \multicolumn{1}{c|}{0.00670} & \multicolumn{1}{c|}{0.0110} & \multicolumn{1}{c|}{0.0039} & \multicolumn{1}{c|}{0.00840} & \multicolumn{1}{c|}{0.00950} & \multicolumn{1}{c|}{0.0072} & \multicolumn{1}{c|}{0.220} & \multicolumn{1}{c|}{0.01000} & 0.190 \\ \hline
+      \begin{tabular}[c]{@{}c@{}}Model \\ rozszerzony\end{tabular} & \multicolumn{1}{c|}{0.019}     & \multicolumn{1}{c|}{0.00053} & \multicolumn{1}{c|}{0.034} & \multicolumn{1}{c|}{0.00085} & \multicolumn{1}{c|}{0.0013} & \multicolumn{1}{c|}{0.0025} & \multicolumn{1}{c|}{0.00055} & \multicolumn{1}{c|}{0.00069} & \multicolumn{1}{c|}{0.0027} & \multicolumn{1}{c|}{0.075} & \multicolumn{1}{c|}{0.00013} & 0.019 \\ \hline
     \end{tabular}
   }
 \end{table}
@@ -956,6 +958,7 @@ W ramach pracy, w celu dokładnej oceny skuteczności metody LIME, zdecydowano s
 
 \begin{table}[!h]
   \caption{Porównanie ważności wejść dla metody LIME}
+  \renewcommand{\arraystretch}{1.5}
   \resizebox{\textwidth}{!}{
     \begin{tabular}{|c|c|c|c|c|c|c|}
       \hline
@@ -979,6 +982,7 @@ Mimo iż LIME jest metodą zasadniczo skoncentrowaną na dostarczaniu interpreta
 
 \begin{table}[!h]
   \caption{Porównanie uśrednionych ważności wejść dla metody LIME dla wielu prób}
+  \renewcommand{\arraystretch}{1.5}
   \resizebox{\textwidth}{!}{
     \begin{tabular}{|c|c|c|c|c|c|c|c|}
       \hline
@@ -999,12 +1003,12 @@ W analizie wyników zauważono istotne odstępstwa dla uproszczonego modelu, w k
 
 Zarówno w Modelu uproszczonym, jak i modelu rozszerzonego, temperatura zewnętrzna jest systematycznie uznawana za cechę o największym wpływie na przewidywania modelu, co wskazuje na jej przewodnią rolę w analizowanych danych meteorologicznych. Niezmiennie wysokie wartości ważności tej zmiennej świadczą o jej dominującej pozycji w obu modelach, niezależnie od wielkości próby. Dla obu modelów, wilgotność jak i ciśnienie wykazują stabilne wartości, tylko w pojedyńczych próbach ciśnienie staja sie dominującą zmienną. Kierunek jak i prędkość wiatru dla obu modeli pozostaje cechą o niskiej ważności Wilgotność wewnętrzna konsekwentnie otrzymuje jedne z najniższe wartości ważności, co wskazuje na jej marginalną rolę w procesie decyzyjnym obu modeli.
 
-\newpage
 \subsection{Ocena Skuteczności Metod}
 W celu zweryfikowania poprawności implementacji metod sprawdzania ważności wejść do sieci neuronowej, zaproponowano model, który został rozszerzony o dodatkowe wejście – Temperaturę zadaną. Temperatura zadana stanowiła oczekiwaną wartość, jaką piec starał się utrzymać, co sprawia, że każda z metod powinna przypisywać jej kluczowe znaczenie. Ustawiona była na poziomie 21 stopni w godzinach 6-23 oraz 19 stopni w godzinach 23-6. Piec był sterowany za pomocą regulacji dwupołożeniowej, której odbiornik był umiejscowiony w pomieszczeniu, w którym brakowało jakiegokolwiek źródła ciepła, takiego jak grzejnik.
 
 \begin{table}[!h]
   \centering
+  \renewcommand{\arraystretch}{1.5}
   \caption{Porównianie wartości MSE modelów}
   \begin{tabular}{|c|c|c|}
     \hline
@@ -1037,14 +1041,15 @@ Analizując mapy cieplne 4.4a i 4.4b, bez trudu zauważono, że temperatura zada
 
 \begin{table}[!h]
   \caption{Porównanie ważności wejść dla wszystkich metod}
+  \renewcommand{\arraystretch}{1.5} % Zwiększenie odstępu między wierszami
   \resizebox{\textwidth}{!}{
     \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
       \hline
                                                                                    & Metoda           & \begin{tabular}[c]{@{}c@{}}Temperatura\\ zadana\end{tabular} & \begin{tabular}[c]{@{}c@{}}Temperatura \\ zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność\\  zewnętrzna\end{tabular} & \begin{tabular}[c]{@{}c@{}}Ciśnienie\\ atmosferyczne\end{tabular} & \begin{tabular}[c]{@{}c@{}}Prędkość\\ wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Kierunek\\ wiatru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wilgotność\\ wewnętrzna\end{tabular} \\ \hline
-      \multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}Model\\ uproszczony\end{tabular}} & PFI              & 1 00                                                         & 0.50                                                              & 0.00                                                             & 0.48                                                              & 0.86                                                      & 0.87                                                      & 0.46                                                            \\ \cline{2-9}
+      \multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}Model\\ uproszczony\end{tabular}} & PFI              & 1.00                                                         & 0.50                                                              & 0.00                                                             & 0.48                                                              & 0.86                                                      & 0.87                                                      & 0.46                                                            \\ \cline{2-9}
                                                                                    & Wagi wejściowe   & 1.00                                                         & 0.34                                                              & 0.35                                                             & 0.41                                                              & 0.22                                                      & 0.31                                                      & 0.31                                                            \\ \cline{2-9}
                                                                                    & LIME$_{śr(100)}$ & 1.00                                                         & 0.11                                                              & 0.40                                                             & 0.34                                                              & 0.09                                                      & 0.05                                                      & 0.01                                                            \\ \hline
-      \multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}Model\\ rozszerzony\end{tabular}} & PFI              & 1 00                                                         & 0.62                                                              & 0.00                                                             & 0.13                                                              & 0.58                                                      & 0.73                                                      & 0.11                                                            \\ \cline{2-9}
+      \multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}Model\\ rozszerzony\end{tabular}} & PFI              & 1.00                                                         & 0.62                                                              & 0.00                                                             & 0.13                                                              & 0.58                                                      & 0.73                                                      & 0.11                                                            \\ \cline{2-9}
                                                                                    & Wagi wejściowe   & 1.00                                                         & 0.54                                                              & 0.61                                                             & 0.59                                                              & 0.33                                                      & 0.34                                                      & 0.49                                                            \\ \cline{2-9}
                                                                                    & LIME$_{śr(100)}$ & 1.00                                                         & 0.17                                                              & 0.11                                                             & 0.07                                                              & 0.02                                                      & 0.00                                                      & 0.01                                                            \\ \hline
     \end{tabular}
