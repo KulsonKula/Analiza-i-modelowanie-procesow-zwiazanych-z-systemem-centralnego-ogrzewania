@@ -541,14 +541,14 @@ W rozdziale drugim, zatytułowanym "Zastosowane Narzędzia w Pracy", zostanie sz
 
 W kolejnym rozdziale pracy zostanie przedstawiona metodologia projektowania modelu sieci neuronowej. Szczegółowo omówione zostaną hiperparametry oraz zasady działania sieci neuronowych, aby zapewnić solidne podstawy teoretyczne dla dalszej części badań. Następnie zostaną omówione dane wejściowe, które są niezbędne do stworzenia modelu prognozującego dzienne zużycie wody. Szczególna uwaga zostanie poświęcona sposobom przetwarzania tych danych, aby były one adekwatne do zastosowania w sieciach neuronowych. W dalszej części rozdziału zaprezentujemy cztery różne modele sieci neuronowych, które będą się różnić ilością wejść. Dokładnie zostaną omówione wyniki generowane przez każdy z modeli dla trzech różnych zestawów danych. Na zakończenie rozdziału zostanie zaproponowany sposób ulepszenia wybranego modelu sieci neuronowej. Ulepszenie to będzie polegało na wprowadzeniu dodatkowego parametru wykorzystującego dane historyczne.\\
 
-W ramach rozdziału "Pogoda" niniejszej pracy dyplomowej dokonano prezentacji i analizy danych meteorologicznych, które posłużyły jako fundament dla procesu nauki dwóch modeli sieci neuronowych o zróżnicowanej złożoności architektonicznej. Następnie, w dalszej części rozdziału, skoncentrowano się na szczegółowym badaniu i ocenie ważności poszczególnych wejść dla obu modeli. Do tego celu wykorzystano trzy zaawansowane metody analityczne: Permutacyjną Ważność Cech, analizę wag wejściowych modelu oraz metodę LIME(Local Interpretable Model-agnostic Explanations). Każda z tych technik dostarcza istotnych informacji o znaczeniu poszczególnych zmiennych wejściowych w kontekście ich wpływu na wydajność i dokładność modeli.
+W ramach rozdziału "Pogoda" niniejszej pracy dyplomowej dokonano prezentacji i analizy danych meteorologicznych, które posłużyły jako fundament dla procesu nauki dwóch modeli sieci neuronowych o zróżnicowanej złożoności architektonicznej. Następnie, w dalszej części rozdziału, skoncentrowano się na szczegółowym badaniu i ocenie ważności poszczególnych wejść dla obu modeli. Do tego celu wykorzystano trzy zaawansowane metody analityczne: Permutacyjną Ważność Cech, analizę wag wejściowych modelu oraz metodę LIME(Local Interpretable Model-agnostic Explanations). Każda z tych technik dostarcza istotnych informacji o znaczeniu poszczególnych zmiennych wejściowych w kontekście ich wpływu na wydajność i dokładność modeli. Następnie zostanie sprwadzenie poprawności implentacji metod poprzez zastosowanie dodatkowego wejścia do modelu - temperature zadaną.
 
 
 \chapter{Zastosowane narzędzia w pracy}
 \label{ch:wymagania-i-narzedzia}
 % Opis narzędzi które były uzywane podczas programowania, Wiekszy opis pythona i tensorflow, ich "specyfikacja" plusy i minusy, jakie były inne mozliwe wybory oraz czemu zostały wybrane akurat te rozwiązania, krótszy opis pozostałych biblotek uzytych podczas programownia takich jak numpy, plotlib czy pandas
 \section{Język programowania}
-Wybór głównego języka programowania zastosowanego w projekcie, wiązał się z postawieniem pewnych wymagań. Pierwszym z tych wymagań była dostępność dedykowanej biblioteki do uczenia maszynowego, która posiada narzędzia do efektywnej pracy nad modelami czy ich testowanie. Użycie biblioteki która jest dobrze utrzymana zapewnia ogromne wsparcie społeczności, które może okazać się nieocenione w procesie nauki czy rozwiązywania problemów.\\Kolejnym wymaganiem jest aby wybrana technologia była ciągle wspierana i aktualizowana. Machine learning jest aktualnie jedną z najszybciej rozwijających się dziedzin programowania, co wiąże się z szybkimi zmianami. Po dokładnej analizie postawionych wymagań, zdecydowano o wyborze dwóch głównych języków programowania, które najlepiej odpowiadają potrzebom projektu
+Wybór głównego języka programowania zastosowanego w projekcie, wiązał się z postawieniem pewnych wymagań. Pierwszym z tych wymagań była dostępność dedykowanej biblioteki do uczenia maszynowego, która posiada narzędzia do efektywnej pracy nad modelami czy ich testowanie. Użycie biblioteki która jest dobrze utrzymana zapewnia ogromne wsparcie społeczności, które może okazać się nieocenione w procesie nauki czy rozwiązywania problemów.\\Kolejnym wymaganiem jest aby wybrana technologia była ciągle wspierana i aktualizowana. Machine learning jest aktualnie jedną z najszybciej rozwijających się dziedzin programowania, co wiąże się z szybkimi zmianami. Po dokładnej analizie postawionych wymagań, zdecydowano o wyborze dwóch głównych języków programowania, które najlepiej odpowiadają potrzebom projektu.
 \begin{itemize}
   \item R
   \item Python
@@ -565,11 +565,11 @@ Decyzja o wyborze odpowiedniej biblioteki do tworzenia sieci neuronowych jest kl
   \item Wydajność i Optymalizacja: Optymalna wydajność i możliwości skalowania są kluczowe w aplikacjach przemysłowych. TensorFlow, z lepszym wsparciem dla TPU\cite{bib:TPU} i rozbudowanymi opcjami treningu rozproszonego, często przewyższa PyTorch w dużych projektach i zastosowaniach o dużym obciążeniu.
   \item Obsługa Wersjonowania Modeli: Zdolność do zarządzania różnymi wersjami modeli jest istotna w długoterminowej pracy nad projektem. TensorFlow i PyTorch oferują różne podejścia do zarządzania i wersjonowania modeli, które należy rozważyć w kontekście specyficznych wymagań projektu.
 \end{itemize}
-Po dokładnej analizie i uwzględnieniu wszystkich kluczowych wymagań zdecydowano, że najlepszym wyborem dla niniejszego projektu jest TensorFlow. Jest on idealnym wyborem zapewniającym wysoką wydajność, ale również elastyczność i skalowalność
+Po dokładnej analizie i uwzględnieniu wszystkich kluczowych wymagań zdecydowano, że najlepszym wyborem dla niniejszego projektu jest TensorFlow. Jest on idealnym wyborem zapewniającym wysoką wydajność, ale również elastyczność i skalowalność.
 \section{Narzędzia pomocnicze}
 Python odgrywa kluczową rolę w dziedzinie uczenia maszynowego i analizy danych, oferując zróżnicowany zestaw narzędzi, które ułatwiają i usprawniają kluczowe procesy, takie jak przetwarzanie danych, ich testowanie oraz wizualizacja. Korzystając z nich, możliwe jest znaczne przyspieszenie procesów związanych z uczeniem maszynowym, od przygotowania danych aż po analizę wyników, co podkreśla ich niezastąpioną wartość w projektach naukowych i przemysłowych.
 \subsection{Pandas i Numpy}
-NumPy, znany również jako Numerical Python, jest fundamentalną biblioteką do obliczeń naukowych w Pythonie. Oferuje ona wsparcie dla wielowymiarowych, jednorodnych tablic, które w znaczący sposób przewyższają standardowe listy Pythona pod względem wydajności, szczególnie przy obróbce dużych zbiorów danych. NumPy znacząco upraszcza operacje na danych dzięki wektoryzacji, umożliwiając wykonanie operacji takich jak dodawanie, mnożenie czy transpozycja tablic bez konieczności stosowania pętli i iteracji\\
+NumPy, znany również jako Numerical Python, jest fundamentalną biblioteką do obliczeń naukowych w Pythonie. Oferuje ona wsparcie dla wielowymiarowych, jednorodnych tablic, które w znaczący sposób przewyższają standardowe listy Pythona pod względem wydajności, szczególnie przy obróbce dużych zbiorów danych. NumPy znacząco upraszcza operacje na danych dzięki wektoryzacji, umożliwiając wykonanie operacji takich jak dodawanie, mnożenie czy transpozycja tablic bez konieczności stosowania pętli i iteracji.\\
 
 Biblioteka Pandas jest jedną z najbardziej popularnych i użytecznych narzędzi w języku Python przeznaczonych do analizy danych. Kluczowym elementem, który Pandas oferuje swoim użytkownikom, jest struktura danych znana jako DataFrame. Jest to dwuwymiarowa, etykietowana tablica, umożliwiająca efektywną manipulację i analizę złożonych zbiorów danych. Dodatkowo biblioteka Pandas wyróżnia się również zoptymalizowaną wydajnością. Jest szczególnie skuteczna w obsłudze dużych zestawów danych, co stanowi kluczowe znaczenie w pracach wymagających szybkiego i efektywnego przetwarzania znacznych ilości informacji. Pandas wyposażony jest w bogaty zestaw narzędzi przeznaczonych do przetwarzania i analizowania danych, co znacznie ułatwia pracę z nimi. Istotną cechą tej biblioteki jest również jej zdolność do łatwego wczytywania i zapisywania danych z i do różnych formatów, takich jak CSV czy Excel.\\
 
@@ -649,9 +649,9 @@ Proces tworzenia architektury sieci neuronowej jest procesem wyboru hiperparamet
 \begin{enumerate}
   \item Hiperparametry Architektury Sieci:
         \begin{enumerate}
-          \item Liczba warstw
-          \item Liczba neuronów
-          \item Typy warstw
+          \item Liczba warstw.
+          \item Liczba neuronów.
+          \item Typy warstw.
         \end{enumerate}
   \item Hiperparametry Procesu Uczenia:
         \begin{enumerate}
@@ -701,7 +701,7 @@ W ramach realizacji badań nad optymalizacją architektury sieci neuronowej oraz
 
 Podział zbioru danych na trzy zestawy okazał się kluczowy dla efektywnego doboru hiperparametrów modelu, szczególnie biorąc pod uwagę, że cały zbiór danych zawierał aż 12,5 miliona wierszy. Zestaw wybranych domostw, zawierający blisko 2 miliony wierszy, oraz pojedyncze domostwo z 161 tysiącami wierszy, umożliwiły przeprowadzenie dokładniejszych i bardziej zróżnicowanych testów.
 
-Czas uczenia sieci był znacząco różny dla poszczególnych zestawów danych. Przykładowo, dla całego zbioru danych proces uczenia trwający 10 epok przy rozmiarze partii równym 64 zajmował około 46 minut. Tymczasem dla wybranych domostw czas ten skracał się do 9 minut, a dla pojedynczego domostwa uczenie trwało zaledwie 40 sekund. W ramach badań podjęto próby wykorzystania Google Colab, będącego popularnym narzędziem służącym do programowania i przetwarzania danych w chmurze. Po odpowiednim skonfigurowaniu środowiska napotkano na pierwszy znaczący problem - czas trwania uploadu pliku. Zaskakująco, przesyłanie pliku o rozmiarze 300 MB, zawierającego 12,5 miliona wierszy, zajęło znacznie więcej czasu, niż można było przewidywać. Kolejnym krokiem było przeprowadzenie procesu uczenia maszynowego na danych, zaplanowanego na 10 epok. Niestety, cały proces trwał ponad 100 minut, co wskazuje na ograniczenia wersji darmowej Google Colab. W związku z tym stwierdzono, że bez inwestycji w wersję płatną, Google Colab nie zapewnia oczekiwanej redukcji czasu niezbędnego do nauki modelu\\
+Czas uczenia sieci był znacząco różny dla poszczególnych zestawów danych. Przykładowo, dla całego zbioru danych proces uczenia trwający 10 epok przy rozmiarze partii równym 64 zajmował około 46 minut. Tymczasem dla wybranych domostw czas ten skracał się do 9 minut, a dla pojedynczego domostwa uczenie trwało zaledwie 40 sekund. W ramach badań podjęto próby wykorzystania Google Colab, będącego popularnym narzędziem służącym do programowania i przetwarzania danych w chmurze. Po odpowiednim skonfigurowaniu środowiska napotkano na pierwszy znaczący problem - czas trwania uploadu pliku. Zaskakująco, przesyłanie pliku o rozmiarze 300 MB, zawierającego 12,5 miliona wierszy, zajęło znacznie więcej czasu, niż można było przewidywać. Kolejnym krokiem było przeprowadzenie procesu uczenia maszynowego na danych, zaplanowanego na 10 epok. Niestety, cały proces trwał ponad 100 minut, co wskazuje na ograniczenia wersji darmowej Google Colab. W związku z tym stwierdzono, że bez inwestycji w wersję płatną, Google Colab nie zapewnia oczekiwanej redukcji czasu niezbędnego do nauki modelu.\\
 
 Początkowo hiperparametry były testowane na najmniejszym zbiorze, co pozwalało na szybką i efektywną ocenę różnych konfiguracji. Po uzyskaniu zadowalających wyników na zbiorze pojedynczego domostwa testy były rozszerzane kolejno na zbiór wybranych domostw, a następnie na pełny zbiór danych. Taka strategia pozwoliła na stopniowe i metodyczne dostosowywanie hiperparametrów, minimalizując przy tym czas i zasoby potrzebne do przeprowadzenia eksperymentów, a jednocześnie maksymalizując ogólną skuteczność modelu. Na podstawie serii przeprowadzonych testów dotyczących dostrajania modelu wybrano następujące hiperparametry:
 
@@ -713,7 +713,7 @@ Początkowo hiperparametry były testowane na najmniejszym zbiorze, co pozwalał
 \end{itemize}
 
 
-Po przeprowadzeniu serii eksperymentów, w procesie selekcji optymalnej architektury sieci neuronowej, najbardziej efektywną konfiguracją okazała się struktura składająca się z sześciu warstw, z których cztery pełniły funkcję warstw ukrytych. W procesie iteracyjnego dostosowywania i ewaluacji różnych architektur sieci, model o takiej budowie wykazał najlepsze wyniki w zakresie dokładności i generalizacji na testowanych zbiorach danych. Architektura ta charakteryzowała się kolejno malejącą liczbą neuronów w poszczególnych warstwach: pierwsza warstwa zawierała 512 neuronów, druga 256, trzecia 128, czwarta 64, piąta 32, a szósta, będąca warstwą wyjściową, miała 1 neuron. Wszystkie warstwy, z wyjątkiem ostatniej, wykorzystywały funkcję aktywacji ReLU. Natomiast ostatnia warstwa, pełniąca rolę warstwy wyjściowej, zastosowała funkcję aktywacji typu 'linear'
+Po przeprowadzeniu serii eksperymentów, w procesie selekcji optymalnej architektury sieci neuronowej, najbardziej efektywną konfiguracją okazała się struktura składająca się z sześciu warstw, z których cztery pełniły funkcję warstw ukrytych. W procesie iteracyjnego dostosowywania i ewaluacji różnych architektur sieci, model o takiej budowie wykazał najlepsze wyniki w zakresie dokładności i generalizacji na testowanych zbiorach danych. Architektura ta charakteryzowała się kolejno malejącą liczbą neuronów w poszczególnych warstwach: pierwsza warstwa zawierała 512 neuronów, druga 256, trzecia 128, czwarta 64, piąta 32, a szósta, będąca warstwą wyjściową, miała 1 neuron. Wszystkie warstwy, z wyjątkiem ostatniej, wykorzystywały funkcję aktywacji ReLU. Natomiast ostatnia warstwa, pełniąca rolę warstwy wyjściowej, zastosowała funkcję aktywacji typu 'linear'.
 
 
 W ramach opracowanego modelu sieci neuronowej zastosowano dynamicznie zmieniający się współczynnik uczenia, oparty na metodzie wykładniczego spadku, opisanego wzorem:
@@ -731,23 +731,23 @@ W ramach procesu testowania różnych konfiguracji sieci neuronowej zaproponowan
 \begin{enumerate}
   \item Model A
         \begin{enumerate}
-          \item Wejścia: Dzień tygodnia, pora dnia
-          \item Wyjście: Przepływ
+          \item Wejścia: dzień tygodnia, pora dnia
+          \item Wyjście: przepływ
         \end{enumerate}
   \item Model B
         \begin{enumerate}
           \item Wejścia: pora dnia
-          \item Wyjście: Przepływ
+          \item Wyjście: przepływ
         \end{enumerate}
   \item Model C
         \begin{enumerate}
           \item Wejścia: pora roku, dzień tygodnia, pora dnia
-          \item Wyjście: Przepływ
+          \item Wyjście: przepływ
         \end{enumerate}
   \item Model D
         \begin{enumerate}
           \item Wejścia: pora roku, pora dnia
-          \item Wyjście: Przepływ
+          \item Wyjście: przepływ
         \end{enumerate}
 \end{enumerate}
 
@@ -765,7 +765,7 @@ Modele typu A zostały opracowane w celu badania korelacji tygodniowej, z uwzgl�
 predykcje modeli uczących się na całym zbiorze danych cechują się brakiem dynamiki, niezależnie od godziny czy dnia tygodnia. Model utrzymuje stałą wartość w okolicach 0.081 l/min przez cały czas. Pozostałe modele radzą sobie znacznie lepiej. Model uczący się na podstawie danych z 12 domostw symuluje zwiększoną aktywność w godzinach porannych, około 8-9 oraz wieczornych, w okolicach godziny 20. Podobnie zachowuje się model uczony na pojedynczym domostwie, choć zaproponowane przez niego zużycie wody jest mniej gwałtowne. Ponadto, zauważalne są różnice między symulacjami w dni powszednie a dniami wolnymi. Dni wolne charakteryzują się znacznie większym zużyciem wody w godzinach wieczornych, a także dłuższym, choć mniej intensywnym, korzystaniem z wody w godzinach porannych.
 
 \subsection*{Modele B}
-Modele typu B zostały zaprojektowane z zastosowaniem jednego wejścia, tj. pory dnia. Celowe zastosowanie tego podejścia wynika z intencji zbadania, w jaki sposób wybrana architektura sieci oraz hiperparametry radzą sobie z zadaniem predykcji, pomijając dodatkowe informacje takie jak dzień tygodnia czy pora roku. Decyzja o ograniczeniu modelu do jednego wejścia wynika z potrzeby zbadania skuteczności predykcyjnej bez wpływu korealacji tygodniowej i sezonowej
+Modele typu B zostały zaprojektowane z zastosowaniem jednego wejścia, tj. pory dnia. Celowe zastosowanie tego podejścia wynika z intencji zbadania, w jaki sposób wybrana architektura sieci oraz hiperparametry radzą sobie z zadaniem predykcji, pomijając dodatkowe informacje takie jak dzień tygodnia czy pora roku. Decyzja o ograniczeniu modelu do jednego wejścia wynika z potrzeby zbadania skuteczności predykcyjnej bez wpływu korealacji tygodniowej i sezonowej.
 \begin{figure}[!h]
   \centering
   \includegraphics[width=1\textwidth]{img/Model_B.png}
@@ -801,7 +801,7 @@ W celu oceny skuteczności zaproponowanych modeli przeprowadzono proces walidacj
 \begin{table}[!h]
   \centering
   \renewcommand{\arraystretch}{1.5}
-  \caption{Porównianie wartości MSE modeli}
+  \caption{Porównanie wartości MSE dla różnych modeli przy zróżnicowanej ilości danych}
   \begin{tabular}{|c|c|c|c|c|}
     \hline
     Ilość domostw & Model A & Model B & Model C & Model D \\ \hline
@@ -836,7 +836,7 @@ W celu dalszego zwiększenia skuteczności modelu sieci neuronowej zaproponowano
 \begin{figure}[!h]
   \centering
   \includegraphics[width=1\textwidth]{img/szczegółowy_ogolny_porówniaie_dodatkowy.png}
-  \caption{Porównianie modelu ogólnego z modelami szczególnymi po dodaniu kolejnego wejścia do sieci}
+  \caption{Porównianie modelu po dodaniu kolejnego wejścia do sieci}
   \label{fig:etykieta-rysunku}
 \end{figure}
 
@@ -846,21 +846,21 @@ W celu dokładniejszej oceny i porównania efektywności modelu ogólnego, naucz
 
 \begin{table}[!h]
   \centering
-  \caption{Porównianie wartości MSE dla każdego z modeli}
+  \caption{Porównanie wartości MSE dla dwóch modeli w kontekście poszczególnych domostw}
   \renewcommand{\arraystretch}{1.5}
   \resizebox{\textwidth}{!}{
     \begin{tabular}{|c|cccccccccccc|}
       \hline
-      \multirow{2}{*}{MSE}                                         & \multicolumn{12}{c|}{DOMOSTWO}                                                                                                                                                                                                                                                                                                                        \\ \cline{2-13}
-                                                                   & \multicolumn{1}{c|}{1}         & \multicolumn{1}{c|}{2}       & \multicolumn{1}{c|}{3}     & \multicolumn{1}{c|}{4}       & \multicolumn{1}{c|}{5}      & \multicolumn{1}{c|}{6}      & \multicolumn{1}{c|}{7}       & \multicolumn{1}{c|}{8}       & \multicolumn{1}{c|}{9}      & \multicolumn{1}{c|}{10}    & \multicolumn{1}{c|}{11}      & 12    \\ \hline
-      \begin{tabular}[c]{@{}c@{}}Model\\ uproszczony\end{tabular}  & \multicolumn{1}{c|}{0.022}     & \multicolumn{1}{c|}{0.00740} & \multicolumn{1}{c|}{0.037} & \multicolumn{1}{c|}{0.00670} & \multicolumn{1}{c|}{0.0110} & \multicolumn{1}{c|}{0.0039} & \multicolumn{1}{c|}{0.00840} & \multicolumn{1}{c|}{0.00950} & \multicolumn{1}{c|}{0.0072} & \multicolumn{1}{c|}{0.220} & \multicolumn{1}{c|}{0.01000} & 0.190 \\ \hline
-      \begin{tabular}[c]{@{}c@{}}Model \\ rozszerzony\end{tabular} & \multicolumn{1}{c|}{0.019}     & \multicolumn{1}{c|}{0.00053} & \multicolumn{1}{c|}{0.034} & \multicolumn{1}{c|}{0.00085} & \multicolumn{1}{c|}{0.0013} & \multicolumn{1}{c|}{0.0025} & \multicolumn{1}{c|}{0.00055} & \multicolumn{1}{c|}{0.00069} & \multicolumn{1}{c|}{0.0027} & \multicolumn{1}{c|}{0.075} & \multicolumn{1}{c|}{0.00013} & 0.019 \\ \hline
+      \multirow{2}{*}{}                                                     & \multicolumn{12}{c|}{DOMOSTWO}                                                                                                                                                                                                                                                                                                                        \\ \cline{2-13}
+                                                                            & \multicolumn{1}{c|}{1}         & \multicolumn{1}{c|}{2}       & \multicolumn{1}{c|}{3}     & \multicolumn{1}{c|}{4}       & \multicolumn{1}{c|}{5}      & \multicolumn{1}{c|}{6}      & \multicolumn{1}{c|}{7}       & \multicolumn{1}{c|}{8}       & \multicolumn{1}{c|}{9}      & \multicolumn{1}{c|}{10}    & \multicolumn{1}{c|}{11}      & 12    \\ \hline
+      \begin{tabular}[c]{@{}c@{}}Model \\ podstawowy\end{tabular}           & \multicolumn{1}{c|}{0.022}     & \multicolumn{1}{c|}{0.00740} & \multicolumn{1}{c|}{0.037} & \multicolumn{1}{c|}{0.00670} & \multicolumn{1}{c|}{0.0110} & \multicolumn{1}{c|}{0.0039} & \multicolumn{1}{c|}{0.00840} & \multicolumn{1}{c|}{0.00950} & \multicolumn{1}{c|}{0.0072} & \multicolumn{1}{c|}{0.220} & \multicolumn{1}{c|}{0.01000} & 0.190 \\ \hline
+      \begin{tabular}[c]{@{}c@{}}Model z\\ dodatkowym wejściem\end{tabular} & \multicolumn{1}{c|}{0.019}     & \multicolumn{1}{c|}{0.00053} & \multicolumn{1}{c|}{0.034} & \multicolumn{1}{c|}{0.00085} & \multicolumn{1}{c|}{0.0013} & \multicolumn{1}{c|}{0.0025} & \multicolumn{1}{c|}{0.00055} & \multicolumn{1}{c|}{0.00069} & \multicolumn{1}{c|}{0.0027} & \multicolumn{1}{c|}{0.075} & \multicolumn{1}{c|}{0.00013} & 0.019 \\ \hline
     \end{tabular}
   }
 \end{table}
 
 Analizując przedstawione dane w tabeli, można zauważyć, że po dodaniu dodatkowego wejścia do systemu, czyli tygodniowego zużycia, model 2 (Model z dodatkowym wejściem) osiągnął znacznie lepsze wyniki w porównaniu z modelem bazowym. Wartości błędu średniokwadratowego dla modelu 2 są niższe w porównaniu do modelu 1 dla każdego z domostw, co wskazuje na poprawę dokładności predykcji.
-Na przykład, dla Domu nr 2, MSE zmniejszyło się z 0.0074 w modelu 1 do 0.00053 w modelu 2, co jest znaczącą poprawą. Podobne znaczące redukcje można zaobserwować w przypadku Domu nr 12, gdzie MSE spadło z 0.19 do 0.019
+Na przykład, dla Domu nr 2, MSE zmniejszyło się z 0.0074 w modelu 1 do 0.00053 w modelu 2, co jest znaczącą poprawą. Podobne znaczące redukcje można zaobserwować w przypadku Domu nr 12, gdzie MSE spadło z 0.19 do 0.019. TODO PRZEPISAC TO
 
 
 \chapter{Pogoda}
@@ -879,7 +879,7 @@ Rysunek przedstawia zestaw sześciu wykresów, które porównują warunki atmosf
 W celu zbadania wpływu wielkości modelu na wyniki oraz sprawdzenia ważności różnych wejść, zaproponowano w badaniu dwa modele o różnej złożoności architektury. Oba modele korzystały z tej samej funkcji harmonogramowania tempa uczenia, która redukowała szybkość uczenia po czwartej epoce, oraz z tych samych parametrów kompilacji, w tym optymalizatora Adam z początkową szybkością uczenia 0.001, funkcji straty MSE
 Pierwszy model składał się z mniejszej liczby warstw i neuronów: warstwa normalizująca, trzy warstwy gęste z odpowiednio 64, 32 i 1 neuronami, używając funkcji aktywacji 'relu' dla pierwszych dwóch warstw i 'linear' dla warstwy wyjściowej.
 Drugi model był znacznie większy, zawierając więcej warstw i neuronów: warstwa normalizująca, sześć warstw gęstych o zwiększającej się liczbie neuronów: 1024, 512, 256, 128, 64, 32, zakończonych warstwą wyjściową z 1 neuronem, używając funkcji aktywacji 'relu' dla warstw ukrytych i 'linear' dla warstwy wyjściowej.
-Oba modele były trenowane przez 50 epok z rozmiarem partii równym 32. Celem porównania tych dwóch modeli było ustalenie, czy zwiększenie liczby warstw i neuronów w modelu wpłynie na jego
+Oba modele były trenowane przez 50 epok z rozmiarem partii równym 32. Celem porównania tych dwóch modeli było ustalenie, czy zwiększenie liczby warstw i neuronów w modelu wpłynie na jego predykcje.
 
 W ramach procesu weryfikacji skuteczności zastosowanych modeli sieci neuronowych została zastosowana walidacja krzyżowa, metodą holdout. Dane zostały podzielone w proporcji 80\% do 20\% na zestaw treningowy i testowy. Ta strategia podziału danych miała na celu zapewnienie solidnej bazy do nauki modeli oraz efektywnej oceny ich wydajności. Model numer 1 wykazał się niższą skutecznością w porównaniu do modelu numer 2. Świadczy o tym wartość błędu średniokwadratowego, która dla modelu pierwszego wyniosła 0.0668, natomiast dla modelu drugiego było to znacząco niższe, a mianowicie 0.0237. Ta różnica w wartościach MSE wskazuje na wyższą precyzję i efektywność modelu numer 2 w procesie uczenia i oceny na podstawie dostępnych danych.
 \newpage
@@ -919,18 +919,20 @@ Analizy bardziej złożonych modeli sieci neuronowych, metoda interpretacji wag 
 \begin{figure}[!h]
   \centering
   \includegraphics[width=0.6\textwidth]{img/heatmap2.png}
-  \caption{Mapa ciepła wag pierwszej warstwy dla modelu o rozbudowanej architekturze}
+  \caption{Mapa ciepła wag pierwszej warstwy dla modelu o rozszerzonej architekturze}
   \label{fig:etykieta-rysunku}
 \end{figure}
 
 
-Na przedstawionej mapie cieplnej, ilustrującej wagi przypisane poszczególnym neuronom w warstwie wejściowej sieci neuronowej o rozmiarze 1024 jednostek, zaobserwować można istotne wzorce, choć sama mapa staje się trudna do interpretacji ze względu na dużą gęstość neuronów. Mimo tej wizualnej złożoności, zauważyć można, że temperatura zewnętrzna jest reprezentowana przez znacząco większą liczbę wag o dodatnich wartościach. W przeciwieństwie, ciśnienie atmosferyczne wykazuje tendencję do posiadania większej ilości wag o wartościach ujemnych. Wagi odpowiadające kierunkowi i predkości wiatru wydają się charakteryzować przewagą wartości bliskich zeru, co sugeruje mniejszy wpływ tej cechy na model.
+Na przedstawionej mapie cieplnej, ilustrującej wagi przypisane poszczególnym neuronom w warstwie wejściowej sieci neuronowej o rozmiarze 1024 jednostek, zaobserwować można istotne wzorce, choć sama mapa staje się trudna do interpretacji ze względu na dużą gęstość neuronów. Mimo tej wizualnej złożoności, zauważyć można, że temperatura zewnętrzna jest reprezentowana przez znacząco większą liczbę wag o dodatnich wartościach. W przeciwieństwie, ciśnienie atmosferyczne wykazuje tendencję do posiadania większej ilości wag o wartościach ujemnych. Wagi odpowiadające kierunkowi i predkości wiatru wydają się charakteryzować przewagą wartości bliskich zeru, co sugeruje mniejszy wpływ tej cechy na model.\\
 
 W celu dokładnej analizy ważności poszczególnych wag wejściowych sieci neuronowej przeprowadzono obliczenie średniej wartości wartosci bezwzględnej wag dla każdego z wejść. Procedura ta umożliwiła identyfikację względnej ważności cech poprzez porównanie ich przeciętnego wpływu na aktywację neuronów w modelu. Następnie, aby umożliwić porównywalność wyników niezależnie od ich pierwotnej skali, dokonano normalizacji obliczonych średnich wag.
+\newpage
 
 
 \begin{table}[!h]
   \centering
+  \renewcommand{\arraystretch}{1.5}
   \caption{Porównianie ważności wejść dla metody PFI}
   \resizebox{\textwidth}{!}{
     \begin{tabular}{|c|c|c|c|c|c|c|}
@@ -1003,13 +1005,13 @@ W analizie wyników zauważono istotne odstępstwa dla uproszczonego modelu, w k
 
 Zarówno w Modelu uproszczonym, jak i modelu rozszerzonego, temperatura zewnętrzna jest systematycznie uznawana za cechę o największym wpływie na przewidywania modelu, co wskazuje na jej przewodnią rolę w analizowanych danych meteorologicznych. Niezmiennie wysokie wartości ważności tej zmiennej świadczą o jej dominującej pozycji w obu modelach, niezależnie od wielkości próby. Dla obu modelów, wilgotność jak i ciśnienie wykazują stabilne wartości, tylko w pojedyńczych próbach ciśnienie staja sie dominującą zmienną. Kierunek jak i prędkość wiatru dla obu modeli pozostaje cechą o niskiej ważności Wilgotność wewnętrzna konsekwentnie otrzymuje jedne z najniższe wartości ważności, co wskazuje na jej marginalną rolę w procesie decyzyjnym obu modeli.
 
-\subsection{Ocena Skuteczności Metod}
-W celu zweryfikowania poprawności implementacji metod sprawdzania ważności wejść do sieci neuronowej, zaproponowano model, który został rozszerzony o dodatkowe wejście – Temperaturę zadaną. Temperatura zadana stanowiła oczekiwaną wartość, jaką piec starał się utrzymać, co sprawia, że każda z metod powinna przypisywać jej kluczowe znaczenie. Ustawiona była na poziomie 21 stopni w godzinach 6-23 oraz 19 stopni w godzinach 23-6. Piec był sterowany za pomocą regulacji dwupołożeniowej, której odbiornik był umiejscowiony w pomieszczeniu, w którym brakowało jakiegokolwiek źródła ciepła, takiego jak grzejnik.
+\section{Ocena Skuteczności Metod}
+W celu zweryfikowania poprawności implementacji metod sprawdzania ważności wejść do sieci neuronowej, zaproponowano model, który został rozszerzony o dodatkowe wejście – temperaturę zadaną. Temperatura zadana stanowiła oczekiwaną wartość, jaką piec starał się utrzymać, co sprawia, że każda z metod powinna przypisywać jej kluczowe znaczenie. Ustawiona była na poziomie 21 stopni w godzinach 6-23 oraz 19 stopni w godzinach 23-6. Piec był sterowany za pomocą regulacji dwupołożeniowej, której odbiornik był umiejscowiony w pomieszczeniu, w którym brakowało jakiegokolwiek źródła ciepła, takiego jak grzejnik.\\
 
 \begin{table}[!h]
   \centering
   \renewcommand{\arraystretch}{1.5}
-  \caption{Porównianie wartości MSE modelów}
+  \caption{Wartości MSE modelów uproszczonych i rozszerzonych z uwzględnieniem dodatkowego parametru}
   \begin{tabular}{|c|c|c|}
     \hline
                                                                 & \begin{tabular}[c]{@{}c@{}}Bez dodatkowego\\ parametru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Z dodatkowego\\ parametru\end{tabular} \\ \hline
@@ -1017,8 +1019,10 @@ W celu zweryfikowania poprawności implementacji metod sprawdzania ważności we
     \begin{tabular}[c]{@{}c@{}}Model\\ rozszerzony\end{tabular} & 0.0262                                                              & 0.0230                                                            \\ \hline
   \end{tabular}
 \end{table}
+
 Analizując tabele 4.5  zauważono, że zarówno Model Uproszczony, jak i Model Rozszerzony z dodatkowym parametrem - Temperaturą Oczekiwaną, osiągały niższe wartości błędu średniokwadratowego (MSE) w porównaniu do modeli bez tego dodatkowego wejścia. Ten wynik sugeruje, że uwzględnienie temperatury oczekiwanej w strukturze modelu przyczyniło się do poprawy dokładności prognozowania na zbiorze testowym.
 
+\newpage
 \begin{figure}[!h]
   \centering
   \begin{subfigure}{0.49\textwidth}
@@ -1095,6 +1099,7 @@ inne podejścia\cite{bib:model_1,bib:model_2}
 
 gdzie:
 \begin{itemize}
+  \item[$\rho$] Gęstość cieczy
   \item[A] Powierzchnia wymiany ciepła DO POPRAWY
   \item[d] powierzchnia wymiany ciepła DO POPRAWY
   \item[V] Objętość
@@ -1228,11 +1233,22 @@ Przedstawienie modelu warstwowego, równań stanu, pokazanie wyników symulacji 
 \begin{equation}
   G = \int p_1 Q_g \, dt
 \end{equation}
+gdzie:
+\begin{itemize}
+  \item[$p_1$] TODO
+  \item[$Q_g$] Ciepło systemu grzewczego
+\end{itemize}
+
 \subsection{Funkcja komfortu}
 \begin{equation}
   J = \int \left( T_{wo} - T_{wym} \right)^2 \left| \frac{\text{sign}(T_{wo} - T_{wym} - \delta) + \text{sign}(T_{wo} - T_{wym} + \delta)}{2} \right| \, dt
 \end{equation}
-
+gdzie:
+\begin{itemize}
+  \item[$T_{wo}$] Temperatura (...)
+  \item[$T_{wym}$] Temperatura (...)
+  \item[$\delta$] TODO
+\end{itemize}
 
 
 
@@ -1290,6 +1306,7 @@ Przedstawienie modelu warstwowego, równań stanu, pokazanie wyników symulacji 
     \item[d] powierzchnia wymiany ciepła DO POPRAWY
     \item[V] Objętość
     \item[$C_w$] Ciepło właściwe
+    \item[$\delta$] TODO
     \item[$\lambda$] Wspołczynnik wymiany ciepła
     \item[n] numer warstwy
     \item[m] numer źródła ciepła
@@ -1309,15 +1326,21 @@ Przedstawienie modelu warstwowego, równań stanu, pokazanie wyników symulacji 
   \begin{enumerate}
     \item Dane
           \begin{enumerate}
-            \item Dane od ASHRAE i ich przetworzona wersja
-            \item Dane potrzebne do oceny wazności wejść
+            \item Dane\_1 - Dane użyte do nauki sieci neuronowej przewidującej życie wody oraz ich wersja znormalizowana wersja.
+            \item Dane\_2 - Dane użyte do nauki modelu służącego do oceny wazności wejść.
           \end{enumerate}
     \item Skrypty
           \begin{enumerate}
-            \item Skrypt 1.py -robi coś
-            \item Skrypt 1.py -robi coś
+            \item Przygotowanie\_danych.IPYNB - Skrypt przetwarzający dane Dane\_1
+            \item Przeply.IPYNB - Skrypt uczący modele typu A, B, C, D oraz wyświetlający wyniki symulacji.
+            \item Przeply\_dodatkowy.IPYNB - Skrypt uczący model typu C dodając do niego dane historyczne
+            \item Pogoda.IPYNB - Skrypt uczący model oraz badający ważność wejść trzema metodami.
           \end{enumerate}
-    \item Archiwum modeli opisanych w pracy
+    \item Modele
+          \begin{enumerate}
+            \item Modele typu A, B, C, C+d, D przewidujące zużycie wody
+            \item Modele o uproszczonej i rozszerzonej architekurze, służace do sprawdzenia wazności wejść
+          \end{enumerate}
   \end{enumerate}
 
 
