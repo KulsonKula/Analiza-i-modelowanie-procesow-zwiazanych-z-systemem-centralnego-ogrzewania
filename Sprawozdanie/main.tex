@@ -523,19 +523,20 @@ wprowadzenie w problem/zagadnienie
 \newpage
 \section{Aktualny stan wiedzy}
 
-\subsection{Data-Collected models}
+\subsection{Przewidywania zużycia ciepłej wody użytkowej}
 Modele oparte na zebranych danych są szeroką kategorią modeli statystycznych i analitycznych, które wykorzystują dane zebrane z różnych źródeł do formułowania wniosków, Edwards et al.\cite{bib:data_model} stworzyli roczne profile poboru wody, na podstawie danych pomiarowych z 73 domostw w Québec(Kanada). Utworzone profile poboru ciepłej wody użytkowej mają trzy kluczowe elementy: Wysoka rozdzielczość czasowa. Cztery poziomy zużycia - odpowidały one średniej, medianie, a także procentylom. Trzy wzorce czasowe - koncentowały sie one na porannym, wieczornym lub równomiernym zużyciu wody przez cały dzień, aby uwzględnić różne style życia i zwyczaje mieszkańców.\\
 
 Modele szeregów czasowych są specjalną kategorią modeli statystycznych przeznaczonych do analizowania i prognozowania danych, które są zebrane lub obserwowane w regularnych odstępach czasu. Gelazanskas i Gamage\cite{bib:Time_series} zauważywszy silną dzienną i tygodniową korealcje. Zastosowali kobinacje metode dekompozycji sezonowej oraz model ARIMA. Po porównianiu zaproponowanego modelu wraz z wybranymi modelami referencyjnymi, stwierdzono, że rozdzielenie szeregów czasowych na kilka składowych odgrywa znaczącą rolę w dokładności prognoz - uwzględnienie sezonowych wzorców zużycia może znacząco poprawić jakość prognoz.\\
 
-\subsection{Model Behawioralny}
 Modele behawioralne, są to modele oparte na zachowaniu ludzi w określonych sytuacjach, biorą one pod uwagę różne czynniki takie jak motywację, preferencje czy wpływ społeczny. Są one zazwyczaj stosowane w dziedzinach naukowych takich jak psychologia czy ekonomia, ale również w inżynierii. Model behawioralne stworzony przez  N.D. Pflugradt\cite{bib:Behavioural} symulował indywidualne zachowania w celu przewidywania zużycia energii i wody w gospodarstwie domowym. Model został stworzony w celu uniknięcia polegania na statystycznych rozkładach prawdopodobieństwa. Autor stwierdził, że przewidywania modelu są bardzo dobre dla gospodarstw zamieszkanych przez jedną osobę, gdyż największym problem modelu jest jego skalowalność, ze względu na konieczność dokonania dużej ilość założeń i trudności w gromadzeniu danych o zachowaniach wielu mieszkańców.\\
 
+\subsection{Modelowanie zasobnika CWU}
+W kontekście modelowania zasobnika CWU, różne podejścia zostały przedstawione w literaturze. Jednym z efektywnych narzędzi w tym procesie jest modelowanie z linearyzacją. To podejście opiera się na przybliżeniu nieliniowego modelu do postaci liniowej, wykorzystując rozwinięcie w szereg Taylora wokół pewnego punktu pracy. Głównym celem tego procesu jest uproszczenie złożonego modelu nieliniowego do postaci bardziej przystępnej - liniowej. Przykładem zastosowania linearyzacji w kontekście modelowania zasobnika CWU można odnaleźć w pracy autorstwa S. Claquina, A. Carriere'a i F. Rocaries'a.\cite{bib:linearyzacja} W ich badaniach, skonstruowali bardzo precyzyjny model matematyczny, rozkładając go na trzy równania stanu. Te równania opisują zmienną temperatury wody w wymienniku, temperatury ramy wymiennika oraz temperatury komory spalania. Następnie, dzięki zastosowaniu linearyzacji, udało im się opracować kontroler adaptacyjny.
 
-\newpage
+W literaturze można również znaleźć podejście modelowania, które polega na podziale zasobnika na warstwy o różnych temperaturach, umieszczone na różnych poziomach. Jest to podejście bardziej dokładne niż modelowanie zasobnika w modelu jednowarstwowym, gdyż bierze dokładniej pod uwagę takie zjawiska jak mieszanie się wody o różnej temperaturze, utratę ciepła do otoczenia czy stratę ciepła w transporcie. S. Alizadeh\cite{bib:model_2} prowadził badania nad zachowaniem ciepła w zbiornikach poziomych, które wykazały, że uwzględnienie rozkładu temperatury w zbiorniku ma istotne znaczenie dla oceny wydajności i efektywności. Podkreślał, jak utrata energii wewnętrznej zbiornika wynosiła 1.4\%. Badania przeprowadzone przez M. Y. Haller, J. Streicher\cite{bib:model_1} wykazały, że utrata energii wewnętrznej mieściła się między 2.04\% a 6.50\%. Wnioski wysunięte przez nich wskazywały m.in. na różnice wynikające z kształtu zasobnika, pojemności oraz systemów wprowadzania i odbierania ciepła
+
 \section{Charakterystyka rozdziałów}
 
- (...)
 
 W rozdziale drugim, zatytułowanym "Zastosowane Narzędzia w Pracy", zostanie szczegółowo omówione wymagania dotyczących języka programowania oraz głównej biblioteki używanej do tworzenia sieci neuronowych. Najpierw zostaną rozpatrzone dwa główne języki, które są popularne w dziedzinie uczenia maszynowego i zostanie dokonany wybór, który lepiej odpowiada wymaganiom. Następnie koncentracja zostanie położona na wybór biblioteki do tworzenia sieci neuronowe. Ponownie zostaną przedstawione dwie popularne biblioteki, które zostaną przeanalizowane pod kątem funkcjonalności, wydajności i wsparcia społeczności. Następnie zostanie wybrana jedna, która najbardziej sprzyja realizacji założeń. W dalszej części zostaną przedstawione biblioteki pomocnicze, które są niezbędne do przetwarzania i analizy danych. Zostaną opisane najważniejsze funkcje i zastosowania tych narzędzi. Zostanie także poruszony wątek kompatybilności tych bibliotek.\\
 
@@ -543,18 +544,22 @@ W kolejnym rozdziale pracy zostanie przedstawiona metodologia projektowania mode
 
 W ramach rozdziału "Pogoda" niniejszej pracy dyplomowej dokonano prezentacji i analizy danych meteorologicznych, które posłużyły jako fundament dla procesu nauki dwóch modeli sieci neuronowych o zróżnicowanej złożoności architektonicznej. Następnie, w dalszej części rozdziału, skoncentrowano się na szczegółowym badaniu i ocenie ważności poszczególnych wejść dla obu modeli. Do tego celu wykorzystano trzy zaawansowane metody analityczne: Permutacyjną Ważność Cech, analizę wag wejściowych modelu oraz metodę LIME(Local Interpretable Model-agnostic Explanations). Każda z tych technik dostarcza istotnych informacji o znaczeniu poszczególnych zmiennych wejściowych w kontekście ich wpływu na wydajność i dokładność modeli. Następnie zostanie sprwadzenie poprawności implentacji metod poprzez zastosowanie dodatkowego wejścia do modelu - temperature zadaną.
 
+\newpage
+
+
 
 \chapter{Zastosowane narzędzia w pracy}
 \label{ch:wymagania-i-narzedzia}
 % Opis narzędzi które były uzywane podczas programowania, Wiekszy opis pythona i tensorflow, ich "specyfikacja" plusy i minusy, jakie były inne mozliwe wybory oraz czemu zostały wybrane akurat te rozwiązania, krótszy opis pozostałych biblotek uzytych podczas programownia takich jak numpy, plotlib czy pandas
 \section{Język programowania}
-Wybór głównego języka programowania zastosowanego w projekcie, wiązał się z postawieniem pewnych wymagań. Pierwszym z tych wymagań była dostępność dedykowanej biblioteki do uczenia maszynowego, która posiada narzędzia do efektywnej pracy nad modelami czy ich testowanie. Użycie biblioteki która jest dobrze utrzymana zapewnia ogromne wsparcie społeczności, które może okazać się nieocenione w procesie nauki czy rozwiązywania problemów.\\Kolejnym wymaganiem jest aby wybrana technologia była ciągle wspierana i aktualizowana. Machine learning jest aktualnie jedną z najszybciej rozwijających się dziedzin programowania, co wiąże się z szybkimi zmianami. Po dokładnej analizie postawionych wymagań, zdecydowano o wyborze dwóch głównych języków programowania, które najlepiej odpowiadają potrzebom projektu.
+Wybór głównego języka programowania zastosowanego w projekcie, wiązał się z postawieniem pewnych wymagań. Pierwszym z tych wymagań była dostępność dedykowanej biblioteki do uczenia maszynowego, która posiada narzędzia do efektywnej pracy nad modelami czy ich testowanie. Użycie biblioteki która jest dobrze utrzymana zapewnia ogromne wsparcie społeczności, które może okazać się nieocenione w procesie nauki czy rozwiązywania problemów.\\
+Kolejnym wymaganiem jest aby wybrana technologia była ciągle wspierana i aktualizowana. Machine learning jest aktualnie jedną z najszybciej rozwijających się dziedzin programowania, co wiąże się z szybkimi zmianami. Po dokładnej analizie postawionych wymagań, zdecydowano o wyborze dwóch głównych języków programowania, które najlepiej odpowiadają potrzebom projektu.
 \begin{itemize}
   \item R
   \item Python
 \end{itemize}
 
-R jest językiem skoncentrowanym na analizie danych i statystyce. Posiada on bardzo bogaty ekosystem jednak może stanowić to przyczynę wielu konfliktów pomiędzy pakietami. Największą wadą tego jest języka jest problem ze skalowalnością. Praca z dużą ilością danych skutkuje zużyciem ogromnej ilości pamięci RAM.\\ Skorzystanie z Pythona będzie lepiej spełniać wymogi projektu. Jest on językiem bardziej wszechstronny oraz posiada obszerną biblioteke standardową jak i bardzo liczne zewnętrzne bibloteki. Największą wadą Pythona jest jego wydajność. Gdyż jest językiem interpretowanym, więc nie jest on kompilowany do kodu maszynowego przed jego uruchomieniem.
+R jest językiem skoncentrowanym na analizie danych i statystyce. Posiada on bardzo bogaty ekosystem jednak może stanowić to przyczynę wielu konfliktów pomiędzy pakietami. Największą wadą tego jest języka jest problem ze skalowalnością. Praca z dużą ilością danych skutkuje zużyciem ogromnej ilości pamięci RAM.\\ Skorzystanie z Pythona będzie lepiej spełniać wymogi projektu. Jest on językiem bardziej wszechstronny oraz posiada obszerną biblioteke standardową jak i bardzo liczne zewnętrzne bibloteki. Zgodnie z ankietą przeprowadzoną przez Stack Overflow w 2023 roku\cite{bib:Stack}, Python zajmuje trzecie miejsce pod względem popularności wśród technologii oraz drugie miejsce pod względem preferencji na rynku pracy. Największą wadą Pythona jest jego wydajność. Gdyż jest językiem interpretowanym, więc nie jest on kompilowany do kodu maszynowego przed jego uruchomieniem.
 \section{Biblioteka uczenia maszynowego}
 
 Decyzja o wyborze odpowiedniej biblioteki do tworzenia sieci neuronowych jest kluczowym elementem każdego projektu związanego z uczeniem maszynowym i głębokim uczeniem. TensorFlow, będący jedną z dwóch głównych otwartych bibliotek do uczenia maszynowego w Pythonie, wyróżnia się swoją wszechstronnością i wsparciem od Google. Jego głównym konkurentem jest PyTorch, rozwijany przez Facebook, który zyskał popularność ze względu na swoją elastyczność i przyjazność dla użytkownika.
@@ -665,7 +670,6 @@ Proces tworzenia architektury sieci neuronowej jest procesem wyboru hiperparamet
 
 Aby sieć neuronowa mogła efektywnie przewidywać wyniki, kluczowe jest jej odpowiednie nauczenie. Proces ten rozpoczyna się od inicjalizacji wag sieci, co stanowi punkt wyjściowy dla dalszego uczenia. Następnie, w trakcie procesu uczenia, wagi te są ciągle modyfikowane. Odbywa się to poprzez przesyłanie danych przez sieć i obliczanie błędu, który jest miarą różnicy między przewidywaniami sieci a rzeczywistymi wynikami. Kolejnym etapem jest obliczenie gradientu funkcji straty dla każdej wagi w sieci. Gradient ten wskazuje kierunek, w którym należy zmodyfikować wagi, aby zminimalizować błąd. Aktualizacja wag odbywa się przy pomocą wybranego algorytmu optymalizacyjnego zwanego optymalizatorem. Cały ten proces jest powtarzany przez ustaloną liczbę iteracji i epok, co pozwala sieci na stopniowe 'naukę' i poprawę swojej zdolności do przewidywania wyników.\cite{bib:ksiazka_sieci_algorytmy}
 
-\newpage
 \section{Dane wejściowe i proces ich przetwarzania}
 Projekt wykorzystuje dane zebrane przez M.J. Ritchie et al.\cite{bib:artykul_dane} w 2018 roku. Informacje o zużyciu wody zostały pozyskane z 77 domostwo znajdujących się na terenie Południowej Afryki, zamieszkiwanym przez dwoje osób dorosłych oraz dwójkę dzieci, oraz posiadających podstawowe urządzenia AGD takie jak pralka czy zmywarka. Dane były zbierane przez 16 tygodni, w cyklach trwających 4 tygodnie, aby równomiernie obejmować każdą porę roku. Próbkowanie danych odbywało sie co minute, nieprzerwanie przez całą dobę. Całość danych zostało podzielone na 73 oddzielne pliki w formacie .csv. W każdym pliku znajdował się timestamp w formacie "RR-MM-DD HH:MM:SS", który określał dzień i godzinę pomiaru danych. Oprócz tego zawierał informacje o zużyciu wody, oraz temperaturę otoczenia. Dodatkowo dane były podzielone na poszczególne poru roku.\\
 \begin{figure}[!h]
@@ -674,8 +678,8 @@ Projekt wykorzystuje dane zebrane przez M.J. Ritchie et al.\cite{bib:artykul_dan
   \caption{Podpis rysunku zawsze pod rysunkiem.}
   \label{fig:etykieta-rysunku}
 \end{figure}\\
-Pierwszy wykres przestawia dane zebrane z domu nr. 13 zebrane w dniu 05/02/2018. Oś X oznaczająca godzinę, począwszy od północy. Oś Y reprezentuje przepływ wody w danym momencie dnia. Wykres przedstwia nieregularne piki o nierównomiernym rozkładzie. Okresami o zwiększonym przepływie są godziny 7-13 oraz 14-15. Okresy mniejszej aktywności możemy zaobserwować w godzinach późno popołudniowych oraz nocnych. Drugi i trzeci wykres przedstawiają zbliżenie na godzinę 7 oraz 15. Dzięki zwężeniu analizowanego zakresu czasu możliwe było dokładniejsze zbadanie struktury występujących pików. Ta metoda wizualizacji ujawniła, że poszczególne piki, które na ogólnym wykresie dobowym mogły sprawiać wrażenie pojedynczych punktów, w rzeczywistości są złożone z wielu pojedynczych zdarzeń. To odkrycie jest istotne, ponieważ wskazuje na bardziej złożoną dynamikę przepływu w określonych momentach doby, co na pierwszy rzut oka mogło umknąć uwadze.\\
-\newpage
+Pierwszy wykres przestawia dane zebrane z domu nr. 13 zebrane w dniu 05/02/2018. Oś X oznaczająca godzinę, począwszy od północy. Oś Y reprezentuje przepływ wody w danym momencie dnia. Wykres przedstwia nieregularne piki o nierównomiernym rozkładzie. Okresami o zwiększonym przepływie są godziny 7-13 oraz 14-15. Okresy mniejszej aktywności możemy zaobserwować w godzinach późno popołudniowych oraz nocnych. Drugi i trzeci wykres przedstawiają zbliżenie na godzinę 7 oraz 15. Dzięki zwężeniu analizowanego zakresu czasu możliwe było dokładniejsze zbadanie struktury występujących pików. Ta metoda wizualizacji ujawniła, że poszczególne piki, które na ogólnym wykresie dobowym mogły sprawiać wrażenie pojedynczych punktów, w rzeczywistości są złożone z wielu pojedynczych zdarzeń. To odkrycie jest istotne, ponieważ wskazuje na bardziej złożoną dynamikę przepływu w określonych momentach doby, co na pierwszy rzut oka mogło umknąć uwadze\\
+
 W celu lepszego wstępnego zrozumienia charakterystyki analizowanego zestawu danych, niezbędne jest także szczegółowe przyjrzenie się kilku losowo wybranym domostwom.\\
 \begin{figure}[!h]
   \centering
@@ -685,7 +689,6 @@ W celu lepszego wstępnego zrozumienia charakterystyki analizowanego zestawu dan
 \end{figure}\\
 Analiza przedstawionych histogramów przepływów dla poszczególnych losowo wybranych domostw, wykonana na podstawie danych z dnia 05/02/2018, ukazuje wyraźne różnice w charakterystyce przepływów dla każdego z nich. Zgodnie z Rysunkiem 3.2, można stwierdzić, że każdy dom prezentuje unikalny wzór aktywności, co może odzwierciedlać różnorodność nawyków, planów dnia lub specyficznych potrzeb mieszkańców. Na przykład, dla domu nr 5 zużycie wody jest rozłożone przez większą część dnia, z obserwowaną aktywnością w rozmaitych godzinach. Jednakże zarejestrowano również pojedyncze zużycie w nocy. Z kolei Dom 52 charakteryzuje się wyraźnym szczytem wieczornym, co stanowi kontrast w stosunku do pozostałych domów.\\W przypadku Domu nr 4, nie odnotowano żadnego przepływu w analizowanym dniu. Brak danych może wynikać z co najmniej dwóch potencjalnych przyczyn. Pierwszą z nich jest zastosowany czas próbkowania, który wynosił jedną minutę. Taki interwał może nie być wystarczająco krótki, aby zarejestrować sporadyczne lub krótkotrwałe zdarzenia przepływu. Drugą możliwością, która może wyjaśniać brak zarejestrowanej aktywności, jest potencjalna nieobecność mieszkańców w domu w danym dniu.
 
-\newpage
 Pomimo iż zgromadzone dane charakteryzowały się wysoką jakością, ich specyficzny format wymagał przygotowania skryptu celem ich przetwarzania i ekstrakcję istotnych informacji.\\
 \begin{figure}[!h]
   \centering
@@ -699,12 +702,10 @@ W ramach procesu dostowania formatu aby przystosować go do wymagań tensorflow 
 W ramach realizacji badań nad optymalizacją architektury sieci neuronowej oraz doborem hiperparametrów zdecydowano się na podział danych uczących na trzy zbiory. Pierwszy z nich to zestaw który zawiera dane pochodzące z 12 losowo wybranych domostw, co ma na celu zapewnienie reprezentatywności i różnorodności w ramach próby badawczej. Drugi zestaw stanowi podzbiór zawierający dane z pojedynczego gospodarstwa domowego, co pozwala na szczegółową analizę wydajności modelu w warunkach bardziej jednorodnych danych. Dodatkowo, utworzony został trzeci zestaw danych, który obejmował informacje z wszystkich 77 domów biorących udział w badaniu.
 
 
-Podział zbioru danych na trzy zestawy okazał się kluczowy dla efektywnego doboru hiperparametrów modelu, szczególnie biorąc pod uwagę, że cały zbiór danych zawierał aż 12,5 miliona wierszy. Zestaw wybranych domostw, zawierający blisko 2 miliony wierszy, oraz pojedyncze domostwo z 161 tysiącami wierszy, umożliwiły przeprowadzenie dokładniejszych i bardziej zróżnicowanych testów.
-
-Czas uczenia sieci był znacząco różny dla poszczególnych zestawów danych. Przykładowo, dla całego zbioru danych proces uczenia trwający 10 epok przy rozmiarze partii równym 64 zajmował około 46 minut. Tymczasem dla wybranych domostw czas ten skracał się do 9 minut, a dla pojedynczego domostwa uczenie trwało zaledwie 40 sekund. W ramach badań podjęto próby wykorzystania Google Colab, będącego popularnym narzędziem służącym do programowania i przetwarzania danych w chmurze. Po odpowiednim skonfigurowaniu środowiska napotkano na pierwszy znaczący problem - czas trwania uploadu pliku. Zaskakująco, przesyłanie pliku o rozmiarze 300 MB, zawierającego 12,5 miliona wierszy, zajęło znacznie więcej czasu, niż można było przewidywać. Kolejnym krokiem było przeprowadzenie procesu uczenia maszynowego na danych, zaplanowanego na 10 epok. Niestety, cały proces trwał ponad 100 minut, co wskazuje na ograniczenia wersji darmowej Google Colab. W związku z tym stwierdzono, że bez inwestycji w wersję płatną, Google Colab nie zapewnia oczekiwanej redukcji czasu niezbędnego do nauki modelu.\\
+Podział zbioru danych na trzy zestawy okazał się kluczowy dla efektywnego doboru hiperparametrów modelu, szczególnie biorąc pod uwagę, że cały zbiór danych zawierał aż 12,5 miliona wierszy. Zestaw wybranych domostw, zawierający blisko 2 miliony wierszy, oraz pojedyncze domostwo z 161 tysiącami wierszy, umożliwiły przeprowadzenie dokładniejszych i bardziej zróżnicowanych testów. Czas uczenia sieci był znacząco różny dla poszczególnych zestawów danych. Przykładowo, dla całego zbioru danych proces uczenia trwający 10 epok przy rozmiarze partii równym 64 zajmował około 46 minut. Tymczasem dla wybranych domostw czas ten skracał się do 9 minut, a dla pojedynczego domostwa uczenie trwało zaledwie 40 sekund. W ramach badań podjęto próby wykorzystania Google Colab, będącego popularnym narzędziem służącym do programowania i przetwarzania danych w chmurze. Po odpowiednim skonfigurowaniu środowiska napotkano na pierwszy znaczący problem - czas trwania uploadu pliku. Zaskakująco, przesyłanie pliku o rozmiarze 300 MB, zawierającego 12,5 miliona wierszy, zajęło znacznie więcej czasu, niż można było przewidywać. Kolejnym krokiem było przeprowadzenie procesu uczenia maszynowego na danych, zaplanowanego na 10 epok. Niestety, cały proces trwał ponad 100 minut, co wskazuje na ograniczenia wersji darmowej Google Colab. W związku z tym stwierdzono, że bez inwestycji w wersję płatną, Google Colab nie zapewnia oczekiwanej redukcji czasu niezbędnego do nauki modelu.\\
 
 Początkowo hiperparametry były testowane na najmniejszym zbiorze, co pozwalało na szybką i efektywną ocenę różnych konfiguracji. Po uzyskaniu zadowalających wyników na zbiorze pojedynczego domostwa testy były rozszerzane kolejno na zbiór wybranych domostw, a następnie na pełny zbiór danych. Taka strategia pozwoliła na stopniowe i metodyczne dostosowywanie hiperparametrów, minimalizując przy tym czas i zasoby potrzebne do przeprowadzenia eksperymentów, a jednocześnie maksymalizując ogólną skuteczność modelu. Na podstawie serii przeprowadzonych testów dotyczących dostrajania modelu wybrano następujące hiperparametry:
-
+\newpage
 \begin{itemize}
   \item Optymalizator: Adam
   \item Funkcja strat: mse
@@ -724,34 +725,17 @@ W ramach opracowanego modelu sieci neuronowej zastosowano dynamicznie zmieniają
     \text{Wspołczynik uczenia}(epoka - 1) \times e^{-0.1} & \text{jeżeli } epoka \geq 5
   \end{cases}
 \end{equation}
-Użycie tej motody pozwoliło na zmniejszanie wartości współczynnika uczenia w trakcie procesu trenowania, co zwiększyło zdolności adaptacyjne sieci. Został on zastosowany, gdyż częstym zjawiskiem było generowanie przez sieć stałej wartości wyjściowej, niezależnie od różnych danych wejściowych.
+Użycie tej motody pozwoliło na zmniejszanie wartości współczynnika uczenia w trakcie procesu trenowania, co zwiększyło zdolności adaptacyjne sieci. Został on zastosowany, gdyż częstym zjawiskiem było generowanie przez sieć stałej wartości wyjściowej, niezależnie od różnych danych wejściowych.\\
 
-W ramach procesu testowania różnych konfiguracji sieci neuronowej zaproponowano eksplorację wydajności modeli przy różnorodnych kombinacjach wejść. Celem tego podejścia było zbadanie, jak zmiana danych wejściowych wpłynie na zdolność modelu do nauki i generalizacji przewidywania przepływu. Poniżej przedstawiono zestawienie modeli, które zostały uwzględnione w analizie:
+W ramach procesu testowania różnych konfiguracji sieci neuronowej zaproponowano eksplorację wydajności modeli przy różnorodnych kombinacjach wejść. Wszystkie zaproponowane modele miały jedno wyjście - temperaturę w mieszkaniu. Celem tego podejścia było zbadanie, jak zmiana danych wejściowych wpłynie na zdolność modelu do nauki i generalizacji przewidywania przepływu. Poniżej przedstawiono zestawienie wejść modeli, które zostały uwzględnione w analizie:
 
+\newpage
 \begin{enumerate}
-  \item Model A
-        \begin{enumerate}
-          \item Wejścia: dzień tygodnia, pora dnia
-          \item Wyjście: przepływ
-        \end{enumerate}
-  \item Model B
-        \begin{enumerate}
-          \item Wejścia: pora dnia
-          \item Wyjście: przepływ
-        \end{enumerate}
-  \item Model C
-        \begin{enumerate}
-          \item Wejścia: pora roku, dzień tygodnia, pora dnia
-          \item Wyjście: przepływ
-        \end{enumerate}
-  \item Model D
-        \begin{enumerate}
-          \item Wejścia: pora roku, pora dnia
-          \item Wyjście: przepływ
-        \end{enumerate}
+  \item Wejścia modelu A - dzień tygodnia, pora dnia
+  \item Wejścia modelu B - pora dnia
+  \item Wejścia modelu C - pora roku, dzień tygodnia, pora dnia
+  \item Wejścia modelu D - pora roku, pora dnia
 \end{enumerate}
-
-Wyniki te dostarczą wglądu w to, które wejścia są najbardziej wartościowe dla modelowania przepływu oraz czy dodanie dodatkowych informacji kontekstowych przyczynia się do znaczącej poprawy wyników predykcyjnych.\\
 
 \subsection*{Modele A}
 Modele typu A zostały opracowane w celu badania korelacji tygodniowej, z uwzględnieniem dwóch kluczowych zmiennych wejściowych: czasu dnia oraz dnia tygodnia. Równocześnie zauważono, że zużycie energii cieplnej w ciągu dni roboczych znacznie różni się od tego w dniach wolnych od pracy, kiedy to ludzie spędzają więcej czasu w swoich domach.\\
@@ -760,9 +744,9 @@ Modele typu A zostały opracowane w celu badania korelacji tygodniowej, z uwzgl�
   \includegraphics[width=1\textwidth]{img/Model_A.png}
   \caption{Porównanie symulacji dla modelów typu A}
   \label{fig:etykieta-rysunku}
-\end{figure}
+\end{figure}\\
 
-predykcje modeli uczących się na całym zbiorze danych cechują się brakiem dynamiki, niezależnie od godziny czy dnia tygodnia. Model utrzymuje stałą wartość w okolicach 0.081 l/min przez cały czas. Pozostałe modele radzą sobie znacznie lepiej. Model uczący się na podstawie danych z 12 domostw symuluje zwiększoną aktywność w godzinach porannych, około 8-9 oraz wieczornych, w okolicach godziny 20. Podobnie zachowuje się model uczony na pojedynczym domostwie, choć zaproponowane przez niego zużycie wody jest mniej gwałtowne. Ponadto, zauważalne są różnice między symulacjami w dni powszednie a dniami wolnymi. Dni wolne charakteryzują się znacznie większym zużyciem wody w godzinach wieczornych, a także dłuższym, choć mniej intensywnym, korzystaniem z wody w godzinach porannych.
+Predykcje modeli uczących się na całym zbiorze danych cechują się brakiem dynamiki, niezależnie od godziny czy dnia tygodnia. Model utrzymuje stałą wartość w okolicach 0.081 l/min przez cały czas. Pozostałe modele radzą sobie znacznie lepiej. Model uczący się na podstawie danych z 12 domostw symuluje zwiększoną aktywność w godzinach porannych, około 8-9 oraz wieczornych, w okolicach godziny 20. Podobnie zachowuje się model uczony na pojedynczym domostwie, choć zaproponowane przez niego zużycie wody jest mniej gwałtowne. Ponadto, zauważalne są różnice między symulacjami w dni powszednie a dniami wolnymi. Dni wolne charakteryzują się znacznie większym zużyciem wody w godzinach wieczornych, a także dłuższym, choć mniej intensywnym, korzystaniem z wody w godzinach porannych.
 
 \subsection*{Modele B}
 Modele typu B zostały zaprojektowane z zastosowaniem jednego wejścia, tj. pory dnia. Celowe zastosowanie tego podejścia wynika z intencji zbadania, w jaki sposób wybrana architektura sieci oraz hiperparametry radzą sobie z zadaniem predykcji, pomijając dodatkowe informacje takie jak dzień tygodnia czy pora roku. Decyzja o ograniczeniu modelu do jednego wejścia wynika z potrzeby zbadania skuteczności predykcyjnej bez wpływu korealacji tygodniowej i sezonowej.
@@ -772,9 +756,9 @@ Modele typu B zostały zaprojektowane z zastosowaniem jednego wejścia, tj. pory
   \caption{Porównanie symulacji dla modelów typu B}
   \label{fig:etykieta-rysunku}
 \end{figure}
-Modele typu B, niezależnie od ilości dostępnych danych, charakteryzują się bardzo zbliżonymi prognozami dotyczącymi zużycia wody. Zaobserwowano znaczne zwiększenie zużycia wody w godzinach od 6:00 do 9:00 oraz ponownie od 18:00 do 23:00. To idealnie ilustruje, że bez uwzględnienia kontekstu tygodniowego i sezonowego modele generalizują predykcje w bardzo podobny sposób. Zauważalne jest, że prognozy generowane przez model uczący się na pojedynczym domostwie odznaczają się największą płynnością.
 
-\newpage
+Niezależnie od ilości dostępnych danych, charakteryzują się bardzo zbliżonymi prognozami dotyczącymi zużycia wody. Zaobserwowano znaczne zwiększenie zużycia wody w godzinach od 6:00 do 9:00 oraz ponownie od 18:00 do 23:00. To idealnie ilustruje, że bez uwzględnienia kontekstu tygodniowego i sezonowego modele generalizują predykcje w bardzo podobny sposób. Zauważalne jest, że prognozy generowane przez model uczący się na pojedynczym domostwie odznaczają się największą płynnością.
+
 \subsection*{Modele C}
 Modele typu C zostały opracowane w celu oceny skuteczności proponowanej architektury sieci neuronowej oraz dobranych hiperparametrów w kontekście jednoczesnego uwzględniania dwóch rodzajów korelacji: korelacji tygodniowej i sezonowej. W tym celu, do struktury tych modeli wprowadzono trzy kluczowe wejścia: czas dnia, dzień tygodnia oraz porę roku.
 \begin{figure}[!h]
@@ -783,8 +767,10 @@ Modele typu C zostały opracowane w celu oceny skuteczności proponowanej archit
   \caption{Porównanie symulacji dla modelów typu C}
   \label{fig:etykieta-rysunku}
 \end{figure}
+Analizując rysunek 3.7, można zauważyć, że wszystkie modele prezentują bardzo zbliżoną charakterystykę zużycia wody. Dwa największe szczyty zużycia wody występują w godzinach 6-8 oraz 17-20:30. Wykresy modeli, które zostały nauczone na większej ilości danych, cechują się wyższymi wartościami przepływu, osiągając nawet 1.5 l/min przy uczeniu na pełnym zbiorze danych. Równocześnie przebiegi czasowe przepływu ciepłej wody użytkowej dla tych modeli są bardziej zmiennorodne, charakteryzujące się znacznie większą dynamiką. W przypadku modelu nauczonego tylko na jednym zbiorze danych, dynamika ta jest stosunkowo bardziej płynna.\\
 
-\newpage
+Należy zauważyć, że przewidywania dla dni roboczych różnią się od tych dla dni weekendowych. Na przykład, dla modelu nauczonego na wybranych domostwach, pojedynczy szczyt na wykresie, obrazujący przepływ w poniedziałek lub środę, został zastąpiony przez trzy pojedyncze szczyty o mniejszej wartości. Dla modelu nauczonego na pojedynczym domostwie pojedynczy szczyt zmienia się w długotrwałe zużycie, zaczynające się o podobnej godzinie, ale trwające nawet do godziny 13.
+
 \subsection*{Modele D}
 modele typu D zostały skonstruowane w celu badania korelacji sezonowej, wydzielając ją od wpływu korelacji tygodniowej. Modele tego typu zostały wyposażone w dwa kluczowe wejścia: porę roku oraz czas dnia.\\
 \begin{figure}[!h]
@@ -804,10 +790,10 @@ W celu oceny skuteczności zaproponowanych modeli przeprowadzono proces walidacj
   \caption{Porównanie wartości MSE dla różnych modeli przy zróżnicowanej ilości danych}
   \begin{tabular}{|c|c|c|c|c|}
     \hline
-    Ilość domostw & Model A & Model B & Model C & Model D \\ \hline
-    Calość        & 0.5841  & 0.5891  & 0.5883  & 0.5842  \\ \hline
-    Wybrane       & 0.5649  & 0.5648  & 0.5650  & 0.5572  \\ \hline
-    Pojedyńcze    & 0.7276  & 0.7277  & 0.7271  & 0.7271  \\ \hline
+    Liczba domostw & Model A & Model B & Model C & Model D \\ \hline
+    Calość         & 0.5841  & 0.5891  & 0.5883  & 0.5842  \\ \hline
+    Wybrane        & 0.5649  & 0.5648  & 0.5650  & 0.5572  \\ \hline
+    Pojedyńcze     & 0.7276  & 0.7277  & 0.7271  & 0.7271  \\ \hline
   \end{tabular}
 \end{table}
 
@@ -975,9 +961,7 @@ W ramach pracy, w celu dokładnej oceny skuteczności metody LIME, zdecydowano s
   }
 \end{table}
 
-Tabela przedstawia wyniki sześciu losowo wybranych prób oceny ważności wejść, z zastosowaniem zarówno modelu uproszczonego, jak i rozszerzonego. W celu ułatwienia porównania, wyniki te zostały znormalizowane i zaokrąglone do dwóch miejsc po przecinku. Analiza danych wykazała, że w dwóch na trzy przypadki, zarówno w modelu uproszczonym, jak i rozszerzonym, najważniejszym wejściem okazała się być temperatura zewnętrzna. Ponadto, w pięciu z sześciu analizowanych przypadków, kierunek wiatru został oceniony jako najmniej znaczący.
-
-Szczególnie interesująca jest obserwacja z pierwszej próby, gdzie temperatura zewnętrzna otrzymała znacznie niższą wagę, podczas gdy ciśnienie atmosferyczne, które zazwyczaj charakteryzowało się niższymi wagami, w tej próbie uzyskało najwyższą. Z kolei prędkość wiatru, niezależnie od zastosowanego modelu, konsekwentnie otrzymywała niską wagę w każdej z prób.\\
+Tabela przedstawia wyniki sześciu losowo wybranych prób oceny ważności wejść, z zastosowaniem zarówno modelu uproszczonego, jak i rozszerzonego. W celu ułatwienia porównania, wyniki te zostały znormalizowane i zaokrąglone do dwóch miejsc po przecinku. Analiza danych wykazała, że w dwóch na trzy przypadki, zarówno w modelu uproszczonym, jak i rozszerzonym, najważniejszym wejściem okazała się być temperatura zewnętrzna. Ponadto, w pięciu z sześciu analizowanych przypadków, kierunek wiatru został oceniony jako najmniej znaczący. Szczególnie interesująca jest obserwacja z pierwszej próby, gdzie temperatura zewnętrzna otrzymała znacznie niższą wagę, podczas gdy ciśnienie atmosferyczne, które zazwyczaj charakteryzowało się niższymi wagami, w tej próbie uzyskało najwyższą. Z kolei prędkość wiatru, niezależnie od zastosowanego modelu, konsekwentnie otrzymywała niską wagę w każdej z prób.\\
 
 Mimo iż LIME jest metodą zasadniczo skoncentrowaną na dostarczaniu interpretacji lokalnych, istnieje możliwość adaptacji jej do generowania wniosków o charakterze bardziej ogólnym. Można to osiągnąć poprzez zastosowanie metody LIME wielokrotnie na różnych próbkach danych, a nastepnie wyciąganięcie średniej. Zaproponowano wybranie czterech zestawów ze zbioru testowego, zawierających odpowiednio 10, 50, 100, i 1000 próbek.
 
@@ -1003,7 +987,7 @@ Mimo iż LIME jest metodą zasadniczo skoncentrowaną na dostarczaniu interpreta
 
 W analizie wyników zauważono istotne odstępstwa dla uproszczonego modelu, w którym liczba próbek wynosiła 10. Wskazuje to na istotną rozbieżność w porównaniu z rezultatami uzyskanymi dla innych wielkości próbek. W związku z powyższym, dane z tego konkretnego przypadku zostały wyłączone z procesu interpretacji wyników. Takie odstępstwa mogą być rezultatem losowego pobierania próbek oraz tego, że liczba 10 jest relatywnie niewielka, co może prowadzić do niereprezentatywności danych.
 
-Zarówno w Modelu uproszczonym, jak i modelu rozszerzonego, temperatura zewnętrzna jest systematycznie uznawana za cechę o największym wpływie na przewidywania modelu, co wskazuje na jej przewodnią rolę w analizowanych danych meteorologicznych. Niezmiennie wysokie wartości ważności tej zmiennej świadczą o jej dominującej pozycji w obu modelach, niezależnie od wielkości próby. Dla obu modelów, wilgotność jak i ciśnienie wykazują stabilne wartości, tylko w pojedyńczych próbach ciśnienie staja sie dominującą zmienną. Kierunek jak i prędkość wiatru dla obu modeli pozostaje cechą o niskiej ważności Wilgotność wewnętrzna konsekwentnie otrzymuje jedne z najniższe wartości ważności, co wskazuje na jej marginalną rolę w procesie decyzyjnym obu modeli.
+Zarówno w Modelu uproszczonym, jak i modelu rozszerzonego, temperatura zewnętrzna jest systematycznie uznawana za cechę o największym wpływie na przewidywania modelu, co wskazuje na jej przewodnią rolę w analizowanych danych meteorologicznych. Niezmiennie wysokie wartości ważności tej zmiennej świadczą o jej dominującej pozycji w obu modelach, niezależnie od wielkości próby. Dla obu modelów, wilgotność jak i ciśnienie wykazują stabilne wartości, tylko w pojedyńczych próbach ciśnienie staja sie dominującą zmienną. Kierunek jak i prędkość wiatru dla obu modeli pozostaje cechą o niskiej ważności Wilgotność wewnętrzna konsekwentnie otrzymuje jedne z najniższe wartości ważności.
 
 \section{Ocena Skuteczności Metod}
 W celu zweryfikowania poprawności implementacji metod sprawdzania ważności wejść do sieci neuronowej, zaproponowano model, który został rozszerzony o dodatkowe wejście – temperaturę zadaną. Temperatura zadana stanowiła oczekiwaną wartość, jaką piec starał się utrzymać, co sprawia, że każda z metod powinna przypisywać jej kluczowe znaczenie. Ustawiona była na poziomie 21 stopni w godzinach 6-23 oraz 19 stopni w godzinach 23-6. Piec był sterowany za pomocą regulacji dwupołożeniowej, której odbiornik był umiejscowiony w pomieszczeniu, w którym brakowało jakiegokolwiek źródła ciepła, takiego jak grzejnik.\\
@@ -1022,7 +1006,6 @@ W celu zweryfikowania poprawności implementacji metod sprawdzania ważności we
 
 Analizując tabele 4.5  zauważono, że zarówno Model Uproszczony, jak i Model Rozszerzony z dodatkowym parametrem - Temperaturą Oczekiwaną, osiągały niższe wartości błędu średniokwadratowego (MSE) w porównaniu do modeli bez tego dodatkowego wejścia. Ten wynik sugeruje, że uwzględnienie temperatury oczekiwanej w strukturze modelu przyczyniło się do poprawy dokładności prognozowania na zbiorze testowym.
 
-\newpage
 \begin{figure}[!h]
   \centering
   \begin{subfigure}{0.49\textwidth}
@@ -1042,7 +1025,6 @@ Analizując tabele 4.5  zauważono, że zarówno Model Uproszczony, jak i Model 
 Analizując mapy cieplne 4.4a i 4.4b, bez trudu zauważono, że temperatura zadana w obu przypadkach osiąga najbardziej wyraźne kolory praktycznie przy każdym neuronie wejściowym. Warto również zaznaczyć, że zarówno prędkość, jak i kierunek wiatru osiągają kolory najbliższe zera. Natomiast pozostałe wejścia, takie jak temperatura zewnętrzna, wilgotność zewnętrzna i wewnętrzna, wykazują zróżnicowane wartości, jednak nigdy nie osiągają one tak intensywnych kolorów jak temperatura zadana, co pokrywa sie z założeniami jak i poprzednimi wynikami.
 
 
-
 \begin{table}[!h]
   \caption{Porównanie ważności wejść dla wszystkich metod}
   \renewcommand{\arraystretch}{1.5} % Zwiększenie odstępu między wierszami
@@ -1060,6 +1042,9 @@ Analizując mapy cieplne 4.4a i 4.4b, bez trudu zauważono, że temperatura zada
   }
 \end{table}
 
+Analizując tabele 4.6 stwierdzono skuteczność implementacji metod dla obu modeli, dla każdej z metod temperatura zadana uzyskała najwyższą wartość. Po wprowadzeniu dodatkowego parametru zauważono, że metoda LIME, zastosowana na 100 próbkach, przypisały podobne wagi cech dla obu modeli. Jednakże, obserwowano większe zmiany w przypadku wilgotności zewnętrznej i ciśnienia atmosferycznego, gdzie te cechy uzyskały znacznie większą ważność w modelu o bardziej złożonej architekurze. Metoda wag wejściowych utrzymała identyczną hierarchię ważności, z tą różnicą, że dla modelu rozszerzonego wszystkie wagi były większe. Metoda PFI, podobnie jak metoda LIME, wykazała bardzo podobne wyniki dla obu modeli, z jedyną różnicą w przypadku ciśnienia atmosferycznego i wilgotności wewnętrznej, gdzie modele rozszerzone uzyskały niższe wartości.
+
+Analizując średnie wartości ważności dla poszczególnych wejść i pomijając temperaturę zadną, można zauważyć, że kluczowymi czynnikami są temperatura zewnętrzna i kierunek wiatru, obie osiągające średnią ważność na poziomie 0.38. Następnie prędkość wiatru zajmuje ważne miejsce, uzyskując średnią ważność wynoszącą 0.35. Ciśnienie atmosferyczne prezentuje się również jako istotny parametr, uzyskując średnią ważność na poziomie 0.34. Na końcu, wilgotność zewnętrzna i wilgotność wewnętrzna mają średnie ważności wynoszące odpowiednio 0.25 i 0.2. Warto jednak podkreślić, że obliczenia średnich wartości ważności mogą nie dostarczyć pełnego obrazu sytuacji., ponieważ metoda PFI wykazała znacznie różniące się wartości ważności dla prędkości i kierunku wiatru, wahające się od 0.58 do 0.87, natomiast metoda LIME przypisała prędkości i kierunku wiatru wartości od 0.00 do 0.09. Różnice te sugerują istotne rozbieżności w interpretacji ważności poszczególnych parametrów między zastosowanymi metodami analizy.
 
 
 \chapter{Modelowanie zbiornika CWU}
@@ -1067,51 +1052,7 @@ Analizując mapy cieplne 4.4a i 4.4b, bez trudu zauważono, że temperatura zada
 \section{Metodologia}
 linearyzacja \cite{bib:linearyzacja} \\
 inne podejścia\cite{bib:model_1,bib:model_2}
-\newpage
-\subsection{Model jednowarstwowy}
-\begin{figure}[!ht]
-  \centering
-  \resizebox{0.5\textwidth}{!}{%
-    \begin{circuitikz}
-      \tikzstyle{every node}=[font=\LARGE]
-      \draw  (8.75,13.75) rectangle (11.25,8.75);
-      \draw [->, >=Stealth] (10,7.5) .. controls (10,8) and (10,8) .. (10,8.75);
-      \draw [->, >=Stealth] (10,15) .. controls (11.25,15) and (11.25,15) .. (12.5,15);
-      \draw [->, >=Stealth] (6.5,11.25) .. controls (7.5,11.25) and (7.5,11.25) .. (8.5,11.25);
-      \draw  (5,11.25) circle (1cm);
-      \node [font=\LARGE] at (5,11.25) {$Q_p$};
-      \draw [](10,13.75) to[short] (10,15);
-      \node [font=\LARGE] at (7.5,11.75) {$F_z, T_{zi}$};
-      \draw [](10,7.5) to[short] (12.5,7.5);
-      \draw [](11.5,11.25) to[short, -o] (13.25,11.25);
-      \node [font=\LARGE] at (11,7.9) {$T_{wi}$};
-      \node [font=\LARGE] at (12.5,11.75) {$T_{ot}$};
-      \node [font=\LARGE] at (11.25,15.5) {$F_w,T_{wo}$};
-    \end{circuitikz}
-  }%
-  \caption{Model zasobnika - pojedyńcza warstwa}
-  \label{Qp}
-\end{figure}
 
-\begin{equation}
-  \rho C_w V \frac{dT_{wo}}{dt} = Q_p - \rho C_w F_w (T_{wo} - T_{wi}) - \frac{\lambda A}{d} (T_{wo} - T_{ot})
-\end{equation}
-
-gdzie:
-\begin{itemize}
-  \item[$\rho$] Gęstość cieczy
-  \item[A] Powierzchnia wymiany ciepła DO POPRAWY
-  \item[d] powierzchnia wymiany ciepła DO POPRAWY
-  \item[V] Objętość
-  \item[$C_w$] Ciepło właściwe
-  \item[$\lambda$] Wspołczynnik wymiany ciepła
-  \item[$Q_p$] Ciepło systemu grzewczego
-  \item[$T_{ot}$] Temperatura otoczenia
-  \item[$T_{wo}$] Temepratura wyjściowa
-  \item[$T_{wi}$] Temperatura wejściowa
-  \item[$F_{w}$] TODO
-  \item[$F_{z}$] TODO
-\end{itemize}
 \newpage
 \subsection{Model wielowarstwowy}
 
@@ -1164,6 +1105,52 @@ gdzie:
   \item[$Q_{wm}$] Ciepło warstwy
   \item[$Q_u$] Ciepło upuszczające zbiornik DO POPRAWY
   \item[$Q_s$] Straty ciepła
+\end{itemize}
+
+\newpage
+
+\begin{figure}[!ht]
+  \centering
+  \resizebox{0.5\textwidth}{!}{%
+    \begin{circuitikz}
+      \tikzstyle{every node}=[font=\LARGE]
+      \draw  (8.75,13.75) rectangle (11.25,8.75);
+      \draw [->, >=Stealth] (10,7.5) .. controls (10,8) and (10,8) .. (10,8.75);
+      \draw [->, >=Stealth] (10,15) .. controls (11.25,15) and (11.25,15) .. (12.5,15);
+      \draw [->, >=Stealth] (6.5,11.25) .. controls (7.5,11.25) and (7.5,11.25) .. (8.5,11.25);
+      \draw  (5,11.25) circle (1cm);
+      \node [font=\LARGE] at (5,11.25) {$Q_p$};
+      \draw [](10,13.75) to[short] (10,15);
+      \node [font=\LARGE] at (7.5,11.75) {$F_z, T_{zi}$};
+      \draw [](10,7.5) to[short] (12.5,7.5);
+      \draw [](11.5,11.25) to[short, -o] (13.25,11.25);
+      \node [font=\LARGE] at (11,7.9) {$T_{wi}$};
+      \node [font=\LARGE] at (12.5,11.75) {$T_{ot}$};
+      \node [font=\LARGE] at (11.25,15.5) {$F_w,T_{wo}$};
+    \end{circuitikz}
+  }%
+  \caption{Model zasobnika - pojedyńcza warstwa}
+  \label{Qp}
+\end{figure}
+
+\begin{equation}
+  \rho C_w V \frac{dT_{wo}}{dt} = Q_p - \rho C_w F_w (T_{wo} - T_{wi}) - \frac{\lambda A}{d} (T_{wo} - T_{ot})
+\end{equation}
+
+gdzie:
+\begin{itemize}
+  \item[$\rho$] Gęstość cieczy
+  \item[A] Powierzchnia wymiany ciepła DO POPRAWY
+  \item[d] powierzchnia wymiany ciepła DO POPRAWY
+  \item[V] Objętość
+  \item[$C_w$] Ciepło właściwe
+  \item[$\lambda$] Wspołczynnik wymiany ciepła
+  \item[$Q_p$] Ciepło systemu grzewczego
+  \item[$T_{ot}$] Temperatura otoczenia
+  \item[$T_{wo}$] Temepratura wyjściowa
+  \item[$T_{wi}$] Temperatura wejściowa
+  \item[$F_{w}$] TODO
+  \item[$F_{z}$] TODO
 \end{itemize}
 
 \newpage
@@ -1281,6 +1268,7 @@ gdzie:
     \item[MSE] Mean squared error
     \item[CUDA] Compute Unified Device Architecture
     \item[GPU] Graphics processing unit
+    \item[CWU] Ciepła woda użytkowa
     \item[CPU] Central processing Unit
     \item[LIME] Local Interpretable Model-agnostic Explanations
     \item[PFI] Permutation Feature Importance
