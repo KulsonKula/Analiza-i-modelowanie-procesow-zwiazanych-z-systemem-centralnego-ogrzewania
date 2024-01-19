@@ -519,7 +519,7 @@ escapeinside={@*}{*@},%
 \chapter{Wstęp}
 \label{ch:wstep}
 \section{Cel i zakre pracy}
-wprowadzenie w problem/zagadnienie
+TODO NAPISAĆ wprowadzenie w problem/zagadnienie
 \newpage
 \section{Aktualny stan wiedzy}
 
@@ -544,6 +544,7 @@ W kolejnym rozdziale pracy zostanie przedstawiona metodologia projektowania mode
 
 W ramach rozdziału "Pogoda" niniejszej pracy dyplomowej dokonano prezentacji i analizy danych meteorologicznych, które posłużyły jako fundament dla procesu nauki dwóch modeli sieci neuronowych o zróżnicowanej złożoności architektonicznej. Następnie, w dalszej części rozdziału, skoncentrowano się na szczegółowym badaniu i ocenie ważności poszczególnych wejść dla obu modeli. Do tego celu wykorzystano trzy zaawansowane metody analityczne: Permutacyjną Ważność Cech, analizę wag wejściowych modelu oraz metodę LIME(Local Interpretable Model-agnostic Explanations). Każda z tych technik dostarcza istotnych informacji o znaczeniu poszczególnych zmiennych wejściowych w kontekście ich wpływu na wydajność i dokładność modeli. Następnie zostanie sprwadzenie poprawności implentacji metod poprzez zastosowanie dodatkowego wejścia do modelu - temperature zadaną.
 
+TODO NAPISAĆ O ROZDZIALE CWU
 \newpage
 
 
@@ -780,9 +781,8 @@ modele typu D zostały skonstruowane w celu badania korelacji sezonowej, wydziel
   \label{fig:etykieta-rysunku}
 \end{figure}
 
-Zaproponowany model i zestawienie hiperparametrów nie są adekwatne do dokładnej predykcji zużycia ciepłej wody użytkowej. Modele uczące się na pełnym zbiorze danych, niezależnie od pory roku, wykazywały jedynie jedno zdarzenie, symulowane w okolicach godziny 00:30, a następnie prognozowały stałą wartość w granicach 1.1 l/min. Natomiast modele uczące się na podstawie danych związanych z 12 wybranymi domostwami, bez względu na porę roku czy godzinę, prezentowały stałą wartość na poziomie 0.084 l/min. W przypadku modeli uczących się na pojedynczych przypadkach domów,wykazywały one charakterystykę intercjii pierwszego rzędu. Rozpoczynały się od zera, stopniowo wzrastając do wartości około 0.08 m/l.
+Zaproponowany model i zestawienie hiperparametrów nie są adekwatne do dokładnej predykcji zużycia ciepłej wody użytkowej. Modele uczące się na pełnym zbiorze danych, niezależnie od pory roku, wykazywały jedynie jedno zdarzenie, symulowane w okolicach godziny 00:30, a następnie prognozowały stałą wartość w granicach 1.1 l/min. Natomiast modele uczące się na podstawie danych związanych z 12 wybranymi domostwami, bez względu na porę roku czy godzinę, prezentowały stałą wartość na poziomie 0.084 l/min. W przypadku modeli uczących się na pojedynczych przypadkach domów,wykazywały one charakterystykę intercjii pierwszego rzędu. Rozpoczynały się od zera, stopniowo wzrastając do wartości około 0.08 m/l.\\
 
-\newpage
 W celu oceny skuteczności zaproponowanych modeli przeprowadzono proces walidacji krzyżowej, z wykorzystaniem metody holdout. Dane zostały podzielone na dwa podzbiory: zbiór uczący i zbiór testowy, stosując proporcję 80-20. Oznacza to, że 80\% dostępnych danych zostało przeznaczone do trenowania modelu , podczas gdy pozostałe 20\% stanowiło niezależny zbiór testowy, służący do oceny skuteczności modeli w warunkach nieznanych.
 \begin{table}[!h]
   \centering
@@ -797,11 +797,11 @@ W celu oceny skuteczności zaproponowanych modeli przeprowadzono proces walidacj
   \end{tabular}
 \end{table}
 
-Analiza wyników wykazuje, że modele uczące się na pojedynczych domostwach wykazują tendencję do generowania najwyższych błędów predykcji, niezależnie od rodzaju modelu. Efekt może być związany z charakterystyką metody holdout, która jest obciążona w sposób pesymistyczny. Dzieląc zbiór danych na dwa mniejsze,  może wystąpić pewne zniekształcenie w ocenie skuteczności modelu. Gdyż próbki wybierane losowo, mogą dać niereprezentatywny obraz działania modelu. Z tego powodu rozszerzenie zbioru danych na 12 wybranch domostw lub całość zbioru, przyczynia się do zmnijszenia błędu na zbiorze testowym.
+Analiza wyników wykazuje, że modele uczące się na pojedynczych domostwach wykazują tendencję do generowania najwyższych błędów predykcji, niezależnie od rodzaju modelu. Efekt może być związany z charakterystyką metody holdout, która jest obciążona w sposób pesymistyczny. Dzieląc zbiór danych na dwa mniejsze,  może wystąpić pewne zniekształcenie w ocenie skuteczności modelu. Gdyż próbki wybierane losowo, mogą dać niereprezentatywny obraz działania modelu. Z tego powodu rozszerzenie zbioru danych na 12 wybranch domostw lub całość zbioru, przyczynia się do zmnijszenia błędu na zbiorze testowym.\\
 
-Niezależnie od wybranego typu modelu, obserwuje się, że modele uczące się na wybranych 12 domostwach osiągają niższe wartości błędu średniokwadratowego w porównaniu do modeli uczonych na pełnym zbiorze danych. Jednym z możliwych wyjaśnień tego zjawiska jest bogactwo różnych profili zużycia wody obecnych w całym zbiorze danych.
+Niezależnie od wybranego typu modelu, obserwuje się, że modele uczące się na wybranych 12 domostwach osiągają niższe wartości błędu średniokwadratowego w porównaniu do modeli uczonych na pełnym zbiorze danych. Jednym z możliwych wyjaśnień tego zjawiska jest bogactwo różnych profili zużycia wody obecnych w całym zbiorze danych.\\
 
-Pomimo ograniczonej dynamiki predykcji obserwowanej w modelach typu D, ich wartość błędu średniokwadratowego utrzymuje się na poziomie porównywalnym z modelem o bardziej zróżnicowanej charakterystyce. To zjawisko wynika z faktu, że modele typu D symulują wartości przepływu, które są zbliżone do zera (w okolicach 0.08 l/s). W rzeczywistych warunkach pomiarowych, przepływ w badanych domach utrzymuje się na poziomie zerowym przez większość czasu dnia, co wpływa na porównywalność tych dwóch przypadków.
+Pomimo ograniczonej dynamiki predykcji obserwowanej w modelach typu D, ich wartość błędu średniokwadratowego utrzymuje się na poziomie porównywalnym z modelem o bardziej zróżnicowanej charakterystyce. To zjawisko wynika z faktu, że modele typu D symulują wartości przepływu, które są zbliżone do zera (w okolicach 0.08 l/s). W rzeczywistych warunkach pomiarowych, przepływ w badanych domach utrzymuje się na poziomie zerowym przez większość czasu dnia, co wpływa na porównywalność tych dwóch przypadków.\\
 
 Interesującym aspektem wynikającym z analizy modeli typu A, B i C jest obserwacja, że ich wartości błędu średniokwadratowego są znacznie zbliżone w przypadku uczenia na próbie 12 wybranych domostw. Jednakże, w kontekście modeli uczonych na pełnym zbiorze danych obejmującym 77 domów, ujawnia się zauważalna różnica między modelami A, B i C. Co pokazuje, że dostrzegalny jest istotny wpływ korelacji tygodniowej i sezonowej na różnice w ich osiągach predykcyjnych.
 \newpage
@@ -1049,13 +1049,8 @@ Analizując średnie wartości ważności dla poszczególnych wejść i pomijaj�
 
 \chapter{Modelowanie zbiornika CWU}
 \label{ch:05}
-\section{Metodologia}
-linearyzacja \cite{bib:linearyzacja} \\
-inne podejścia\cite{bib:model_1,bib:model_2}
-
-\newpage
-\subsection{Model wielowarstwowy}
-
+\section{Model wielowarstwowy}
+TODO ZASTANOWIĆ SIE KTÓRE RYSUNKI WRZUCIĆ I OPISYWAĆ!
 \begin{figure}[!ht]
   \centering
   \resizebox{0.5\textwidth}{!}{%
@@ -1100,14 +1095,13 @@ inne podejścia\cite{bib:model_1,bib:model_2}
 \end{equation}
 
 \begin{itemize}
-  \item[$Q_m$]
+  \item[$Q_m$] TODO
   \item[$Q_w$] Ciepło całego zbiornika
   \item[$Q_{wm}$] Ciepło warstwy
   \item[$Q_u$] Ciepło upuszczające zbiornik DO POPRAWY
   \item[$Q_s$] Straty ciepła
 \end{itemize}
 
-\newpage
 
 \begin{figure}[!ht]
   \centering
@@ -1232,8 +1226,8 @@ gdzie:
 \end{equation}
 gdzie:
 \begin{itemize}
-  \item[$T_{wo}$] Temperatura (...)
-  \item[$T_{wym}$] Temperatura (...)
+  \item[$T_{wo}$] Temperatura (...) TODO
+  \item[$T_{wym}$] Temperatura (...) TODO
   \item[$\delta$] TODO
 \end{itemize}
 
@@ -1285,13 +1279,13 @@ gdzie:
     \item[$F_z$] Przepływ wody systemu grzewczego
     \item[$Q_p$] Ciepło systemu grzewczego
     \item[$Q_{zm}$] Cieplo dostarczane do zasobnika
-    \item[$Q_m$]
+    \item[$Q_m$] TODO
     \item[$Q_w$] Ciepło całego zbiornika
     \item[$Q_{wm}$] Ciepło warstwy
-    \item[$Q_u$] Ciepło upuszczające zbiornik DO POPRAWY
+    \item[$Q_u$] Ciepło upuszczające zbiornik DO POPRAWY TODO
     \item[$Q_s$] Straty ciepła
-    \item[A] Powierzchnia wymiany ciepła DO POPRAWY
-    \item[d] powierzchnia wymiany ciepła DO POPRAWY
+    \item[A] Powierzchnia wymiany ciepła DO POPRAWY TODO
+    \item[d] powierzchnia wymiany ciepła DO POPRAWY TODO
     \item[V] Objętość
     \item[$C_w$] Ciepło właściwe
     \item[$\delta$] TODO
@@ -1323,6 +1317,7 @@ gdzie:
             \item Przeply.IPYNB - Skrypt uczący modele typu A, B, C, D oraz wyświetlający wyniki symulacji.
             \item Przeply\_dodatkowy.IPYNB - Skrypt uczący model typu C dodając do niego dane historyczne
             \item Pogoda.IPYNB - Skrypt uczący model oraz badający ważność wejść trzema metodami.
+            \item Symulacja.IPYNB - Skrypt symulujący model trzywarstowy zbiornika CWU wraz z obliczaniem wartości komfortu i kosztów
           \end{enumerate}
     \item Modele
           \begin{enumerate}
