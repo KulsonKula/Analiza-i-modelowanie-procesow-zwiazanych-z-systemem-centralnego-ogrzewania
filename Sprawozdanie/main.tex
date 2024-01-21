@@ -852,14 +852,13 @@ Na przykład, dla Domu nr 2, MSE zmniejszyło się z 0.0074 w modelu 1 do 0.0005
 \chapter{Pogoda}
 \label{ch:0X}
 
-NAPISAĆ TUTAJ COŚ!\\
-
+Według Sujith Mathew Iype\cite{bib:AI_FAST} inteligencja potrafi uczyć sie ponad 125000 razy szybciej niż człowiek oraz potrafią identyfikować subtelne i zaawansowane wzorce, które mogą pozostać niezauważone przez ludzką percepcję. Dlatego też zdecydowano sie przeprowadzić analize decyzji podjętych przez sieć.\\
 \begin{figure}[!h]
   \centering
   \includegraphics[width=1\textwidth]{img/Pogoda_porównanie.png}
   \caption{Porównanie warunkuch atmosferycznych na przestrzeni dnia}
   \label{fig:etykieta-rysunku}
-\end{figure}
+\end{figure}\\
 Rysunek przedstawia zestaw sześciu wykresów, które porównują warunki atmosferyczne w ciągu dnia. Każdy wykres zawiera oś X, która reprezentuje czas, oraz oś Y, która przedstawia różne zmienne meteorologiczne. W pierwszym wykresie prezentowane są zmiany temperatury zewnętrznej na przestrzeni dnia. Temperatura oscyluje w zakresie od około -0.5°C do 2.5°C, z maksymalnymi wartościami obserwowanymi w okolicach godziny ósmej. Charakterystyka tej zmienności temperatury sugeruje, że dane mogły być zbierane w okresie zimowym. Następny wykres ilustruje zmiany wilgotności powietrza na zewnątrz budynku, wyrażone w procentach. Wysoki poziom wilgotności, utrzymujący się przez cały dzień, może wskazywać na sezon zimowy lub jesienny. Prędkość wiatru, prezentowana na kolejnym wykresie, wykazuje znaczący wzrost w ciągu dnia, osiągając maksymalne wartości przekraczające 8  $\frac{m}{s}$, co może być charakterystyczne dla warunków zimowych, kiedy wiatry są silniejsze. Wykres ciśnienia atmosferycznego pokazuje wzrost wartości w pierwszej połowie dnia, po czym następuje stopniowy spadek. Wilgotność wewnętrzna, prezentowana na piątym wykresie, wykazuje wahania z ogólnym trendem spadkowym w drugiej połowie dnia. Szósty wykres przedstawia kierunek wiatru, który jest zmienny w ciągu dnia, z wyraźnymi zmianami szczególnie w środkowej części dnia, co może świadczyć o niestabilnych warunkach atmosferycznych.\\
 
 W celu zbadania wpływu wielkości modelu na wyniki oraz sprawdzenia ważności różnych wejść, zaproponowano w badaniu dwa modele o różnej złożoności architektury. Oba modele korzystały z tej samej funkcji harmonogramowania tempa uczenia, która redukowała szybkość uczenia po czwartej epoce, oraz z tych samych parametrów kompilacji, w tym optymalizatora Adam z początkową szybkością uczenia 0.001, funkcji straty MSE
@@ -1250,7 +1249,7 @@ W trakcie przeprowadzonych badań temperatura zadana była ustawiona na wartoś�
 \subsection{Funkcja kosztów}
 Funckja kosztów została zdefiniowana jako ilość energii wydzielana przez piec w okresie badawczym. Wzór tej funkcji można zapisac jako:
 \begin{equation}
-  G(t) = \int_{0}^{T} Q_g * u(t)  \, dt
+  G = \int_{0}^{T} Q_g * u(t)  \, dt
 \end{equation}
 gdzie:
 \begin{itemize}
@@ -1270,11 +1269,11 @@ W kontekście sterowania dwupołożeniowego, funkcja kosztów pełni istotną ro
 \subsection{Funkcja komfortu}
 Funkcja komfortu w jakim stopniu temperatura rzeczywista różni się od wartości oczekiwanej, z uwzględnieniem czułości. Wzór tej funkcji można zapisac jako:
 \begin{equation}
-  J(t) = \int_{0}^{T} \left( T_{wo} - T_{wym} \right)^2 \left| \frac{\text{sign}(T_{wo} - T_{wym} - \delta) + \text{sign}(T_{wo} - T_{wym} + \delta)}{2} \right| \, dt
+  J = \int_{0}^{T} \left( T_{wo}(t) - T_{wym} \right)^2 \left| \frac{\text{sign}(T_{wo}(t) - T_{wym} - \delta) + \text{sign}(T_{wo}(t) - T_{wym} + \delta)}{2} \right| \, dt
 \end{equation}
 gdzie:
 \begin{itemize}
-  \item[$T_{wo}$] Temperatura wyjściowa
+  \item[$T_{wo}(t)$] Temperatura wyjściowa w chwili t
   \item[$T_{wym}$] Temperatura zadana
   \item[$\delta$] Czułość
   \item[T] czas trwania badanego okresu
