@@ -542,14 +542,14 @@ W rozdziale drugim, zatytułowanym "Zastosowane Narzędzia w Pracy", zostanie sz
 
 W kolejnym rozdziale pracy zostanie przedstawiona metodologia projektowania modelu sieci neuronowej. Szczegółowo omówione zostaną hiperparametry oraz zasady działania sieci neuronowych, aby zapewnić solidne podstawy teoretyczne dla dalszej części badań. Następnie zostaną omówione dane wejściowe, które są niezbędne do stworzenia modelu prognozującego dzienne zużycie wody. Szczególna uwaga zostanie poświęcona sposobom przetwarzania tych danych, aby były one adekwatne do zastosowania w sieciach neuronowych. W dalszej części rozdziału zaprezentujemy cztery różne modele sieci neuronowych, które będą się różnić ilością wejść. Dokładnie zostaną omówione wyniki generowane przez każdy z modeli dla trzech różnych zestawów danych. Na zakończenie rozdziału zostanie zaproponowany sposób ulepszenia wybranego modelu sieci neuronowej. Ulepszenie to będzie polegało na wprowadzeniu dodatkowego parametru wykorzystującego dane historyczne.\\
 
-W ramach rozdziału "Pogoda" niniejszej pracy dyplomowej dokonano prezentacji i analizy danych meteorologicznych, które posłużyły jako fundament dla procesu nauki dwóch modeli sieci neuronowych o zróżnicowanej złożoności architektonicznej. Następnie, w dalszej części rozdziału, skoncentrowano się na szczegółowym badaniu i ocenie ważności poszczególnych wejść dla obu modeli. Do tego celu wykorzystano trzy zaawansowane metody analityczne: Permutacyjną Ważność Cech, analizę wag wejściowych modelu oraz metodę LIME(Local Interpretable Model-agnostic Explanations). Każda z tych technik dostarcza istotnych informacji o znaczeniu poszczególnych zmiennych wejściowych w kontekście ich wpływu na wydajność i dokładność modeli. Następnie zostanie sprwadzenie poprawności implentacji metod poprzez zastosowanie dodatkowego wejścia do modelu - temperature zadaną.\\
+W ramach rozdziału "Pogoda" niniejszej pracy dyplomowej dokonano prezentacji i analizy danych meteorologicznych, które posłużyły jako fundament dla procesu nauki dwóch modeli sieci neuronowych o zróżnicowanej złożoności architektonicznej. Następnie, w dalszej części rozdziału, skoncentrowano się na szczegółowym badaniu i ocenie ważności poszczególnych wejść dla obu modeli. Do tego celu wykorzystano trzy zaawansowane metody analityczne: Permutacyjną Ważność Cech, analizę wag wejściowych modelu oraz metodę LIME (Local Interpretable Model-agnostic Explanations). Każda z tych technik dostarcza istotnych informacji o znaczeniu poszczególnych zmiennych wejściowych w kontekście ich wpływu na wydajność i dokładność modeli. Następnie zostanie sprwadzenie poprawności implentacji metod poprzez zastosowanie dodatkowego wejścia do modelu - temperature zadaną.\\
 
 Kolejnym etapem pracy będzie modelowanie zasobnika CWU. Zostranie przedstawiony wybrany model wraz z uwzględnieniem uproszczeń oraz szczegóły dotyczące sterowania piecem i modelu przewidującego zużycie wody. Następnie zostanią przedstawione dwie funckje celu - funkcja komfortu i funckja kosztów. Zostanie omówiona ich charakterystyka, oraz w jaki sposób reagują na zmiany współczyników symulacji.
 \newpage
 
 
 
-\chapter{Zastosowane narzędzia w pracy}
+\chapter{Narzędzia zastosowane w pracy}
 \label{ch:wymagania-i-narzedzia}
 % Opis narzędzi które były uzywane podczas programowania, Wiekszy opis pythona i tensorflow, ich "specyfikacja" plusy i minusy, jakie były inne mozliwe wybory oraz czemu zostały wybrane akurat te rozwiązania, krótszy opis pozostałych biblotek uzytych podczas programownia takich jak numpy, plotlib czy pandas
 \section{Język programowania}
@@ -636,7 +636,7 @@ Neuron w sieci neuronowej jest sumatorem. Sumuje on wartości wszystkich wejść
 
 Wyjście pojedynczego neuronu można opisać za pomocą wzoru:
 \begin{equation}
-  y = f\left(\sum_{j=1}^{N} w_j x_j + b\right)
+  y = f\left(\sum_{j=1}^{N} w_j x_j + b\right),
 \end{equation}
 gdzie:
 \begin{itemize}
@@ -849,7 +849,7 @@ Analizując przedstawione dane w tabeli, można zauważyć, że po dodaniu dodat
 Na przykład, dla Domu nr 2, MSE zmniejszyło się z 0.0074 w modelu 1 do 0.00053 w modelu 2, co jest znaczącą poprawą. Podobne znaczące redukcje można zaobserwować w przypadku Domu nr 12, gdzie MSE spadło z 0.19 do 0.019. TODO PRZEPISAC TO
 
 
-\chapter{Pogoda}
+\chapter{Wpływ warunków pogodowych}
 \label{ch:0X}
 
 Według Sujith Mathew Iype\cite{bib:AI_FAST} inteligencja potrafi uczyć sie ponad 125000 razy szybciej niż człowiek oraz potrafią identyfikować subtelne i zaawansowane wzorce, które mogą pozostać niezauważone przez ludzką percepcję. Dlatego też zdecydowano sie przeprowadzić analize decyzji podjętych przez sieć.\\
@@ -1047,11 +1047,11 @@ Analizując tabele 4.6 stwierdzono skuteczność implementacji metod dla obu mod
 Analizując średnie wartości ważności dla poszczególnych wejść i pomijając temperaturę zadną, można zauważyć, że kluczowymi czynnikami są temperatura zewnętrzna i kierunek wiatru, obie osiągające średnią ważność na poziomie 0.38. Następnie prędkość wiatru zajmuje ważne miejsce, uzyskując średnią ważność wynoszącą 0.35. Ciśnienie atmosferyczne prezentuje się również jako istotny parametr, uzyskując średnią ważność na poziomie 0.34. Na końcu, wilgotność zewnętrzna i wilgotność wewnętrzna mają średnie ważności wynoszące odpowiednio 0.25 i 0.2. Warto jednak podkreślić, że obliczenia średnich wartości ważności mogą nie dostarczyć pełnego obrazu sytuacji., ponieważ metoda PFI wykazała znacznie różniące się wartości ważności dla prędkości i kierunku wiatru, wahające się od 0.58 do 0.87, natomiast metoda LIME przypisała prędkości i kierunku wiatru wartości od 0.00 do 0.09. Różnice te sugerują istotne rozbieżności w interpretacji ważności poszczególnych parametrów między zastosowanymi metodami analizy.
 
 
-\chapter{Modelowanie zbiornika CWU}
+\chapter{Modelowanie temperatury wody użytkowej (?)}
 \label{ch:05}
 Do celów modeowania zdecydowano się na wykorzystanie trójwarstwowego modelu CWU. W ramach tego modelu przyjęto założenie idealnego mieszania w zakresie warstwy, co oznacza, że temperatura w całej warstwie jest jednolita. Dodatkowo, zakładano, że każda z warstw traci ciepło do otoczenia oraz wymienia je z sąsiednimi warstwami. Model trójwarstwowy wyposażono w połączenia do systemu grzewczego w drugiej i trzeciej warstwie. W celu uproszczenia modelu  pominięto wpływ objętości grzałki na proces wymiany ciepła oraz pominięto wpływ obudowy zbiornika na wymianę ciepła z otoczeniem.  Ponadto, zastosowano czujnik temperatury, który mierzy temperaturę w drugiej warstwie. Ta informacja jest przekazywana do regulatora, a sygnał z regulatora steruje systemem grzewczym.\\
 
-Zasobnik CWU został wyposażony w sterownik dwupołożeniowy z pętlą histerezy, co oznaczało, że mechanizm grzewczy operował w dwóch stanach: wysokim i niskim Zmiana między tymi stanami następowała w chwili, gdy temperatura drugiej warstwy przekraczała temperaturę zadaną o określoną wartość delta.\\
+
 
 W celu uwzględnienia korelacji tygodniowej oraz sezonowej w analizie przepływu wody, zdecydowano się na wybór modelu typu C wraz z dodatkowym parametrem. Symulacje przepływu wody zostały przeprowadzone dla wtorkowego lata. W ramach udoskonalenia modelu, podjęto decyzję o modyfikacji prognoz dotyczących zużycia wody. Wszystkie wartości ujemne zostały przekształcone na zero, ze względu na ich nierealność w kontekście pomiaru zużycia wody.
 
@@ -1198,30 +1198,66 @@ W celu uwzględnienia korelacji tygodniowej oraz sezonowej w analizie przepływu
 \begin{equation}
   \frac{dT_{wo}^{3}}{dt} = b_1^3 F_z (T_{zi} - T_{wo}^{3}) - b_2^3 F_w (T_{wo}^{3} - T_{wo}^{2}) - b_3^4 (T_{wo}^{3} - T_{ot})
 \end{equation}
-
+\begin{equation}
+  \frac{dT_{wo}^{2}}{dt} = b_1^2 F_z (T_{zi} - T_{wo}^{2}) - b_2^2 F_w (T_{wo}^{2} - T_{wo}^{1}) - b_3^2 (T_{wo}^{2} - T_{ot}) - b_4^2 (T_{wo}^{2} - T_{wo}^{1}) + b_5^2 (T_{wo}^{3} - T_{wo}^{2})
+\end{equation}
+\begin{equation}
+  \frac{dT_{wo}^{1}}{dt} = -b_2^1 F_w (T_{wo}^{1} - T_{wi}) - b_3^1 (T_{wo}^{1} - T_{ot}) + b_5^1 (T_{wo}^{2} - T_{wo}^{1})
+\end{equation}
 \begin{equation}
   \frac{dT_{zi}}{dt} = p_1 Q_g - p_2 F_z (T_{zi} - T_{wo}^{3}) - p_3 (T_{zi} - T_{ot})
 \end{equation}
 
-\begin{equation}
-  \frac{dT_{wo}^{2}}{dt} = b_1^2 F_z (T_{zi} - T_{wo}^{2}) - b_2^2 F_w (T_{wo}^{2} - T_{wo}^{1}) - b_3^2 (T_{wo}^{2} - T_{ot}) - b_4^2 (T_{wo}^{2} - T_{wo}^{1}) + b_5^2 (T_{wo}^{3} - T_{wo}^{2})
-\end{equation}
+\begin{itemize}
+  \item $Q_p$ - Ciepło systemu grzewczego
+  \item $T_{ot}$ - Temperatura otoczenia
+  \item $T_{wo}^n$ - Temepratura wyjściowa
+  \item $T_{wi}$ - Temperatura wejściowa
+  \item $T_{zi}$ - Temperatura systemu grzewczego
+  \item $F_{w}$ - Przepływ wody przez zasobnik
+  \item $F_{z}$ - Przepływ wody przez system grzewczy
+  \item $b^n$ - współczynik wymiany ciepła
+  \item n - numer warstwy
+\end{itemize}
 
+Zasobnik CWU został wyposażony w regulator proporcjonalno, który został starannie dostrojony w celu osiągnięcia liniowego działania w zakresie czułości. W ramach tego zakresu regulator proporcjonalny reaguje proporcjonalnie do różnicy pomiędzy wartością zadaną a rzeczywistą wartością procesu. Poza tym określonym zakresem czułości, regulator przyjmuje stałą wartość równą 1 lub 0. Działanie tego regulatora można przedstawić wzorem:
 \begin{equation}
-  \frac{dT_{wo}^{1}}{dt} = -b_2^1 F_w (T_{wo}^{1} - T_{wi}) - b_3^1 (T_{wo}^{1} - T_{ot}) + b_5^1 (T_{wo}^{2} - T_{wo}^{1})
+  u(t) = \begin{cases}
+    1                                                  & \text{jeśli } t_{wo} \geq t_{\text{wym}} + \delta                                          \\
+    -\frac{0.5}{\delta}(t_{wo} - t_{\text{wym}}) + 0.5 & \text{jeśli } t_{wo} < t_{\text{wym}} + \delta \text{ i } t_{wo} > t_{\text{wym}} - \delta \\
+    0                                                  & \text{jeśli } t_{wo} \leq t_{\text{wym}} - \delta
+  \end{cases}
 \end{equation}
 
 \begin{itemize}
-  \item[$Q_p$] Ciepło systemu grzewczego
-  \item[$T_{ot}$] Temperatura otoczenia
-  \item[$T_{wo}^n$] Temepratura wyjściowa
-  \item[$T_{wi}$] Temperatura wejściowa
-  \item[$T_{zi}$] Temperatura systemu grzewczego
-  \item[$F_{w}$] Przepływ wody przez zasobnik
-  \item[$F_{z}$] Przepływ wody przez system grzewczy
-  \item[$b^n$] współczynik wymiany ciepła
-  \item[n] numer warstwy
+  \item $t_{\text{wym}}$ - Temepratura zadana
+  \item $t_{\text{wo}}$ - Temperatura wyjściowa
+  \item $\delta$ - Czułość
+
 \end{itemize}
+
+W symulacji użyto poniższych parametrów:
+\begin{table}[!h]
+  \centering
+  \caption{Współczyniki użyte podczas modelowania}
+  \renewcommand{\arraystretch}{1.5}
+  \begin{tabular}{|c|ccc|}
+    \hline
+    \begin{tabular}[c]{@{}c@{}}Warstwa/\\ parametr\end{tabular} & \multicolumn{1}{c|}{n=1}     & \multicolumn{1}{c|}{n=2}     & n=3    \\ \hline
+    $b_1$                                                       & \multicolumn{1}{c|}{0}       & \multicolumn{1}{c|}{0.2}     & 0.025  \\ \hline
+    $b_2$                                                       & \multicolumn{1}{c|}{0.71}    & \multicolumn{1}{c|}{0.065}   & 0.067  \\ \hline
+    $b_3$                                                       & \multicolumn{1}{c|}{0.00006} & \multicolumn{1}{c|}{0.0019}  & 0.0054 \\ \hline
+    $b_4$                                                       & \multicolumn{1}{c|}{0.0001}  & \multicolumn{1}{c|}{0.00079} & 0.0053 \\ \hline
+    $b_5$                                                       & \multicolumn{1}{c|}{0.00001} & \multicolumn{1}{c|}{0.0001}  & 0      \\ \hline
+    $p_1$                                                       & \multicolumn{3}{c|}{0.17}                                            \\ \hline
+    $p_2$                                                       & \multicolumn{3}{c|}{0.014}                                           \\ \hline
+    $p_3$                                                       & \multicolumn{3}{c|}{0.0048}                                          \\ \hline
+    $T_{wi}$                                                    & \multicolumn{3}{c|}{10}                                              \\ \hline
+    $T_{ot}$                                                    & \multicolumn{3}{c|}{25.5}                                            \\ \hline
+    $F_z$                                                       & \multicolumn{3}{c|}{0.5}                                             \\ \hline
+    $Q_p$                                                       & \multicolumn{3}{c|}{8000}                                            \\ \hline
+  \end{tabular}
+\end{table}
 
 \section{Wyniki symulacji}
 Modelowanie zasobnika CWU w modelu trójwarstwowym zostało przeprowadzone przy użyciu metody Eulera, która jest jedną z najprostszych metod numerycznych służących do rozwiązywania układów równań różniczkowych. Metoda ta polega na iteracyjnym przybliżaniu rozwiązania, bazując na przybliżeniu wartości pochodnej funkcji w każdym kroku.
@@ -1237,19 +1273,30 @@ gdzie:
   \item $f(t_n, y_n)$ - funkcja określająca tempo zmiany y w punkcie $(t_n, y_n)$
 \end{itemize}
 
-W trakcie przeprowadzonych badań temperatura zadana była ustawiona na wartość X, natomiast czułość pętli histerezy została dostosowana do wartości Y.
+
+W trakcie przeprowadzonych badań temperatura zadana była ustawiona na wartość $50^\circ C$, natomiast czułość regualtora została dostosowana do wartości 4.
 \begin{figure}[!h]
   \centering
   \includegraphics[width=0.6\textwidth]{img/Przebiegi.png}
   \caption{Przebiegi temperatur w warstwach oraz przepływy wody}
   \label{fig:etykieta-rysunku}
 \end{figure}
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=0.6\textwidth]{img/Sterowanie.png}
+  \caption{Porównianie wartości sterowania oraz wartości przepływu}
+  \label{fig:etykieta-rysunku}
+\end{figure}
+
+
+
 \newpage
 \section{Optymalizacja}
 \subsection{Funkcja kosztów}
 Funckja kosztów została zdefiniowana jako ilość energii wydzielana przez piec w okresie badawczym. Wzór tej funkcji można zapisac jako:
 \begin{equation}
-  G = \int_{0}^{T} Q_g \cdot u(t)  \, dt
+  G = \int_{0}^{T} p_1 Q_g \cdot u(t)  \, dt
 \end{equation}
 gdzie:
 \begin{itemize}
@@ -1257,7 +1304,7 @@ gdzie:
   \item $Q_g$ - Ciepło systemu grzewczego
   \item T - czas trwania badanego okresu
 \end{itemize}
-W kontekście sterowania dwupołożeniowego, funkcja kosztów pełni istotną rolę, definiując, w jakim stopniu piec był w stanie wysokim i niskim przez określony okres czasu, dzięki czemu może być także zdefiniowana jako procent udziału czas w którym piec był w stanie wysokim wymnożonym przez jego moc. W kontekście sterowania dwupołożeniowego, kluczowymi parametrami tego systemu są temperatura oczekiwana oraz czułość. Te dwa czynniki mają istotny wpływ na dynamikę pieca i efektywność procesu grzewczego. Wiedza ta daje nam możliwość badania charakterystyki zmian funckji celu w zależności od tych dwóch parametrów:
+
 \begin{figure}[!h]
   \centering
   \includegraphics[width=0.5\textwidth]{img/G_3d.png}
@@ -1279,9 +1326,6 @@ gdzie:
   \item[T] czas trwania badanego okresu
 \end{itemize}
 
-\begin{equation}
-  J = \int(T_{wo} - T_{\text{wym}} - \delta)\cdot H(T_{wo} - T_{\text{wym}} - \delta_t) + (T_{\text{wym}} - T_{wo} - \delta_t) \cdot H(T_{\text{wym}} - T_{wo} - \delta) \, dt
-\end{equation}
 % \begin{figure}[!h]
 %   \centering
 %   \includegraphics[width=0.8\textwidth]{img/J_wygląd.png}
