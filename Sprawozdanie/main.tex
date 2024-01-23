@@ -1053,7 +1053,7 @@ Do celów modeowania zdecydowano się na wykorzystanie trójwarstwowego modelu C
 
 Zasobnik CWU został wyposażony w sterownik dwupołożeniowy z pętlą histerezy, co oznaczało, że mechanizm grzewczy operował w dwóch stanach: wysokim i niskim Zmiana między tymi stanami następowała w chwili, gdy temperatura drugiej warstwy przekraczała temperaturę zadaną o określoną wartość delta.\\
 
-W celu uwzględnienia korelacji tygodniowej oraz sezonowej w analizie przepływu wody, zdecydowano się na wybór modelu typu C wraz z dodatkowym parametrem. Symulacje przepływu wody zostały przeprowadzone dla wtorkowego lata.
+W celu uwzględnienia korelacji tygodniowej oraz sezonowej w analizie przepływu wody, zdecydowano się na wybór modelu typu C wraz z dodatkowym parametrem. Symulacje przepływu wody zostały przeprowadzone dla wtorkowego lata. W ramach udoskonalenia modelu, podjęto decyzję o modyfikacji prognoz dotyczących zużycia wody. Wszystkie wartości ujemne zostały przekształcone na zero, ze względu na ich nierealność w kontekście pomiaru zużycia wody.
 
 % \section{Model wielowarstwowy}
 % TODO ZASTANOWIĆ SIE KTÓRE RYSUNKI WRZUCIĆ I OPISYWAĆ!
@@ -1249,7 +1249,7 @@ W trakcie przeprowadzonych badań temperatura zadana była ustawiona na wartoś�
 \subsection{Funkcja kosztów}
 Funckja kosztów została zdefiniowana jako ilość energii wydzielana przez piec w okresie badawczym. Wzór tej funkcji można zapisac jako:
 \begin{equation}
-  G = \int_{0}^{T} Q_g * u(t)  \, dt
+  G = \int_{0}^{T} Q_g \cdot u(t)  \, dt
 \end{equation}
 gdzie:
 \begin{itemize}
@@ -1278,6 +1278,10 @@ gdzie:
   \item[$\delta$] Czułość
   \item[T] czas trwania badanego okresu
 \end{itemize}
+
+\begin{equation}
+  J = \int(T_{wo} - T_{\text{wym}} - \delta)\cdot H(T_{wo} - T_{\text{wym}} - \delta_t) + (T_{\text{wym}} - T_{wo} - \delta_t) \cdot H(T_{\text{wym}} - T_{wo} - \delta) \, dt
+\end{equation}
 % \begin{figure}[!h]
 %   \centering
 %   \includegraphics[width=0.8\textwidth]{img/J_wygląd.png}
