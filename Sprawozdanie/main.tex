@@ -524,11 +524,11 @@ TODO NAPISAĆ wprowadzenie w problem/zagadnienie
 \section{Aktualny stan wiedzy}
 
 \subsection{Przewidywania zużycia ciepłej wody użytkowej}
-Modele oparte na zebranych danych są szeroką kategorią modeli statystycznych i analitycznych, które wykorzystują dane zebrane z różnych źródeł do formułowania wniosków, Edwards et al.\cite{bib:data_model} stworzyli roczne profile poboru wody, na podstawie danych pomiarowych z 73 domostw w Québec(Kanada). Utworzone profile poboru ciepłej wody użytkowej mają trzy kluczowe elementy: Wysoka rozdzielczość czasowa. Cztery poziomy zużycia - odpowidały one średniej, medianie, a także procentylom. Trzy wzorce czasowe - koncentowały sie one na porannym, wieczornym lub równomiernym zużyciu wody przez cały dzień, aby uwzględnić różne style życia i zwyczaje mieszkańców.\\
+Modele oparte na zebranych danych są szeroką kategorią modeli statystycznych i analitycznych, które wykorzystują dane zebrane z różnych źródeł do formułowania wniosków. Edwards et al.\cite{bib:data_model} stworzyli roczne profile poboru wody, na podstawie danych pomiarowych z 73 domostw w Québec (Kanada). Utworzone profile poboru ciepłej wody użytkowej mają trzy kluczowe elementy: Wysoka rozdzielczość czasowa. Cztery poziomy zużycia - odpowidały one średniej, medianie, a także procentylom. Trzy wzorce czasowe - koncentowały sie one na porannym, wieczornym lub równomiernym zużyciu wody przez cały dzień, aby uwzględnić różne style życia i zwyczaje mieszkańców.\\
 
-Modele szeregów czasowych są specjalną kategorią modeli statystycznych przeznaczonych do analizowania i prognozowania danych, które są zebrane lub obserwowane w regularnych odstępach czasu. Gelazanskas i Gamage\cite{bib:Time_series} zauważywszy silną dzienną i tygodniową korealcje. Zastosowali kobinacje metode dekompozycji sezonowej oraz model ARIMA. Po porównianiu zaproponowanego modelu wraz z wybranymi modelami referencyjnymi, stwierdzono, że rozdzielenie szeregów czasowych na kilka składowych odgrywa znaczącą rolę w dokładności prognoz - uwzględnienie sezonowych wzorców zużycia może znacząco poprawić jakość prognoz.\\
+Modele szeregów czasowych są specjalną kategorią modeli statystycznych przeznaczonych do analizowania i prognozowania danych, które są zebrane lub obserwowane w regularnych odstępach czasu. Gelazanskas i Gamage\cite{bib:Time_series} zauważywszy silną dzienną i tygodniową korealcje. Zastosowali kobinacje metode dekompozycji sezonowej oraz model ARIMA. Po porównianiu zaproponowanego modelu wraz z wybranymi modelami referencyjnymi stwierdzono, że rozdzielenie szeregów czasowych na kilka składowych odgrywa znaczącą rolę w dokładności prognoz - uwzględnienie sezonowych wzorców zużycia może znacząco poprawić jakość przewidywań.\\
 
-Modele behawioralne, są to modele oparte na zachowaniu ludzi w określonych sytuacjach, biorą one pod uwagę różne czynniki takie jak motywację, preferencje czy wpływ społeczny. Są one zazwyczaj stosowane w dziedzinach naukowych takich jak psychologia czy ekonomia, ale również w inżynierii. Model behawioralne stworzony przez  N.D. Pflugradt\cite{bib:Behavioural} symulował indywidualne zachowania w celu przewidywania zużycia energii i wody w gospodarstwie domowym. Model został stworzony w celu uniknięcia polegania na statystycznych rozkładach prawdopodobieństwa. Autor stwierdził, że przewidywania modelu są bardzo dobre dla gospodarstw zamieszkanych przez jedną osobę, gdyż największym problem modelu jest jego skalowalność, ze względu na konieczność dokonania dużej ilość założeń i trudności w gromadzeniu danych o zachowaniach wielu mieszkańców.\\
+Modele behawioralne, są to modele oparte na zachowaniu ludzi. Biorą one pod uwagę różne czynniki takie jak motywację, preferencje czy wpływ społeczny. Są one zazwyczaj stosowane w dziedzinach naukowych takich jak psychologia czy ekonomia, ale również w inżynierii. Model behawioralny stworzony przez  N.D. Pflugradt\cite{bib:Behavioural} symulował indywidualne zachowania w celu przewidywania zużycia energii i wody w gospodarstwie domowym. Model został stworzony w celu uniknięcia polegania na statystycznych rozkładach prawdopodobieństwa. Autor stwierdził, że przewidywania modelu są bardzo dobre dla gospodarstw zamieszkanych przez jedną osobę, gdyż największym problem modelu jest jego skalowalność, ze względu na konieczność dokonania dużej ilość założeń i trudności w gromadzeniu danych o zachowaniach wielu mieszkańców.\\
 
 \subsection{Modelowanie zasobnika CWU}
 W kontekście modelowania zasobnika CWU, różne podejścia zostały przedstawione w literaturze. Jednym z efektywnych narzędzi w tym procesie jest modelowanie z linearyzacją. To podejście opiera się na przybliżeniu nieliniowego modelu do postaci liniowej, wykorzystując rozwinięcie w szereg Taylora wokół pewnego punktu pracy. Głównym celem tego procesu jest uproszczenie złożonego modelu nieliniowego do postaci bardziej przystępnej - liniowej. Przykładem zastosowania linearyzacji w kontekście modelowania zasobnika CWU można odnaleźć w pracy autorstwa S. Claquina, A. Carriere'a i F. Rocaries'a.\cite{bib:linearyzacja} W ich badaniach, skonstruowali bardzo precyzyjny model matematyczny, rozkładając go na trzy równania stanu. Te równania opisują zmienną temperatury wody w wymienniku, temperatury ramy wymiennika oraz temperatury komory spalania. Następnie, dzięki zastosowaniu linearyzacji, udało im się opracować kontroler adaptacyjny.
@@ -542,7 +542,7 @@ W rozdziale drugim, zatytułowanym "Zastosowane Narzędzia w Pracy", zostanie sz
 
 W kolejnym rozdziale pracy zostanie przedstawiona metodologia projektowania modelu sieci neuronowej. Szczegółowo omówione zostaną hiperparametry oraz zasady działania sieci neuronowych, aby zapewnić solidne podstawy teoretyczne dla dalszej części badań. Następnie zostaną omówione dane wejściowe, które są niezbędne do stworzenia modelu prognozującego dzienne zużycie wody. Szczególna uwaga zostanie poświęcona sposobom przetwarzania tych danych, aby były one adekwatne do zastosowania w sieciach neuronowych. W dalszej części rozdziału zaprezentujemy cztery różne modele sieci neuronowych, które będą się różnić ilością wejść. Dokładnie zostaną omówione wyniki generowane przez każdy z modeli dla trzech różnych zestawów danych. Na zakończenie rozdziału zostanie zaproponowany sposób ulepszenia wybranego modelu sieci neuronowej. Ulepszenie to będzie polegało na wprowadzeniu dodatkowego parametru wykorzystującego dane historyczne.\\
 
-W ramach rozdziału "Pogoda" niniejszej pracy dyplomowej dokonano prezentacji i analizy danych meteorologicznych, które posłużyły jako fundament dla procesu nauki dwóch modeli sieci neuronowych o zróżnicowanej złożoności architektonicznej. Następnie, w dalszej części rozdziału, skoncentrowano się na szczegółowym badaniu i ocenie ważności poszczególnych wejść dla obu modeli. Do tego celu wykorzystano trzy zaawansowane metody analityczne: Permutacyjną Ważność Cech, analizę wag wejściowych modelu oraz metodę LIME (Local Interpretable Model-agnostic Explanations). Każda z tych technik dostarcza istotnych informacji o znaczeniu poszczególnych zmiennych wejściowych w kontekście ich wpływu na wydajność i dokładność modeli. Następnie zostanie sprwadzenie poprawności implentacji metod poprzez zastosowanie dodatkowego wejścia do modelu - temperature zadaną.\\
+W ramach rozdziału "Pogoda" niniejszej pracy dyplomowej dokonano prezentacji i analizy danych meteorologicznych, które posłużyły jako fundament dla procesu nauki dwóch modeli sieci neuronowych o zróżnicowanej złożoności architektonicznej. Następnie, w dalszej części rozdziału, skoncentrowano się na szczegółowym badaniu i ocenie ważności poszczególnych wejść dla obu modeli. Do tego celu wykorzystano trzy zaawansowane metody analityczne: Permutacyjną ważność cech, analizę wag wejściowych modelu oraz metodę LIME (Local Interpretable Model-agnostic Explanations). Każda z tych technik dostarcza istotnych informacji o znaczeniu poszczególnych zmiennych wejściowych w kontekście ich wpływu na wydajność i dokładność modeli. Następnie zostanie sprwadzenie poprawności implentacji metod poprzez zastosowanie dodatkowego wejścia do modelu - temperature zadaną.\\
 
 Kolejnym etapem pracy będzie modelowanie zasobnika CWU. Zostranie przedstawiony wybrany model wraz z uwzględnieniem uproszczeń oraz szczegóły dotyczące sterowania piecem i modelu przewidującego zużycie wody. Następnie zostanią przedstawione dwie funckje celu - funkcja komfortu i funckja kosztów. Zostanie omówiona ich charakterystyka, oraz w jaki sposób reagują na zmiany współczyników symulacji.
 \newpage
@@ -560,7 +560,7 @@ Kolejnym wymaganiem jest aby wybrana technologia była ciągle wspierana i aktua
   \item Python
 \end{itemize}
 
-R jest językiem skoncentrowanym na analizie danych i statystyce. Posiada on bardzo bogaty ekosystem jednak może stanowić to przyczynę wielu konfliktów pomiędzy pakietami. Największą wadą tego jest języka jest problem ze skalowalnością. Praca z dużą ilością danych skutkuje zużyciem ogromnej ilości pamięci RAM.\\ Skorzystanie z Pythona będzie lepiej spełniać wymogi projektu. Jest on językiem bardziej wszechstronny oraz posiada obszerną biblioteke standardową jak i bardzo liczne zewnętrzne bibloteki. Zgodnie z ankietą przeprowadzoną przez Stack Overflow w 2023 roku\cite{bib:Stack}, Python zajmuje trzecie miejsce pod względem popularności wśród technologii oraz drugie miejsce pod względem preferencji na rynku pracy. Największą wadą Pythona jest jego wydajność. Gdyż jest językiem interpretowanym, więc nie jest on kompilowany do kodu maszynowego przed jego uruchomieniem.
+R jest językiem skoncentrowanym na analizie danych i statystyce. Posiada on bardzo bogaty ekosystem jednak może stanowić to przyczynę wielu konfliktów pomiędzy pakietami. Największą wadą tego jest języka jest problem ze skalowalnością. Praca z dużą ilością danych skutkuje zużyciem ogromnej ilości pamięci RAM.\\ Skorzystanie z Pythona będzie lepiej spełniać wymogi projektu. Jest on językiem bardziej wszechstronny oraz posiada obszerną biblioteke standardową jak i bardzo liczne zewnętrzne bibloteki. Zgodnie z ankietą przeprowadzoną przez Stack Overflow w 2023 roku\cite{bib:Stack}, Python zajmuje trzecie miejsce pod względem popularności wśród technologii oraz drugie miejsce pod względem preferencji na rynku pracy. Największą wadą Pythona jest jego niska wydajność która jest spowodowana faktem, że jest on językiem interpretowanym, więc nie jest on kompilowany do kodu maszynowego przed jego uruchomieniem.
 \section{Biblioteka uczenia maszynowego}
 
 Decyzja o wyborze odpowiedniej biblioteki do tworzenia sieci neuronowych jest kluczowym elementem każdego projektu związanego z uczeniem maszynowym i głębokim uczeniem. TensorFlow, będący jedną z dwóch głównych otwartych bibliotek do uczenia maszynowego w Pythonie, wyróżnia się swoją wszechstronnością i wsparciem od Google. Jego głównym konkurentem jest PyTorch, rozwijany przez Facebook, który zyskał popularność ze względu na swoją elastyczność i przyjazność dla użytkownika.
@@ -574,10 +574,10 @@ Decyzja o wyborze odpowiedniej biblioteki do tworzenia sieci neuronowych jest kl
 Po dokładnej analizie i uwzględnieniu wszystkich kluczowych wymagań zdecydowano, że najlepszym wyborem dla niniejszego projektu jest TensorFlow. Jest on idealnym wyborem zapewniającym wysoką wydajność, ale również elastyczność i skalowalność.
 \section{Narzędzia pomocnicze}
 Python odgrywa kluczową rolę w dziedzinie uczenia maszynowego i analizy danych, oferując zróżnicowany zestaw narzędzi, które ułatwiają i usprawniają kluczowe procesy, takie jak przetwarzanie danych, ich testowanie oraz wizualizacja. Korzystając z nich, możliwe jest znaczne przyspieszenie procesów związanych z uczeniem maszynowym, od przygotowania danych aż po analizę wyników, co podkreśla ich niezastąpioną wartość w projektach naukowych i przemysłowych.
-\subsection{Pandas i Numpy}
+\subsection{Pandas i NumPy}
 NumPy, znany również jako Numerical Python, jest fundamentalną biblioteką do obliczeń naukowych w Pythonie. Oferuje ona wsparcie dla wielowymiarowych, jednorodnych tablic, które w znaczący sposób przewyższają standardowe listy Pythona pod względem wydajności, szczególnie przy obróbce dużych zbiorów danych. NumPy znacząco upraszcza operacje na danych dzięki wektoryzacji, umożliwiając wykonanie operacji takich jak dodawanie, mnożenie czy transpozycja tablic bez konieczności stosowania pętli i iteracji.\\
 
-Biblioteka Pandas jest jedną z najbardziej popularnych i użytecznych narzędzi w języku Python przeznaczonych do analizy danych. Kluczowym elementem, który Pandas oferuje swoim użytkownikom, jest struktura danych znana jako DataFrame. Jest to dwuwymiarowa, etykietowana tablica, umożliwiająca efektywną manipulację i analizę złożonych zbiorów danych. Dodatkowo biblioteka Pandas wyróżnia się również zoptymalizowaną wydajnością. Jest szczególnie skuteczna w obsłudze dużych zestawów danych, co stanowi kluczowe znaczenie w pracach wymagających szybkiego i efektywnego przetwarzania znacznych ilości informacji. Pandas wyposażony jest w bogaty zestaw narzędzi przeznaczonych do przetwarzania i analizowania danych, co znacznie ułatwia pracę z nimi. Istotną cechą tej biblioteki jest również jej zdolność do łatwego wczytywania i zapisywania danych z i do różnych formatów, takich jak CSV czy Excel.\\
+Biblioteka Pandas jest jedną z najbardziej popularnych i użytecznych narzędzi w języku Python przeznaczonych do analizy danych. Kluczowym elementem, który Pandas oferuje swoim użytkownikom, jest struktura danych znana jako DataFrame. Jest to dwuwymiarowa, etykietowana tablica umożliwiająca efektywną manipulację i analizę złożonych zbiorów danych. Dodatkowo biblioteka Pandas wyróżnia się również zoptymalizowaną wydajnością. Jest szczególnie skuteczna w obsłudze dużych zestawów danych, co stanowi kluczowe znaczenie w pracach wymagających szybkiego i efektywnego przetwarzania znacznych ilości informacji. Pandas wyposażona jest w bogaty zestaw narzędzi przeznaczonych do przetwarzania i analizowania danych, co znacznie ułatwia pracę z nimi. Istotną cechą tej biblioteki jest również jej zdolność do łatwego wczytywania i zapisywania danych z i do różnych formatów, takich jak CSV czy Excel.\\
 
 NumPy i Pandas to dwie biblioteki, które idealnie współdziałają w ekosystemie Pythona, szczególnie w kontekście analizy danych i uczenia maszynowego. Pandas, będąc biblioteką wysokiego poziomu do manipulacji i analizy danych, jest zbudowany na fundamencie NumPy, większość funkcji w niej dostępnych, w tym te dotyczące operacji matematycznych i statystycznych, bazuje na mechanizmach i strukturach NumPy.
 Ponadto, zarówno NumPy, jak i Pandas wykazują doskonałą kompatybilność z bibliotekami używanymi w uczeniu maszynowym, takimi jak TensorFlow.
@@ -672,14 +672,14 @@ Proces tworzenia architektury sieci neuronowej jest procesem wyboru hiperparamet
 Aby sieć neuronowa mogła efektywnie przewidywać wyniki, kluczowe jest jej odpowiednie nauczenie. Proces ten rozpoczyna się od inicjalizacji wag sieci, co stanowi punkt wyjściowy dla dalszego uczenia. Następnie, w trakcie procesu uczenia, wagi te są ciągle modyfikowane. Odbywa się to poprzez przesyłanie danych przez sieć i obliczanie błędu, który jest miarą różnicy między przewidywaniami sieci a rzeczywistymi wynikami. Kolejnym etapem jest obliczenie gradientu funkcji straty dla każdej wagi w sieci. Gradient ten wskazuje kierunek, w którym należy zmodyfikować wagi, aby zminimalizować błąd. Aktualizacja wag odbywa się przy pomocą wybranego algorytmu optymalizacyjnego zwanego optymalizatorem. Cały ten proces jest powtarzany przez ustaloną liczbę iteracji i epok, co pozwala sieci na stopniowe 'naukę' i poprawę swojej zdolności do przewidywania wyników.\cite{bib:ksiazka_sieci_algorytmy}
 
 \section{Dane wejściowe i proces ich przetwarzania}
-Projekt wykorzystuje dane zebrane przez M.J. Ritchie et al.\cite{bib:artykul_dane} w 2018 roku. Informacje o zużyciu wody zostały pozyskane z 77 domostwo znajdujących się na terenie Południowej Afryki, zamieszkiwanym przez dwoje osób dorosłych oraz dwójkę dzieci, oraz posiadających podstawowe urządzenia AGD takie jak pralka czy zmywarka. Dane były zbierane przez 16 tygodni, w cyklach trwających 4 tygodnie, aby równomiernie obejmować każdą porę roku. Próbkowanie danych odbywało sie co minute, nieprzerwanie przez całą dobę. Całość danych zostało podzielone na 73 oddzielne pliki w formacie .csv. W każdym pliku znajdował się timestamp w formacie "RR-MM-DD HH:MM:SS", który określał dzień i godzinę pomiaru danych. Oprócz tego zawierał informacje o zużyciu wody, oraz temperaturę otoczenia. Dodatkowo dane były podzielone na poszczególne poru roku.\\
+Projekt wykorzystuje dane zebrane przez M.J. Ritchie et al.\cite{bib:artykul_dane} w 2018 roku. Informacje o zużyciu wody zostały pozyskane z 77 domostw znajdujących się na terenie Południowej Afryki, zamieszkiwanym przez dwoje osób dorosłych oraz dwójkę dzieci, oraz posiadających podstawowe urządzenia AGD takie jak pralka czy zmywarka. Dane były zbierane przez 16 tygodni, w cyklach trwających 4 tygodnie, aby równomiernie obejmować każdą porę roku. Próbkowanie danych odbywało sie co minute, nieprzerwanie przez całą dobę. Całość danych zostało podzielone na 73 oddzielne pliki w formacie .csv. W każdym pliku znajdował się timestamp w formacie "RR-MM-DD HH:MM:SS", który określał dzień i godzinę pomiaru danych. Oprócz tego zawierał informacje o zużyciu wody, oraz temperaturę otoczenia. Dodatkowo dane były podzielone na poszczególne pory roku.\\
 \begin{figure}[!h]
   \centering
   \includegraphics[width=1\textwidth]{img/Dane_nowe_disp.png}
   \caption{Porównanie wartości przepływów w różnych ramach czasowych.}
   \label{fig:etykieta-rysunku}
 \end{figure}\\
-Pierwszy wykres przestawia dane zebrane z domu nr. 13 zebrane w dniu 05/02/2018. Oś X oznaczająca godzinę, począwszy od północy. Oś Y reprezentuje przepływ wody w danym momencie dnia. Wykres przedstwia nieregularne piki o nierównomiernym rozkładzie. Okresami o zwiększonym przepływie są godziny 7-13 oraz 14-15. Okresy mniejszej aktywności możemy zaobserwować w godzinach późno popołudniowych oraz nocnych. Drugi i trzeci wykres przedstawiają zbliżenie na godzinę 7 oraz 15. Dzięki zwężeniu analizowanego zakresu czasu możliwe było dokładniejsze zbadanie struktury występujących pików. Ta metoda wizualizacji ujawniła, że poszczególne piki, które na ogólnym wykresie dobowym mogły sprawiać wrażenie pojedynczych punktów, w rzeczywistości są złożone z wielu pojedynczych zdarzeń. To odkrycie jest istotne, ponieważ wskazuje na bardziej złożoną dynamikę przepływu w określonych momentach doby, co na pierwszy rzut oka mogło umknąć uwadze\\
+Pierwszy wykres przestawia dane zebrane z domu nr 13 zebrane w dniu 05/02/2018. Oś X oznaczająca godzinę, począwszy od północy. Oś Y reprezentuje przepływ wody w danym momencie dnia. Wykres przedstwia nieregularne piki o nierównomiernym rozkładzie. Okresami o zwiększonym przepływie są godziny 7-13 oraz 14-15. Okresy mniejszej aktywności możemy zaobserwować w godzinach późno popołudniowych oraz nocnych. Drugi i trzeci wykres przedstawiają zbliżenie na godzinę 7 oraz 15. Dzięki zwężeniu analizowanego zakresu czasu możliwe było dokładniejsze zbadanie struktury występujących pików. Ta metoda wizualizacji ujawniła, że poszczególne piki, które na ogólnym wykresie dobowym mogły sprawiać wrażenie pojedynczych punktów, w rzeczywistości są złożone z wielu pojedynczych zdarzeń. To odkrycie jest istotne, ponieważ wskazuje na bardziej złożoną dynamikę przepływu w określonych momentach doby, co na pierwszy rzut oka mogło umknąć uwadze\\
 
 W celu lepszego wstępnego zrozumienia charakterystyki analizowanego zestawu danych, niezbędne jest także szczegółowe przyjrzenie się kilku losowo wybranym domostwom.\\
 \begin{figure}[!h]
@@ -698,7 +698,7 @@ Pomimo iż zgromadzone dane charakteryzowały się wysoką jakością, ich specy
   \label{fig:pseudokod:listings}
 \end{figure}
 
-W ramach procesu dostowania formatu aby przystosować go do wymagań tensorflow dzień tygodnia został zamieniona na etykietę liczbową, która przyjmuje wartość od 1 do 7, co odpowiada kolejnym dniom tygodnia. Podobny proces został zastosowany do etykietowania pór roku. Każda została zakodowana jako etykieta w zakresie od 1 do 4 co prezentuje kolejno wiosnę, lato, jesień i zimę. Dodatkowo czas dnia został zmieniony na procent dnia w skali od 0 do 1.
+W ramach procesu dostowania formatu aby przystosować go do wymagań tensorFlow dzień tygodnia został zamieniona na etykietę liczbową, która przyjmuje wartość od 1 do 7, co odpowiada kolejnym dniom tygodnia. Podobny proces został zastosowany do etykietowania pór roku. Każda została zakodowana jako etykieta w zakresie od 1 do 4 co prezentuje kolejno wiosnę, lato, jesień i zimę. Dodatkowo czas dnia został zmieniony na procent dnia w skali od 0 do 1.
 \section{Projektowanie i ocena modeli}
 W ramach realizacji badań nad optymalizacją architektury sieci neuronowej oraz doborem hiperparametrów zdecydowano się na podział danych uczących na trzy zbiory. Pierwszy z nich to zestaw który zawiera dane pochodzące z 12 losowo wybranych domostw, co ma na celu zapewnienie reprezentatywności i różnorodności w ramach próby badawczej. Drugi zestaw stanowi podzbiór zawierający dane z pojedynczego gospodarstwa domowego, co pozwala na szczegółową analizę wydajności modelu w warunkach bardziej jednorodnych danych. Dodatkowo, utworzony został trzeci zestaw danych, który obejmował informacje z wszystkich 77 domów biorących udział w badaniu.
 
@@ -768,19 +768,20 @@ Modele typu C zostały opracowane w celu oceny skuteczności proponowanej archit
   \caption{Porównanie symulacji dla modelów typu C}
   \label{fig:etykieta-rysunku}
 \end{figure}
+
 Analizując rysunek 3.7, można zauważyć, że wszystkie modele prezentują bardzo zbliżoną charakterystykę zużycia wody. Dwa największe szczyty zużycia wody występują w godzinach 6-8 oraz 17-20:30. Wykresy modeli, które zostały nauczone na większej ilości danych, cechują się wyższymi wartościami przepływu, osiągając nawet 1.5 l/min przy uczeniu na pełnym zbiorze danych. Równocześnie przebiegi czasowe przepływu ciepłej wody użytkowej dla tych modeli są bardziej zmiennorodne, charakteryzujące się znacznie większą dynamiką. W przypadku modelu nauczonego tylko na jednym zbiorze danych, dynamika ta jest stosunkowo bardziej płynna.\\
 
 Należy zauważyć, że przewidywania dla dni roboczych różnią się od tych dla dni weekendowych. Na przykład, dla modelu nauczonego na wybranych domostwach, pojedynczy szczyt na wykresie, obrazujący przepływ w poniedziałek lub środę, został zastąpiony przez trzy pojedyncze szczyty o mniejszej wartości. Dla modelu nauczonego na pojedynczym domostwie pojedynczy szczyt zmienia się w długotrwałe zużycie, zaczynające się o podobnej godzinie, ale trwające nawet do godziny 13.
 
+\newpage
 \subsection*{Modele D}
-modele typu D zostały skonstruowane w celu badania korelacji sezonowej, wydzielając ją od wpływu korelacji tygodniowej. Modele tego typu zostały wyposażone w dwa kluczowe wejścia: porę roku oraz czas dnia.\\
+modele typu D zostały skonstruowane w celu badania korelacji sezonowej, wydzielając ją od wpływu korelacji tygodniowej. Modele tego typu zostały wyposażone w dwa kluczowe wejścia: porę roku oraz czas dnia.
 \begin{figure}[!h]
   \centering
   \includegraphics[width=1\textwidth]{img/Model_D.png}
   \caption{Porównanie symulacji dla modelów typu D}
   \label{fig:etykieta-rysunku}
 \end{figure}
-
 Zaproponowany model i zestawienie hiperparametrów nie są adekwatne do dokładnej predykcji zużycia ciepłej wody użytkowej. Modele uczące się na pełnym zbiorze danych, niezależnie od pory roku, wykazywały jedynie jedno zdarzenie, symulowane w okolicach godziny 00:30, a następnie prognozowały stałą wartość w granicach 1.1 l/min. Natomiast modele uczące się na podstawie danych związanych z 12 wybranymi domostwami, bez względu na porę roku czy godzinę, prezentowały stałą wartość na poziomie 0.084 l/min. W przypadku modeli uczących się na pojedynczych przypadkach domów,wykazywały one charakterystykę intercjii pierwszego rzędu. Rozpoczynały się od zera, stopniowo wzrastając do wartości około 0.08 m/l.\\
 
 W celu oceny skuteczności zaproponowanych modeli przeprowadzono proces walidacji krzyżowej, z wykorzystaniem metody holdout. Dane zostały podzielone na dwa podzbiory: zbiór uczący i zbiór testowy, stosując proporcję 80-20. Oznacza to, że 80\% dostępnych danych zostało przeznaczone do trenowania modelu , podczas gdy pozostałe 20\% stanowiło niezależny zbiór testowy, służący do oceny skuteczności modeli w warunkach nieznanych.
@@ -826,7 +827,7 @@ W celu dalszego zwiększenia skuteczności modelu sieci neuronowej zaproponowano
   \label{fig:etykieta-rysunku}
 \end{figure}
 
-Analizując charakterystykę modelu ogólnego i szczególnego dla każdego z domostw, przedstawioną na Rysunku 3.5, można zauważyć, że dla domostwa nr 10 i 12 model ogólny wykazał się wysoką zgodnością z modelem szczegółowym, co świadczy o jego zdolności do precyzyjnego odwzorowania charakterystyki przewidywania przepływu w ciągu dnia. W przypadku tych dwóch domów przebieg przewidywań dla obu modeli jest podobny, co wskazuje na to, że model ogólny efektywnie uchwycił dynamikę zużycia charakterystyczną dla tych konkretnych domostw. Natomiast w kontekście Domu nr 5, wyniki ukazują, że model ogólny miał znaczne trudności z dopasowaniem się do wzorców przepływu.
+Analizując charakterystykę modelu ogólnego i szczególnego dla każdego z domostw, przedstawioną na Rysunku 3.5, można zauważyć, że dla domostwa nr 10 i 12 model ogólny wykazał się wysoką zgodnością z modelem szczegółowym, co świadczy o jego zdolności do precyzyjnego odwzorowania charakterystyki przewidywania przepływu w ciągu dnia. W przypadku tych dwóch domów przebieg przewidywań dla obu modeli jest podobny, co wskazuje na to, że model ogólny efektywnie uchwycił dynamikę zużycia charakterystyczną dla tych konkretnych domostw. Natomiast w kontekście domu nr 5, wyniki ukazują, że model ogólny miał znaczne trudności z dopasowaniem się do wzorców przepływu.
 
 W celu dokładniejszej oceny i porównania efektywności modelu ogólnego, nauczonego na danych z 12 domostw, z modelami szczegółowymi, nauczonymi dla poszczególnych domów, zastosowano wskaźnik błędu średniokwadratowego. MSE, obliczany jako średnia kwadratów różnic między wartościami przewidywanymi przez model a rzeczywistymi danymi, posłużył jako miara odchylenia modelu ogólnego od wyników modeli szczegółowych. W tym kontekście niższa wartość MSE wskazywała na lepszą zgodność modelu ogólnego z wynikami modeli szczegółowych, sugerując, że model ogólny skuteczniej generalizuje dane, zbliżając się do precyzji modeli trenowanych na danych z pojedynczych domostw.
 
@@ -845,31 +846,31 @@ W celu dokładniejszej oceny i porównania efektywności modelu ogólnego, naucz
   }
 \end{table}
 
-Analizując przedstawione dane w tabeli, można zauważyć, że po dodaniu dodatkowego wejścia do systemu, czyli tygodniowego zużycia, model 2 (Model z dodatkowym wejściem) osiągnął znacznie lepsze wyniki w porównaniu z modelem bazowym. Wartości błędu średniokwadratowego dla modelu 2 są niższe w porównaniu do modelu 1 dla każdego z domostw, co wskazuje na poprawę dokładności predykcji.
-Na przykład, dla Domu nr 2, MSE zmniejszyło się z 0.0074 w modelu 1 do 0.00053 w modelu 2, co jest znaczącą poprawą. Podobne znaczące redukcje można zaobserwować w przypadku Domu nr 12, gdzie MSE spadło z 0.19 do 0.019. TODO PRZEPISAC TO
+Analizując przedstawione dane w tabeli można zauważyć, że model uczący sie danymi wraz z dodatkowym wejściem osiąga znacząco lepsze wyniki w porównianiu z modelem bazowy. Wartości błędu średniokwadratowego dla tego modelu jestą niższe dla każdego z domostw, co wskazuje na poprawę dokładności predykcji.
+Na przykład, dla domu nr 2, MSE zmniejszyło się z 0.0074 do 0.00053, co jest znaczącą poprawą. Podobne znaczące redukcje można zaobserwować w przypadku domu nr 12, gdzie MSE spadło z 0.19 do 0.019.
 
 
 \chapter{Wpływ warunków pogodowych}
 \label{ch:0X}
 
-Według Sujith Mathew Iype\cite{bib:AI_FAST} inteligencja potrafi uczyć sie ponad 125000 razy szybciej niż człowiek oraz potrafią identyfikować subtelne i zaawansowane wzorce, które mogą pozostać niezauważone przez ludzką percepcję. Dlatego też zdecydowano sie przeprowadzić analize decyzji podjętych przez sieć.\\
+Według Sujith Mathew Iype\cite{bib:AI_FAST} sztuczna inteligencja potrafi uczyć się ponad 125000 razy szybciej niż człowiek oraz potrafi identyfikować subtelne i zaawansowane wzorce, które mogą pozostać niezauważone przez ludzką percepcję. Dlatego też zdecydowano sie przeprowadzić analizę decyzji podjętych przez sieć.\\
 \begin{figure}[!h]
   \centering
   \includegraphics[width=1\textwidth]{img/Pogoda_porównanie.png}
   \caption{Porównanie warunkuch atmosferycznych na przestrzeni dnia}
   \label{fig:etykieta-rysunku}
 \end{figure}\\
-Rysunek przedstawia zestaw sześciu wykresów, które porównują warunki atmosferyczne w ciągu dnia. Każdy wykres zawiera oś X, która reprezentuje czas, oraz oś Y, która przedstawia różne zmienne meteorologiczne. W pierwszym wykresie prezentowane są zmiany temperatury zewnętrznej na przestrzeni dnia. Temperatura oscyluje w zakresie od około -0.5°C do 2.5°C, z maksymalnymi wartościami obserwowanymi w okolicach godziny ósmej. Charakterystyka tej zmienności temperatury sugeruje, że dane mogły być zbierane w okresie zimowym. Następny wykres ilustruje zmiany wilgotności powietrza na zewnątrz budynku, wyrażone w procentach. Wysoki poziom wilgotności, utrzymujący się przez cały dzień, może wskazywać na sezon zimowy lub jesienny. Prędkość wiatru, prezentowana na kolejnym wykresie, wykazuje znaczący wzrost w ciągu dnia, osiągając maksymalne wartości przekraczające 8  $\frac{m}{s}$, co może być charakterystyczne dla warunków zimowych, kiedy wiatry są silniejsze. Wykres ciśnienia atmosferycznego pokazuje wzrost wartości w pierwszej połowie dnia, po czym następuje stopniowy spadek. Wilgotność wewnętrzna, prezentowana na piątym wykresie, wykazuje wahania z ogólnym trendem spadkowym w drugiej połowie dnia. Szósty wykres przedstawia kierunek wiatru, który jest zmienny w ciągu dnia, z wyraźnymi zmianami szczególnie w środkowej części dnia, co może świadczyć o niestabilnych warunkach atmosferycznych.\\
+Rysunek przedstawia zestaw sześciu wykresów, które porównują warunki atmosferyczne w ciągu dnia. Każdy wykres zawiera oś X, która reprezentuje czas, oraz oś Y, która przedstawia różne zmienne meteorologiczne. Na pierwszym wykresie prezentowane są zmiany temperatury zewnętrznej na przestrzeni dnia. Temperatura oscyluje w zakresie od około -0.5°C do 2.5°C, z maksymalnymi wartościami obserwowanymi w okolicach godziny ósmej. Charakterystyka tej zmienności temperatury sugeruje, że dane mogły być zbierane w okresie zimowym. Następny wykres ilustruje zmiany wilgotności powietrza na zewnątrz budynku, wyrażone w procentach. Wysoki poziom wilgotności, utrzymujący się przez cały dzień, może wskazywać na sezon zimowy lub jesienny. Prędkość wiatru, prezentowana na kolejnym wykresie, wykazuje znaczący wzrost w ciągu dnia, osiągając maksymalne wartości przekraczające 8  $\frac{m}{s}$, co może być charakterystyczne dla warunków zimowych, kiedy wiatry są silniejsze. Wykres ciśnienia atmosferycznego pokazuje wzrost wartości w pierwszej połowie dnia, po czym następuje stopniowy spadek. Wilgotność wewnętrzna, prezentowana na piątym wykresie, wykazuje wahania z ogólnym trendem spadkowym w drugiej połowie dnia. Szósty wykres przedstawia kierunek wiatru, który jest zmienny w ciągu dnia, z wyraźnymi zmianami szczególnie w środkowej części dnia, co może świadczyć o niestabilnych warunkach atmosferycznych.\\
 
-W celu zbadania wpływu wielkości modelu na wyniki oraz sprawdzenia ważności różnych wejść, zaproponowano w badaniu dwa modele o różnej złożoności architektury. Oba modele korzystały z tej samej funkcji harmonogramowania tempa uczenia, która redukowała szybkość uczenia po czwartej epoce, oraz z tych samych parametrów kompilacji, w tym optymalizatora Adam z początkową szybkością uczenia 0.001, funkcji straty MSE
-Pierwszy model składał się z mniejszej liczby warstw i neuronów: warstwa normalizująca, trzy warstwy gęste z odpowiednio 64, 32 i 1 neuronami, używając funkcji aktywacji 'relu' dla pierwszych dwóch warstw i 'linear' dla warstwy wyjściowej.
+W celu zbadania wpływu wielkości modelu na wyniki oraz sprawdzenia ważności różnych wejść, zaproponowano w badaniu dwa modele o różnej złożoności architektury. Oba modele korzystały z tej samej funkcji harmonogramowania tempa uczenia, która redukowała szybkość uczenia po czwartej epoce, oraz z tych samych parametrów kompilacji, w tym optymalizatora Adam z początkową szybkością uczenia 0.001, funkcji straty MSE.
+Pierwszy model składał się z mniejszej liczby warstw i neuronów: warstwa normalizująca, trzy warstwy gęste z odpowiednio 64, 32 i 1 neuronem, używając funkcji aktywacji 'relu' dla pierwszych dwóch warstw i 'linear' dla warstwy wyjściowej.
 Drugi model był znacznie większy, zawierając więcej warstw i neuronów: warstwa normalizująca, sześć warstw gęstych o zwiększającej się liczbie neuronów: 1024, 512, 256, 128, 64, 32, zakończonych warstwą wyjściową z 1 neuronem, używając funkcji aktywacji 'relu' dla warstw ukrytych i 'linear' dla warstwy wyjściowej.
 Oba modele były trenowane przez 50 epok z rozmiarem partii równym 32. Celem porównania tych dwóch modeli było ustalenie, czy zwiększenie liczby warstw i neuronów w modelu wpłynie na jego predykcje.
 
-W ramach procesu weryfikacji skuteczności zastosowanych modeli sieci neuronowych została zastosowana walidacja krzyżowa, metodą holdout. Dane zostały podzielone w proporcji 80\% do 20\% na zestaw treningowy i testowy. Ta strategia podziału danych miała na celu zapewnienie solidnej bazy do nauki modeli oraz efektywnej oceny ich wydajności. Model numer 1 wykazał się niższą skutecznością w porównaniu do modelu numer 2. Świadczy o tym wartość błędu średniokwadratowego, która dla modelu pierwszego wyniosła 0.0668, natomiast dla modelu drugiego było to znacząco niższe, a mianowicie 0.0237. Ta różnica w wartościach MSE wskazuje na wyższą precyzję i efektywność modelu numer 2 w procesie uczenia i oceny na podstawie dostępnych danych.
+W ramach procesu weryfikacji skuteczności zastosowanych modeli sieci neuronowych została zastosowana walidacja krzyżowa, metodą holdout. Dane zostały podzielone w proporcji 80\% do 20\% na zestaw treningowy i testowy. Ta strategia podziału danych miała na celu zapewnienie solidnej bazy do nauki modeli oraz efektywnej oceny ich wydajności. Model numer 1 wykazał się niższą skutecznością w porównaniu do modelu numer 2. Świadczy o tym wartość błędu średniokwadratowego, która dla modelu pierwszego wyniosła 0.0668, natomiast dla modelu drugiego jej wartość była znacząco niższa, a mianowicie 0.0237. Ta różnica w wartościach MSE wskazuje na wyższą precyzję i efektywność modelu numer 2 w procesie uczenia i oceny na podstawie dostępnych danych.
 \newpage
-\section{Permutacyjna Ważność Cech}
-Permutacyjna Ważność Cech, to technika stosowana w uczeniu maszynowym do oceny znaczenia poszczególnych wejść dla modelu predykcyjnego. Metoda ta jest stosowana zarówno dla modeli klasyfikacyjnych, jak i regresyjnych. Proces ten rozpoczyna się od trenowania modelu na oryginalnym zestawie danych, co pozwala na ustalenie bazowej wydajności modelu. Następnie przeprowadza się permutację każdej cechy z osobna w zbiorze testowym, losowo mieszając jej wartości, podczas gdy wszystkie inne cechy pozostają niezmienione. Po dokonaniu permutacji model jest ponownie oceniany na zmodyfikowanym zbiorze danych. Wyniki tej oceny są następnie porównywane z wynikami uzyskanymi na oryginalnym, niezmodyfikowanym zbiorze. Różnica w wydajności modelu, taka jak spadek dokładności w klasyfikacji lub wzrost błędu średniokwadratowego w regresji, jest wykorzystywana do oceny ważności danej cechy. Im większy spadek wydajności, tym większa uważana jest ważność tej cechy dla modelu.
+\section{Permutacyjna ważność cech}
+Permutacyjna ważność cech, to technika stosowana w uczeniu maszynowym do oceny znaczenia poszczególnych wejść dla modelu predykcyjnego. Metoda ta jest stosowana zarówno dla modeli klasyfikacyjnych jak i regresyjnych. Proces ten rozpoczyna się od trenowania modelu na oryginalnym zestawie danych, co pozwala na ustalenie bazowej wydajności modelu. Następnie przeprowadza się permutację każdej cechy z osobna w zbiorze testowym, losowo mieszając jej wartości, podczas gdy wszystkie inne cechy pozostają niezmienione. Po dokonaniu permutacji model jest ponownie oceniany na zmodyfikowanym zbiorze danych. Wyniki tej oceny są następnie porównywane z wynikami uzyskanymi na oryginalnym, niezmodyfikowanym zbiorze. Różnica w wydajności modelu, taka jak spadek dokładności w klasyfikacji lub wzrost błędu średniokwadratowego w regresji, jest wykorzystywana do oceny ważności danej cechy. Im większy spadek wydajności, tym większa uważana jest ważność tej cechy dla modelu.
 
 W kontekście wykorzystania PFI do oceny ważności cech w modelu istotne jest zwrócenie uwagi na kwestię korelacji między danymi. PFI opiera się na permutacji pojedynczych cech, co oznacza zmianę wartości jednej zmiennej niezależnie od pozostałych. W przypadku, gdy dane są silnie skorelowane, taka metoda permutacji może prowadzić do błędnych wniosków. W celu implementacji techniki PFI w pracy został wykorzystany obiekt PermutationImportance z biblioteki sklearn. Zastosowanie tego dedykowanego narzędzia umożliwiło nie tylko dokładną, ale i wydajną realizację tej metody, co pozwoliło na jej skuteczną integrację z procesem badawczym.
 
@@ -885,7 +886,7 @@ W kontekście wykorzystania PFI do oceny ważności cech w modelu istotne jest z
     \end{tabular}
   }
 \end{table}
-Tabela 4.1 porównuje znormalizowane wartości wejść dla dwóch wariantów modelu dla metody PFI, w modelu uproszczonym, najwyższą ważność ma wilgotność zewnętrzna, co sugeruje, że jest to główny predyktor w tym modelu. Temperatura zewnętrzna, wilgotność wewnętrzna i ciśnienie atmosferyczne również odgrywają znaczące role, podczas gdy kierunek i prędkość wiatru ma stosunkowo niższą ważność. W Modelu rozszerzonym obserwujemy wzrost ważności Temperatury i wilgotności. prędkość i kierunek wiatru mają sumarycznie większy wpływ w porównaniu do Modelu krótkiego, lecz ich ważności jest odwrotna, w modelu rozszerzonym ważniejszy okazał sie kierunek, a w uproszczonym prędkośc. Ciśnienie atmosferyczne doznaje znaczącego obniżenia ważności, zostajac cechą o trzeciej najmniejszej wazności.
+Tabela 4.1 porównuje znormalizowane wartości wejść dla dwóch wariantów modelu dla metody PFI. W modelu uproszczonym, najwyższą ważność ma wilgotność zewnętrzna, co sugeruje, że jest to główny predyktor w tym modelu. Temperatura zewnętrzna, wilgotność wewnętrzna i ciśnienie atmosferyczne również odgrywają znaczące role, podczas gdy kierunek i prędkość wiatru ma stosunkowo niższą ważność. W modelu rozszerzonym obserwujemy wzrost ważności Temperatury i wilgotności. prędkość i kierunek wiatru mają sumarycznie większy wpływ w porównaniu do modelu krótkiego, lecz ich ważności jest odwrotna, w modelu rozszerzonym ważniejszy okazał sie kierunek, a w uproszczonym prędkość. Ciśnienie atmosferyczne doznaje znaczącego obniżenia ważności, zostajac cechą o trzeciej najmniejszej ważności.
 \newpage
 \section{Badanie wag wejściowych pierwszej warsty}
 W analizie modeli uczenia maszynowego, interpretacja wag pierwszej warstwy może służyć jako metoda określania ważności cech wejściowych. Ponieważ wagi w pierwszej warstwie sieci neuronowej są bezpośrednio połączone z cechami wejściowymi, wartości tych wag mogą dostarczać informacji o znaczeniu poszczególnych cech dla predykcji modelu. Wysoka wartość wagowa sugeruje, że zmiana wartości tej cechy wejściowej może mieć istotny wpływ na wynik modelu. Jednakże, ta metoda interpretacji może być mniej efektywna w przypadku bardziej złożonych, głębokich sieci neuronowych. W takich modelach, liczne warstwy i skomplikowane struktury, w tym nieliniowe aktywacje i interakcje między neuronami, mogą skutkować tym, że bezpośredni wpływ pojedynczych wag jest trudniejszy do zrozumienia.
@@ -896,10 +897,10 @@ W analizie modeli uczenia maszynowego, interpretacja wag pierwszej warstwy może
   \label{fig:etykieta-rysunku}
 \end{figure}
 
-Mapa ciepła wag pierwszej warstwy sieci neuronowej stanowi cenne narzędzie analityczne, pozwalające na wizualną interpretację i zrozumienie wpływu dużej liczby cech na proces uczenia. Jest to instrument szczególnie użyteczny w kontekście wysokowymiarowych zbiorów danych, gdzie tradycyjne metody analizy mogą okazać się niewystarczające. W przedstawionym przypadku, analiza mapy ciepła nie ujawnia istotnych anomalii w rozkładzie wag. Obserwuje się jedynie sporadyczne wartości, które odstają od średnich wag, lecz nie osiągają one poziomu znacząco wpływającego na wyniki modelu. Można zauważyć, że kierunek i prędkość wiatru są reprezentowane przez najmniej intensywne kolory. To sugeruje, że te dwie zmienne mają mniejszy wpływ na model w porównaniu do innych badanych czynników.
+Mapa ciepła wag pierwszej warstwy sieci neuronowej stanowi cenne narzędzie analityczne, pozwalające na wizualną interpretację i zrozumienie wpływu dużej liczby cech na proces uczenia. Jest to instrument szczególnie użyteczny w kontekście wysokowymiarowych zbiorów danych, gdzie tradycyjne metody analizy mogą okazać się niewystarczające. W przedstawionym przypadku, analiza mapy ciepła nie ujawnia istotnych anomalii w rozkładzie wag. Obserwuje się jedynie sporadycznie wartości, które odstają od średnich wag, lecz nie osiągają one poziomu znacząco wpływającego na wyniki modelu. Można zauważyć, że kierunek i prędkość wiatru są reprezentowane przez najmniej intensywne kolory. To sugeruje, że te dwie zmienne mają mniejszy wpływ na model w porównaniu do innych badanych czynników.
 
 
-Analizy bardziej złożonych modeli sieci neuronowych, metoda interpretacji wag pierwszej warstwy może okazać się nieefektywna. Ze względu na zwiększoną głębokość i złożoność architektury, wagi w pierwszej warstwie tracą bezpośrednią i jednoznaczną interpretowalność, która jest charakterystyczna dla prostszych modeli. W modelach rozbudowanych, cechy wejściowe przechodzą przez wiele warstw transformacji, co skutkuje utratą bezpośredniego powiązania między wagami pierwszej warstwy a wynikowymi decyzjami modelu. W efekcie, interpretacja tych wag może nie odzwierciedlać faktycznego wpływu poszczególnych cech na decyzje modelu, co jest spowodowane nakładaniem się, transformacją i połączeniem informacji w kolejnych warstwach sieci.
+Dla analizy bardziej złożonych modeli sieci neuronowych, metoda interpretacji wag pierwszej warstwy może okazać się nieefektywna. Ze względu na zwiększoną głębokość i złożoność architektury, wagi w pierwszej warstwie tracą bezpośrednią i jednoznaczną interpretowalność, która jest charakterystyczna dla prostszych modeli. W modelach rozbudowanych, cechy wejściowe przechodzą przez wiele warstw transformacji, co skutkuje utratą bezpośredniego powiązania między wagami pierwszej warstwy a wynikowymi decyzjami modelu. W efekcie, interpretacja tych wag może nie odzwierciedlać faktycznego wpływu poszczególnych cech na decyzje modelu, co jest spowodowane nakładaniem się, transformacją i połączeniem informacji w kolejnych warstwach sieci.
 
 \begin{figure}[!h]
   \centering
@@ -909,9 +910,9 @@ Analizy bardziej złożonych modeli sieci neuronowych, metoda interpretacji wag 
 \end{figure}
 
 
-Na przedstawionej mapie cieplnej, ilustrującej wagi przypisane poszczególnym neuronom w warstwie wejściowej sieci neuronowej o rozmiarze 1024 jednostek, zaobserwować można istotne wzorce, choć sama mapa staje się trudna do interpretacji ze względu na dużą gęstość neuronów. Mimo tej wizualnej złożoności, zauważyć można, że temperatura zewnętrzna jest reprezentowana przez znacząco większą liczbę wag o dodatnich wartościach. W przeciwieństwie, ciśnienie atmosferyczne wykazuje tendencję do posiadania większej ilości wag o wartościach ujemnych. Wagi odpowiadające kierunkowi i predkości wiatru wydają się charakteryzować przewagą wartości bliskich zeru, co sugeruje mniejszy wpływ tej cechy na model.\\
+Na przedstawionej mapie ciepła, ilustrującej wagi przypisane poszczególnym neuronom w warstwie wejściowej sieci neuronowej o rozmiarze 1024 jednostek, zaobserwować można istotne wzorce, choć sama mapa staje się trudna do interpretacji ze względu na dużą gęstość neuronów. Mimo tej wizualnej złożoności, zauważyć można, że temperatura zewnętrzna jest reprezentowana przez znacząco większą liczbę wag o dodatnich wartościach. W przeciwieństwie, ciśnienie atmosferyczne wykazuje tendencję do posiadania większej ilości wag o wartościach ujemnych. Wagi odpowiadające kierunkowi i prędkości wiatru wydają się charakteryzować przewagą wartości bliskich zeru, co sugeruje mniejszy wpływ tej cechy na model.\\
 
-W celu dokładnej analizy ważności poszczególnych wag wejściowych sieci neuronowej przeprowadzono obliczenie średniej wartości wartosci bezwzględnej wag dla każdego z wejść. Procedura ta umożliwiła identyfikację względnej ważności cech poprzez porównanie ich przeciętnego wpływu na aktywację neuronów w modelu. Następnie, aby umożliwić porównywalność wyników niezależnie od ich pierwotnej skali, dokonano normalizacji obliczonych średnich wag.
+W celu dokładnej analizy ważności poszczególnych wag wejściowych sieci neuronowej przeprowadzono obliczenie średniej wartosci bezwzględnej wag dla każdego z wejść. Procedura ta umożliwiła identyfikację względnej ważności cech poprzez porównanie ich przeciętnego wpływu na aktywację neuronów w modelu. Następnie, aby umożliwić porównywalność wyników niezależnie od ich pierwotnej skali, dokonano normalizacji obliczonych średnich wag.
 \newpage
 
 
@@ -929,11 +930,11 @@ W celu dokładnej analizy ważności poszczególnych wag wejściowych sieci neur
   }
 \end{table}
 
-Analiza przeprowadzona z wykorzystaniem mapy cieplnej okazała się w tym przypadku być wyjątkowo efektywnym narzędziem, pozwalającym na wizualne wyodrębnienie cech o dużej wadze dla modelu. Obserwacje dotyczące tempetaru zewnętrznej i ciśnienia atmosferyznego pokrywają sie z wynikami otrzymanymi z analizy wag wejść do pierwszej warstywy. Obserwacje dotyczące prędkości i kierunku wiatru na mapie cieplnej wykazały zgodność z obliczonymi wartościami. Obie te dwie zmienne okazały się najmniej znaczącymi wejściami do sieci neuronowej.
+Analiza przeprowadzona z wykorzystaniem mapy cieplnej okazała się w tym przypadku być wyjątkowo efektywnym narzędziem, pozwalającym na wizualne wyodrębnienie cech o dużej wadze dla modelu. Obserwacje dotyczące temperatury zewnętrznej i ciśnienia atmosferyznego pokrywają sie z wynikami otrzymanymi z analizy wag wejść do pierwszej warstwy. Obserwacje dotyczące prędkości i kierunku wiatru na mapie cieplnej wykazały zgodność z obliczonymi wartościami. Obie te dwie zmienne okazały się najmniej znaczącymi wejściami do sieci neuronowej.
 
 Zarówno model uproszczony, jak i model rozszerzony wykazały bardzo podobne predykcje. Jedyną zauważalną różnicą między nimi jest to, że w modelu rozszerzonym temperatura zewnętrzna uzyskała wartość mniejszą niż ciśnienie atmosferyczne, co jest zgodne z obserwacjami w modelu uproszczonym. W obu modelach wilgotność zewnętrzna okazała się najważniejszym wejściem. Wilgotność wewnętrzna, mimo że nie jest najważniejszym wejściem, znalazła się na czwartym miejscu pod względem ważności.
 
-Analiza ważności wejść pierwszej warstwy sieci neuronowej, przeprowadzona za pomocą metody badania wag wejściowych, ujawnia różnice w porównaniu z wynikami uzyskanymi metodą Permutation Feature Importance. Zauważalną różnicą między metodą PFI a badaniem wag pierwszej warstwy jest to, że dla metody PFI wyniki dla obu modeli różniły się bardziej. W przypadku metody PFI największa różnica wynosiła 0.37 dla wilgotności wewnętrznej, podczas gdy dla metody badania wag wejściowych ta różnica wynosiła tylko 0.16. Mimo tych różnic, wyniki dla obu metod są bardzo podobne. Warto jednak zauważyć, że dla modelu uproszczonego średnia ważność jest znacząco mniejsza niż dla modeli z metody badania wag wejściowych.
+Analiza ważności wejść pierwszej warstwy sieci neuronowej, przeprowadzona za pomocą metody badania wag wejściowych, ujawnia różnice w porównaniu z wynikami uzyskanymi metodą Permutation Feature Importance. Zauważalną różnicą między PFI a badaniem wag pierwszej warstwy jest to, że dla metody PFI wyniki dla obu modeli różniły się bardziej. W przypadku metody PFI największa różnica wynosiła 0.37 dla wilgotności wewnętrznej, podczas gdy dla metody badania wag wejściowych ta różnica wynosiła tylko 0.16. Mimo tych różnic, wyniki dla obu metod są bardzo podobne. Warto jednak zauważyć, że dla modelu uproszczonego średnia ważność jest znacząco mniejsza niż dla modeli z metody badania wag wejściowych.
 
 \newpage
 \section{LIME}
@@ -962,7 +963,7 @@ W ramach pracy, w celu dokładnej oceny skuteczności metody LIME, zdecydowano s
 
 Tabela przedstawia wyniki sześciu losowo wybranych prób oceny ważności wejść, z zastosowaniem zarówno modelu uproszczonego, jak i rozszerzonego. W celu ułatwienia porównania, wyniki te zostały znormalizowane i zaokrąglone do dwóch miejsc po przecinku. Analiza danych wykazała, że w dwóch na trzy przypadki, zarówno w modelu uproszczonym, jak i rozszerzonym, najważniejszym wejściem okazała się być temperatura zewnętrzna. Ponadto, w pięciu z sześciu analizowanych przypadków, kierunek wiatru został oceniony jako najmniej znaczący. Szczególnie interesująca jest obserwacja z pierwszej próby, gdzie temperatura zewnętrzna otrzymała znacznie niższą wagę, podczas gdy ciśnienie atmosferyczne, które zazwyczaj charakteryzowało się niższymi wagami, w tej próbie uzyskało najwyższą. Z kolei prędkość wiatru, niezależnie od zastosowanego modelu, konsekwentnie otrzymywała niską wagę w każdej z prób.\\
 
-Mimo iż LIME jest metodą zasadniczo skoncentrowaną na dostarczaniu interpretacji lokalnych, istnieje możliwość adaptacji jej do generowania wniosków o charakterze bardziej ogólnym. Można to osiągnąć poprzez zastosowanie metody LIME wielokrotnie na różnych próbkach danych, a nastepnie wyciąganięcie średniej. Zaproponowano wybranie czterech zestawów ze zbioru testowego, zawierających odpowiednio 10, 50, 100, i 1000 próbek.
+Mimo, iż LIME jest metodą zasadniczo skoncentrowaną na dostarczaniu interpretacji lokalnych, istnieje możliwość adaptacji jej do generowania wniosków o charakterze bardziej ogólnym. Można to osiągnąć poprzez zastosowanie metody LIME wielokrotnie na różnych próbkach danych, a nastepnie wyciągnięcie średniej. Zaproponowano wybranie czterech zestawów ze zbioru testowego, zawierających odpowiednio 10, 50, 100, i 1000 próbek.
 
 
 \begin{table}[!h]
@@ -986,10 +987,10 @@ Mimo iż LIME jest metodą zasadniczo skoncentrowaną na dostarczaniu interpreta
 
 W analizie wyników zauważono istotne odstępstwa dla uproszczonego modelu, w którym liczba próbek wynosiła 10. Wskazuje to na istotną rozbieżność w porównaniu z rezultatami uzyskanymi dla innych wielkości próbek. W związku z powyższym, dane z tego konkretnego przypadku zostały wyłączone z procesu interpretacji wyników. Takie odstępstwa mogą być rezultatem losowego pobierania próbek oraz tego, że liczba 10 jest relatywnie niewielka, co może prowadzić do niereprezentatywności danych.
 
-Zarówno w Modelu uproszczonym, jak i modelu rozszerzonego, temperatura zewnętrzna jest systematycznie uznawana za cechę o największym wpływie na przewidywania modelu, co wskazuje na jej przewodnią rolę w analizowanych danych meteorologicznych. Niezmiennie wysokie wartości ważności tej zmiennej świadczą o jej dominującej pozycji w obu modelach, niezależnie od wielkości próby. Dla obu modelów, wilgotność jak i ciśnienie wykazują stabilne wartości, tylko w pojedyńczych próbach ciśnienie staja sie dominującą zmienną. Kierunek jak i prędkość wiatru dla obu modeli pozostaje cechą o niskiej ważności Wilgotność wewnętrzna konsekwentnie otrzymuje jedne z najniższe wartości ważności.
+Zarówno w modelu uproszczonym, jak i modelu rozszerzonego, temperatura zewnętrzna jest systematycznie uznawana za cechę o największym wpływie na przewidywania modelu, co wskazuje na jej przewodnią rolę w analizowanych danych meteorologicznych. Niezmiennie wysokie wartości ważności tej zmiennej świadczą o jej dominującej pozycji w obu modelach, niezależnie od wielkości próby. Dla obu modelów, wilgotność jak i ciśnienie wykazują stabilne wartości, tylko w pojedyńczych próbach ciśnienie staja się dominującą zmienną. Kierunek jak i prędkość wiatru dla obu modeli pozostaje cechą o niskiej ważności. Wilgotność wewnętrzna konsekwentnie otrzymuje jedne z najniższych wartości ważności.
 
-\section{Ocena Skuteczności Metod}
-W celu zweryfikowania poprawności implementacji metod sprawdzania ważności wejść do sieci neuronowej, zaproponowano model, który został rozszerzony o dodatkowe wejście – temperaturę zadaną. Temperatura zadana stanowiła oczekiwaną wartość, jaką piec starał się utrzymać, co sprawia, że każda z metod powinna przypisywać jej kluczowe znaczenie. Ustawiona była na poziomie 21 stopni w godzinach 6-23 oraz 19 stopni w godzinach 23-6. Piec był sterowany za pomocą regulacji dwupołożeniowej, której odbiornik był umiejscowiony w pomieszczeniu, w którym brakowało jakiegokolwiek źródła ciepła, takiego jak grzejnik.\\
+\section{Ocena skuteczności metod}
+W celu zweryfikowania poprawności implementacji metod sprawdzania ważności wejść do sieci neuronowej, zaproponowano model, który został rozszerzony o dodatkowe wejście – temperaturę zadaną. Temperatura zadana stanowiła oczekiwaną wartość, jaką piec starał się utrzymać, co sprawia, że każda z metod powinna przypisywać jej kluczowe znaczenie. Ustawiona była na poziomie 21 stopni celsjusza w godzinach 6-23 oraz 19 stopni celsjusza w godzinach 23-6. Piec był sterowany za pomocą regulacji dwupołożeniowej, której odbiornik był umiejscowiony w pomieszczeniu, w którym brakowało jakiegokolwiek źródła ciepła, takiego jak grzejnik.\\
 
 \begin{table}[!h]
   \centering
@@ -997,33 +998,34 @@ W celu zweryfikowania poprawności implementacji metod sprawdzania ważności we
   \caption{Wartości MSE modelów uproszczonych i rozszerzonych z uwzględnieniem dodatkowego parametru}
   \begin{tabular}{|c|c|c|}
     \hline
-                                                                & \begin{tabular}[c]{@{}c@{}}Bez dodatkowego\\ parametru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Z dodatkowego\\ parametru\end{tabular} \\ \hline
-    \begin{tabular}[c]{@{}c@{}}Model\\ uproszczony\end{tabular} & 0.0706                                                              & 0.0691                                                            \\ \hline
-    \begin{tabular}[c]{@{}c@{}}Model\\ rozszerzony\end{tabular} & 0.0262                                                              & 0.0230                                                            \\ \hline
+                                                                & \begin{tabular}[c]{@{}c@{}}Bez dodatkowego\\ parametru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Z dodatkowym\\ parametru\end{tabular} \\ \hline
+    \begin{tabular}[c]{@{}c@{}}Model\\ uproszczony\end{tabular} & 0.0706                                                              & 0.0691                                                           \\ \hline
+    \begin{tabular}[c]{@{}c@{}}Model\\ rozszerzony\end{tabular} & 0.0262                                                              & 0.0230                                                           \\ \hline
   \end{tabular}
+  \label{porównanie_metod}
 \end{table}
 
-Analizując tabele 4.5  zauważono, że zarówno Model Uproszczony, jak i Model Rozszerzony z dodatkowym parametrem - Temperaturą Oczekiwaną, osiągały niższe wartości błędu średniokwadratowego (MSE) w porównaniu do modeli bez tego dodatkowego wejścia. Ten wynik sugeruje, że uwzględnienie temperatury oczekiwanej w strukturze modelu przyczyniło się do poprawy dokładności prognozowania na zbiorze testowym.
+Analizując tabelę \ref{porównanie_metod}  zauważono, że zarówno model uproszczony, jak i model rozszerzony z dodatkowym parametrem - temperaturą oczekiwaną, osiągały niższe wartości błędu średniokwadratowego w porównaniu do modeli bez tego dodatkowego wejścia. Ten wynik sugeruje, że uwzględnienie temperatury oczekiwanej w strukturze modelu przyczyniło się do poprawy dokładności prognozowania na zbiorze testowym.
 
 \begin{figure}[!h]
   \centering
   \begin{subfigure}{0.49\textwidth}
     \includegraphics[width=\textwidth]{img/heatmap1_zdodatkowym.png}
     \caption{Model uproszczony}
-    \label{fig:lewy-gorny}
+    \label{lewy-gorny}
   \end{subfigure}
   \hfill
   \begin{subfigure}{0.49\textwidth}
     \includegraphics[width=\textwidth]{img/heatmap2_zdodatkowym.png}
     \caption{Model rozszerzony}
-    \label{fig:prawy-gorny}
+    \label{prawy-gorny}
   \end{subfigure}
   \caption{Mapy cieplne modelów z dodatkowym wejściem}
   \label{fig:wiele-rysunkow}
 \end{figure}
-\newpage
-Analizując mapy cieplne 4.4a i 4.4b, bez trudu zauważono, że temperatura zadana w obu przypadkach osiąga najbardziej wyraźne kolory praktycznie przy każdym neuronie wejściowym. Warto również zaznaczyć, że zarówno prędkość, jak i kierunek wiatru osiągają kolory najbliższe zera. Natomiast pozostałe wejścia, takie jak temperatura zewnętrzna, wilgotność zewnętrzna i wewnętrzna, wykazują zróżnicowane wartości, jednak nigdy nie osiągają one tak intensywnych kolorów jak temperatura zadana, co pokrywa sie z założeniami jak i poprzednimi wynikami.
 
+\newpage
+Analizując mapy cieplne \ref{lewy-gorny} i \ref{prawy-gorny}, bez trudu zauważono, że temperatura zadana w obu przypadkach osiąga najbardziej wyraźne kolory praktycznie przy każdym neuronie wejściowym. Warto również zaznaczyć, że zarówno prędkość, jak i kierunek wiatru osiągają wartości najbliższe zera. Natomiast pozostałe wejścia, takie jak temperatura zewnętrzna, wilgotność zewnętrzna i wewnętrzna, wykazują zróżnicowane wartości, jednak nigdy nie osiągają one tak intensywnych kolorów jak temperatura zadana, co pokrywa się z założeniami jak i poprzednimi wynikami.
 
 \begin{table}[!h]
   \caption{Porównanie ważności wejść dla wszystkich metod}
@@ -1040,9 +1042,10 @@ Analizując mapy cieplne 4.4a i 4.4b, bez trudu zauważono, że temperatura zada
                                                                                    & LIME$_{śr(100)}$ & 1.00                                                         & 0.17                                                              & 0.11                                                             & 0.07                                                              & 0.02                                                      & 0.00                                                      & 0.01                                                            \\ \hline
     \end{tabular}
   }
+  \label{Wszystkie_metody}
 \end{table}
 
-Analizując tabele 4.6 stwierdzono skuteczność implementacji metod dla obu modeli, dla każdej z metod temperatura zadana uzyskała najwyższą wartość. Po wprowadzeniu dodatkowego parametru zauważono, że metoda LIME, zastosowana na 100 próbkach, przypisały podobne wagi cech dla obu modeli. Jednakże, obserwowano większe zmiany w przypadku wilgotności zewnętrznej i ciśnienia atmosferycznego, gdzie te cechy uzyskały znacznie większą ważność w modelu o bardziej złożonej architekurze. Metoda wag wejściowych utrzymała identyczną hierarchię ważności, z tą różnicą, że dla modelu rozszerzonego wszystkie wagi były większe. Metoda PFI, podobnie jak metoda LIME, wykazała bardzo podobne wyniki dla obu modeli, z jedyną różnicą w przypadku ciśnienia atmosferycznego i wilgotności wewnętrznej, gdzie modele rozszerzone uzyskały niższe wartości.
+Analizując tabelę \ref{Wszystkie_metody} stwierdzono skuteczność implementacji metod dla obu modeli. Dla każdej z metod temperatura zadana uzyskała najwyższą wartość. Po wprowadzeniu dodatkowego parametru zauważono, że metoda LIME, zastosowana na 100 próbkach, przypisała podobne wagi cech dla obu modeli. Zaobserwowano jednakże, obserwowano większe zmiany w przypadku wilgotności zewnętrznej i ciśnienia atmosferycznego, gdzie te cechy uzyskały znacznie większą ważność w modelu o bardziej złożonej architekurze. Metoda wag wejściowych utrzymała identyczną hierarchię ważności, z tą różnicą, że dla modelu rozszerzonego wszystkie wagi były większe. Metoda PFI, podobnie jak metoda LIME, wykazała bardzo podobne wyniki dla obu modeli, z jedyną różnicą w przypadku ciśnienia atmosferycznego i wilgotności wewnętrznej, gdzie modele rozszerzone uzyskały niższe wartości.
 
 Analizując średnie wartości ważności dla poszczególnych wejść i pomijając temperaturę zadną, można zauważyć, że kluczowymi czynnikami są temperatura zewnętrzna i kierunek wiatru, obie osiągające średnią ważność na poziomie 0.38. Następnie prędkość wiatru zajmuje ważne miejsce, uzyskując średnią ważność wynoszącą 0.35. Ciśnienie atmosferyczne prezentuje się również jako istotny parametr, uzyskując średnią ważność na poziomie 0.34. Na końcu, wilgotność zewnętrzna i wilgotność wewnętrzna mają średnie ważności wynoszące odpowiednio 0.25 i 0.2. Warto jednak podkreślić, że obliczenia średnich wartości ważności mogą nie dostarczyć pełnego obrazu sytuacji., ponieważ metoda PFI wykazała znacznie różniące się wartości ważności dla prędkości i kierunku wiatru, wahające się od 0.58 do 0.87, natomiast metoda LIME przypisała prędkości i kierunku wiatru wartości od 0.00 do 0.09. Różnice te sugerują istotne rozbieżności w interpretacji ważności poszczególnych parametrów między zastosowanymi metodami analizy.
 
@@ -1056,103 +1059,7 @@ Do celów modelowania zdecydowano się na wykorzystanie trójwarstwowego modelu 
 Postanowiono wykorzystać nauczony model sieci neuronowej w praktyce, używając jego prognozy jako do modelu zasobnika. W celu uwzględnienia korelacji tygodniowej oraz sezonowej przepływu wody, zdecydowano się na wybór modelu typu C wraz z dodatkowym parametrem. Symulacje przepływu wody zostały przeprowadzone dla letniego wtorku. W ramach udoskonalenia modelu, podjęto decyzję o modyfikacji prognoz dotyczących zużycia wody. Wszystkie wartości ujemne zostały przekształcone na zero, ze względu na ich nierealność w kontekście pomiaru zużycia wody.\\
 
 Do zasobnika został zaimplementowany sterownik propocjonalno różcznikujący. Został on zastosowany ze względu na szybkość reagowania na zmiany wejścia oraz eliminacje uchybu w stanie ustalonym. Regulator został nastrojony wykorzystując metodę Zieglera-Nicholsa. Polega ona na doprowadzeniu układu do granicy stabilności wykorzystując tylko regulator proporcjonalny, następnie na podstawie wzmocnienia krytycznego oraz okresu oscylacji wyznacza się wartości parametrów regulatora. Na podstawie tej metody wybrano wzmocenienie części proporcjonalnej równe 7.8 oraz 40.25 dla części różniczkującej
-% \section{Model wielowarstwowy}
-% TODO ZASTANOWIĆ SIE KTÓRE RYSUNKI WRZUCIĆ I OPISYWAĆ!
-% \begin{figure}[!ht]
-%   \centering
-%   \resizebox{0.5\textwidth}{!}{%
-%     \begin{circuitikz}
-%       \tikzstyle{every node}=[font=\Large]
-%       \draw  (8.75,13.75) rectangle (11.25,8.75);
-%       \draw [short] (8.25,13.25) .. controls (10,13.25) and (10,13.25) .. (11.75,13.25);
-%       \draw [short] (8.25,12.75) .. controls (10,12.75) and (10,12.75) .. (11.75,12.75);
-%       \draw [short] (8.25,12.25) .. controls (10,12.25) and (10,12.25) .. (11.75,12.25);
-%       \draw [short] (8.25,9.25) .. controls (10,9.25) and (10,9.25) .. (11.75,9.25);
-%       \draw [short] (8.25,9.75) .. controls (10,9.75) and (10,9.75) .. (11.75,9.75);
-%       \draw [short] (8.25,10.25) .. controls (10,10.25) and (10,10.25) .. (11.75,10.25);
-%       \draw [->, >=Stealth] (10,14.25) .. controls (10,15.25) and (10,15.25) .. (10,16.25);
-%       \draw [->, >=Stealth] (6.5,12.75) .. controls (7.25,12.75) and (7.25,12.75) .. (8,12.75);
-%       \draw [->, >=Stealth] (6.5,9.75) .. controls (7.25,9.75) and (7.25,9.75) .. (8,9.75);
-%       \draw [->, >=Stealth] (12.25,11.25) .. controls (13.5,11.25) and (13.5,11.25) .. (14.5,11.25);
-%       \node [font=\Large] at (7,13.2) {$Q_{z1}$};
-%       \node [font=\Large] at (7,10.2) {$Q_{zm}$};
-%       \node [font=\Large] at (13.25,11.7) {$Q_s$};
-%       \node [font=\Large] at (10.7,15) {$Q_u$};
-%       \node [font=\normalsize] at (12,13.5) {$Q_{wn}$};
-%       \node [font=\normalsize] at (12,8.75) {$Q_{w1}$};
-%       \node [font=\Large] at (10,11.25) {$Q_w$};
-%       \node [font=\Large] at (7,11.75) {.};
-%       \node [font=\Large] at (7,11.5) {.};
-%       \node [font=\Large] at (7,11.25) {.};
-%       \node [font=\Large] at (11.75,11.75) {.};
-%       \node [font=\Large] at (11.75,11.25) {.};
-%       \node [font=\Large] at (11.75,10.75) {.};
-%     \end{circuitikz}
-%   }%
-%   \caption{Model zasobnika - wiele warstwa}
-%   \label{Model zasobnika - wiele warstwa}
-% \end{figure}
 
-% \begin{equation}
-%   Q_w = \sum_{m=1}^{m} Q_m - Q_u - Q_s
-% \end{equation}
-
-% \begin{equation}
-%   Q_{wn} = \sum_{n=1}^{m(n)} Q_{m(n)} - Q_{un} - Q_{sn}
-% \end{equation}
-
-% \begin{itemize}
-%   \item[$Q_m$] TODO
-%   \item[$Q_w$] Ciepło całego zbiornika
-%   \item[$Q_{wm}$] Ciepło warstwy
-%   \item[$Q_u$] Ciepło upuszczające zbiornik DO POPRAWY
-%   \item[$Q_s$] Straty ciepła
-% \end{itemize}
-
-
-% \begin{figure}[!ht]
-%   \centering
-%   \resizebox{0.5\textwidth}{!}{%
-%     \begin{circuitikz}
-%       \tikzstyle{every node}=[font=\LARGE]
-%       \draw  (8.75,13.75) rectangle (11.25,8.75);
-%       \draw [->, >=Stealth] (10,7.5) .. controls (10,8) and (10,8) .. (10,8.75);
-%       \draw [->, >=Stealth] (10,15) .. controls (11.25,15) and (11.25,15) .. (12.5,15);
-%       \draw [->, >=Stealth] (6.5,11.25) .. controls (7.5,11.25) and (7.5,11.25) .. (8.5,11.25);
-%       \draw  (5,11.25) circle (1cm);
-%       \node [font=\LARGE] at (5,11.25) {$Q_p$};
-%       \draw [](10,13.75) to[short] (10,15);
-%       \node [font=\LARGE] at (7.5,11.75) {$F_z, T_{zi}$};
-%       \draw [](10,7.5) to[short] (12.5,7.5);
-%       \draw [](11.5,11.25) to[short, -o] (13.25,11.25);
-%       \node [font=\LARGE] at (11,7.9) {$T_{wi}$};
-%       \node [font=\LARGE] at (12.5,11.75) {$T_{ot}$};
-%       \node [font=\LARGE] at (11.25,15.5) {$F_w,T_{wo}$};
-%     \end{circuitikz}
-%   }%
-%   \caption{Model zasobnika - pojedyńcza warstwa}
-%   \label{Qp}
-% \end{figure}
-
-% \begin{equation}
-%   \rho C_w V \frac{dT_{wo}}{dt} = Q_p - \rho C_w F_w (T_{wo} - T_{wi}) - \frac{\lambda A}{d} (T_{wo} - T_{ot})
-% \end{equation}
-
-% gdzie:
-% \begin{itemize}
-%   \item[$\rho$] Gęstość cieczy
-%   \item[A] Powierzchnia wymiany ciepła DO POPRAWY
-%   \item[d] powierzchnia wymiany ciepła DO POPRAWY
-%   \item[V] Objętość
-%   \item[$C_w$] Ciepło właściwe
-%   \item[$\lambda$] Wspołczynnik wymiany ciepła
-%   \item[$Q_p$] Ciepło systemu grzewczego
-%   \item[$T_{ot}$] Temperatura otoczenia
-%   \item[$T_{wo}$] Temepratura wyjściowa
-%   \item[$T_{wi}$] Temperatura wejściowa
-%   \item[$F_{w}$] TODO
-%   \item[$F_{z}$] TODO
-% \end{itemize}
 
 \newpage
 \begin{figure}[!ht]
@@ -1282,7 +1189,7 @@ Gdy zużycie wody ustabilizowało się na poziomie około 0.5 l/min, temperatura
 Analizując wykres \ref{fig:porównianie_ster_przep}, można zauważyć początkowe duże wartości sterowania, związane z ich przybliżonym ustawieniem wartości początkowych sterowania. Bezpośrednio po tych początkowych fluktuacjach, sterowanie stabilizuje się na poziomie około 10\% i utrzymuje tę wartość do godziny 6. W tym czasie występuje zwiększone zużycie wody, co skutkuje dynamicznymi wahaniami wartości sterowania pieca, oscylującymi od 0\% aż do 45\%. Następnie, w miarę upływu czasu, wartość sterowania stabilizuje się w okolicach 18\%. Warto zauważyć, że nagły spadek przepływu wody w okolicach godziny 20:30 jest bezpośrednio odzwierciedlony na wykresie poprzez gwałtowny spadek wartości sterowania.
 
 \section{Optymalizacja}
-\subsection{Funkcja kosztów}
+\subsection*{Funkcja kosztów}
 Funkcja kosztów została zdefiniowana jako ilość energii wydzielana przez piec w okresie badawczym. Wzór tej funkcji można zapisac jako:
 \begin{equation}
   G = \int_{0}^{T} p_1 Q_g \cdot u(t)  \, dt,
@@ -1296,7 +1203,7 @@ gdzie:
 
 
 \newpage
-\subsection{Funkcja komfortu}
+\subsection*{Funkcja komfortu}
 Funkcja komfortu określa w jakim stopniu temperatura rzeczywista różni się od wartości oczekiwanej, z uwzględnieniem czułości. Wzór tej funkcji można zapisac jako:
 \begin{equation}
   J = \int_{0}^{T} \left( T_{wo}(t) - T_{wym} \right)^2 \left| \frac{\text{sign}(T_{wo}(t) - T_{wym} - \delta) + \text{sign}(T_{wo}(t) - T_{wym} + \delta)}{2} \right| \, dt,
@@ -1318,9 +1225,9 @@ Wartość funkcji komfortu jest uzależniona od dwóch kluczowych parametrów: t
   \label{fig:J_T_D}
 \end{figure}
 
-Analizując wykres \ref{fig:J_T_D}, można zauważyć, że wraz ze wzrostem wartości czułości, wartość funkcji komfortu maleje niezależnie od wybranej temperatury zadanej. Dla czułości przekraczającej 5 stopni Celsjusza, funkcja komfortu nie osiąga wartości większej niż 0.1 po znormalizowaniu.
+Analizując wykres \ref{fig:J_T_D}, można zauważyć, że wraz ze wzrostem wartości czułości, wartość funkcji komfortu maleje niezależnie od wybranej temperatury zadanej. Dla czułości przekraczającej 5 stopni Celsiusza, funkcja komfortu nie osiąga wartości większej niż 0.1 po znormalizowaniu.
 
-Najniższą wartość komfortu uzyskano dla czułości równej 6 i temperatury zadanej wynoszącej 29 stopni Celsjusza. Dla niewielkich wartości czułości można zauważyć szybko rosnącą wartość funkcji komfortu w miarę oddalania się temperatury zadanej od wartości około 36 stopni Celsjusza, gdzie wraz ze zwiększeniem czułości tempo narastania maleje.\\
+Najniższą wartość komfortu uzyskano dla czułości równej 6 i temperatury zadanej wynoszącej 29 stopni Celsiusza. Dla niewielkich wartości czułości można zauważyć szybko rosnącą wartość funkcji komfortu w miarę oddalania się temperatury zadanej od wartości około 36 stopni Celsiusza, gdzie wraz ze zwiększeniem czułości tempo narastania maleje.\\
 
 
 
@@ -1330,9 +1237,9 @@ Najniższą wartość komfortu uzyskano dla czułości równej 6 i temperatury z
   \caption{Wartośc funkcji komfortu i kosztów w zależności od temepratury zadanej}
   \label{fig:etykieta-rysunku}
 \end{figure}
-W kontekście procesu optymalizacji, przyjęto wartość czułości równą 2. Stwierdzono, że dla ustalonej czułości, najniższą wartość funkcji komfortu osiąga się dla temperatury zadanej równiej 21°C. W miarę zmiany tej temperatury, wartość funkcji komfortu systematycznie rośnie. Zauważono również, że funkcja kosztów jest funkcją liniową w całym badanym zakresie temperatur, gdzie jej wartość wzrasta wraz z rosnącą temperaturą zadana.\\
+W kontekście procesu optymalizacji, przyjęto wartość czułości równą 2. Stwierdzono, że dla ustalonej czułości, funkcja komfortu najniższą wartość osiąga dla temperatury zadanej równiej 41°C. W miarę zmiany tej temperatury, wartość funkcji komfortu systematycznie rośnie. Zauważono również, że funkcja kosztów jest funkcją liniową w całym badanym zakresie temperatur, gdzie jej wartość wzrasta wraz z rosnącą temperaturą zadaną.\\
 
-W celu optymalizacji zastosowano funkcję celu, która przypisuje wagi każdej z funkcji, a ich suma, podzielona przez sumę wag, jest minimalizowana. Przeprowadzono także analizę wpływu zmian wag na optymalną temperaturę w ramach procesu optymalizacyjnego.
+W celu optymalizacji zastosowano funkcję celu, która przypisuje wagi każdej z funkcji, a których suma, podzielona przez sumę wag, jest minimalizowana. Przeprowadzono także analizę wpływu zmian wag na optymalną temperaturę w ramach procesu optymalizacyjnego.
 
 \newpage
 \begin{table}[!h]
@@ -1352,10 +1259,10 @@ W celu optymalizacji zastosowano funkcję celu, która przypisuje wagi każdej z
   \end{tabular}
 \end{table}
 
-W wyniku analizy zauważono, że wraz ze zwiększaniem ważności funkcji kosztów, optymalna temperatura zadana systematycznie maleje, osiągając wartość 22 stopni Celsiusza, gdy funkcji kosztów przypisuje się wagę dziewięciokrotnie większą niż funkcji komfortu. Odpowiednio, zwiększenie ważności funkcji komfortu działa odwrotnie na optymalną temperaturę zadana – wraz z podniesieniem jej wagi, optymalna temperatura wzrasta, osiągając 36 stopni Celsiusza, gdy funkcja komfortu ma dziewięciokrotnie większą wagę niż funkcja kosztów.\\
+W wyniku analizy zauważono, że wraz ze zwiększaniem ważności funkcji kosztów, optymalna temperatura zadana systematycznie maleje, osiągając wartość 22 stopni Celsiusza, gdy funkcji kosztów przypisuje się wagę dziewięciokrotnie większą niż funkcji komfortu. Odpowiednio, zwiększenie ważności funkcji komfortu działa odwrotnie na optymalną temperaturę zadaną – wraz z podniesieniem jej wagi, optymalna temperatura wzrasta, osiągając 36 stopni Celsiusza, gdy funkcja komfortu ma dziewięciokrotnie większą wagę niż funkcja kosztów.\\
 
 
-Zgodnie z Rozporządzeniem Ministra Infrastruktury \cite{bib:Dziennik_ustaw_1, bib:Dziennik_ustaw_2},  instalacja ciepłej wody powinna uzyskiwać temperaturę w zakresie od 55 do 60. Istnieje konieczność przestrzegania tych norm, ponieważ jest to związane między innymi z ograniczeniem rozwoju bakterii Legionella. Bakterie te rozwijają się najlepiej w temperaturze pomiędzy 20 a 45 stopni Celsiusza, a giną gdy temperatura trzymuje sie na poziomie 50°C przez 2 godziny\cite{bib:CWU_TEMP}. Z uwagi na wymagania sanitarno-epidemiologiczne i konieczność optymalizacji systemu, postanowiono przeprowadzić optymalizację temperatury wyjściowej, przy jednoczesnym utrzymaniu temperatury zadanej w zakresie od 50 do 60 stopni Celsiusza. Choć ta temperatura jest niższa niż wartość ustawowo zalecana, odnosi się ona do warstwy drugiej, która charakteryzuje się niższą temperaturą niż warstwa wyjściowa w momentach zwiększonego przepływu.
+Zgodnie z Rozporządzeniem Ministra Infrastruktury \cite{bib:Dziennik_ustaw_1, bib:Dziennik_ustaw_2},  instalacja ciepłej wody powinna uzyskiwać temperaturę w zakresie od 55 do 60. Istnieje konieczność przestrzegania tych norm, ponieważ jest to związane między innymi z ograniczeniem rozwoju bakterii Legionella. Bakterie te rozwijają się najlepiej w temperaturze pomiędzy 20 a 45 stopni Celsiusza, a giną gdy temperatura utrzymuje sie na poziomie 50°C przez 2 godziny\cite{bib:CWU_TEMP}. Z uwagi na wymagania sanitarno-epidemiologiczne i konieczność optymalizacji systemu, postanowiono przeprowadzić optymalizację temperatury wyjściowej, przy jednoczesnym utrzymaniu temperatury zadanej w zakresie od 50 do 60 stopni Celsiusza. Choć ta temperatura jest niższa niż wartość ustawowo zalecana, odnosi się ona do warstwy drugiej, która charakteryzuje się niższą temperaturą niż warstwa wyjściowa w momentach zwiększonego przepływu.
 
 \newpage
 \begin{figure}[!h]
@@ -1364,14 +1271,14 @@ Zgodnie z Rozporządzeniem Ministra Infrastruktury \cite{bib:Dziennik_ustaw_1, b
   \caption{Wartośc funkcji komfortu i kosztów z zaznaczonymi ograniczeniami}
   \label{fig:etykieta-rysunku}
 \end{figure}
-Po wprowadzeniu opisanych ograniczeń, zaobserwowano, że obie funkcje (kosztów i komfortu) wykazują tendencję wzrostową w całym zakresie badanych temperatur. Oznacza to, że obie funkcje przyjmują najniższe wartości na początku analizowanego przedziału temperatur. Dodatkowo, przeprowadzono badanie, w którym ustawiono czułość funkcji komfortu na 4 stopnie Celsiusza. Mimo wprowadzenia tej zmiany, funkcja komfortu nie zmieniła swojej charakterystyki. Po wprowadzeniu opisanych ograniczeń, ustalono, że optymalną temperaturą zadana jest wartość $T_{set}=50$°C.
+Po wprowadzeniu opisanych ograniczeń zaobserwowano, że obie funkcje (kosztów i komfortu) wykazują tendencję wzrostową w całym zakresie badanych temperatur. Oznacza to, że obie funkcje przyjmują najniższe wartości na początku analizowanego przedziału temperatur. Dodatkowo przeprowadzono badanie, w którym ustawiono czułość funkcji komfortu na 4 stopnie Celsiusza. Mimo wprowadzenia tej zmiany funkcja komfortu nie zmieniła swojej charakterystyki. Po wprowadzeniu opisanych ograniczeń ustalono, że optymalną temperaturą zadana jest wartość $T_{set}=50$°C.
 
 
 \chapter{Podsumowanie i wnioski}
 
-W kontekście przyszłych prac nad projektem, zaleca się rozważenie nauczenia modelu, który został zaproponowany przez Bakker et al. i porównianie wyników tego modelu z rezultatami modelu opisanego w rozdziale 3. Mimo że model Bakkera nie został pierwotnie opracowany z myślą o przewidywaniu zużycia wody, to istnieje potencjał, że oba te zjawiska mogą wykazywać podobne charakterystyki. Podobieństwo to może wynikać z podobnych korelacji czasowych oraz sezonowych. Przyszłe prace badawcze mogą więc skoncentrować się na adaptacji modelu Bakkera do przewidywania zużycia wody
+W kontekście przyszłych prac nad projektem zaleca się rozważenie nauczenia modelu, który został zaproponowany przez Bakker et al. i porównanie wyników tego modelu z rezultatami modelu opisanego w rozdziale 3. Mimo że model Bakkera nie został pierwotnie opracowany z myślą o przewidywaniu zużycia wody, to istnieje potencjał, że oba te zjawiska mogą wykazywać podobne charakterystyki. Podobieństwo to może wynikać z podobnych korelacji czasowych oraz sezonowych. Przyszłe prace badawcze mogą więc skoncentrować się na adaptacji modelu Bakkera do przewidywania zużycia wody
 
-Wartym uwagi rozwiązaniem które moze poprawić działanie modelu jest zastosowanie modelu LSTM (Long Short-Term Memory) który jest specjalnym rodzajem rekurencyjnej sieci neuronowej skupiającym sie na rozwiązaniu problemu zanikającego gradientu. LSTM jest szczególnie efektywny w zadaniach dotyczących przetwarzania szeregów czasowych, dzięki zdolności do długotrwałego przechowywania i aktulizacji informacji.\\
+Wartym uwagi rozwiązaniem, które może poprawić działanie modelu jest zastosowanie modelu LSTM (Long Short-Term Memory), który jest specjalnym rodzajem rekurencyjnej sieci neuronowej skupiającym się na rozwiązaniu problemu zanikającego gradientu. LSTM jest szczególnie efektywny w zadaniach dotyczących przetwarzania szeregów czasowych, dzięki zdolności do długotrwałego przechowywania i aktualizacji informacji.\\
 
 
 W celu poprawy wyników badań nad ważnością warunków pogodowych proponowane jest zastosowanie sieci neuronowej posiadającej trzy wyjścia w celu uwzględnienia danych z różnych źródeł. Dostarczone dane zawierały dane z trzech czujnikók. Dane zebrane z czujnika zastosowana nad kuchenką gazową oraz na kominku zostały pominięte w badaniach. Użycie tych informacji mogłoby popawić wyniki dla kazdej z metod sprawdzania wazności wejść.
@@ -1480,3 +1387,100 @@ Zastosowanie metody Holdout, w której zbiór danych jest dzielony na zbiór tre
 
 %% Finis coronat opus.
 
+% \section{Model wielowarstwowy}
+% TODO ZASTANOWIĆ SIE KTÓRE RYSUNKI WRZUCIĆ I OPISYWAĆ!
+% \begin{figure}[!ht]
+%   \centering
+%   \resizebox{0.5\textwidth}{!}{%
+%     \begin{circuitikz}
+%       \tikzstyle{every node}=[font=\Large]
+%       \draw  (8.75,13.75) rectangle (11.25,8.75);
+%       \draw [short] (8.25,13.25) .. controls (10,13.25) and (10,13.25) .. (11.75,13.25);
+%       \draw [short] (8.25,12.75) .. controls (10,12.75) and (10,12.75) .. (11.75,12.75);
+%       \draw [short] (8.25,12.25) .. controls (10,12.25) and (10,12.25) .. (11.75,12.25);
+%       \draw [short] (8.25,9.25) .. controls (10,9.25) and (10,9.25) .. (11.75,9.25);
+%       \draw [short] (8.25,9.75) .. controls (10,9.75) and (10,9.75) .. (11.75,9.75);
+%       \draw [short] (8.25,10.25) .. controls (10,10.25) and (10,10.25) .. (11.75,10.25);
+%       \draw [->, >=Stealth] (10,14.25) .. controls (10,15.25) and (10,15.25) .. (10,16.25);
+%       \draw [->, >=Stealth] (6.5,12.75) .. controls (7.25,12.75) and (7.25,12.75) .. (8,12.75);
+%       \draw [->, >=Stealth] (6.5,9.75) .. controls (7.25,9.75) and (7.25,9.75) .. (8,9.75);
+%       \draw [->, >=Stealth] (12.25,11.25) .. controls (13.5,11.25) and (13.5,11.25) .. (14.5,11.25);
+%       \node [font=\Large] at (7,13.2) {$Q_{z1}$};
+%       \node [font=\Large] at (7,10.2) {$Q_{zm}$};
+%       \node [font=\Large] at (13.25,11.7) {$Q_s$};
+%       \node [font=\Large] at (10.7,15) {$Q_u$};
+%       \node [font=\normalsize] at (12,13.5) {$Q_{wn}$};
+%       \node [font=\normalsize] at (12,8.75) {$Q_{w1}$};
+%       \node [font=\Large] at (10,11.25) {$Q_w$};
+%       \node [font=\Large] at (7,11.75) {.};
+%       \node [font=\Large] at (7,11.5) {.};
+%       \node [font=\Large] at (7,11.25) {.};
+%       \node [font=\Large] at (11.75,11.75) {.};
+%       \node [font=\Large] at (11.75,11.25) {.};
+%       \node [font=\Large] at (11.75,10.75) {.};
+%     \end{circuitikz}
+%   }%
+%   \caption{Model zasobnika - wiele warstwa}
+%   \label{Model zasobnika - wiele warstwa}
+% \end{figure}
+
+% \begin{equation}
+%   Q_w = \sum_{m=1}^{m} Q_m - Q_u - Q_s
+% \end{equation}
+
+% \begin{equation}
+%   Q_{wn} = \sum_{n=1}^{m(n)} Q_{m(n)} - Q_{un} - Q_{sn}
+% \end{equation}
+
+% \begin{itemize}
+%   \item[$Q_m$] TODO
+%   \item[$Q_w$] Ciepło całego zbiornika
+%   \item[$Q_{wm}$] Ciepło warstwy
+%   \item[$Q_u$] Ciepło upuszczające zbiornik DO POPRAWY
+%   \item[$Q_s$] Straty ciepła
+% \end{itemize}
+
+
+% \begin{figure}[!ht]
+%   \centering
+%   \resizebox{0.5\textwidth}{!}{%
+%     \begin{circuitikz}
+%       \tikzstyle{every node}=[font=\LARGE]
+%       \draw  (8.75,13.75) rectangle (11.25,8.75);
+%       \draw [->, >=Stealth] (10,7.5) .. controls (10,8) and (10,8) .. (10,8.75);
+%       \draw [->, >=Stealth] (10,15) .. controls (11.25,15) and (11.25,15) .. (12.5,15);
+%       \draw [->, >=Stealth] (6.5,11.25) .. controls (7.5,11.25) and (7.5,11.25) .. (8.5,11.25);
+%       \draw  (5,11.25) circle (1cm);
+%       \node [font=\LARGE] at (5,11.25) {$Q_p$};
+%       \draw [](10,13.75) to[short] (10,15);
+%       \node [font=\LARGE] at (7.5,11.75) {$F_z, T_{zi}$};
+%       \draw [](10,7.5) to[short] (12.5,7.5);
+%       \draw [](11.5,11.25) to[short, -o] (13.25,11.25);
+%       \node [font=\LARGE] at (11,7.9) {$T_{wi}$};
+%       \node [font=\LARGE] at (12.5,11.75) {$T_{ot}$};
+%       \node [font=\LARGE] at (11.25,15.5) {$F_w,T_{wo}$};
+%     \end{circuitikz}
+%   }%
+%   \caption{Model zasobnika - pojedyńcza warstwa}
+%   \label{Qp}
+% \end{figure}
+
+% \begin{equation}
+%   \rho C_w V \frac{dT_{wo}}{dt} = Q_p - \rho C_w F_w (T_{wo} - T_{wi}) - \frac{\lambda A}{d} (T_{wo} - T_{ot})
+% \end{equation}
+
+% gdzie:
+% \begin{itemize}
+%   \item[$\rho$] Gęstość cieczy
+%   \item[A] Powierzchnia wymiany ciepła DO POPRAWY
+%   \item[d] powierzchnia wymiany ciepła DO POPRAWY
+%   \item[V] Objętość
+%   \item[$C_w$] Ciepło właściwe
+%   \item[$\lambda$] Wspołczynnik wymiany ciepła
+%   \item[$Q_p$] Ciepło systemu grzewczego
+%   \item[$T_{ot}$] Temperatura otoczenia
+%   \item[$T_{wo}$] Temepratura wyjściowa
+%   \item[$T_{wi}$] Temperatura wejściowa
+%   \item[$F_{w}$] TODO
+%   \item[$F_{z}$] TODO
+% \end{itemize}
