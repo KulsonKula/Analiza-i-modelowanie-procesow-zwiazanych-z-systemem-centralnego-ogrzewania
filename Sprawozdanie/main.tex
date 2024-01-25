@@ -67,7 +67,6 @@
 
 % Proszę wpisać swoje dane w poniższych definicjach.
 
-% TODO
 % dane autora
 \newcommand{\FirstNameAuthor}{Jakub}
 \newcommand{\SurnameAuthor}{Kula}
@@ -472,15 +471,14 @@ escapeinside={@*}{*@},%
 
 %%% No to zaczynamy pisać pracę :-) %%%%
 
-% TODO
 \subsubsection*{Tytuł pracy}
 \Title
 
 \subsubsection*{Streszczenie}
-(Streszczenie pracy – odpowiednie pole w systemie APD powinno zawierać kopię tego streszczenia.)
+(TODO)
 
 \subsubsection*{Słowa kluczowe}
-(2-5 slow (fraz) kluczowych, oddzielonych przecinkami)
+Uczenie maszynowe, ważność warunków atmosferyczych, modelowanie dynamiki temperatury
 
 \subsubsection*{Thesis title}
 \begin{otherlanguage}{british}
@@ -489,11 +487,11 @@ escapeinside={@*}{*@},%
 
 \subsubsection*{Abstract}
 \begin{otherlanguage}{british}
-  (Thesis abstract – to be copied into an appropriate field during an electronic submission – in English.)
+  (TODO)
 \end{otherlanguage}
 \subsubsection*{Key words}
 \begin{otherlanguage}{british}
-  (2-5 keywords, separated by commas)
+  Machine learning, importance of atmospheric conditions, temperature dynamics modeling
 \end{otherlanguage}
 
 
@@ -515,7 +513,7 @@ escapeinside={@*}{*@},%
 
 %%%%%%%%%%%%%% wlasciwa tresc pracy %%%%%%%%%%%%%%%%%
 
-% TODO
+
 \chapter{Wstęp}
 \label{ch:wstep}
 \section{Cel i zakre pracy}
@@ -529,6 +527,8 @@ Modele oparte na zebranych danych są szeroką kategorią modeli statystycznych 
 Modele szeregów czasowych są specjalną kategorią modeli statystycznych przeznaczonych do analizowania i prognozowania danych, które są zebrane lub obserwowane w regularnych odstępach czasu. Gelazanskas i Gamage\cite{bib:Time_series} zauważywszy silną dzienną i tygodniową korealcje. Zastosowali kobinacje metode dekompozycji sezonowej oraz model ARIMA. Po porównianiu zaproponowanego modelu wraz z wybranymi modelami referencyjnymi stwierdzono, że rozdzielenie szeregów czasowych na kilka składowych odgrywa znaczącą rolę w dokładności prognoz - uwzględnienie sezonowych wzorców zużycia może znacząco poprawić jakość przewidywań.\\
 
 Modele behawioralne, są to modele oparte na zachowaniu ludzi. Biorą one pod uwagę różne czynniki takie jak motywację, preferencje czy wpływ społeczny. Są one zazwyczaj stosowane w dziedzinach naukowych takich jak psychologia czy ekonomia, ale również w inżynierii. Model behawioralny stworzony przez  N.D. Pflugradt\cite{bib:Behavioural} symulował indywidualne zachowania w celu przewidywania zużycia energii i wody w gospodarstwie domowym. Model został stworzony w celu uniknięcia polegania na statystycznych rozkładach prawdopodobieństwa. Autor stwierdził, że przewidywania modelu są bardzo dobre dla gospodarstw zamieszkanych przez jedną osobę, gdyż największym problem modelu jest jego skalowalność, ze względu na konieczność dokonania dużej ilość założeń i trudności w gromadzeniu danych o zachowaniach wielu mieszkańców.\\
+
+V. Bakker et al.\cite{bib:model_przewidywania} wykorzystali sieci nueronowe do prognozowania zapotrzebowania na energię eletryczną w gospodarstwie domowym. Zaproponowany dodel był trzywarstwowy, posiadający trzy wejscia, zapotrzebowanie na ciepło z poprzedniego dnia oraz z poprzedniego tygodnia i prognozowanę średniej temperatury w ciągu dnia. Sieć posiadała 24 wyjścia, reprezentujące prognoze zapotrzebowania na ciepło przypadające na każdą godzine dnia. Autorzy sugerują że rozbudowe modelu o dodatkowe parametry takie jak prędkość wiatru lub ustawienia termostatu mogło by znacząco poprawić jakość predykcji.
 
 \subsection{Modelowanie zasobnika CWU}
 W kontekście modelowania zasobnika CWU, różne podejścia zostały przedstawione w literaturze. Jednym z efektywnych narzędzi w tym procesie jest modelowanie z linearyzacją. To podejście opiera się na przybliżeniu nieliniowego modelu do postaci liniowej, wykorzystując rozwinięcie w szereg Taylora wokół pewnego punktu pracy. Głównym celem tego procesu jest uproszczenie złożonego modelu nieliniowego do postaci bardziej przystępnej - liniowej. Przykładem zastosowania linearyzacji w kontekście modelowania zasobnika CWU można odnaleźć w pracy autorstwa S. Claquina, A. Carriere'a i F. Rocaries'a.\cite{bib:linearyzacja} W ich badaniach, skonstruowali bardzo precyzyjny model matematyczny, rozkładając go na trzy równania stanu. Te równania opisują zmienną temperatury wody w wymienniku, temperatury ramy wymiennika oraz temperatury komory spalania. Następnie, dzięki zastosowaniu linearyzacji, udało im się opracować kontroler adaptacyjny.
@@ -594,7 +594,7 @@ CUDA, będąca narzędziem opracowanym przez firmę NVIDIA, stanowi kluczową te
 Conda jest środowiskiem wirtualnym i systemem do zarządzania pakietami. Pozwala ona na tworzenie odseparowanych środowisk dla różnych projektów, co jest bardzo ważne w momencie gdy różne projekty potrzebują różnych wersji tej samej biblioteki. Jest to szczególnie istotne w kontekście naszej pracy, gdzie narzędzia opisane wcześniej - mimo że idealnie współpracują ze sobą - wymagają specyficznych, niekoniecznie najnowszych wersji.
 
 
-% TODO
+
 \chapter{Modelowanie sieci neuronowej}
 \label{ch:04}
 \section{Metodologia projektowania modelu sieci neuronowej}
@@ -1285,7 +1285,10 @@ W celu poprawy wyników badań nad ważnością warunków pogodowych proponowane
 
 Zastosowanie metody Holdout, w której zbiór danych jest dzielony na zbiór treningowy i testowy, mogło być mniej adekwatne w sytuacji, gdzie porównanie jakości przewidywań w warunkach nie znanych modelowi jest mniej ważne od dokładności decyzyjności w warunkach znanych. Lepszym wyborem była by metoda Resubstytacji, która zapewnia pełne wykorzystanie danych do nauki modelu jak i do jego testowania co przekłada sie na pozytywne obciążenie oraz na dokładniejszą nauke na dostępnych danych, lecz nie obrazu decyzyjności modelu w nieznanych warunkach.
 
+\newpage
+Jednym z istotnych aspektów, który wymaga uwagi w przyszłych badaniach nad sterowaniem temperaturą wody użytkowej jest wprowdzenie kontroli częstotliwości zmian warotści sterowanie piecem, gdyż zmiana wartości sterowania co sekunde prowadzi do bardzo szybkiego zużycia elementów fizycznych nastawnika. Jedną z możliwości jest zwiększenie czasu próbkowania. Spowoduje to ze regulator będzie wolniej reagował na zmiany temperatury w warstwie drugiej. Kolejną możliwością jest dodanie strefy nieczułości do regulatora, co pozwoli na filtrowanie małych zmian wartości sterowania.
 
+Warto również rozważyć zastosowanie rozszerzonego modelu CWU, posiadającego dodatkowe warstwy, a także zbadanie wpływu umieszczenia czujnika temperatury na efektywność pracy pieca. Istnienie większej liczby warstw w modelu CWU może mieć istotny wpływ na jego funkcjonowanie i wydajności.
 
 
 
@@ -1298,7 +1301,7 @@ Zastosowanie metody Holdout, w której zbiór danych jest dzielony na zbiór tre
 
 \begin{appendices}
 
-  % TODO
+  % 
   \chapter{Spis skrótów i symboli}
 
   \begin{itemize}
@@ -1319,26 +1322,20 @@ Zastosowanie metody Holdout, w której zbiór danych jest dzielony na zbiór tre
     \item[$v$] pobudzenie neuronu
     \item[$w_j$]  Waga neuronu
     \item[b] Składnik stały
+    \item[$u(t)$] Sterowanie systemem grzewczym w chwili t
+    \item[$b^n$] współczynik wymiany ciepła
     \item[$T_{zi}^{n,m}$] Temperatura systemu grzewczego
     \item[$T_{wo}^{n}$] Temepratura warsty
     \item[$T_{ot}$] Temperatura otoczenia
     \item[$F_w$] Przepływ wody w zbiorniku
     \item[$F_z$] Przepływ wody systemu grzewczego
     \item[$Q_p$] Ciepło systemu grzewczego
-    \item[$Q_{zm}$] Cieplo dostarczane do zasobnika
-    \item[$Q_m$] TODO
-    \item[$Q_w$] Ciepło całego zbiornika
-    \item[$Q_{wm}$] Ciepło warstwy
-    \item[$Q_u$] Ciepło upuszczające zbiornik DO POPRAWY TODO
-    \item[$Q_s$] Straty ciepła
-    \item[A] Powierzchnia wymiany ciepła DO POPRAWY TODO
-    \item[d] powierzchnia wymiany ciepła DO POPRAWY TODO
-    \item[V] Objętość
-    \item[$C_w$] Ciepło właściwe
-    \item[$\delta$] TODO
-    \item[$\lambda$] Wspołczynnik wymiany ciepła
-    \item[n] numer warstwy
-    \item[m] numer źródła ciepła
+    \item[$\delta$] Czułość
+    \item[n] Numer warstwy
+    \item[m] Numer źródła ciepła
+    \item[$y_n$] wartość przybliżona rozwiązania w chwili $t_n$
+    \item[$\Delta$ t] krok czasowy
+    \item[$f(t_n, y_n)$] funkcja określająca tempo zmiany y w punkcie $(t_n, y_n)$
     \item[$\phi_{zew}$] wilgotność zewnętrzna
     \item[$\phi_{wew}$] wilgotność wewnętrzna
     \item[$\longrightarrow$] Kierunek wiatru
@@ -1349,7 +1346,7 @@ Zastosowanie metody Holdout, w której zbiór danych jest dzielony na zbiór tre
 
 
 
-  % TODO
+  % 
   \chapter{Lista dodatkowych plików, uzupełniających tekst pracy}
 
   \begin{enumerate}
@@ -1388,7 +1385,7 @@ Zastosowanie metody Holdout, w której zbiór danych jest dzielony na zbiór tre
 %% Finis coronat opus.
 
 % \section{Model wielowarstwowy}
-% TODO ZASTANOWIĆ SIE KTÓRE RYSUNKI WRZUCIĆ I OPISYWAĆ!
+% ZASTANOWIĆ SIE KTÓRE RYSUNKI WRZUCIĆ I OPISYWAĆ!
 % \begin{figure}[!ht]
 %   \centering
 %   \resizebox{0.5\textwidth}{!}{%
@@ -1433,7 +1430,7 @@ Zastosowanie metody Holdout, w której zbiór danych jest dzielony na zbiór tre
 % \end{equation}
 
 % \begin{itemize}
-%   \item[$Q_m$] TODO
+%   \item[$Q_m$] 
 %   \item[$Q_w$] Ciepło całego zbiornika
 %   \item[$Q_{wm}$] Ciepło warstwy
 %   \item[$Q_u$] Ciepło upuszczające zbiornik DO POPRAWY
@@ -1481,6 +1478,6 @@ Zastosowanie metody Holdout, w której zbiór danych jest dzielony na zbiór tre
 %   \item[$T_{ot}$] Temperatura otoczenia
 %   \item[$T_{wo}$] Temepratura wyjściowa
 %   \item[$T_{wi}$] Temperatura wejściowa
-%   \item[$F_{w}$] TODO
-%   \item[$F_{z}$] TODO
+%   \item[$F_{w}$] 
+%   \item[$F_{z}$] 
 % \end{itemize}
