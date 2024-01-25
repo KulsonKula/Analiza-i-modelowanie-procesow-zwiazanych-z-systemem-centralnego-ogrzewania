@@ -1049,13 +1049,13 @@ Analizując średnie wartości ważności dla poszczególnych wejść i pomijaj�
 
 \chapter{Modelowanie dynamiki temperatury wody użytkowej}
 \label{ch:05}
-Do celów modeowania zdecydowano się na wykorzystanie trójwarstwowego modelu CWU. W ramach tego modelu przyjęto założenie idealnego mieszania w zakresie warstwy, co oznacza, że temperatura w całej warstwie jest jednolita. Dodatkowo, zakładano, że każda z warstw traci ciepło do otoczenia oraz wymienia je z sąsiednimi warstwami. Model trójwarstwowy wyposażono w połączenia do systemu grzewczego w drugiej i trzeciej warstwie. W celu uproszczenia modelu  pominięto wpływ objętości grzałki na proces wymiany ciepła oraz pominięto wpływ obudowy zbiornika na wymianę ciepła z otoczeniem.  Ponadto, zastosowano czujnik temperatury, który mierzy temperaturę w drugiej warstwie. Ta informacja jest przekazywana do regulatora, a sygnał z regulatora steruje systemem grzewczym.\\
+Do celów modelowania zdecydowano się na wykorzystanie trójwarstwowego modelu CWU. W ramach tego modelu przyjęto założenie idealnego mieszania w zakresie warstwy, co oznacza, że temperatura w całej warstwie jest jednolita. Dodatkowo, zakładano, że każda z warstw traci ciepło do otoczenia oraz wymienia je z sąsiednimi warstwami. Model trójwarstwowy wyposażono w połączenia do systemu grzewczego w drugiej i trzeciej warstwie. W celu uproszczenia modelu  pominięto wpływ objętości grzałki na proces wymiany ciepła oraz pominięto wpływ obudowy zbiornika na wymianę ciepła z otoczeniem.  Ponadto, zastosowano czujnik temperatury, który mierzy temperaturę w drugiej warstwie. Informacja ta jest przekazywana do regulatora, a sygnał z regulatora steruje systemem grzewczym.\\
 
 
 
-Postanowiono wykorzystać nauczony model sieci neuronowej w praktyce, używajac jego prognozy jako do modelu zasobnika. W celu uwzględnienia korelacji tygodniowej oraz sezonowej przepływu wody, zdecydowano się na wybór modelu typu C wraz z dodatkowym parametrem. Symulacje przepływu wody zostały przeprowadzone dla wtorkowego lata. W ramach udoskonalenia modelu, podjęto decyzję o modyfikacji prognoz dotyczących zużycia wody. Wszystkie wartości ujemne zostały przekształcone na zero, ze względu na ich nierealność w kontekście pomiaru zużycia wody.\\
+Postanowiono wykorzystać nauczony model sieci neuronowej w praktyce, używając jego prognozy jako do modelu zasobnika. W celu uwzględnienia korelacji tygodniowej oraz sezonowej przepływu wody, zdecydowano się na wybór modelu typu C wraz z dodatkowym parametrem. Symulacje przepływu wody zostały przeprowadzone dla letniego wtorku. W ramach udoskonalenia modelu, podjęto decyzję o modyfikacji prognoz dotyczących zużycia wody. Wszystkie wartości ujemne zostały przekształcone na zero, ze względu na ich nierealność w kontekście pomiaru zużycia wody.\\
 
-Do zasobnika został zaimplementować  sterownik propocjonalno różcznikujący. Został on zastosowany ze względu na szybkość reagowania na zmiany wejścia oraz eliminacje sie uchybu w stanie ustalonym. Regulator został nastrojony wykorzystując metode Zieglera-Nicholsa. Polega ona na doprowadzeniu układu do granicy stabilności wykorzystując tylko regulator proporcjonalny, następnie na podstawie wzmocnienia krytycznego oraz okresu oscylacji wyznacza sie wartości parametrów regulatora. Na podstawie tej metody wybrano wzmocenienie częsci proporcjonalnej równe 7.8 oraz 40.25 dla części różniczującej
+Do zasobnika został zaimplementowany sterownik propocjonalno różcznikujący. Został on zastosowany ze względu na szybkość reagowania na zmiany wejścia oraz eliminacje uchybu w stanie ustalonym. Regulator został nastrojony wykorzystując metodę Zieglera-Nicholsa. Polega ona na doprowadzeniu układu do granicy stabilności wykorzystując tylko regulator proporcjonalny, następnie na podstawie wzmocnienia krytycznego oraz okresu oscylacji wyznacza się wartości parametrów regulatora. Na podstawie tej metody wybrano wzmocenienie części proporcjonalnej równe 7.8 oraz 40.25 dla części różniczkującej
 % \section{Model wielowarstwowy}
 % TODO ZASTANOWIĆ SIE KTÓRE RYSUNKI WRZUCIĆ I OPISYWAĆ!
 % \begin{figure}[!ht]
@@ -1262,11 +1262,11 @@ W symulacji użyto poniższych parametrów:
 \newpage
 \begin{figure}[!h]
   \centering
-  \includegraphics[width=0.6\textwidth]{img/Przebiegi.png}
+  \includegraphics[width=0.7\textwidth]{img/Przebiegi.png}
   \caption{Przebiegi temperatur w warstwach oraz przepływy wody}
   \label{fig:etykieta-rysunku}
 \end{figure}
-W trakcie symulacji ustawiono temperaturę zadną na poziomie 50°C. Warstwa regulowana, czyli druga, utrzymywała się stabilnie na tym poziomie przez cały czas trwania symulacji. Jedynie na początku obserwowano pewne odchylenie, które wynikało z nieidealnego dostosowania początkowych wartości wymaganych przez metodę Eulera. Sterowanie piecem było początkowo ustawione na 50\%, co skutowakoło chwilowymi wachaniami temperatury warstwy drugiej.\\
+W trakcie symulacji ustawiono temperaturę zadaną na poziomie 50°C. Warstwa regulowana, czyli druga, utrzymywała się stabilnie na tym poziomie przez cały czas trwania symulacji. Jedynie na początku obserwowano pewne odchylenie, które wynikało z nieidealnego dostosowania początkowych wartości wymaganych przez metodę Eulera. Sterowanie piecem było początkowo ustawione na 50\%, co skutkowało chwilowymi wachaniami temperatury warstwy drugiej.\\
 
 Temperatura warstwy wejściowej utrzymywała się między 10°C a 16°C. Od godziny 0 do godziny 15, gdy przepływ był bliski zera, obserwowano nagrzewanie wody w warstwie pierwszej. W momencie gwałtownego zużycia wody około godziny 6, temperatura w warstwie pierwszej spadła, a w warstwie trzeciej osiągnęła maksymalną wartość około 58°C.\\
 
@@ -1275,15 +1275,15 @@ Gdy zużycie wody ustabilizowało się na poziomie około 0.5 l/min, temperatura
 \newpage
 \begin{figure}[!h]
   \centering
-  \includegraphics[width=0.6\textwidth]{img/Sterowanie.png}
+  \includegraphics[width=0.7\textwidth]{img/Sterowanie.png}
   \caption{Porównianie wartości sterowania oraz wartości przepływu}
   \label{fig:porównianie_ster_przep}
 \end{figure}
-Analizując wykres \ref{fig:porównianie_ster_przep}, można zauważyć początkowe duże wartości sterowania, związane z przybliżonym ustawieniem wartości początkowych sterowania. Bezpośrednio po tych początkowych fluktuacjach, sterowanie stabilizuje się na poziomie około 10\% i utrzymuje tę wartość do godziny 6. W tym czasie występuje zwiększone zużycie wody, co skutkuje dynamicznymi wahaniami wartości sterowania pieca, oscylującymi od 0\% aż do 45\%. Następnie, w miarę upływu czasu, wartość sterowania stabilizuje się w okolicach 18\%. Warto zauważyć, że nagły spadek przepływu wody w okolicach godziny 20:30 jest bezpośrednio odzwierciedlony na wykresie poprzez gwałtowny spadek wartości sterowania.
+Analizując wykres \ref{fig:porównianie_ster_przep}, można zauważyć początkowe duże wartości sterowania, związane z ich przybliżonym ustawieniem wartości początkowych sterowania. Bezpośrednio po tych początkowych fluktuacjach, sterowanie stabilizuje się na poziomie około 10\% i utrzymuje tę wartość do godziny 6. W tym czasie występuje zwiększone zużycie wody, co skutkuje dynamicznymi wahaniami wartości sterowania pieca, oscylującymi od 0\% aż do 45\%. Następnie, w miarę upływu czasu, wartość sterowania stabilizuje się w okolicach 18\%. Warto zauważyć, że nagły spadek przepływu wody w okolicach godziny 20:30 jest bezpośrednio odzwierciedlony na wykresie poprzez gwałtowny spadek wartości sterowania.
 
 \section{Optymalizacja}
 \subsection{Funkcja kosztów}
-Funckja kosztów została zdefiniowana jako ilość energii wydzielana przez piec w okresie badawczym. Wzór tej funkcji można zapisac jako:
+Funkcja kosztów została zdefiniowana jako ilość energii wydzielana przez piec w okresie badawczym. Wzór tej funkcji można zapisac jako:
 \begin{equation}
   G = \int_{0}^{T} p_1 Q_g \cdot u(t)  \, dt,
 \end{equation}
@@ -1297,7 +1297,7 @@ gdzie:
 
 \newpage
 \subsection{Funkcja komfortu}
-Funkcja komfortu w jakim stopniu temperatura rzeczywista różni się od wartości oczekiwanej, z uwzględnieniem czułości. Wzór tej funkcji można zapisac jako:
+Funkcja komfortu określa w jakim stopniu temperatura rzeczywista różni się od wartości oczekiwanej, z uwzględnieniem czułości. Wzór tej funkcji można zapisac jako:
 \begin{equation}
   J = \int_{0}^{T} \left( T_{wo}(t) - T_{wym} \right)^2 \left| \frac{\text{sign}(T_{wo}(t) - T_{wym} - \delta) + \text{sign}(T_{wo}(t) - T_{wym} + \delta)}{2} \right| \, dt,
 \end{equation}
@@ -1314,7 +1314,7 @@ Wartość funkcji komfortu jest uzależniona od dwóch kluczowych parametrów: t
 \begin{figure}[!h]
   \centering
   \includegraphics[width=0.7\textwidth]{img/J_3d.png}
-  \caption{Wartośc funkcji komfortu w zależności od temepratury zadanej oraz czułości}
+  \caption{Wartość funkcji komfortu w zależności od temperatury zadanej oraz czułości}
   \label{fig:J_T_D}
 \end{figure}
 
@@ -1326,7 +1326,7 @@ Najniższą wartość komfortu uzyskano dla czułości równej 6 i temperatury z
 
 \begin{figure}[!h]
   \centering
-  \includegraphics[width=0.6\textwidth]{img/j_g_2d.png}
+  \includegraphics[width=0.7\textwidth]{img/j_g_2d.png}
   \caption{Wartośc funkcji komfortu i kosztów w zależności od temepratury zadanej}
   \label{fig:etykieta-rysunku}
 \end{figure}
@@ -1352,16 +1352,33 @@ W celu optymalizacji zastosowano funkcję celu, która przypisuje wagi każdej z
   \end{tabular}
 \end{table}
 
-W wyniku analizy zauważono, że wraz ze zwiększaniem ważności funkcji kosztów, optymalna temperatura zadana systematycznie maleje, osiągając wartość 22 stopni Celsiusza, gdy funkcji kosztów przypisuje się wagę dziewięciokrotnie większą niż funkcji komfortu. Odpowiednio, zwiększenie ważności funkcji komfortu działa odwrotnie na optymalną temperaturę zadana – wraz z podniesieniem jej wagi, optymalna temperatura wzrasta, osiągając 36 stopni Celsiusza, gdy funkcja komfortu ma dziewięciokrotnie większą wagę niż funkcja kosztów.
+W wyniku analizy zauważono, że wraz ze zwiększaniem ważności funkcji kosztów, optymalna temperatura zadana systematycznie maleje, osiągając wartość 22 stopni Celsiusza, gdy funkcji kosztów przypisuje się wagę dziewięciokrotnie większą niż funkcji komfortu. Odpowiednio, zwiększenie ważności funkcji komfortu działa odwrotnie na optymalną temperaturę zadana – wraz z podniesieniem jej wagi, optymalna temperatura wzrasta, osiągając 36 stopni Celsiusza, gdy funkcja komfortu ma dziewięciokrotnie większą wagę niż funkcja kosztów.\\
 
 
-według\cite{bib:Dziennik_ustaw_1}
+Zgodnie z Rozporządzeniem Ministra Infrastruktury \cite{bib:Dziennik_ustaw_1, bib:Dziennik_ustaw_2},  instalacja ciepłej wody powinna uzyskiwać temperaturę w zakresie od 55 do 60. Istnieje konieczność przestrzegania tych norm, ponieważ jest to związane między innymi z ograniczeniem rozwoju bakterii Legionella. Bakterie te rozwijają się najlepiej w temperaturze pomiędzy 20 a 45 stopni Celsiusza, a giną gdy temperatura trzymuje sie na poziomie 50°C przez 2 godziny\cite{bib:CWU_TEMP}. Z uwagi na wymagania sanitarno-epidemiologiczne i konieczność optymalizacji systemu, postanowiono przeprowadzić optymalizację temperatury wyjściowej, przy jednoczesnym utrzymaniu temperatury zadanej w zakresie od 50 do 60 stopni Celsiusza. Choć ta temperatura jest niższa niż wartość ustawowo zalecana, odnosi się ona do warstwy drugiej, która charakteryzuje się niższą temperaturą niż warstwa wyjściowa w momentach zwiększonego przepływu.
+
+\newpage
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=0.6\textwidth]{img/Opty_ogra.png}
+  \caption{Wartośc funkcji komfortu i kosztów z zaznaczonymi ograniczeniami}
+  \label{fig:etykieta-rysunku}
+\end{figure}
+Po wprowadzeniu opisanych ograniczeń, zaobserwowano, że obie funkcje (kosztów i komfortu) wykazują tendencję wzrostową w całym zakresie badanych temperatur. Oznacza to, że obie funkcje przyjmują najniższe wartości na początku analizowanego przedziału temperatur. Dodatkowo, przeprowadzono badanie, w którym ustawiono czułość funkcji komfortu na 4 stopnie Celsiusza. Mimo wprowadzenia tej zmiany, funkcja komfortu nie zmieniła swojej charakterystyki. Po wprowadzeniu opisanych ograniczeń, ustalono, że optymalną temperaturą zadana jest wartość $T_{set}=50$°C.
+
+
 \chapter{Podsumowanie i wnioski}
-% \begin{itemize}
-% 	\item uzyskane wyniki w świetle postawionych celów i zdefiniowanych wyżej wymagań
-% 	\item kierunki ewentualnych danych prac (rozbudowa funkcjonalna …)
-% 	\item problemy napotkane w trakcie pracy
-% \end{itemize}
+
+W kontekście przyszłych prac nad projektem, zaleca się rozważenie nauczenia modelu, który został zaproponowany przez Bakker et al. i porównianie wyników tego modelu z rezultatami modelu opisanego w rozdziale 3. Mimo że model Bakkera nie został pierwotnie opracowany z myślą o przewidywaniu zużycia wody, to istnieje potencjał, że oba te zjawiska mogą wykazywać podobne charakterystyki. Podobieństwo to może wynikać z podobnych korelacji czasowych oraz sezonowych. Przyszłe prace badawcze mogą więc skoncentrować się na adaptacji modelu Bakkera do przewidywania zużycia wody
+
+Wartym uwagi rozwiązaniem które moze poprawić działanie modelu jest zastosowanie modelu LSTM (Long Short-Term Memory) który jest specjalnym rodzajem rekurencyjnej sieci neuronowej skupiającym sie na rozwiązaniu problemu zanikającego gradientu. LSTM jest szczególnie efektywny w zadaniach dotyczących przetwarzania szeregów czasowych, dzięki zdolności do długotrwałego przechowywania i aktulizacji informacji.\\
+
+
+W celu poprawy wyników badań nad ważnością warunków pogodowych proponowane jest zastosowanie sieci neuronowej posiadającej trzy wyjścia w celu uwzględnienia danych z różnych źródeł. Dostarczone dane zawierały dane z trzech czujnikók. Dane zebrane z czujnika zastosowana nad kuchenką gazową oraz na kominku zostały pominięte w badaniach. Użycie tych informacji mogłoby popawić wyniki dla kazdej z metod sprawdzania wazności wejść.
+
+Zastosowanie metody Holdout, w której zbiór danych jest dzielony na zbiór treningowy i testowy, mogło być mniej adekwatne w sytuacji, gdzie porównanie jakości przewidywań w warunkach nie znanych modelowi jest mniej ważne od dokładności decyzyjności w warunkach znanych. Lepszym wyborem była by metoda Resubstytacji, która zapewnia pełne wykorzystanie danych do nauki modelu jak i do jego testowania co przekłada sie na pozytywne obciążenie oraz na dokładniejszą nauke na dostępnych danych, lecz nie obrazu decyzyjności modelu w nieznanych warunkach.
+
+
 
 
 
@@ -1388,6 +1405,7 @@ według\cite{bib:Dziennik_ustaw_1}
     \item[CPU] Central processing Unit
     \item[LIME] Local Interpretable Model-agnostic Explanations
     \item[PFI] Permutation Feature Importance
+    \item[LSTM] Long Short-Term Memory
     \item[$f(\cdot)$] Funkcja aktywacji neuronu
     \item[y] sygnał wyjściowy neuronu
     \item[x] sygnał wejsciowy neuronu
