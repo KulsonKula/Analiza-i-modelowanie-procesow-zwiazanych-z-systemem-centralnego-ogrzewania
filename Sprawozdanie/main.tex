@@ -676,7 +676,7 @@ Projekt wykorzystuje dane zebrane przez M.J. Ritchie et al.\cite{bib:artykul_dan
 \begin{figure}[!h]
   \centering
   \includegraphics[width=1\textwidth]{img/Dane_nowe_disp.png}
-  \caption{Podpis rysunku zawsze pod rysunkiem.}
+  \caption{Porównanie wartości przepływów w różnych ramach czasowych.}
   \label{fig:etykieta-rysunku}
 \end{figure}\\
 Pierwszy wykres przestawia dane zebrane z domu nr. 13 zebrane w dniu 05/02/2018. Oś X oznaczająca godzinę, począwszy od północy. Oś Y reprezentuje przepływ wody w danym momencie dnia. Wykres przedstwia nieregularne piki o nierównomiernym rozkładzie. Okresami o zwiększonym przepływie są godziny 7-13 oraz 14-15. Okresy mniejszej aktywności możemy zaobserwować w godzinach późno popołudniowych oraz nocnych. Drugi i trzeci wykres przedstawiają zbliżenie na godzinę 7 oraz 15. Dzięki zwężeniu analizowanego zakresu czasu możliwe było dokładniejsze zbadanie struktury występujących pików. Ta metoda wizualizacji ujawniła, że poszczególne piki, które na ogólnym wykresie dobowym mogły sprawiać wrażenie pojedynczych punktów, w rzeczywistości są złożone z wielu pojedynczych zdarzeń. To odkrycie jest istotne, ponieważ wskazuje na bardziej złożoną dynamikę przepływu w określonych momentach doby, co na pierwszy rzut oka mogło umknąć uwadze\\
@@ -1047,14 +1047,15 @@ Analizując tabele 4.6 stwierdzono skuteczność implementacji metod dla obu mod
 Analizując średnie wartości ważności dla poszczególnych wejść i pomijając temperaturę zadną, można zauważyć, że kluczowymi czynnikami są temperatura zewnętrzna i kierunek wiatru, obie osiągające średnią ważność na poziomie 0.38. Następnie prędkość wiatru zajmuje ważne miejsce, uzyskując średnią ważność wynoszącą 0.35. Ciśnienie atmosferyczne prezentuje się również jako istotny parametr, uzyskując średnią ważność na poziomie 0.34. Na końcu, wilgotność zewnętrzna i wilgotność wewnętrzna mają średnie ważności wynoszące odpowiednio 0.25 i 0.2. Warto jednak podkreślić, że obliczenia średnich wartości ważności mogą nie dostarczyć pełnego obrazu sytuacji., ponieważ metoda PFI wykazała znacznie różniące się wartości ważności dla prędkości i kierunku wiatru, wahające się od 0.58 do 0.87, natomiast metoda LIME przypisała prędkości i kierunku wiatru wartości od 0.00 do 0.09. Różnice te sugerują istotne rozbieżności w interpretacji ważności poszczególnych parametrów między zastosowanymi metodami analizy.
 
 
-\chapter{Modelowanie temperatury wody użytkowej (?)}
+\chapter{Modelowanie dynamiki temperatury wody użytkowej}
 \label{ch:05}
 Do celów modeowania zdecydowano się na wykorzystanie trójwarstwowego modelu CWU. W ramach tego modelu przyjęto założenie idealnego mieszania w zakresie warstwy, co oznacza, że temperatura w całej warstwie jest jednolita. Dodatkowo, zakładano, że każda z warstw traci ciepło do otoczenia oraz wymienia je z sąsiednimi warstwami. Model trójwarstwowy wyposażono w połączenia do systemu grzewczego w drugiej i trzeciej warstwie. W celu uproszczenia modelu  pominięto wpływ objętości grzałki na proces wymiany ciepła oraz pominięto wpływ obudowy zbiornika na wymianę ciepła z otoczeniem.  Ponadto, zastosowano czujnik temperatury, który mierzy temperaturę w drugiej warstwie. Ta informacja jest przekazywana do regulatora, a sygnał z regulatora steruje systemem grzewczym.\\
 
 
 
-W celu uwzględnienia korelacji tygodniowej oraz sezonowej w analizie przepływu wody, zdecydowano się na wybór modelu typu C wraz z dodatkowym parametrem. Symulacje przepływu wody zostały przeprowadzone dla wtorkowego lata. W ramach udoskonalenia modelu, podjęto decyzję o modyfikacji prognoz dotyczących zużycia wody. Wszystkie wartości ujemne zostały przekształcone na zero, ze względu na ich nierealność w kontekście pomiaru zużycia wody.
+Postanowiono wykorzystać nauczony model sieci neuronowej w praktyce, używajac jego prognozy jako do modelu zasobnika. W celu uwzględnienia korelacji tygodniowej oraz sezonowej przepływu wody, zdecydowano się na wybór modelu typu C wraz z dodatkowym parametrem. Symulacje przepływu wody zostały przeprowadzone dla wtorkowego lata. W ramach udoskonalenia modelu, podjęto decyzję o modyfikacji prognoz dotyczących zużycia wody. Wszystkie wartości ujemne zostały przekształcone na zero, ze względu na ich nierealność w kontekście pomiaru zużycia wody.\\
 
+Do zasobnika został zaimplementować  sterownik propocjonalno różcznikujący. Został on zastosowany ze względu na szybkość reagowania na zmiany wejścia oraz eliminacje sie uchybu w stanie ustalonym. Regulator został nastrojony wykorzystując metode Zieglera-Nicholsa. Polega ona na doprowadzeniu układu do granicy stabilności wykorzystując tylko regulator proporcjonalny, następnie na podstawie wzmocnienia krytycznego oraz okresu oscylacji wyznacza sie wartości parametrów regulatora. Na podstawie tej metody wybrano wzmocenienie częsci proporcjonalnej równe 7.8 oraz 40.25 dla części różniczującej
 % \section{Model wielowarstwowy}
 % TODO ZASTANOWIĆ SIE KTÓRE RYSUNKI WRZUCIĆ I OPISYWAĆ!
 % \begin{figure}[!ht]
@@ -1220,22 +1221,21 @@ W celu uwzględnienia korelacji tygodniowej oraz sezonowej w analizie przepływu
   \item n - numer warstwy
 \end{itemize}
 
-Zasobnik CWU został wyposażony w regulator proporcjonalno, który został starannie dostrojony w celu osiągnięcia liniowego działania w zakresie czułości. W ramach tego zakresu regulator proporcjonalny reaguje proporcjonalnie do różnicy pomiędzy wartością zadaną a rzeczywistą wartością procesu. Poza tym określonym zakresem czułości, regulator przyjmuje stałą wartość równą 1 lub 0. Działanie tego regulatora można przedstawić wzorem:
+
+\newpage
+\section{Wyniki symulacji}
+Modelowanie zasobnika CWU w modelu trójwarstwowym zostało przeprowadzone przy użyciu metody Eulera, która jest jedną z najprostszych metod numerycznych służących do rozwiązywania układów równań różniczkowych. Metoda ta polega na iteracyjnym przybliżaniu rozwiązania, bazując na przybliżeniu wartości pochodnej funkcji w każdym kroku.
+Wzór opisujący metodę Eulera jest następujący:
+
 \begin{equation}
-  u(t) = \begin{cases}
-    1                                                  & \text{jeśli } t_{wo} \geq t_{\text{wym}} + \delta                                          \\
-    -\frac{0.5}{\delta}(t_{wo} - t_{\text{wym}}) + 0.5 & \text{jeśli } t_{wo} < t_{\text{wym}} + \delta \text{ i } t_{wo} > t_{\text{wym}} - \delta \\
-    0                                                  & \text{jeśli } t_{wo} \leq t_{\text{wym}} - \delta
-  \end{cases}
+  y_{n+1} = y_n + \Delta t \cdot f(t_n, y_n),
 \end{equation}
-
+gdzie:
 \begin{itemize}
-  \item $t_{\text{wym}}$ - Temepratura zadana
-  \item $t_{\text{wo}}$ - Temperatura wyjściowa
-  \item $\delta$ - Czułość
-
+  \item $y_n$ - wartość przybliżona rozwiązania w chwili $t_n$
+  \item $\Delta$ t - krok czasowy
+  \item $f(t_n, y_n)$ - funkcja określająca tempo zmiany y w punkcie $(t_n, y_n)$
 \end{itemize}
-
 W symulacji użyto poniższych parametrów:
 \begin{table}[!h]
   \centering
@@ -1259,44 +1259,33 @@ W symulacji użyto poniższych parametrów:
   \end{tabular}
 \end{table}
 
-\section{Wyniki symulacji}
-Modelowanie zasobnika CWU w modelu trójwarstwowym zostało przeprowadzone przy użyciu metody Eulera, która jest jedną z najprostszych metod numerycznych służących do rozwiązywania układów równań różniczkowych. Metoda ta polega na iteracyjnym przybliżaniu rozwiązania, bazując na przybliżeniu wartości pochodnej funkcji w każdym kroku.
-Wzór opisujący metodę Eulera jest następujący:
-
-\begin{equation}
-  y_{n+1} = y_n + \Delta t \cdot f(t_n, y_n)
-\end{equation}
-gdzie:
-\begin{itemize}
-  \item $y_n$ - wartość przybliżona rozwiązania w chwili $t_n$
-  \item $\Delta$ t - krok czasowy
-  \item $f(t_n, y_n)$ - funkcja określająca tempo zmiany y w punkcie $(t_n, y_n)$
-\end{itemize}
-
-
-W trakcie przeprowadzonych badań temperatura zadana była ustawiona na wartość $50^\circ C$, natomiast czułość regualtora została dostosowana do wartości 4.
+\newpage
 \begin{figure}[!h]
   \centering
   \includegraphics[width=0.6\textwidth]{img/Przebiegi.png}
   \caption{Przebiegi temperatur w warstwach oraz przepływy wody}
   \label{fig:etykieta-rysunku}
 \end{figure}
+W trakcie symulacji ustawiono temperaturę zadną na poziomie 50°C. Warstwa regulowana, czyli druga, utrzymywała się stabilnie na tym poziomie przez cały czas trwania symulacji. Jedynie na początku obserwowano pewne odchylenie, które wynikało z nieidealnego dostosowania początkowych wartości wymaganych przez metodę Eulera. Sterowanie piecem było początkowo ustawione na 50\%, co skutowakoło chwilowymi wachaniami temperatury warstwy drugiej.\\
 
+Temperatura warstwy wejściowej utrzymywała się między 10°C a 16°C. Od godziny 0 do godziny 15, gdy przepływ był bliski zera, obserwowano nagrzewanie wody w warstwie pierwszej. W momencie gwałtownego zużycia wody około godziny 6, temperatura w warstwie pierwszej spadła, a w warstwie trzeciej osiągnęła maksymalną wartość około 58°C.\\
+
+Gdy zużycie wody ustabilizowało się na poziomie około 0.5 l/min, temperatura warstwy pierwszej utrzymywała się na stałym poziomie 10°C, a temperatura warstwy trzeciej stopniowo spadała. Około godziny 19, podczas zwiększonego zużycia wody, temperatura warstwy trzeciej wzrosła w sposób zbliżony do wzrostu zużycia wody. Zmniejszenie zużycia wody użytkowej w ostatniej godzinie symulacji skutkowało wzrostem temperatury pierwszej warstwy i jednoczesnym obniżeniem temperatury ostatniej warstwy.
+
+\newpage
 \begin{figure}[!h]
   \centering
   \includegraphics[width=0.6\textwidth]{img/Sterowanie.png}
   \caption{Porównianie wartości sterowania oraz wartości przepływu}
-  \label{fig:etykieta-rysunku}
+  \label{fig:porównianie_ster_przep}
 \end{figure}
+Analizując wykres \ref{fig:porównianie_ster_przep}, można zauważyć początkowe duże wartości sterowania, związane z przybliżonym ustawieniem wartości początkowych sterowania. Bezpośrednio po tych początkowych fluktuacjach, sterowanie stabilizuje się na poziomie około 10\% i utrzymuje tę wartość do godziny 6. W tym czasie występuje zwiększone zużycie wody, co skutkuje dynamicznymi wahaniami wartości sterowania pieca, oscylującymi od 0\% aż do 45\%. Następnie, w miarę upływu czasu, wartość sterowania stabilizuje się w okolicach 18\%. Warto zauważyć, że nagły spadek przepływu wody w okolicach godziny 20:30 jest bezpośrednio odzwierciedlony na wykresie poprzez gwałtowny spadek wartości sterowania.
 
-
-
-\newpage
 \section{Optymalizacja}
 \subsection{Funkcja kosztów}
 Funckja kosztów została zdefiniowana jako ilość energii wydzielana przez piec w okresie badawczym. Wzór tej funkcji można zapisac jako:
 \begin{equation}
-  G = \int_{0}^{T} p_1 Q_g \cdot u(t)  \, dt
+  G = \int_{0}^{T} p_1 Q_g \cdot u(t)  \, dt,
 \end{equation}
 gdzie:
 \begin{itemize}
@@ -1305,40 +1294,35 @@ gdzie:
   \item T - czas trwania badanego okresu
 \end{itemize}
 
-\begin{figure}[!h]
-  \centering
-  \includegraphics[width=0.5\textwidth]{img/G_3d.png}
-  \caption{Wartośc funkcji kosztów w zależności od temepratury zadanej oraz czułości}
-  \label{fig:etykieta-rysunku}
-\end{figure}
 
 \newpage
 \subsection{Funkcja komfortu}
 Funkcja komfortu w jakim stopniu temperatura rzeczywista różni się od wartości oczekiwanej, z uwzględnieniem czułości. Wzór tej funkcji można zapisac jako:
 \begin{equation}
-  J = \int_{0}^{T} \left( T_{wo}(t) - T_{wym} \right)^2 \left| \frac{\text{sign}(T_{wo}(t) - T_{wym} - \delta) + \text{sign}(T_{wo}(t) - T_{wym} + \delta)}{2} \right| \, dt
+  J = \int_{0}^{T} \left( T_{wo}(t) - T_{wym} \right)^2 \left| \frac{\text{sign}(T_{wo}(t) - T_{wym} - \delta) + \text{sign}(T_{wo}(t) - T_{wym} + \delta)}{2} \right| \, dt,
 \end{equation}
 gdzie:
 \begin{itemize}
-  \item[$T_{wo}(t)$] Temperatura wyjściowa w chwili t
-  \item[$T_{wym}$] Temperatura zadana
-  \item[$\delta$] Czułość
-  \item[T] czas trwania badanego okresu
+  \item $T_{wo}(t)$ - Temperatura wyjściowa w chwili t
+  \item $T_{wym}$ - Temperatura zadana
+  \item $\delta$ - Czułość
+  \item T - czas trwania badanego okresu
 \end{itemize}
 
-% \begin{figure}[!h]
-%   \centering
-%   \includegraphics[width=0.8\textwidth]{img/J_wygląd.png}
-%   \caption{Wartośc funkcji komfortu w zależności od temepratury zadanej oraz czułości}
-%   \label{fig:etykieta-rysunku}
-% \end{figure}
+Wartość funkcji komfortu jest uzależniona od dwóch kluczowych parametrów: temperatury wymaganej $T_{wym}$ oraz czułości $\delta$. W związku z tym, postanowiono dokładniej zbadać, w jaki sposób zmiana tych parametrów wpływa na ostateczną wartość funkcji komfortu dla danego układu.
 
 \begin{figure}[!h]
   \centering
-  \includegraphics[width=0.6\textwidth]{img/J_3d.png}
+  \includegraphics[width=0.7\textwidth]{img/J_3d.png}
   \caption{Wartośc funkcji komfortu w zależności od temepratury zadanej oraz czułości}
-  \label{fig:etykieta-rysunku}
+  \label{fig:J_T_D}
 \end{figure}
+
+Analizując wykres \ref{fig:J_T_D}, można zauważyć, że wraz ze wzrostem wartości czułości, wartość funkcji komfortu maleje niezależnie od wybranej temperatury zadanej. Dla czułości przekraczającej 5 stopni Celsjusza, funkcja komfortu nie osiąga wartości większej niż 0.1 po znormalizowaniu.
+
+Najniższą wartość komfortu uzyskano dla czułości równej 6 i temperatury zadanej wynoszącej 29 stopni Celsjusza. Dla niewielkich wartości czułości można zauważyć szybko rosnącą wartość funkcji komfortu w miarę oddalania się temperatury zadanej od wartości około 36 stopni Celsjusza, gdzie wraz ze zwiększeniem czułości tempo narastania maleje.\\
+
+
 
 \begin{figure}[!h]
   \centering
@@ -1346,9 +1330,32 @@ gdzie:
   \caption{Wartośc funkcji komfortu i kosztów w zależności od temepratury zadanej}
   \label{fig:etykieta-rysunku}
 \end{figure}
+W kontekście procesu optymalizacji, przyjęto wartość czułości równą 2. Stwierdzono, że dla ustalonej czułości, najniższą wartość funkcji komfortu osiąga się dla temperatury zadanej równiej 21°C. W miarę zmiany tej temperatury, wartość funkcji komfortu systematycznie rośnie. Zauważono również, że funkcja kosztów jest funkcją liniową w całym badanym zakresie temperatur, gdzie jej wartość wzrasta wraz z rosnącą temperaturą zadana.\\
+
+W celu optymalizacji zastosowano funkcję celu, która przypisuje wagi każdej z funkcji, a ich suma, podzielona przez sumę wag, jest minimalizowana. Przeprowadzono także analizę wpływu zmian wag na optymalną temperaturę w ramach procesu optymalizacyjnego.
+
+\newpage
+\begin{table}[!h]
+  \centering
+  \caption{Porównanie optymalnej temperatury wyjsciowej w zależności od wag funkcji celu}
+  \renewcommand{\arraystretch}{1.5}
+  \begin{tabular}{|c|c|c|}
+    \hline
+    \begin{tabular}[c]{@{}c@{}}Waga \\ funkcji komfortu\end{tabular} & \begin{tabular}[c]{@{}c@{}}Waga\\ funkcji kosztów\end{tabular} & \begin{tabular}[c]{@{}c@{}}Optymalna\\ temperatura zadana\end{tabular} \\ \hline
+    0.5                                                              & 0.5                                                            & 29                                                                     \\ \hline
+    0.3                                                              & 0.7                                                            & 26                                                                     \\ \hline
+    0.3                                                              & 0.9                                                            & 26                                                                     \\ \hline
+    0.1                                                              & 0.9                                                            & 22                                                                     \\ \hline
+    0.7                                                              & 0.3                                                            & 31                                                                     \\ \hline
+    0.9                                                              & 0.3                                                            & 31                                                                     \\ \hline
+    0.9                                                              & 0.1                                                            & 36                                                                     \\ \hline
+  \end{tabular}
+\end{table}
+
+W wyniku analizy zauważono, że wraz ze zwiększaniem ważności funkcji kosztów, optymalna temperatura zadana systematycznie maleje, osiągając wartość 22 stopni Celsiusza, gdy funkcji kosztów przypisuje się wagę dziewięciokrotnie większą niż funkcji komfortu. Odpowiednio, zwiększenie ważności funkcji komfortu działa odwrotnie na optymalną temperaturę zadana – wraz z podniesieniem jej wagi, optymalna temperatura wzrasta, osiągając 36 stopni Celsiusza, gdy funkcja komfortu ma dziewięciokrotnie większą wagę niż funkcja kosztów.
 
 
-% TODO
+według\cite{bib:Dziennik_ustaw_1}
 \chapter{Podsumowanie i wnioski}
 % \begin{itemize}
 % 	\item uzyskane wyniki w świetle postawionych celów i zdefiniowanych wyżej wymagań
