@@ -82,7 +82,7 @@
 \newcommand{\IdCoauthor}{}  % Jeżeli praca ma tylko jednego autora, to dane drugiego autora zostają puste.
 %%%%%%%%%%
 
-\newcommand{\Supervisor}{dr inż. Szymon Ogonowski, prof. PŚ}     % dane promotora (bez $\langle$ i $\rangle$)
+\newcommand{\Supervisor}{dr hab. inż. Szymon Ogonowski, prof. PŚ}     % dane promotora (bez $\langle$ i $\rangle$)
 \newcommand{\Title}{Modelowanie i analiza procesów związanych z działaniem systemu centralnego ogrzewania oraz przygotowania wody użytkowej w budynku mieszkalnym z wykorzystaniem uczenia maszynowego}           % tytuł pracy po polsku
 \newcommand{\TitleAlt}{Modeling and analysis of the heating and hot water preparation processes in residential building using machine learning}                     % thesis title in English
 \newcommand{\Program}{Automatyka i Robotyka}            % kierunek studiów  (bez $\langle$ i $\rangle$)
@@ -160,6 +160,7 @@
 \usepackage[natbib=true,backend=bibtex,maxbibnames=99, sorting=none]{biblatex}  % kompilacja bibliografii BibTeXem
 %\usepackage[natbib=true,backend=biber,maxbibnames=99]{biblatex}  % kompilacja bibliografii Biberem
 \bibliography{biblio}
+% \bibliographystyle{unsrt}
 
 \usepackage{ifmtarg}   % empty commands  
 
@@ -478,7 +479,7 @@ escapeinside={@*}{*@},%
 (TODO)
 
 \subsubsection*{Słowa kluczowe}
-Uczenie maszynowe, ważność warunków atmosferyczych, modelowanie dynamiki temperatury
+Uczenie maszynowe, wpływ warunków atmosferyczych, modelowanie dynamiki zmian temperatury
 
 \subsubsection*{Thesis title}
 \begin{otherlanguage}{british}
@@ -491,7 +492,7 @@ Uczenie maszynowe, ważność warunków atmosferyczych, modelowanie dynamiki tem
 \end{otherlanguage}
 \subsubsection*{Key words}
 \begin{otherlanguage}{british}
-  Machine learning, importance of atmospheric conditions, temperature dynamics modeling
+  Machine learning, impact of weather conditions, modeling the dynamics of temperature changes.
 \end{otherlanguage}
 
 
@@ -521,14 +522,19 @@ TODO NAPISAĆ wprowadzenie w problem/zagadnienie
 \newpage
 \section{Aktualny stan wiedzy}
 
-\subsection{Przewidywania zużycia ciepłej wody użytkowej}
-Modele oparte na zebranych danych są szeroką kategorią modeli statystycznych i analitycznych, które wykorzystują dane zebrane z różnych źródeł do formułowania wniosków. Edwards et al.\cite{bib:data_model} stworzyli roczne profile poboru wody, na podstawie danych pomiarowych z 73 domostw w Québec (Kanada). Utworzone profile poboru ciepłej wody użytkowej mają trzy kluczowe elementy: Wysoka rozdzielczość czasowa. Cztery poziomy zużycia - odpowidały one średniej, medianie, a także procentylom. Trzy wzorce czasowe - koncentowały sie one na porannym, wieczornym lub równomiernym zużyciu wody przez cały dzień, aby uwzględnić różne style życia i zwyczaje mieszkańców.\\
+\subsection{Prognozowanie zużycia ciepłej wody użytkowej}
+Modele oparte na zebranych danych są szeroką kategorią modeli statystycznych i analitycznych, które wykorzystują dane zebrane z różnych źródeł do formułowania wniosków. Edwards et al.\cite{bib:data_model} stworzyli roczne profile poboru wody, na podstawie danych pomiarowych z 73 domostw w Québec (Kanada). Utworzone profile poboru ciepłej wody użytkowej mają trzy kluczowe elementy:
+\begin{itemize}
+  \item Wysoka rozdzielczość czasowa -
+  \item Cztery poziomy zużycia - odpowidały one średniej, medianie, a także procentylom.
+  \item Trzy wzorce czasowe - koncentowały sie one na porannym, wieczornym lub równomiernym zużyciu wody przez cały dzień, aby uwzględnić różne style życia i zwyczaje mieszkańców.
+\end{itemize}
 
-Modele szeregów czasowych są specjalną kategorią modeli statystycznych przeznaczonych do analizowania i prognozowania danych, które są zebrane lub obserwowane w regularnych odstępach czasu. Gelazanskas i Gamage\cite{bib:Time_series} zauważywszy silną dzienną i tygodniową korealcje. Zastosowali kobinacje metode dekompozycji sezonowej oraz model ARIMA. Po porównianiu zaproponowanego modelu wraz z wybranymi modelami referencyjnymi stwierdzono, że rozdzielenie szeregów czasowych na kilka składowych odgrywa znaczącą rolę w dokładności prognoz - uwzględnienie sezonowych wzorców zużycia może znacząco poprawić jakość przewidywań.\\
+Modele szeregów czasowych są specjalną kategorią modeli statystycznych przeznaczonych do analizowania i prognozowania danych, które są zebrane lub obserwowane w regularnych odstępach czasu. Gelazanskas i Gamage\cite{bib:Time_series} zauważywszy silną dzienną i tygodniową korealcje. Zastosowali kobinację metod dekompozycji sezonowej oraz model ARIMA. Po porównianiu zaproponowanego modelu wraz z wybranymi modelami referencyjnymi stwierdzono, że rozdzielenie szeregów czasowych na kilka składowych odgrywa znaczącą rolę w dokładności prognoz - uwzględnienie sezonowych wzorców zużycia może znacząco poprawić jakość przewidywań.\\
 
-Modele behawioralne, są to modele oparte na zachowaniu ludzi. Biorą one pod uwagę różne czynniki takie jak motywację, preferencje czy wpływ społeczny. Są one zazwyczaj stosowane w dziedzinach naukowych takich jak psychologia czy ekonomia, ale również w inżynierii. Model behawioralny stworzony przez  N.D. Pflugradt\cite{bib:Behavioural} symulował indywidualne zachowania w celu przewidywania zużycia energii i wody w gospodarstwie domowym. Model został stworzony w celu uniknięcia polegania na statystycznych rozkładach prawdopodobieństwa. Autor stwierdził, że przewidywania modelu są bardzo dobre dla gospodarstw zamieszkanych przez jedną osobę, gdyż największym problem modelu jest jego skalowalność, ze względu na konieczność dokonania dużej ilość założeń i trudności w gromadzeniu danych o zachowaniach wielu mieszkańców.\\
+Modele behawioralne, są to modele oparte na zachowaniu ludzi. Biorą one pod uwagę różne czynniki takie jak motywację, preferencje czy wpływ społeczny. Są one zazwyczaj stosowane w dziedzinach naukowych takich jak psychologia czy ekonomia, ale również w inżynierii. Model behawioralny stworzony przez N.D. Pflugradt\cite{bib:Behavioural} symulował indywidualne zachowania w celu przewidywania zużycia energii i wody w gospodarstwie domowym. Model został stworzony w celu uniknięcia polegania na statystycznych rozkładach prawdopodobieństwa. Autor stwierdził, że przewidywania modelu są bardzo dobre dla gospodarstw zamieszkanych przez jedną osobę, gdyż największym problemem modelu jest jego skalowalność, ze względu na konieczność dokonania dużej ilość założeń i trudności w gromadzeniu danych o zachowaniach wielu mieszkańców.\\
 
-V. Bakker et al.\cite{bib:model_przewidywania} wykorzystali sieci nueronowe do prognozowania zapotrzebowania na energię eletryczną w gospodarstwie domowym. Zaproponowany dodel był trzywarstwowy, posiadający trzy wejscia, zapotrzebowanie na ciepło z poprzedniego dnia oraz z poprzedniego tygodnia i prognozowanę średniej temperatury w ciągu dnia. Sieć posiadała 24 wyjścia, reprezentujące prognoze zapotrzebowania na ciepło przypadające na każdą godzine dnia. Autorzy sugerują że rozbudowe modelu o dodatkowe parametry takie jak prędkość wiatru lub ustawienia termostatu mogło by znacząco poprawić jakość predykcji.
+V. Bakker et al.\cite{bib:model_przewidywania} wykorzystali sieci nueronowe do prognozowania zapotrzebowania na energię eletryczną w gospodarstwie domowym. Zaproponowany model był trzywarstwowy, posiadający trzy wejscia, zapotrzebowanie na ciepło z poprzedniego dnia oraz z poprzedniego tygodnia i prognozowananą średniej temperatury w ciągu dnia. Sieć posiadała 24 wyjścia, reprezentujące prognozę zapotrzebowania na ciepło przypadającę na każdą godzine dnia. Autorzy sugerują, że rozbudowę modelu o dodatkowe parametry takie jak prędkość wiatru lub ustawienia termostatu mogłoby znacząco poprawić jakość predykcji.
 
 \subsection{Modelowanie zasobnika CWU}
 W kontekście modelowania zasobnika CWU, różne podejścia zostały przedstawione w literaturze. Jednym z efektywnych narzędzi w tym procesie jest modelowanie z linearyzacją. To podejście opiera się na przybliżeniu nieliniowego modelu do postaci liniowej, wykorzystując rozwinięcie w szereg Taylora wokół pewnego punktu pracy. Głównym celem tego procesu jest uproszczenie złożonego modelu nieliniowego do postaci bardziej przystępnej - liniowej. Przykładem zastosowania linearyzacji w kontekście modelowania zasobnika CWU można odnaleźć w pracy autorstwa S. Claquina, A. Carriere'a i F. Rocaries'a.\cite{bib:linearyzacja} W ich badaniach, skonstruowali bardzo precyzyjny model matematyczny, rozkładając go na trzy równania stanu. Te równania opisują zmienną temperatury wody w wymienniku, temperatury ramy wymiennika oraz temperatury komory spalania. Następnie, dzięki zastosowaniu linearyzacji, udało im się opracować kontroler adaptacyjny.
@@ -538,11 +544,11 @@ W literaturze można również znaleźć podejście modelowania, które polega n
 \section{Charakterystyka rozdziałów}
 
 
-W rozdziale drugim, zatytułowanym "Zastosowane Narzędzia w Pracy", zostanie szczegółowo omówione wymagania dotyczących języka programowania oraz głównej biblioteki używanej do tworzenia sieci neuronowych. Najpierw zostaną rozpatrzone dwa główne języki, które są popularne w dziedzinie uczenia maszynowego i zostanie dokonany wybór, który lepiej odpowiada wymaganiom. Następnie koncentracja zostanie położona na wybór biblioteki do tworzenia sieci neuronowe. Ponownie zostaną przedstawione dwie popularne biblioteki, które zostaną przeanalizowane pod kątem funkcjonalności, wydajności i wsparcia społeczności. Następnie zostanie wybrana jedna, która najbardziej sprzyja realizacji założeń. W dalszej części zostaną przedstawione biblioteki pomocnicze, które są niezbędne do przetwarzania i analizy danych. Zostaną opisane najważniejsze funkcje i zastosowania tych narzędzi. Zostanie także poruszony wątek kompatybilności tych bibliotek.\\
+W rozdziale drugim, zatytułowanym \nameref{ch:wymagania-i-narzedzia}, zostanie szczegółowo omówione wymagania dotyczących języka programowania oraz głównej biblioteki używanej do tworzenia sieci neuronowych. Najpierw zostaną rozpatrzone dwa główne języki, które są popularne w dziedzinie uczenia maszynowego i zostanie dokonany wybór, który lepiej odpowiada wymaganiom. Następnie koncentracja zostanie położona na wybór biblioteki do tworzenia sieci neuronowe. Ponownie zostaną przedstawione dwie popularne biblioteki, które zostaną przeanalizowane pod kątem funkcjonalności, wydajności i wsparcia społeczności. Następnie zostanie wybrana jedna, która najbardziej sprzyja realizacji założeń. W dalszej części zostaną przedstawione biblioteki pomocnicze, które są niezbędne do przetwarzania i analizy danych. Zostaną opisane najważniejsze funkcje i zastosowania tych narzędzi. Zostanie także poruszony wątek kompatybilności tych bibliotek.\\
 
 W kolejnym rozdziale pracy zostanie przedstawiona metodologia projektowania modelu sieci neuronowej. Szczegółowo omówione zostaną hiperparametry oraz zasady działania sieci neuronowych, aby zapewnić solidne podstawy teoretyczne dla dalszej części badań. Następnie zostaną omówione dane wejściowe, które są niezbędne do stworzenia modelu prognozującego dzienne zużycie wody. Szczególna uwaga zostanie poświęcona sposobom przetwarzania tych danych, aby były one adekwatne do zastosowania w sieciach neuronowych. W dalszej części rozdziału zaprezentujemy cztery różne modele sieci neuronowych, które będą się różnić ilością wejść. Dokładnie zostaną omówione wyniki generowane przez każdy z modeli dla trzech różnych zestawów danych. Na zakończenie rozdziału zostanie zaproponowany sposób ulepszenia wybranego modelu sieci neuronowej. Ulepszenie to będzie polegało na wprowadzeniu dodatkowego parametru wykorzystującego dane historyczne.\\
 
-W ramach rozdziału "Pogoda" niniejszej pracy dyplomowej dokonano prezentacji i analizy danych meteorologicznych, które posłużyły jako fundament dla procesu nauki dwóch modeli sieci neuronowych o zróżnicowanej złożoności architektonicznej. Następnie, w dalszej części rozdziału, skoncentrowano się na szczegółowym badaniu i ocenie ważności poszczególnych wejść dla obu modeli. Do tego celu wykorzystano trzy zaawansowane metody analityczne: Permutacyjną ważność cech, analizę wag wejściowych modelu oraz metodę LIME (Local Interpretable Model-agnostic Explanations). Każda z tych technik dostarcza istotnych informacji o znaczeniu poszczególnych zmiennych wejściowych w kontekście ich wpływu na wydajność i dokładność modeli. Następnie zostanie sprwadzenie poprawności implentacji metod poprzez zastosowanie dodatkowego wejścia do modelu - temperature zadaną.\\
+W ramach rozdziału \nameref{ch:pogoda} niniejszej pracy dyplomowej dokonano prezentacji i analizy danych meteorologicznych, które posłużyły jako fundament dla procesu nauki dwóch modeli sieci neuronowych o zróżnicowanej złożoności architektonicznej. Następnie, w dalszej części rozdziału, skoncentrowano się na szczegółowym badaniu i ocenie ważności poszczególnych wejść dla obu modeli. Do tego celu wykorzystano trzy zaawansowane metody analityczne: Permutacyjną ważność cech, analizę wag wejściowych modelu oraz metodę LIME (Local Interpretable Model-agnostic Explanations). Każda z tych technik dostarcza istotnych informacji o znaczeniu poszczególnych zmiennych wejściowych w kontekście ich wpływu na wydajność i dokładność modeli. Następnie zostanie sprwadzenie poprawności implentacji metod poprzez zastosowanie dodatkowego wejścia do modelu - temperature zadaną.\\
 
 Kolejnym etapem pracy będzie modelowanie zasobnika CWU. Zostranie przedstawiony wybrany model wraz z uwzględnieniem uproszczeń oraz szczegóły dotyczące sterowania piecem i modelu przewidującego zużycie wody. Następnie zostanią przedstawione dwie funckje celu - funkcja komfortu i funckja kosztów. Zostanie omówiona ich charakterystyka, oraz w jaki sposób reagują na zmiany współczyników symulacji.
 \newpage
@@ -566,7 +572,7 @@ R jest językiem skoncentrowanym na analizie danych i statystyce. Posiada on bar
 Decyzja o wyborze odpowiedniej biblioteki do tworzenia sieci neuronowych jest kluczowym elementem każdego projektu związanego z uczeniem maszynowym i głębokim uczeniem. TensorFlow, będący jedną z dwóch głównych otwartych bibliotek do uczenia maszynowego w Pythonie, wyróżnia się swoją wszechstronnością i wsparciem od Google. Jego głównym konkurentem jest PyTorch, rozwijany przez Facebook, który zyskał popularność ze względu na swoją elastyczność i przyjazność dla użytkownika.
 \begin{itemize}
   \item Rozbudowana Dokumentacja: Jest niezbędne, aby biblioteka była wyposażona we wszechstronną i precyzyjnie zorganizowaną dokumentację, która wspiera proces edukacyjny oraz efektywne rozwiązywanie problemów technicznych. W kontekście tego wymogu TensorFlow wyróżnia się, dostarczając szczegółowe instrukcje i obszerną kolekcję przykładowych zastosowań, co stanowi bezcenny zasób zarówno dla osób rozpoczynających pracę z tą technologią, jak i dla programistów o zaawansowanym poziomie doświadczenia.
-  \item Integracja z Innymi Narzędziami i Bibliotekami: Python oferuje szeroką gamę pomocniczych bibliotek, które dostarczają zróżnicowanych typów danych, co jest istotnym aspektem jego funkcjonalności, więc ważne aby biblioteka była z nimi kompatybilna. TensorFlow oferuje szerokie możliwości integracji, zwłaszcza z narzędziami Google Cloud\cite{bib:COLAB}, podczas gdy PyTorch jest bardziej ukierunkowany na modułowość i elastyczność w integracji z różnorodnymi ekosystemami.
+  \item Integracja z innymi narzędziami i bibliotekami: Python oferuje szeroką gamę pomocniczych bibliotek, które dostarczają zróżnicowanych typów danych, co jest istotnym aspektem jego funkcjonalności, więc ważne aby biblioteka była z nimi kompatybilna. TensorFlow oferuje szerokie możliwości integracji, zwłaszcza z narzędziami Google Cloud\cite{bib:COLAB}, podczas gdy PyTorch jest bardziej ukierunkowany na modułowość i elastyczność w integracji z różnorodnymi ekosystemami.
   \item Łatwość Użycia: Intuicyjność i prostota użytkowania są niezbędne dla szybkiego prototypowania i eksperymentowania. PyTorch, ze swoim dynamicznym grafem obliczeń, jest często postrzegany jako bardziej dostępny dla nowych użytkowników oraz bardziej elastyczny w badaniach.
   \item Wydajność i Optymalizacja: Optymalna wydajność i możliwości skalowania są kluczowe w aplikacjach przemysłowych. TensorFlow, z lepszym wsparciem dla TPU\cite{bib:TPU} i rozbudowanymi opcjami treningu rozproszonego, często przewyższa PyTorch w dużych projektach i zastosowaniach o dużym obciążeniu.
   \item Obsługa Wersjonowania Modeli: Zdolność do zarządzania różnymi wersjami modeli jest istotna w długoterminowej pracy nad projektem. TensorFlow i PyTorch oferują różne podejścia do zarządzania i wersjonowania modeli, które należy rozważyć w kontekście specyficznych wymagań projektu.
@@ -574,7 +580,7 @@ Decyzja o wyborze odpowiedniej biblioteki do tworzenia sieci neuronowych jest kl
 Po dokładnej analizie i uwzględnieniu wszystkich kluczowych wymagań zdecydowano, że najlepszym wyborem dla niniejszego projektu jest TensorFlow. Jest on idealnym wyborem zapewniającym wysoką wydajność, ale również elastyczność i skalowalność.
 \section{Narzędzia pomocnicze}
 Python odgrywa kluczową rolę w dziedzinie uczenia maszynowego i analizy danych, oferując zróżnicowany zestaw narzędzi, które ułatwiają i usprawniają kluczowe procesy, takie jak przetwarzanie danych, ich testowanie oraz wizualizacja. Korzystając z nich, możliwe jest znaczne przyspieszenie procesów związanych z uczeniem maszynowym, od przygotowania danych aż po analizę wyników, co podkreśla ich niezastąpioną wartość w projektach naukowych i przemysłowych.
-\subsection{Pandas i NumPy}
+\subsection{NumPy i Pandas}
 NumPy, znany również jako Numerical Python, jest fundamentalną biblioteką do obliczeń naukowych w Pythonie. Oferuje ona wsparcie dla wielowymiarowych, jednorodnych tablic, które w znaczący sposób przewyższają standardowe listy Pythona pod względem wydajności, szczególnie przy obróbce dużych zbiorów danych. NumPy znacząco upraszcza operacje na danych dzięki wektoryzacji, umożliwiając wykonanie operacji takich jak dodawanie, mnożenie czy transpozycja tablic bez konieczności stosowania pętli i iteracji.\\
 
 Biblioteka Pandas jest jedną z najbardziej popularnych i użytecznych narzędzi w języku Python przeznaczonych do analizy danych. Kluczowym elementem, który Pandas oferuje swoim użytkownikom, jest struktura danych znana jako DataFrame. Jest to dwuwymiarowa, etykietowana tablica umożliwiająca efektywną manipulację i analizę złożonych zbiorów danych. Dodatkowo biblioteka Pandas wyróżnia się również zoptymalizowaną wydajnością. Jest szczególnie skuteczna w obsłudze dużych zestawów danych, co stanowi kluczowe znaczenie w pracach wymagających szybkiego i efektywnego przetwarzania znacznych ilości informacji. Pandas wyposażona jest w bogaty zestaw narzędzi przeznaczonych do przetwarzania i analizowania danych, co znacznie ułatwia pracę z nimi. Istotną cechą tej biblioteki jest również jej zdolność do łatwego wczytywania i zapisywania danych z i do różnych formatów, takich jak CSV czy Excel.\\
@@ -587,7 +593,7 @@ Matplotlib jest obecnie uznawana za najpopularniejszą bibliotekę do tworzenia 
 
 \subsection{Sckit-learn, ELI5 i LIME}
 Scikit-learn jest biblioteka zawierająca bogaty zbiór algorytmów uczenia maszynowego, nie tylko oferuje szeroki zakres technik uczenia, ale także zapewnia dostęp do rozmaitych narzędzi przetwarzania danych. Dodatkowo scikit-learn oferuje różnorodne metryki oceny
-ELI5 i Lime udostępniają nam narzędzia umożliwiające głębsze zrozumienie mechanizów decyzyjnych modelu. Dzięki nim jesteśmy w łatwy sposób zbadać każdą predykcję modelu jak i wpływ każdej zmiennej z osobna.
+ELI5 i LIME udostępniają nam narzędzia umożliwiające głębsze zrozumienie mechanizów decyzyjnych modelu. Dzięki nim jesteśmy w łatwy sposób zbadać każdą predykcję modelu jak i wpływ każdej zmiennej z osobna.
 \subsection{CUDA i Conda}
 CUDA, będąca narzędziem opracowanym przez firmę NVIDIA, stanowi kluczową technologię umożliwiającą wykorzystanie mocy obliczeniowej procesorów graficznych do przyspieszenia działania aplikacji. CUDA umożliwia znaczne przyspieszenie obliczeń w porównaniu do tradycyjnego przetwarzania na CPU, dzięki tej technologii czas potrzebny do trenowania zaawansowanych modeli uczenia maszynowego zostanie znacznie skrócony.\\
 
@@ -715,7 +721,7 @@ Początkowo hiperparametry były testowane na najmniejszym zbiorze, co pozwalał
 \end{itemize}
 
 
-Po przeprowadzeniu serii eksperymentów, w procesie selekcji optymalnej architektury sieci neuronowej, najbardziej efektywną konfiguracją okazała się struktura składająca się z sześciu warstw, z których cztery pełniły funkcję warstw ukrytych. W procesie iteracyjnego dostosowywania i ewaluacji różnych architektur sieci, model o takiej budowie wykazał najlepsze wyniki w zakresie dokładności i generalizacji na testowanych zbiorach danych. Architektura ta charakteryzowała się kolejno malejącą liczbą neuronów w poszczególnych warstwach: pierwsza warstwa zawierała 512 neuronów, druga 256, trzecia 128, czwarta 64, piąta 32, a szósta, będąca warstwą wyjściową, miała 1 neuron. Wszystkie warstwy, z wyjątkiem ostatniej, wykorzystywały funkcję aktywacji ReLU. Natomiast ostatnia warstwa, pełniąca rolę warstwy wyjściowej, zastosowała funkcję aktywacji typu 'linear'.
+Po przeprowadzeniu serii eksperymentów, w procesie selekcji optymalnej architektury sieci neuronowej, najbardziej efektywną konfiguracją okazała się struktura składająca się z sześciu warstw, z których cztery pełniły funkcję warstw ukrytych. W procesie iteracyjnego dostosowywania i ewaluacji różnych architektur sieci, model o takiej budowie wykazał najlepsze wyniki w zakresie dokładności i generalizacji na testowanych zbiorach danych. Architektura ta charakteryzowała się kolejno malejącą liczbą neuronów w poszczególnych warstwach: pierwsza warstwa zawierała 512 neuronów, druga 256, trzecia 128, czwarta 64, piąta 32, a szósta, będąca warstwą wyjściową, miała 1 neuron. Wszystkie warstwy, z wyjątkiem ostatniej, wykorzystywały funkcję aktywacji ReLU, która jest funkcja liniowa dla liczb dodatnich, zwracająca zero dla wartości ujemnych. Natomiast w ostatniej warstwie, pełniącej rolę warstwy wyjściowej, zastosowano funkcję aktywacji typu linear, która przekształca sygnał wejściowy na wyjściowy bez żadnej modyfikacji.
 
 
 W ramach opracowanego modelu sieci neuronowej zastosowano dynamicznie zmieniający się współczynnik uczenia, oparty na metodzie wykładniczego spadku, opisanego wzorem:
@@ -743,7 +749,7 @@ Modele typu A zostały opracowane w celu badania korelacji tygodniowej, z uwzgl�
 \begin{figure}[!h]
   \centering
   \includegraphics[width=1\textwidth]{img/Model_A.png}
-  \caption{Porównanie symulacji dla modelów typu A}
+  \caption{Porównanie symulacji dla modeli typu A}
   \label{fig:etykieta-rysunku}
 \end{figure}\\
 
@@ -754,7 +760,7 @@ Modele typu B zostały zaprojektowane z zastosowaniem jednego wejścia, tj. pory
 \begin{figure}[!h]
   \centering
   \includegraphics[width=1\textwidth]{img/Model_B.png}
-  \caption{Porównanie symulacji dla modelów typu B}
+  \caption{Porównanie symulacji dla modeli typu B}
   \label{fig:etykieta-rysunku}
 \end{figure}
 
@@ -765,7 +771,7 @@ Modele typu C zostały opracowane w celu oceny skuteczności proponowanej archit
 \begin{figure}[!h]
   \centering
   \includegraphics[width=1\textwidth]{img/Model_C.png}
-  \caption{Porównanie symulacji dla modelów typu C}
+  \caption{Porównanie symulacji dla modeli typu C}
   \label{fig:etykieta-rysunku}
 \end{figure}
 
@@ -779,7 +785,7 @@ modele typu D zostały skonstruowane w celu badania korelacji sezonowej, wydziel
 \begin{figure}[!h]
   \centering
   \includegraphics[width=1\textwidth]{img/Model_D.png}
-  \caption{Porównanie symulacji dla modelów typu D}
+  \caption{Porównanie symulacji dla modeli typu D}
   \label{fig:etykieta-rysunku}
 \end{figure}
 Zaproponowany model i zestawienie hiperparametrów nie są adekwatne do dokładnej predykcji zużycia ciepłej wody użytkowej. Modele uczące się na pełnym zbiorze danych, niezależnie od pory roku, wykazywały jedynie jedno zdarzenie, symulowane w okolicach godziny 00:30, a następnie prognozowały stałą wartość w granicach 1.1 l/min. Natomiast modele uczące się na podstawie danych związanych z 12 wybranymi domostwami, bez względu na porę roku czy godzinę, prezentowały stałą wartość na poziomie 0.084 l/min. W przypadku modeli uczących się na pojedynczych przypadkach domów,wykazywały one charakterystykę intercjii pierwszego rzędu. Rozpoczynały się od zera, stopniowo wzrastając do wartości około 0.08 m/l.\\
@@ -851,7 +857,7 @@ Na przykład, dla domu nr 2, MSE zmniejszyło się z 0.0074 do 0.00053, co jest 
 
 
 \chapter{Wpływ warunków pogodowych}
-\label{ch:0X}
+\label{ch:pogoda}
 
 Według Sujith Mathew Iype\cite{bib:AI_FAST} sztuczna inteligencja potrafi uczyć się ponad 125000 razy szybciej niż człowiek oraz potrafi identyfikować subtelne i zaawansowane wzorce, które mogą pozostać niezauważone przez ludzką percepcję. Dlatego też zdecydowano sie przeprowadzić analizę decyzji podjętych przez sieć.\\
 \begin{figure}[!h]
@@ -863,8 +869,8 @@ Według Sujith Mathew Iype\cite{bib:AI_FAST} sztuczna inteligencja potrafi uczy�
 Rysunek przedstawia zestaw sześciu wykresów, które porównują warunki atmosferyczne w ciągu dnia. Każdy wykres zawiera oś X, która reprezentuje czas, oraz oś Y, która przedstawia różne zmienne meteorologiczne. Na pierwszym wykresie prezentowane są zmiany temperatury zewnętrznej na przestrzeni dnia. Temperatura oscyluje w zakresie od około -0.5°C do 2.5°C, z maksymalnymi wartościami obserwowanymi w okolicach godziny ósmej. Charakterystyka tej zmienności temperatury sugeruje, że dane mogły być zbierane w okresie zimowym. Następny wykres ilustruje zmiany wilgotności powietrza na zewnątrz budynku, wyrażone w procentach. Wysoki poziom wilgotności, utrzymujący się przez cały dzień, może wskazywać na sezon zimowy lub jesienny. Prędkość wiatru, prezentowana na kolejnym wykresie, wykazuje znaczący wzrost w ciągu dnia, osiągając maksymalne wartości przekraczające 8  $\frac{m}{s}$, co może być charakterystyczne dla warunków zimowych, kiedy wiatry są silniejsze. Wykres ciśnienia atmosferycznego pokazuje wzrost wartości w pierwszej połowie dnia, po czym następuje stopniowy spadek. Wilgotność wewnętrzna, prezentowana na piątym wykresie, wykazuje wahania z ogólnym trendem spadkowym w drugiej połowie dnia. Szósty wykres przedstawia kierunek wiatru, który jest zmienny w ciągu dnia, z wyraźnymi zmianami szczególnie w środkowej części dnia, co może świadczyć o niestabilnych warunkach atmosferycznych.\\
 
 W celu zbadania wpływu wielkości modelu na wyniki oraz sprawdzenia ważności różnych wejść, zaproponowano w badaniu dwa modele o różnej złożoności architektury. Oba modele korzystały z tej samej funkcji harmonogramowania tempa uczenia, która redukowała szybkość uczenia po czwartej epoce, oraz z tych samych parametrów kompilacji, w tym optymalizatora Adam z początkową szybkością uczenia 0.001, funkcji straty MSE.
-Pierwszy model składał się z mniejszej liczby warstw i neuronów: warstwa normalizująca, trzy warstwy gęste z odpowiednio 64, 32 i 1 neuronem, używając funkcji aktywacji 'relu' dla pierwszych dwóch warstw i 'linear' dla warstwy wyjściowej.
-Drugi model był znacznie większy, zawierając więcej warstw i neuronów: warstwa normalizująca, sześć warstw gęstych o zwiększającej się liczbie neuronów: 1024, 512, 256, 128, 64, 32, zakończonych warstwą wyjściową z 1 neuronem, używając funkcji aktywacji 'relu' dla warstw ukrytych i 'linear' dla warstwy wyjściowej.
+Pierwszy model składał się z mniejszej liczby warstw i neuronów: warstwa normalizująca, trzy warstwy gęste z odpowiednio 64, 32 i 1 neuronem, używając funkcji aktywacji ReLU dla pierwszych dwóch warstw i linear dla warstwy wyjściowej.
+Drugi model był znacznie większy, zawierając więcej warstw i neuronów: warstwa normalizująca, sześć warstw gęstych o zwiększającej się liczbie neuronów: 1024, 512, 256, 128, 64, 32, zakończonych warstwą wyjściową z 1 neuronem, używając funkcji aktywacji ReLU dla warstw ukrytych i linear dla warstwy wyjściowej.
 Oba modele były trenowane przez 50 epok z rozmiarem partii równym 32. Celem porównania tych dwóch modeli było ustalenie, czy zwiększenie liczby warstw i neuronów w modelu wpłynie na jego predykcje.
 
 W ramach procesu weryfikacji skuteczności zastosowanych modeli sieci neuronowych została zastosowana walidacja krzyżowa, metodą holdout. Dane zostały podzielone w proporcji 80\% do 20\% na zestaw treningowy i testowy. Ta strategia podziału danych miała na celu zapewnienie solidnej bazy do nauki modeli oraz efektywnej oceny ich wydajności. Model numer 1 wykazał się niższą skutecznością w porównaniu do modelu numer 2. Świadczy o tym wartość błędu średniokwadratowego, która dla modelu pierwszego wyniosła 0.0668, natomiast dla modelu drugiego jej wartość była znacząco niższa, a mianowicie 0.0237. Ta różnica w wartościach MSE wskazuje na wyższą precyzję i efektywność modelu numer 2 w procesie uczenia i oceny na podstawie dostępnych danych.
@@ -904,7 +910,7 @@ Dla analizy bardziej złożonych modeli sieci neuronowych, metoda interpretacji 
 
 \begin{figure}[!h]
   \centering
-  \includegraphics[width=0.6\textwidth]{img/heatmap2.png}
+  \includegraphics[width=0.7\textwidth]{img/heatmap2.png}
   \caption{Mapa ciepła wag pierwszej warstwy dla modelu o rozszerzonej architekturze}
   \label{fig:etykieta-rysunku}
 \end{figure}
@@ -987,7 +993,7 @@ Mimo, iż LIME jest metodą zasadniczo skoncentrowaną na dostarczaniu interpret
 
 W analizie wyników zauważono istotne odstępstwa dla uproszczonego modelu, w którym liczba próbek wynosiła 10. Wskazuje to na istotną rozbieżność w porównaniu z rezultatami uzyskanymi dla innych wielkości próbek. W związku z powyższym, dane z tego konkretnego przypadku zostały wyłączone z procesu interpretacji wyników. Takie odstępstwa mogą być rezultatem losowego pobierania próbek oraz tego, że liczba 10 jest relatywnie niewielka, co może prowadzić do niereprezentatywności danych.
 
-Zarówno w modelu uproszczonym, jak i modelu rozszerzonego, temperatura zewnętrzna jest systematycznie uznawana za cechę o największym wpływie na przewidywania modelu, co wskazuje na jej przewodnią rolę w analizowanych danych meteorologicznych. Niezmiennie wysokie wartości ważności tej zmiennej świadczą o jej dominującej pozycji w obu modelach, niezależnie od wielkości próby. Dla obu modelów, wilgotność jak i ciśnienie wykazują stabilne wartości, tylko w pojedyńczych próbach ciśnienie staja się dominującą zmienną. Kierunek jak i prędkość wiatru dla obu modeli pozostaje cechą o niskiej ważności. Wilgotność wewnętrzna konsekwentnie otrzymuje jedne z najniższych wartości ważności.
+Zarówno w modelu uproszczonym, jak i modelu rozszerzonego, temperatura zewnętrzna jest systematycznie uznawana za cechę o największym wpływie na przewidywania modelu, co wskazuje na jej kluczową rolę w analizowanych danych meteorologicznych. Niezmiennie wysokie wartości ważności tej zmiennej świadczą o jej dominującej pozycji w obu modelach, niezależnie od wielkości próby. Dla obu modeli, wilgotność jak i ciśnienie wykazują stabilne wartości, tylko w pojedyńczych próbach ciśnienie staja się dominującą zmienną. Kierunek jak i prędkość wiatru dla obu modeli pozostaje cechą o niskiej ważności. Wilgotność wewnętrzna konsekwentnie otrzymuje jedne z najniższych wartości ważności.
 
 \section{Ocena skuteczności metod}
 W celu zweryfikowania poprawności implementacji metod sprawdzania ważności wejść do sieci neuronowej, zaproponowano model, który został rozszerzony o dodatkowe wejście – temperaturę zadaną. Temperatura zadana stanowiła oczekiwaną wartość, jaką piec starał się utrzymać, co sprawia, że każda z metod powinna przypisywać jej kluczowe znaczenie. Ustawiona była na poziomie 21 stopni celsjusza w godzinach 6-23 oraz 19 stopni celsjusza w godzinach 23-6. Piec był sterowany za pomocą regulacji dwupołożeniowej, której odbiornik był umiejscowiony w pomieszczeniu, w którym brakowało jakiegokolwiek źródła ciepła, takiego jak grzejnik.\\
@@ -995,7 +1001,7 @@ W celu zweryfikowania poprawności implementacji metod sprawdzania ważności we
 \begin{table}[!h]
   \centering
   \renewcommand{\arraystretch}{1.5}
-  \caption{Wartości MSE modelów uproszczonych i rozszerzonych z uwzględnieniem dodatkowego parametru}
+  \caption{Wartości MSE modeli uproszczonych i rozszerzonych z uwzględnieniem dodatkowego parametru}
   \begin{tabular}{|c|c|c|}
     \hline
                                                                 & \begin{tabular}[c]{@{}c@{}}Bez dodatkowego\\ parametru\end{tabular} & \begin{tabular}[c]{@{}c@{}}Z dodatkowym\\ parametru\end{tabular} \\ \hline
@@ -1009,18 +1015,18 @@ Analizując tabelę \ref{porównanie_metod}  zauważono, że zarówno model upro
 
 \begin{figure}[!h]
   \centering
-  \begin{subfigure}{0.49\textwidth}
+  \begin{subfigure}{0.42\textwidth}
     \includegraphics[width=\textwidth]{img/heatmap1_zdodatkowym.png}
     \caption{Model uproszczony}
     \label{lewy-gorny}
   \end{subfigure}
   \hfill
-  \begin{subfigure}{0.49\textwidth}
+  \begin{subfigure}{0.42\textwidth}
     \includegraphics[width=\textwidth]{img/heatmap2_zdodatkowym.png}
     \caption{Model rozszerzony}
     \label{prawy-gorny}
   \end{subfigure}
-  \caption{Mapy cieplne modelów z dodatkowym wejściem}
+  \caption{Mapy cieplne modeli z dodatkowym wejściem}
   \label{fig:wiele-rysunkow}
 \end{figure}
 
@@ -1288,11 +1294,37 @@ Zastosowanie metody Holdout, w której zbiór danych jest dzielony na zbiór tre
 \newpage
 Jednym z istotnych aspektów, który wymaga uwagi w przyszłych badaniach nad sterowaniem temperaturą wody użytkowej jest wprowdzenie kontroli częstotliwości zmian warotści sterowanie piecem, gdyż zmiana wartości sterowania co sekunde prowadzi do bardzo szybkiego zużycia elementów fizycznych nastawnika. Jedną z możliwości jest zwiększenie czasu próbkowania. Spowoduje to ze regulator będzie wolniej reagował na zmiany temperatury w warstwie drugiej. Kolejną możliwością jest dodanie strefy nieczułości do regulatora, co pozwoli na filtrowanie małych zmian wartości sterowania.
 
-Warto również rozważyć zastosowanie rozszerzonego modelu CWU, posiadającego dodatkowe warstwy, a także zbadanie wpływu umieszczenia czujnika temperatury na efektywność pracy pieca. Istnienie większej liczby warstw w modelu CWU może mieć istotny wpływ na jego funkcjonowanie i wydajności.
+Warto również rozważyć zastosowanie rozszerzonego modelu CWU, posiadającego dodatkowe warstwy, a także zbadanie wpływu umieszczenia czujnika temperatury na efektywność pracy pieca. Istnienie większej liczby warstw w modelu CWU może mieć istotny wpływ na jego funkcjonowanie i wydajności.\\
 
+Istotnym czynnikiem przyspieszającym przyszłe procesy uczenia modeli sztucznej inteligencji może stać się Unia Europejska, szczególnie poprzez swoją inicjatywę o nazwie GenAI4EU\cite{bib:Unia_Ai}. Celem tej inicjatywy jest wsparcie rozwoju nowych zastosowań sztucznej inteligencji w ekosystemach przemysłowych i publicznych. Ruch ten został zainaugurowany przez Unię Europejską poprzez wprowadzenie inicjatywy w dniu 24 stycznia 2024, której skutkiem jest udostępnienie superkomputerów dla startupów AI (Artificial intelligence) oraz szerszej społczeności naukowej.
+
+% \chapter*{Podziękowania}
+% \addcontentsline{toc}{chapter}{Podziękowania}
+% % TODO NAPISAC PODZIĘKOWANIA
+% I would like to express my deepest gratitude...
+
+% Zadedykuj czas na podziękowania:
+% Zadedykuj odpowiednią przestrzeń w swoim dokumencie na sekcję podziękowań. W większości prac naukowych jest to sekcja poświęcona podsumowaniu lub przed dodaniem spisu treści.
+
+% Wymień konkretnych ludzi i instytucje:
+% Wspomnij konkretne osoby, które miały istotny wkład w twoją pracę. Może to być twój promotor, współpracownicy, rodzina, przyjaciele, a także instytucje finansujące. Staraj się wymienić ich imiona i nazwiska.
+
+% Bądź szczery i serdeczny:
+% Wyraź swoją wdzięczność w sposób szczery i serdeczny. Unikaj ogólników i streszczeń. Opowiedz krótko, ale z serca, jakie konkretne działania czy wsparcie było dla ciebie istotne.
+
+% Podkreśl konkretny wkład:
+% Jeśli to możliwe, wskazuj konkretne aspekty, w których dana osoba lub instytucja miały wpływ na twoją pracę. Możesz wymienić doradztwo, pomoc w analizie danych, finansowe wsparcie czy też moralne wsparcie.
+
+% za udzielone wsparcie finansowe (granty, stypendia);
+% za udzielone wsparcie techniczne (dostarczenie narzędzi, technologii, analiz statystycznych);
+% za udzielone wsparcie merytoryczne (osobom, które były dla nas źródłem inspiracji, wskazały drogę, dały krytyczne uwagi);
+% za udzielone wsparcie edytorskie (pierwszym czytelnikom, którzy wyłapali niezgodności, pomogli przygotować manuskrypt, poprawili bibliografię);
+% podziękowania wynikające z pobudek moralnych (rodzinie, przyjaciołom za wsparcie i wyrozumiałość).
 
 
 \backmatter
+
+
 
 %\bibliographystyle{plplain}  % bibtex
 %\bibliography{biblio} % bibtex
@@ -1316,6 +1348,7 @@ Warto również rozważyć zastosowanie rozszerzonego modelu CWU, posiadającego
     \item[LIME] Local Interpretable Model-agnostic Explanations
     \item[PFI] Permutation Feature Importance
     \item[LSTM] Long Short-Term Memory
+    \item[AI] Artificial intelligence
     \item[$f(\cdot)$] Funkcja aktywacji neuronu
     \item[y] sygnał wyjściowy neuronu
     \item[x] sygnał wejsciowy neuronu
