@@ -724,6 +724,7 @@ Początkowo hiperparametry były testowane na najmniejszym zbiorze, co pozwalał
   \item Początkowy współczynnik uczenia: 0.0001
 \end{itemize}
 
+Optymalizator Adam jest jednym z najpopularniejszych algorytmów stosowanych do aktualizacji wag w procesie uczenia sieci. Wyróżnia się popularnością dzięki wykorzystaniu nie tylko bieżących gradientów, lecz również informacji z wcześniejszych kroków.
 
 Po przeprowadzeniu serii eksperymentów, w procesie selekcji optymalnej architektury sieci neuronowej, najbardziej efektywną konfiguracją okazała się struktura składająca się z sześciu warstw, z których cztery pełniły funkcję warstw ukrytych. W procesie iteracyjnego dostosowywania i ewaluacji różnych architektur sieci, model o takiej budowie wykazał najlepsze wyniki w zakresie dokładności i generalizacji na testowanych zbiorach danych. Architektura ta charakteryzowała się kolejno malejącą liczbą neuronów w poszczególnych warstwach: pierwsza warstwa zawierała 512 neuronów, druga 256, trzecia 128, czwarta 64, piąta 32, a szósta, będąca warstwą wyjściową, miała 1 neuron. Wszystkie warstwy, z wyjątkiem ostatniej, wykorzystywały funkcję aktywacji ReLU, która jest funkcja liniowa dla liczb dodatnich, zwracająca zero dla wartości ujemnych. Natomiast w ostatniej warstwie, pełniącej rolę warstwy wyjściowej, zastosowano funkcję aktywacji typu linear, która przekształca sygnał wejściowy na wyjściowy bez żadnej modyfikacji.
 
@@ -740,7 +741,6 @@ Użycie tej metody pozwoliło na zmniejszanie wartości współczynnika uczenia 
 
 W ramach procesu testowania różnych konfiguracji sieci neuronowej zaproponowano eksplorację wydajności modeli przy różnorodnych kombinacjach wejść. Wszystkie zaproponowane modele miały jedno wyjście - temperaturę w mieszkaniu. Celem tego podejścia było zbadanie, jak zmiana danych wejściowych wpłynie na zdolność modelu do nauki i generalizacji przewidywania przepływu. Poniżej przedstawiono zestawienie wejść modeli, które zostały uwzględnione w analizie:
 
-\newpage
 \begin{enumerate}
   \item Wejścia modelu A - dzień tygodnia, pora dnia
   \item Wejścia modelu B - pora dnia
@@ -792,6 +792,7 @@ Modele typu D zostały skonstruowane w celu badania korelacji sezonowej, wydziel
   \caption{Porównanie symulacji dla modeli typu D}
   \label{fig:etykieta-rysunku}
 \end{figure}
+
 Zaproponowany model i zestawienie hiperparametrów nie są adekwatne do dokładnej predykcji zużycia ciepłej wody użytkowej. Modele uczące się na pełnym zbiorze danych, niezależnie od pory roku, wykazywały jedynie jedno zdarzenie, symulowane w okolicach godziny 00:30, a następnie prognozowały stałą wartość w granicach 1.1 l/min. Natomiast modele uczące się na podstawie danych związanych z 12 wybranymi domostwami, bez względu na porę roku czy godzinę, prezentowały stałą wartość na poziomie 0.084 l/min. W przypadku modeli uczących się na pojedynczych przypadkach domów, wykazywały one charakterystykę inercji pierwszego rzędu. Rozpoczynały się od zera, stopniowo wzrastając do wartości około 0.08 m/l.\\
 
 W celu oceny skuteczności zaproponowanych modeli przeprowadzono proces walidacji krzyżowej, z wykorzystaniem metody holdout. Dane zostały podzielone na dwa podzbiory: zbiór uczący i zbiór testowy, stosując proporcję 80-20. Oznacza to, że 80\% dostępnych danych zostało przeznaczone do trenowania modelu, podczas gdy pozostałe 20\% stanowiło niezależny zbiór testowy, służący do oceny skuteczności modeli w warunkach nieznanych.
@@ -930,7 +931,7 @@ W celu dokładnej analizy ważności poszczególnych wag wejściowych sieci neur
 \begin{table}[!h]
   \centering
   \renewcommand{\arraystretch}{1.5}
-  \caption{Porównanie  ważności wejść dla metody PFI}
+  \caption{Porównanie znormalizowanych wartości wag warstwy wejść}
   \resizebox{\textwidth}{!}{
     \begin{tabular}{|c|c|c|c|c|c|c|}
       \hline
@@ -1277,7 +1278,7 @@ Zgodnie z Rozporządzeniem Ministra Infrastruktury\cite{bib:Dziennik_ustaw_1, bi
 \newpage
 \begin{figure}[!h]
   \centering
-  \includegraphics[width=0.6\textwidth]{img/Opty_ogra.png}
+  \includegraphics[width=0.7\textwidth]{img/Opty_ogra.png}
   \caption{Wartośc funkcji komfortu i kosztów z zaznaczonymi ograniczeniami}
   \label{fig:etykieta-rysunku}
 \end{figure}
@@ -1286,21 +1287,19 @@ Po wprowadzeniu opisanych ograniczeń zaobserwowano, że obie funkcje (kosztów 
 
 \chapter{Podsumowanie i wnioski}
 
-W kontekście przyszłych prac nad projektem zaleca się rozważenie nauczenia modelu, który został zaproponowany przez Bakker et al. i porównanie wyników tego modelu z rezultatami modelu opisanego w rozdziale 3. Mimo że model Bakkera nie został pierwotnie opracowany z myślą o przewidywaniu zużycia wody, to istnieje potencjał, że oba te zjawiska mogą wykazywać podobne charakterystyki. Podobieństwo to może wynikać z podobnych korelacji czasowych oraz sezonowych. Przyszłe prace badawcze mogą więc skoncentrować się na adaptacji modelu Bakkera do przewidywania zużycia wody
-
+W trakcie przeprowadzonych badań nad wpływem zastosowania korelacji tygodniowej oraz sezonowej na jakość modeli, zauważono istotne różnice pomiędzy tymi, które uwzględniały korelację tygodniową a tymi, które tego nie robiły. Modele uwzględniające korelację tygodniową wykazywały znacznie lepszą skuteczność w porównaniu do tych, które jej nie uwzględniały. Dodanie dodatkowej korelacji sezonowej wprowadziło istotne zmiany w dynamice, jednakże rezultaty testów wykazały prawie niezauważalne pogorszenie wskaźnika średniego błędu kwadratowego. Warto zaznaczyć, że zastosowanie jedynie korelacji sezonowej bez uwzględnienia korelacji tygodniowej skutkowało praktycznie brakiem dynamiki w predykcjach modelu.\\
+W kontekście przyszłych prac nad projektem zaleca się rozważenie przystosowanie danych i nauczenia modelu, który został zaproponowany przez Bakker et al.\cite{bib:model_przewidywania} i porównanie wyników tego modelu z rezultatami modelu opisanego w rozdziale 3. Mimo że model Bakkera nie został pierwotnie opracowany z myślą o przewidywaniu zużycia wody, to istnieje potencjał, że oba te zjawiska mogą wykazywać podobne charakterystyki. Podobieństwo to może wynikać z podobnych korelacji czasowych oraz sezonowych. Przyszłe prace badawcze mogą więc skoncentrować się na adaptacji modelu Bakkera do przewidywania zużycia wody\\
 Wartym uwagi rozwiązaniem, które może poprawić działanie modelu jest zastosowanie modelu LSTM (Long Short-Term Memory), który jest specjalnym rodzajem rekurencyjnej sieci neuronowej skupiającym się na rozwiązaniu problemu zanikającego gradientu. LSTM jest szczególnie efektywny w zadaniach dotyczących przetwarzania szeregów czasowych, dzięki zdolności do długotrwałego przechowywania i aktualizacji informacji.\\
 
+Podsumowując badania dotyczące wpływu warunków pogodowych, wyłania się istotny wniosek, że temperatura zewnętrzna stanowi kluczowy czynnik wpływający na analizowane zjawiska. Nawet pomimo czasami nieotrzymywania najwyższej wagi, temperatura zewnętrzna konsekwentnie uzyskiwała wysokie oceny, niezależnie od zastosowanej metody. Z kolei ciśnienie atmosferyczne odgrywało istotną rolę, uzyskując najwyższe wagi w dwóch spośród trzech analizowanych metod, jednakże w trzeciej metodzie straciło znaczenie, utrzymując się na stałym poziomie w okolicach 0.5. Prędkość i kierunek wiatru, natomiast, zostały ocenione jako najmniej istotne, otrzymując najniższe wartości we wszystkich metodach. Wilgotność wewnętrzna również została uznana za mniej znaczący czynnik, choć nieco bardziej istotny niż aspekty związane z wiatrem.\\
+W celu poprawy wyników badań nad ważnością warunków pogodowych proponowane jest zastosowanie sieci neuronowej posiadającej trzy wyjścia w celu uwzględnienia danych z różnych źródeł. Dostarczone dane zawierały dane z trzech czujników. Dane zebrane z czujnika zastosowanego nad kuchenką gazową oraz na kominku zostały pominięte w badaniach. Użycie tych informacji mogłoby poprawić wyniki dla każdej z metod sprawdzania ważności wejść.\\
+Zastosowanie metody Holdout, w której zbiór danych jest dzielony na zbiór treningowy i testowy, mogło być mniej adekwatne w sytuacji, gdzie porównanie jakości przewidywań w warunkach nieznanych modelowi jest mniej ważne od dokładności decyzyjności w warunkach znanych. Lepszym wyborem byłaby metoda Resubstytacji, która zapewnia pełne wykorzystanie danych do nauki modelu jak i do jego testowania co przekłada się na pozytywne obciążenie oraz na dokładniejszą naukę na dostępnych danych, lecz nie obrazu decyzyjności modelu w nieznanych warunkach.\\
 
-W celu poprawy wyników badań nad ważnością warunków pogodowych proponowane jest zastosowanie sieci neuronowej posiadającej trzy wyjścia w celu uwzględnienia danych z różnych źródeł. Dostarczone dane zawierały dane z trzech czujników. Dane zebrane z czujnika zastosowanego nad kuchenką gazową oraz na kominku zostały pominięte w badaniach. Użycie tych informacji mogłoby poprawić wyniki dla każdej z metod sprawdzania ważności wejść.
-
-Zastosowanie metody Holdout, w której zbiór danych jest dzielony na zbiór treningowy i testowy, mogło być mniej adekwatne w sytuacji, gdzie porównanie jakości przewidywań w warunkach nieznanych modelowi jest mniej ważne od dokładności decyzyjności w warunkach znanych. Lepszym wyborem byłaby metoda Resubstytacji, która zapewnia pełne wykorzystanie danych do nauki modelu jak i do jego testowania co przekłada się na pozytywne obciążenie oraz na dokładniejszą naukę na dostępnych danych, lecz nie obrazu decyzyjności modelu w nieznanych warunkach.
-
-\newpage
 Jednym z istotnych aspektów, który wymaga uwagi w przyszłych badaniach nad sterowaniem temperaturą wody użytkowej jest wprowadzenie kontroli częstotliwości zmian wartości sterowanie piecem, gdyż zmiana wartości sterowania co sekundę prowadzi do bardzo szybkiego zużycia elementów fizycznych nastawnika. Jedną z możliwości jest zwiększenie czasu próbkowania. Spowoduje to ze regulator będzie wolniej reagował na zmiany temperatury w warstwie drugiej. Kolejną możliwością jest dodanie strefy nieczułości do regulatora, co pozwoli na filtrowanie małych zmian wartości sterowania.
 
 Warto również rozważyć zastosowanie rozszerzonego modelu CWU, posiadającego dodatkowe warstwy, a także zbadanie wpływu umieszczenia czujnika temperatury na efektywność pracy pieca. Istnienie większej liczby warstw w modelu CWU może mieć istotny wpływ na jego funkcjonowanie i wydajności.\\
 
-Istotnym czynnikiem przyspieszającym przyszłe procesy uczenia modeli sztucznej inteligencji może stać się Unia Europejska, szczególnie poprzez swoją inicjatywę o nazwie GenAI4EU\cite{bib:Unia_Ai}. Celem tej inicjatywy jest wsparcie rozwoju nowych zastosowań sztucznej inteligencji w ekosystemach przemysłowych i publicznych. Ruch ten został zainaugurowany przez Unię Europejską poprzez wprowadzenie inicjatywy w dniu 24 stycznia 2024, której skutkiem jest udostępnienie superkomputerów dla startupów AI (Artificial intelligence) oraz szerszej społeczności naukowej.
+Istotnym czynnikiem przyspieszającym przyszłe procesy uczenia modeli sztucznej inteligencji może stać się Unia Europejska, szczególnie poprzez swoją inicjatywę o nazwie GenAI4EU\cite{bib:Unia_Ai}. Celem tej inicjatywy jest wsparcie rozwoju nowych zastosowań sztucznej inteligencji w ekosystemach przemysłowych i publicznych. Za początek tej inicjatywy uznaje się dzień 24 stycznia 2024 w którym to Unię Europejską wprowadziła możliwość udostępnienie superkomputerów dla startupów AI (Artificial intelligence) oraz szerszej społeczności naukowej.
 
 % \chapter*{Podziękowania}
 % \addcontentsline{toc}{chapter}{Podziękowania}
