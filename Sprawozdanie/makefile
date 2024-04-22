@@ -13,7 +13,7 @@ xelatex : $(f).tex
 	bibtex $(f)
 	xelatex $(minted) -synctex=1 $(f)
 	xelatex $(minted) -synctex=1 $(f)
-
+ 
 pdflatex : $(f).tex
 	pdflatex $(minted) -synctex=1 $(f)
 	bibtex $(f)
