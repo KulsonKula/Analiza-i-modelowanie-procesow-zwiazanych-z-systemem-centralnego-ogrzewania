@@ -1,4 +1,4 @@
-# Speech emotion recognition
+# Engineering thesis
 
 <!-- TABLE OF CONTENTS -->
 <details>
