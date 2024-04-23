@@ -47,7 +47,7 @@ an objective function based on cost and comfort functions.
 
 ## Acknowledgments
 
-- [Tensprflow documentation](https://www.tensorflow.org/?hl=pl)
+- [Tensorflow documentation](https://www.tensorflow.org/?hl=pl)
 - [Sci-hub](https://www.sci-hub.se/)
 
 <p align="right">(<a href="#Speech emotion recognition">back to top</a>)</p>
